@@ -3,7 +3,7 @@ on:
   push:
     paths:
       - '**.yaml'
-  pull-request:
+  pull_request:
     paths:
       - '**.yaml'
 
