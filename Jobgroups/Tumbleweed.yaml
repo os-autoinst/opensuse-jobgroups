@@ -869,7 +869,6 @@ scenarios:
           KEEP_GRUB_TIMEOUT: '1'
           BOOT_HDD_IMAGE: '1'
           HDD_1: 'centOS-8.2.2004-x86_64-minimal.qcow2'
-          YAML_SCHEDULE: 'schedule/containers/sle_image_on_centos.yaml'
           CONTAINERS_UNTESTED_IMAGES: '1'
           REGISTRY: '18.156.2.117:5000'
     - containers_tw_image_on_ubuntu_host:
@@ -882,7 +881,6 @@ scenarios:
           KEEP_GRUB_TIMEOUT: '1'
           BOOT_HDD_IMAGE: '1'
           HDD_1: 'ubuntu-20.04.1_1.qcow2'
-          YAML_SCHEDULE: 'schedule/containers/sle_image_on_ubuntu.yaml'
           CONTAINERS_UNTESTED_IMAGES: '1'
           REGISTRY: '18.156.2.117:5000'
     - cryptlvm:
