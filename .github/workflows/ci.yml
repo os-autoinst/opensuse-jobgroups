@@ -1,34 +1,60 @@
 name: CI
-
-# Controls when the workflow will run
-on:
-  # Triggers the workflow on push or pull request events but only for the main branch
+on: 
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    paths:
+      - '**.yaml'
+  pull-request:
+    paths:
+      - '**.yaml'
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+variables:
+   OPENQA_CLIENT_PARAMS: "--host http://openqa.opensuse.org --apikey $APIKEY --apisecret $APISECRET "
+   URL_TEST_REPO: https://github.com/os-autoinst/os-autoinst-distri-opensuse.git
+   TEST_REPO: os-autoinst-distri-opensuse
+   GROUPID_TUMBLEWEED: 1
+   YAML_FILE_TUMBLEWEED: Jobgroups/Tumbleweed.yaml
+   GROUPID_LEAP: 50
+   YAML_FILE_LEAP: Jobgroups/Leap_15.yaml
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  static:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Git Checkout
+        uses: actions/checkout@v2
+      - name: Checking APIKEY and APISECRET
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          [[ -z "$APIKEY" ]] && echo "::warning No APIKEY set" || true
+          [[ -z "$APISECRET" ]] && echo "::warning No APISECRET set" || true
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v1.1.3
+      - name: Clone os-autoinst-distri-opensuse repo
+        run: git clone --depth 1 $URL_TEST_REPO
+      - name: Install dependencies
+        run: |
+          apt-get -y update
+          apt-get -y install yamllint
+      - name: Start
+        run: echo "Job started by $RUNNER_NAME for branch $GITHUB_REF"
+      - name: Run yamllint for modified yaml files 
+        run: |
+          for file in "${{ steps.changed-files.outputs.all_modified_files }}"; do
+            yamllint $file 
+          done
+      - name: Checking if schedules and test data in yaml file exist
+        run: |
+          for file in "${{ steps.changed-files.outputs.all_modified_files }}"; do
+            scripts/verify_file_existence $(grep -oP '(YAML_SCHEDULE|YAML_TEST_DATA):\s\K.*' $file | sort -u | awk "{print \"$TEST_REPO/\" \$0}") 
+          done
+      - name: Upload changed files to openQA
+        run: |
+          for file in "${{ steps.changed-files.outputs.all_modified_files }}"; do
+            echo "Post $file to OpenQA job group"
+            if [[ $file=$YAML_FILE_TUMBLEWEED ]]; then
+              $GROUPID=$GROUPID_TUMBLEWEED
+            else [[ $file=$YAML_FILE_LEAP ]]
+              $GROUPID=$GROUPID_LEAP
+            fi
+            openqa-client $OPENQA_CLIENT_PARAMS job_templates_scheduling/$GROUPID post --form schema=JobTemplates-01.yaml preview=1 template="$(cat $file)"
+          done
