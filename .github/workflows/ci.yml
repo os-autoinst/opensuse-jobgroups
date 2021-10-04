@@ -29,11 +29,11 @@ jobs:
           sudo apt-get -y install yamllint
       - name: Start
         run: echo "Job started by $RUNNER_NAME for branch $GITHUB_REF"
-      - name: Run yamllint for modified yaml files 
-        run: |
-          for file in "${{ steps.changed-files.outputs.all_modified_files }}"; do
-            yamllint $file 
-          done
+#      - name: Run yamllint for modified yaml files 
+#        run: |
+#          for file in "${{ steps.changed-files.outputs.all_modified_files }}"; do
+#            yamllint $file 
+#          done
       - name: Checking if schedules and test data in yaml file exist
         run: |
           for file in "${{ steps.changed-files.outputs.all_modified_files }}"; do
