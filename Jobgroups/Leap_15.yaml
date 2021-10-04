@@ -73,7 +73,7 @@ scenarios:
     - RAID5_gpt:
         machine: 64bit
         settings:
-          YAML_SCHEDULE: schedule/yast/opensuse/raid/raid45_gpt.yaml
+          YAML_SCHEDULE: schedule/yast/opensuse/raid/raid5_gpt.yaml
         testsuite: null
     - RAID10_gpt:
         machine: 64bit
@@ -412,9 +412,6 @@ scenarios:
     - extra_tests_on_xfce
     - gnome-ext4
     - extra_tests_in_textmode
-    - extra_tests_textmode_containers:
-        settings:
-            YAML_SCHEDULE: schedule/containers/extra_tests_textmode_containers.yaml
     - extra_tests_ai_ml
     - autoyast_minimal:
         settings:
