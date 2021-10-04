@@ -25,8 +25,8 @@ jobs:
         run: git clone --depth 1 https://github.com/os-autoinst/os-autoinst-distri-opensuse.git 
       - name: Install dependencies
         run: |
-          apt-get -y update
-          apt-get -y install yamllint
+          sudo apt-get -y update
+          sudo apt-get -y install yamllint
       - name: Start
         run: echo "Job started by $RUNNER_NAME for branch $GITHUB_REF"
       - name: Run yamllint for modified yaml files 
