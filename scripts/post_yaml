@@ -1,14 +1,10 @@
 #!/bin/sh -e
 file="${@}"
-OPENQA_CLIENT_PARAMS="--host http://openqa.opensuse.org --apikey $APIKEY --apisecret $APISECRET "
-GROUPID_TUMBLEWEED=1
-YAML_FILE_TUMBLEWEED="Jobgroups/Tumbleweed.yaml"
-GROUPID_LEAP=50
-YAML_FILE_LEAP="Jobgroups/Leap_15.yaml"
 
-if [[ $file=$YAML_FILE_TUMBLEWEED ]]; then
-  $GROUPID=$GROUPID_TUMBLEWEED
-else [[ $file=$YAML_FILE_LEAP ]]
-  $GROUPID=$GROUPID_LEAP
+if [[ $file=="Jobgroups/Tumbleweed.yaml" ]]; then
+  $GROUPID=1
+else [[ $file="Jobgroups/Leap_15.yaml" ]]
+  $GROUPID=50
 fi
-openqa-client $OPENQA_CLIENT_PARAMS job_templates_scheduling/$GROUPID post --form schema=Jobemplates-01.yaml preview=1 template="$(cat $file)"
+
+openqa-client --host http://openqa.opensuse.org --apikey $APIKEY --apisecret $APISECRET job_templates_scheduling/$GROUPID post --form schema=Jobtemplates-01.yaml preview=1 template="$(cat $file)"
