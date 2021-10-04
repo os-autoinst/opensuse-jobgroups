@@ -677,7 +677,7 @@ scenarios:
           DESKTOP: kde
           START_AFTER_TEST: RAID0_gpt
           WORKER_CLASS: heavyload
-          YAML_SCHEDULE: schedule/yast/opensuse/raid/raid155_gpt.yaml
+          YAML_SCHEDULE: schedule/yast/opensuse/raid/raid4155_gpt.yaml
         testsuite: null
     - RAID10_gpt:
         description: ''
