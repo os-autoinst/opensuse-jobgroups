@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Git Checkout
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Checking APIKEY and APISECRET
         run: |
           [[ -z "$APIKEY" ]] && echo "::warning No APIKEY set" || true
