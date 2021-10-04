@@ -677,7 +677,11 @@ scenarios:
           DESKTOP: kde
           START_AFTER_TEST: RAID0_gpt
           WORKER_CLASS: heavyload
+<<<<<<< HEAD
           YAML_SCHEDULE: schedule/yast/opensuse/raid/raid35_gpt.yaml
+=======
+          YAML_SCHEDULE: schedule/yast/opensuse/raid/raid4155_gpt.yaml
+>>>>>>> 58172f28d4a6c3209dd78d2a38b482e60f193847
         testsuite: null
     - RAID10_gpt:
         description: ''
@@ -685,7 +689,7 @@ scenarios:
           DESKTOP: kde
           START_AFTER_TEST: RAID1_gpt
           WORKER_CLASS: heavyload
-          YAML_SCHEDULE: schedule/yast/opensuse/raid/raid10_gpt.yaml
+          YAML_SCHEDULE: schedule/yast/opensuse/raid/raid9101_gpt.yaml
         testsuite: null
     - modify_existing_partition:
         description: Suite that modifies/resizes a partition on a previsously formatted disk. Depends on create_hdd_gnome.
