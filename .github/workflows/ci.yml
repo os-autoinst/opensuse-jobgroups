@@ -9,10 +9,10 @@ jobs:
     container:
       image: registry.opensuse.org/home/riafarov/containers/containers/tumbleweed:qsf-y-ci
     steps:
-            #      - name: Git Checkout
-            #        uses: actions/checkout@v2
-            #        with:
-            #          fetch-depth: 0
+     - name: Git Checkout
+        uses: actions/checkout@master
+        with:
+          fetch-depth: 0
       - name: Checking APIKEY and APISECRET
         run: |
           [[ -z "${{ secrets.APIKEY }}" ]] && echo "::warning No APIKEY set" || true
