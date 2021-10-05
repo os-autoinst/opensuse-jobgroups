@@ -1,10 +1,10 @@
 #!/bin/sh -e
 file="${@}"
 
-if [[ "$file" == "Jobgroups/Tumbleweed.yaml" ]]
+if [ "$file" == "Jobgroups/Tumbleweed.yaml" ]
 then
   $GROUPID=2
-elif [[ "$file" = "Jobgroups/Leap_15.yaml" ]]
+elif [ "$file" = "Jobgroups/Leap_15.yaml" ]
 then
   $GROUPID=50
 else
