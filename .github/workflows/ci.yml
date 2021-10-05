@@ -6,11 +6,9 @@ on:
 jobs:
   static:
     runs-on: ubuntu-latest
-    container:
-      image: registry.opensuse.org/home/riafarov/containers/containers/tumbleweed:qsf-y-ci
     steps:
      - name: Git Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
         with:
           fetch-depth: 0
       - name: Checking APIKEY and APISECRET
@@ -37,6 +35,7 @@ jobs:
             scripts/verify_file_existence $(grep -oP '(YAML_SCHEDULE|YAML_TEST_DATA):\s\K.*' $file | sort -u | awk "{print \"os-autoinst-distri-opensuse/\" \$0}") 
           done
       - name: Upload changed files to openQA
+        uses: docker://registry.opensuse.org/home/riafarov/containers/containers/tumbleweed:qsf-y-ci
         run: |
           for file in "${{ steps.changed-files.outputs.all_modified_files }}"; do
             echo "Post $file to OpenQA job group"
