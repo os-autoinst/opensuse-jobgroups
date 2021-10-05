@@ -39,6 +39,7 @@ jobs:
           done
       - name: Upload changed files to openQA
         run: |
+          sudo chmod +x scripts/post_yaml
           for file in "${{ steps.changed-files.outputs.all_modified_files }}"; do
             echo "Post $file to OpenQA job group"
             scripts/post_yaml $file
