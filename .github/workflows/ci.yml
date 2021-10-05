@@ -16,8 +16,8 @@ jobs:
           fetch-depth: 0
       - name: Checking APIKEY and APISECRET
         run: |
-          [[ -z "$APIKEY" ]] && echo "::warning No APIKEY set" || true
-          [[ -z "$APISECRET" ]] && echo "::warning No APISECRET set" || true
+          [[ -z "${{ secrets.APIKEY }}" ]] && echo "::warning No APIKEY set" || true
+          [[ -z "${{ secrets.APISECRET }}" ]] && echo "::warning No APISECRET set" || true
       - name: Get changed files
         id: changed-files
         uses: tj-actions/changed-files@v1.1.3
