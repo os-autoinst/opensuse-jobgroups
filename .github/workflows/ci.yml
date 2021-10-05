@@ -10,7 +10,7 @@ jobs:
       image: docker://registry.opensuse.org/home/riafarov/containers/containers/tumbleweed:qsf-y-ci
     steps:
       - name: Install depedencies
-        run: zypper in -y git 
+        run: sudo zypper in -y git 
       - name: Git Checkout
         uses: actions/checkout@v2
         with:
