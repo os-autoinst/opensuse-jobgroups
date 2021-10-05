@@ -971,3 +971,4 @@ scenarios:
           QEMUMACHINE: 'q35,accel=whpx'
           QEMUCPUS: '2'
           WORKER_CLASS: 'openqaworker1'
+    - RAID_not
