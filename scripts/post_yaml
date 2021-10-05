@@ -12,4 +12,4 @@ else
   exit 1
 fi
 
-openqa-client --host http://falafel.suse.cz --apikey ${{ secrets.APIKEY }} --apisecret ${{ secrets.APISECRET }} job_templates_scheduling/$GROUPID post --form schema=Jobtemplates-01.yaml preview=1 template="$(cat $file)"
+openqa-client --host http://falafel.suse.cz --apikey "${{ secrets.APIKEY }}" --apisecret "${{ secrets.APISECRET }}" job_templates_scheduling/$GROUPID post --form schema=Jobtemplates-01.yaml preview=1 template="$(cat $file)"
