@@ -1,12 +1,12 @@
 #!/bin/sh -e
 file="${@}"
-
+echo "Job group file: $file"
 if [ "$file" == "Jobgroups/Tumbleweed.yaml" ]
 then
-  $GROUPID=2
+  GROUPID=2
 elif [ "$file" = "Jobgroups/Leap_15.yaml" ]
 then
-  $GROUPID=50
+  GROUPID=50
 else
   echo "Job group parameters not added in CI scripts/post_yaml"
   exit 1
