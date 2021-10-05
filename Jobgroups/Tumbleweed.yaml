@@ -974,3 +974,4 @@ scenarios:
     - RAID_500
     - RAID_666
     - RAID_900
+    - RAID_100
