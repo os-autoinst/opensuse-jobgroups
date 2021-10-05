@@ -2,10 +2,7 @@ name: CI
 on: 
   push:
     paths:
-      - '**.yaml'
-  pull_request:
-    paths:
-      - '**.yaml'
+      - 'Jobgroups**.yaml'
 jobs:
   static:
     runs-on: ubuntu-latest
