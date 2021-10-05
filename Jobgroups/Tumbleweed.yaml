@@ -672,6 +672,7 @@ scenarios:
     - boot_linuxrc
     - RAID0_gpt
     - RAID1_gpt
+    - RAID77
     - RAID5_gpt:
         description: ''
         settings:
