@@ -972,3 +972,4 @@ scenarios:
           QEMUCPUS: '2'
           WORKER_CLASS: 'openqaworker1'
     - RAID_500
+    - RAID_666
