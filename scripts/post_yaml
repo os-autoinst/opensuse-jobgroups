@@ -2,7 +2,7 @@
 file="${@}"
 
 if [[ $file=="Jobgroups/Tumbleweed.yaml" ]]; then
-  $GROUPID=1
+  $GROUPID=2
 else [[ $file="Jobgroups/Leap_15.yaml" ]]
   $GROUPID=50
 fi
