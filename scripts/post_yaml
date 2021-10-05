@@ -7,4 +7,4 @@ else [[ $file="Jobgroups/Leap_15.yaml" ]]
   $GROUPID=50
 fi
 
-openqa-client --host http://openqa.opensuse.org --apikey $APIKEY --apisecret $APISECRET job_templates_scheduling/$GROUPID post --form schema=Jobtemplates-01.yaml preview=1 template="$(cat $file)"
+openqa-client --host http://falafel.suse.cz --apikey $APIKEY --apisecret $APISECRET job_templates_scheduling/$GROUPID post --form schema=Jobtemplates-01.yaml preview=1 template="$(cat $file)"
