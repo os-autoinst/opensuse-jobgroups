@@ -8,9 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
      - name: Git Checkout
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+       uses: actions/checkout@v2
+       with:
+         fetch-depth: 0
       - name: Checking APIKEY and APISECRET
         run: |
           [[ -z "${{ secrets.APIKEY }}" ]] && echo "::warning No APIKEY set" || true
