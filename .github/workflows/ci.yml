@@ -7,10 +7,8 @@ jobs:
   static:
     runs-on: ubuntu-latest
     container:
-      image: docker://registry.opensuse.org/home/riafarov/containers/containers/tumbleweed:qsf-y-ci
+      image: docker://dockerimage
     steps:
-      - name: Install depedencies
-        run: sudo zypper in -y git 
       - name: Git Checkout
         uses: actions/checkout@v2
         with:
