@@ -27,14 +27,13 @@ jobs:
         run: git clone --depth 1 https://github.com/os-autoinst/os-autoinst-distri-opensuse.git 
       - name: Checking if schedules and test data in yaml file exist
         run: |
-          for file in "${{steps.changed-files.outputs.all_modified_files}}"; do
-            echo $file
+          for file in "${{ steps.changed-files.outputs.all_modified_files }}"; do
             scripts/verify_file_existence $(grep -oP '(YAML_SCHEDULE|YAML_TEST_DATA):\s\K.*' $file | sort -u | awk "{print \"os-autoinst-distri-opensuse/\" \$0}") 
           done
       - name: Run Tumbleweed container and upload changed yaml files
         run: |
           docker pull registry.opensuse.org/home/syrianidou_sofia/containers/tumbleweed:o3-jobgroups
-          docker run -i --network="host" --mount source=Jobgroups,target=/Jobgroups -env HAHA="haha" -e APIKEY="${{secrets.APIKEY}}" -e APISECRET="${{secrets.APISECRET}}" -e CHANGED_FILES="${{steps.changed-files.outputs.all_modified_files}}" registry.opensuse.org/home/syrianidou_sofia/containers/tumbleweed:o3-jobgroups
+          docker run -i --network="host" --mount source=Jobgroups,target=/Jobgroups -e "HAHA=haha" -e "APIKEY=${{ secrets.APIKEY }}" -e "APISECRET=${{ secrets.APISECRET }}" -e "CHANGED_FILES=${{ steps.changed-files.outputs.all_modified_files }}" registry.opensuse.org/home/syrianidou_sofia/containers/tumbleweed:o3-jobgroups
           echo "changed files $CHANGED_FILES $HAHA"
           for file in $CHANGED_FILES; do
             echo "Post $file to OpenQA job group"
