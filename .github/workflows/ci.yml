@@ -7,7 +7,7 @@ jobs:
   static:
     runs-on: ubuntu-latest
     container:
-      images: docker://registry.opensuse.org/home/syrianidou_sofia/containers/tumbleweed:o3-jobgroups
+      image: docker://registry.opensuse.org/home/syrianidou_sofia/containers/tumbleweed:o3-jobgroups
     steps:
       - name: Git Checkout
         uses: actions/checkout@v2
