@@ -50,7 +50,7 @@ jobs:
             echo "Job group parameters not added in CI scripts/post_yaml"
             exit 1
           fi
-          openqa-client --host http://falafel.suse.cz --apikey "${{ secrets.APIKEY }}" --apisecret "${{ secrets.APISECRET }}" job_templates_scheduling/$GROUPID post --form schema=Jobtemplates-01.yaml preview=1 template="$(cat $file)"
+          openqa-client --host http://falafel.suse.cz --apikey "${{ secrets.APIKEY }}" --apisecret "${{ secrets.APISECRET }}" job_templates_scheduling/$GROUPID post --form schema=JobTemplates-01.yaml preview=1 template="$(cat $file)"
             # done
             # for file in "${{ steps.changed-files.outputs.all_modified_files }}"; do
 
