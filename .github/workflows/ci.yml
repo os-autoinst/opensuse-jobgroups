@@ -30,11 +30,11 @@ jobs:
           docker pull registry.opensuse.org/home/syrianidou_sofia/containers/tumbleweed:o3-jobgroups
           ls
           docker run --network="host" -v Jobgroups/ --env APIKEY="${{ secrets.APIKEY }}" --env APISECRET="${{ secrets.APISECRET }}" registry.opensuse.org/home/syrianidou_sofia/containers/tumbleweed:o3-jobgroups 
-      - name: Run yamllint for modified yaml files 
-        run: |
-          for file in "${{ steps.changed-files.outputs.all_modified_files }}"; do
-            yamllint $file 
-          done
+          #     - name: Run yamllint for modified yaml files 
+          #       run: |
+          #         for file in "${{ steps.changed-files.outputs.all_modified_files }}"; do
+          #           yamllint $file 
+          #         done
       - name: Upload changed files to openQA
         run: |
           for file in "${{ steps.changed-files.outputs.all_modified_files }}"; do
