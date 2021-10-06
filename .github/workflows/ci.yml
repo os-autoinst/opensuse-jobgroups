@@ -38,7 +38,6 @@ jobs:
 #         done
       - name: Upload changed files to openQA
         run: |
-#          for file in "${{ steps.changed-files.outputs.all_modified_files }}"; do
           file="Jobgroups/Tumbleweed.yaml"
           echo "Post $file to OpenQA job group"
           if [[ $file == "Jobgroups/Tumbleweed.yaml" ]]
@@ -53,3 +52,5 @@ jobs:
           fi
           openqa-client --host http://falafel.suse.cz --apikey "${{ secrets.APIKEY }}" --apisecret "${{ secrets.APISECRET }}" job_templates_scheduling/$GROUPID post --form schema=Jobtemplates-01.yaml preview=1 template="$(cat $file)"
             # done
+            # for file in "${{ steps.changed-files.outputs.all_modified_files }}"; do
+
