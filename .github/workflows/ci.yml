@@ -38,7 +38,6 @@ jobs:
       - name: Upload changed files to openQA
         run: |
           for file in "${{ steps.changed-files.outputs.all_modified_files }}"; do
-            file="Jobgroups/Tumbleweed.yaml"
             echo "Post $file to OpenQA job group"
             if [[ $file == "Jobgroups/Tumbleweed.yaml" ]]
             then
