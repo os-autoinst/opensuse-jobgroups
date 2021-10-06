@@ -26,8 +26,8 @@ jobs:
         #         for file in "${{ steps.changed-files.outputs.all_modified_files }}"; do
         #           yamllint $file 
         #         done
-      - name: Clone os-autoinst-distri-opensuse repo
-        run: git clone --depth 1 https://github.com/os-autoinst/os-autoinst-distri-opensuse.git 
+        #      - name: Clone os-autoinst-distri-opensuse repo
+        #        run: git clone --depth 1 https://github.com/os-autoinst/os-autoinst-distri-opensuse.git 
       - name: Checking if schedules and test data in yaml file exist
         run: |
           for file in "${{ steps.changed-files.outputs.all_modified_files }}"; do
