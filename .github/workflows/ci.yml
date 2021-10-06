@@ -6,6 +6,8 @@ on:
 jobs:
   static:
     runs-on: ubuntu-latest
+    container:
+      images: docker://registry.opensuse.org/home/syrianidou_sofia/containers/tumbleweed:o3-jobgroups
     steps:
       - name: Git Checkout
         uses: actions/checkout@v2
@@ -34,7 +36,6 @@ jobs:
           for file in "${{ steps.changed-files.outputs.all_modified_files }}"; do
             scripts/verify_file_existence $(grep -oP '(YAML_SCHEDULE|YAML_TEST_DATA):\s\K.*' $file | sort -u | awk "{print \"os-autoinst-distri-opensuse/\" \$0}") 
           done
-      - uses: docker://registry.opensuse.org/home/riafarov/containers/containers/tumbleweed:qsf-y-ci
       - name: Upload changed files to openQA
         run: |
           for file in "${{ steps.changed-files.outputs.all_modified_files }}"; do
