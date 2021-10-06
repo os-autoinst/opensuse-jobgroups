@@ -25,16 +25,16 @@ jobs:
           for file in "${{ steps.changed-files.outputs.all_modified_files }}"; do
             scripts/verify_file_existence $(grep -oP '(YAML_SCHEDULE|YAML_TEST_DATA):\s\K.*' $file | sort -u | awk "{print \"os-autoinst-distri-opensuse/\" \$0}") 
           done
-      - name: Run Tumbleweed container
-        run: |
-          docker pull registry.opensuse.org/home/syrianidou_sofia/containers/tumbleweed:o3-jobgroups
-          ls
-          docker run --network="host" -v Jobgroups/ --env APIKEY="${{ secrets.APIKEY }}" --env APISECRET="${{ secrets.APISECRET }}" registry.opensuse.org/home/syrianidou_sofia/containers/tumbleweed:o3-jobgroups 
-          #     - name: Run yamllint for modified yaml files 
+          #     - name: Run Tumbleweed container
           #       run: |
-          #         for file in "${{ steps.changed-files.outputs.all_modified_files }}"; do
-          #           yamllint $file 
-          #         done
+          #         docker pull registry.opensuse.org/home/syrianidou_sofia/containers/tumbleweed:o3-jobgroups
+          #         ls
+          #         docker run --network="host" -v Jobgroups/ --env APIKEY="${{ secrets.APIKEY }}" --env APISECRET="${{ secrets.APISECRET }}" registry.opensuse.org/home/syrianidou_sofia/containers/tumbleweed:o3-jobgroups 
+      - name: Run yamllint for modified yaml files 
+        run: |
+          for file in "${{ steps.changed-files.outputs.all_modified_files }}"; do
+            yamllint $file 
+          done
       - name: Upload changed files to openQA
         run: |
           for file in "${{ steps.changed-files.outputs.all_modified_files }}"; do
