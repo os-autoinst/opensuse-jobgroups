@@ -35,6 +35,8 @@ jobs:
           docker pull registry.opensuse.org/home/syrianidou_sofia/containers/tumbleweed:o3-jobgroups
           #          docker run --network="host" -i -v Jobgroups/ --env APIKEY="${{ secrets.APIKEY }}" --env APISECRET="${{ secrets.APISECRET }}" --env CHANGED_FILES="${{ steps.changed-files.outputs.all_modified_files }}" registry.opensuse.org/home/syrianidou_sofia/containers/tumbleweed:o3-jobgroups 
           docker run -i registry.opensuse.org/home/syrianidou_sofia/containers/tumbleweed:o3-jobgroups
+          echo "yoohoo"
+          echo $CHANGED_FILES
           for file in $CHANGED_FILES; do
             echo "Post $file to OpenQA job group"
             if [[ $file == "Jobgroups/Tumbleweed.yaml" ]]
