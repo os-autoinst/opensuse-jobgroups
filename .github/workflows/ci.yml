@@ -10,7 +10,7 @@ jobs:
       image: docker://registry.opensuse.org/home/syrianidou_sofia/containers/tumbleweed:o3-jobgroups
     steps:
       - name: Git Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
         with:
           fetch-depth: 0
       - name: Checking APIKEY and APISECRET
