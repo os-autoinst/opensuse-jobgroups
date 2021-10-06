@@ -34,7 +34,7 @@ jobs:
         run: |
           docker pull registry.opensuse.org/home/syrianidou_sofia/containers/tumbleweed:o3-jobgroups
           #          docker run --network="host" -i -v Jobgroups/ --env APIKEY="${{ secrets.APIKEY }}" --env APISECRET="${{ secrets.APISECRET }}" --env CHANGED_FILES="${{ steps.changed-files.outputs.all_modified_files }}" registry.opensuse.org/home/syrianidou_sofia/containers/tumbleweed:o3-jobgroups 
-          docker run -i --mount source=Jobgroups/,target=/Jobgroups --env CHANGED_FILES="${{ steps.changed-files.outputs.all_modified_files }}" registry.opensuse.org/home/syrianidou_sofia/containers/tumbleweed:o3-jobgroups
+          docker run -i --mount source=Jobgroups,target=/Jobgroups --env CHANGED_FILES="${{ steps.changed-files.outputs.all_modified_files }}" registry.opensuse.org/home/syrianidou_sofia/containers/tumbleweed:o3-jobgroups
           echo $CHANGED_FILES
           echo "hihi"
           ls Jobgroups
