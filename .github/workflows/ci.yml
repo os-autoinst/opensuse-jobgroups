@@ -32,10 +32,8 @@ jobs:
           done
       - name: Run Tumbleweed container and upload changed yaml files
         run: |
-          echo "${{ steps.changed-files.outputs.all_modified_files }}"
           docker pull registry.opensuse.org/home/syrianidou_sofia/containers/tumbleweed:o3-jobgroups
-          echo "${{ steps.changed-files.outputs.all_modified_files }}"
-          docker run -i --network="host" --mount source=Jobgroups,target=/Jobgroups --env HAHA="haha" --env APIKEY="${{ secrets.APIKEY }}" --env APISECRET="${{ secrets.APISECRET }}" --env CHANGED_FILES="${{ steps.changed-files.outputs.all_modified_files }}" registry.opensuse.org/home/syrianidou_sofia/containers/tumbleweed:o3-jobgroups
+          docker run -i --network="host" --mount source=Jobgroups,target=/Jobgroups -env HAHA="haha" -e APIKEY="${{ secrets.APIKEY }}" -e APISECRET="${{ secrets.APISECRET }}" -e CHANGED_FILES="${{ steps.changed-files.outputs.all_modified_files }}" registry.opensuse.org/home/syrianidou_sofia/containers/tumbleweed:o3-jobgroups
           echo "changed files $CHANGED_FILES $HAHA"
           for file in $CHANGED_FILES; do
             echo "Post $file to OpenQA job group"
