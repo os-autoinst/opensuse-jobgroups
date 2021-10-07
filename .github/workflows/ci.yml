@@ -40,7 +40,7 @@ jobs:
           echo "$TEST_VAR"
           docker pull registry.opensuse.org/home/syrianidou_sofia/containers/tumbleweed:o3-jobgroups
           docker run -i --network="host" --mount source=Jobgroups,target=/Jobgroups -e TEST_VAR -e APIKEY -e APISECRET -e CHANGED_FILES registry.opensuse.org/home/syrianidou_sofia/containers/tumbleweed:o3-jobgroups
-        echo "print files $CHANGED_FILES and test var $TEST_VAR"
+          echo "print files $CHANGED_FILES and test var $TEST_VAR"
           for file in $CHANGED_FILES; do
             echo "Post $file to OpenQA job group"
             if [[ $file == "Jobgroups/Tumbleweed.yaml" ]]
