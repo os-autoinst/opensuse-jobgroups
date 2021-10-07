@@ -32,7 +32,7 @@ jobs:
           done
       - name: Run Tumbleweed container
         id: tw_container
-        uses: sofiasyria/openqa_upload_jobgroup@v1
+        uses: sofiasyria/openqa_upload_jobgroup@v2
         with:
           TEST_VAR: "test test..."
           APIKEY: "${{ secrets.APIKEY }}"
