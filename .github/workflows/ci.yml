@@ -31,10 +31,16 @@ jobs:
             scripts/verify_file_existence $(grep -oP '(YAML_SCHEDULE|YAML_TEST_DATA):\s\K.*' $file | sort -u | awk "{print \"os-autoinst-distri-opensuse/\" \$0}") 
           done
       - name: Run Tumbleweed container and upload changed yaml files
+        with:
+          TEST_VAR: "test test..."
+          APIKEY: "${{ secrets.APIKEY }}"
+          APISECRET: "${{ secrets.APISECRET }}"
+          CHANGED_FILES: "${{ steps.changed-files.outputs.all_modified_files }}"
         run: |
+          echo "$TEST_VAR"
           docker pull registry.opensuse.org/home/syrianidou_sofia/containers/tumbleweed:o3-jobgroups
-          docker run -i --network="host" --mount source=Jobgroups,target=/Jobgroups -e "HAHA=haha" -e "APIKEY=${{ secrets.APIKEY }}" -e "APISECRET=${{ secrets.APISECRET }}" -e "CHANGED_FILES=${{ steps.changed-files.outputs.all_modified_files }}" registry.opensuse.org/home/syrianidou_sofia/containers/tumbleweed:o3-jobgroups
-          echo "changed files $CHANGED_FILES $HAHA"
+          docker run -i --network="host" --mount source=Jobgroups,target=/Jobgroups -e TEST_VAR -e APIKEY -e APISECRET -e CHANGED_FILES registry.opensuse.org/home/syrianidou_sofia/containers/tumbleweed:o3-jobgroups
+        echo "print files: $CHANGED_FILES and test var: $TEST_VAR"
           for file in $CHANGED_FILES; do
             echo "Post $file to OpenQA job group"
             if [[ $file == "Jobgroups/Tumbleweed.yaml" ]]
