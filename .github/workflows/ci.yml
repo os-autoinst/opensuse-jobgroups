@@ -7,7 +7,7 @@ jobs:
   static:
     runs-on: ubuntu-latest 
     container:
-      image: docker://registry.opensuse.org/oorlov/containers/containers/tumbleweed:openqa-tests-ci
+      image: docker://registry.opensuse.org/home/oorlov/containers/containers/tumbleweed:openqa-tests-ci
       #      options:
       #        --add-host=host.docker.internal:host-gateway
     steps:
