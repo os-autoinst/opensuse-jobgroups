@@ -6,9 +6,13 @@ on:
 jobs:
   static:
     runs-on: ubuntu-latest 
+    container:
+      image: docker://registry.opensuse.org/oorlov/containers/containers/tumbleweed:openqa-tests-ci
+      #      options:
+      #        --add-host=host.docker.internal:host-gateway
     steps:
       - name: Git Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
         with:
           fetch-depth: 0
       - name: Checking APIKEY and APISECRET
@@ -30,14 +34,20 @@ jobs:
           for file in "${{ steps.changed-files.outputs.all_modified_files }}"; do
             scripts/verify_file_existence $(grep -oP '(YAML_SCHEDULE|YAML_TEST_DATA):\s\K.*' $file | sort -u | awk "{print \"os-autoinst-distri-opensuse/\" \$0}") 
           done
-      - name: Run Tumbleweed container
-        id: tw_container
-        uses: sofiasyria/openqa_upload_jobgroup@v2
-        with:
-          TEST_VAR: "test test..."
-          APIKEY: "${{ secrets.APIKEY }}"
-          APISECRET: "${{ secrets.APISECRET }}"
-          CHANGED_FILES: "${{ steps.changed-files.outputs.all_modified_files }}"
-      - name: Upload changed yaml files
+      - name: Run Tumbleweed container and upload changed yaml files
         run: |
-          echo "${{ steps.tw_container.outputs.result }}"
+          CHANGED_FILES="${{ steps.changed-files.outputs.all_modified_files }}"        
+          for file in $CHANGED_FILES; do
+            echo "Post $file to OpenQA job group"
+            if [[ $file == "Jobgroups/Tumbleweed.yaml" ]]
+            then
+              GROUPID=2
+            elif [[ $file = "Jobgroups/Leap_15.yaml" ]]
+            then
+              GROUPID=50
+            else
+              echo "Job group parameters not added in CI scripts/post_yaml"
+              exit 1
+            fi
+            openqa-client --host http://falafel.suse.cz --apikey $APIKEY --apisecret $APISECRET job_templates_scheduling/$GROUPID post --form schema=JobTemplates-01.yaml preview=1 template="$(cat $file)"
+          done
