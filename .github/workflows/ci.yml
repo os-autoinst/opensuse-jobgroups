@@ -46,7 +46,7 @@ jobs:
               GROUPID=50
             else
               echo "Job group parameters not added in CI."
-              exit 1
+              #              exit 1
             fi
-            openqa-cli api -X POST --o3 --apikey "${{ secrets.APIKEY }}" --apisecret "${{ secrets.APISECRET }}" job_templates_scheduling/$GROUPID schema=JobTemplates-01.yaml --param-file template=example.yaml
+            openqa-cli api -X POST --o3 --apikey "${{ secrets.APIKEY }}" --apisecret "${{ secrets.APISECRET }}" job_templates_scheduling/74 schema=JobTemplates-01.yaml --param-file template=example.yaml
           done
