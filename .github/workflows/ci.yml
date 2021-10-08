@@ -48,5 +48,5 @@ jobs:
               echo "Job group parameters not added in CI."
               exit 1
             fi
-            openqa-cli api -X POST --o3 --apikey "${{ secrets.APIKEY }}" --apisecret "${{ secrets.APISECRET }}" job_templates_scheduling/$GROUPID schema=JobTemplates-01.yaml preview=1 --param-file template="$(cat $file)"
+            openqa-cli api -X POST --o3 --apikey "${{ secrets.APIKEY }}" --apisecret "${{ secrets.APISECRET }}" job_templates_scheduling/$GROUPID schema=JobTemplates-01.yaml preview=1 --param-file template="$(cat example.yaml)"
           done
