@@ -36,18 +36,17 @@ jobs:
         #         done
       - name: Upload changed yaml files to O3
         run: |
-          CHANGED_FILES="${{ steps.changed-files.outputs.all_modified_files }}"        
-          for file in $CHANGED_FILES; do
+          for file in "${{ steps.changed-files.outputs.all_modified_files }}"; do
             echo "Post $file to OpenQA job group"
             if [[ $file == "Jobgroups/Tumbleweed.yaml" ]]
             then
               GROUPID=74
-            elif [[ $file = "Jobgroups/Leap_15.yaml" ]]
+            elif [[ $file == "Jobgroups/Leap_15.yaml" ]]
             then
               GROUPID=50
             else
-              echo "Job group parameters not added in CI scripts/post_yaml"
+              echo "Job group parameters not added in CI."
               exit 1
             fi
-            openqa-client --host http://openqa.opensuse.org --apikey $APIKEY --apisecret $APISECRET job_templates_scheduling/$GROUPID post --form schema=JobTemplates-01.yaml preview=1 template="$(cat $file)"
+            openqa-cli api -X POST --o3 --apikey "${{ secrets.APIKEY }}" --apisecret "${{ secrets.APISECRET }}" job_templates_scheduling/$GROUPID schema=JobTemplates-01.yaml preview=1 --param-file template="$(cat $file)"
           done
