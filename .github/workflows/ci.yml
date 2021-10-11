@@ -28,7 +28,7 @@ jobs:
         #     - name: Clone os-autoinst-distri-opensuse repo
         #       run: git clone --depth 1 https://github.com/os-autoinst/os-autoinst-distri-opensuse.git 
       - name: Clone os-autoinst-distri-opensuse repo
-        uses: actions/checkout@master
+        uses: actions/checkout@v1
         with:
           repository: os-autoinst/os-autoinst-distri-opensuse 
           ref: refs/heads/release

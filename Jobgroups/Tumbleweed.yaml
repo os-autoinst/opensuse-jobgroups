@@ -950,7 +950,6 @@ scenarios:
             QEMUMACHINE: 'q35'
             SCC_REGISTER: '0'
             YAML_SCHEDULE: schedule/wsl/wsl_main.yaml
-            QEMU_ENABLE_SMBD: '1'
     - wsl-main:
         testsuite: null
         machine: uefi_win
