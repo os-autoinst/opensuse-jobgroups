@@ -31,7 +31,6 @@ jobs:
         uses: actions/checkout@v1
         with:
           repository: os-autoinst/os-autoinst-distri-opensuse 
-          ref: refs/heads/release
       - name: Check if the files are here
         run: ls -al
       - name: Checking if schedules and test data in yaml file exist
