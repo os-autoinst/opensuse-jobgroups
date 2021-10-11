@@ -23,6 +23,7 @@ jobs:
       - name: Run yamllint for modified Job group schedules
         run: |
           for file in "${{ steps.changed-files.outputs.all_modified_files }}"; do
+            echo "$file"
             yamllint $file
           done
       - name: Clone os-autoinst-distri-opensuse repository
@@ -37,6 +38,7 @@ jobs:
       - name: Check if YAML_SCHEDULE and YAML_TEST_DATA exist in os-autoinst-distri-opensuse
         run: |
           for file in "${{ steps.changed-files.outputs.all_modified_files }}"; do
+            echo "$file"
             scripts/verify_file_existence $(grep -oP '(YAML_SCHEDULE|YAML_TEST_DATA):\s\K.*' $file | sort -u | awk "{print \"../os-autoinst-distri-opensuse/\" \$0}") 
           done
       - name: Upload changed Job group schedules to O3
@@ -55,7 +57,7 @@ jobs:
               echo "Job group parameters not added in CI."
               exit 1
             fi
-            echo "Post $file to O3 job group $GROUPID"
+            echo "Post ${file} to O3 job group ${GROUPID}"
             # POST command changed in order not to interfere with current Job group schedules until repo is approved.
             # openqa-cli api -X POST --o3 --apikey "${{ secrets.APIKEY }}" --apisecret "${{ secrets.APISECRET }}" job_templates_scheduling/$GROUPID schema=JobTemplates-01.yaml --param-file template=$file
             #            openqa-cli api -X POST --o3 --apikey "${{ secrets.APIKEY }}" --apisecret "${{ secrets.APISECRET }}" job_templates_scheduling/74 schema=JobTemplates-01.yaml --param-file template="Jobgroups/example.yaml"
