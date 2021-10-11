@@ -248,8 +248,7 @@ scenarios:
       - upgrade_Leap_15.1_kde
       - upgrade_Leap_15.2_gnome
       - upgrade_Leap_15.2_kde
-      - upgrade_Leap_15.2_cryptlvm:
-          machine: uefi
+      - upgrade_Leap_15.2_cryptlvm
       - installer_extended
       - btrfs:
           settings:

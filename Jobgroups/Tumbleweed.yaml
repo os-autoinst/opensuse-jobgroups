@@ -971,7 +971,6 @@ scenarios:
           settings: &wsl_settings
             BOOT_HDD_IMAGE: '1'
             QEMURAM: '2048'
-            QEMUVGA: 'qxl'
             YAML_SCHEDULE: schedule/wsl/wsl_main.yaml
             HDD_1: 'windows-10-x86_64-21H1@64bit_win.qcow2'
             VNC_STALL_THRESHOLD: '10'
