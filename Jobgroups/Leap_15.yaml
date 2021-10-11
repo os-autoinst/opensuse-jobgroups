@@ -234,7 +234,6 @@ scenarios:
       - system_performance:
           machine: 64bit-2G
       - lvm-encrypt-separate-boot
-      - lvm-full-encrypt
       - lvm_thin_provisioning:
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/lvm/lvm_thin_provisioning.yaml

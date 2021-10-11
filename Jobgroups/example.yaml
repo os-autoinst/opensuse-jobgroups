@@ -14,3 +14,4 @@ scenarios:
       - yast2_gui_2:
           testsuite: yast2_gui
       - aloha
+      - another
