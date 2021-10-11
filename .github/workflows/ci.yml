@@ -2,17 +2,15 @@ name: CI
 on: 
   push:
     paths:
-      - 'Jobgroups**.yaml'
+      - 'Jobgroups/**.yaml'
 jobs:
   static:
     runs-on: ubuntu-latest 
     container:
       image: docker://registry.opensuse.org/home/oorlov/containers/containers/tumbleweed:openqa-tests-ci
-      #      options:
-      #        --add-host=host.docker.internal:host-gateway
     steps:
       - name: Git Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
         with:
           fetch-depth: 0
       - name: Checking APIKEY and APISECRET
@@ -40,13 +38,13 @@ jobs:
             echo "Post $file to OpenQA job group"
             if [[ $file == "Jobgroups/Tumbleweed.yaml" ]]
             then
-              GROUPID=74
+              GROUPID=1
             elif [[ $file == "Jobgroups/Leap_15.yaml" ]]
             then
               GROUPID=50
             else
               echo "Job group parameters not added in CI."
-              #              exit 1
+              exit 1
             fi
             openqa-cli api -X POST --o3 --apikey "${{ secrets.APIKEY }}" --apisecret "${{ secrets.APISECRET }}" job_templates_scheduling/74 schema=JobTemplates-01.yaml --param-file template=example.yaml
           done
