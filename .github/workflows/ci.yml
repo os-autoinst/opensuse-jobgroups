@@ -51,9 +51,14 @@ jobs:
             elif [[ $file == "Jobgroups/Leap_15.yaml" ]]
             then
               GROUPID=50
+            elif [[ $file == "Jobgroups/example.yaml" ]]
+            then
+              GROUPID=74
             else
               echo "Job group parameters not added in CI."
               exit 1
             fi
+            # POST command changed in order not to interfere with current Job group schedules until repo is approved.
+            # openqa-cli api -X POST --o3 --apikey "${{ secrets.APIKEY }}" --apisecret "${{ secrets.APISECRET }}" job_templates_scheduling/$GROUPID schema=JobTemplates-01.yaml --param-file template=$file
             openqa-cli api -X POST --o3 --apikey "${{ secrets.APIKEY }}" --apisecret "${{ secrets.APISECRET }}" job_templates_scheduling/74 schema=JobTemplates-01.yaml --param-file template=example.yaml
           done
