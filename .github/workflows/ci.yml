@@ -30,7 +30,7 @@ jobs:
       - name: Clone os-autoinst-distri-opensuse repo
         uses: actions/checkout@master
         with:
-          name: os-autoinst/os-autoinst-distri-opensuse 
+          repository: os-autoinst/os-autoinst-distri-opensuse 
           ref: refs/heads/release
       - name: Check if the files are here
         run: ls -al
