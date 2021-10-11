@@ -2,6 +2,7 @@
 files="${@:?"Need files to check as argument"}"
 success=0
 for file in $files; do
+	echo "$file"
 	if [ ! -f "$file" ]; then
 		echo "$file does not exist."
 		success=1
