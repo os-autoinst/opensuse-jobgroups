@@ -946,7 +946,6 @@ scenarios:
         settings: &wsl_settings
             BOOT_HDD_IMAGE: '1'
             QEMURAM: '2048'
-            QEMUVGA: 'qxl'
             QEMUMACHINE: 'q35'
             YAML_SCHEDULE: schedule/wsl/wsl_main.yaml
     - wsl-main:
