@@ -26,7 +26,6 @@ jobs:
             yamllint $file
           done
       - name: Clone os-autoinst-distri-opensuse repository
-        id: cloned-repo
         uses: actions/checkout@v1
         with:
           repository: os-autoinst/os-autoinst-distri-opensuse 
