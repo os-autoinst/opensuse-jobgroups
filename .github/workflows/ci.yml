@@ -35,8 +35,12 @@ jobs:
           ref: refs/heads/master
           path: os-autoinst-distri-opensuse
           clean: false
+          fetch-depth: 1
       - name: ls
-        run: ls
+        run: |
+          ls
+          ls /
+          ls /home/runner/work/testrepo/
       - name: Checking if schedules and test data in yaml file exist
         run: |
           for file in ${{ steps.changed-files.outputs.all_modified_files }}; do
