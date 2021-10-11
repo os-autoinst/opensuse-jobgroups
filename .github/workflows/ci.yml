@@ -10,7 +10,7 @@ jobs:
       image: docker://registry.opensuse.org/home/syrianidou_sofia/containers/tumbleweed:o3-jobgroups
     steps:
       - name: Git Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
         with:
           fetch-depth: 0
       - name: Checking APIKEY and APISECRET
@@ -27,14 +27,21 @@ jobs:
         #         done
         #     - name: Clone os-autoinst-distri-opensuse repo
         #       run: git clone --depth 1 https://github.com/os-autoinst/os-autoinst-distri-opensuse.git 
-        #     - name: Checking if schedules and test data in yaml file exist
-        #       run: |
-        #         for file in "${{ steps.changed-files.outputs.all_modified_files }}"; do
-        #           scripts/verify_file_existence $(grep -oP '(YAML_SCHEDULE|YAML_TEST_DATA):\s\K.*' $file | sort -u | awk "{print \"os-autoinst-distri-opensuse/\" \$0}") 
-        #         done
+      - name: Clone os-autoinst-distri-opensuse repo
+        id: cloned-repo
+        uses: actions/checkout@v1
+        with:
+          repository: os-autoinst/os-autoinst-distri-opensuse 
+          ref: refs/heads/master
+          path: os-autoinst-distri-opensuse
+      - name: Checking if schedules and test data in yaml file exist
+        run: |
+          for file in ("${{ steps.changed-files.outputs.all_modified_files }}"); do
+            scripts/verify_file_existence $(grep -oP '(YAML_SCHEDULE|YAML_TEST_DATA):\s\K.*' $file | sort -u | awk "{print \"os-autoinst-distri-opensuse/\" \$0}") 
+          done
       - name: Upload changed yaml files to O3
         run: |
-          for file in "${{ steps.changed-files.outputs.all_modified_files }}"; do
+          for file in ("${{ steps.changed-files.outputs.all_modified_files }}"); do
             echo "Post $file to OpenQA job group"
             if [[ $file == "Jobgroups/Tumbleweed.yaml" ]]
             then
