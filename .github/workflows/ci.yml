@@ -36,17 +36,10 @@ jobs:
           path: os-autoinst-distri-opensuse
           clean: false
           fetch-depth: 1
-      - name: ls
-        run: |
-          ls /github
-          echo "----2nd----"
-          ls /home
-          echo "----2nd----"
-          ls ..
       - name: Checking if schedules and test data in yaml file exist
         run: |
           for file in ${{ steps.changed-files.outputs.all_modified_files }}; do
-            scripts/verify_file_existence $(grep -oP '(YAML_SCHEDULE|YAML_TEST_DATA):\s\K.*' $file | sort -u | awk "{print \"os-autoinst-distri-opensuse/\" \$0}") 
+            scripts/verify_file_existence $(grep -oP '(YAML_SCHEDULE|YAML_TEST_DATA):\s\K.*' $file | sort -u | awk "{print \"../os-autoinst-distri-opensuse/\" \$0}") 
           done
       - name: Upload changed yaml files to O3
         run: |
