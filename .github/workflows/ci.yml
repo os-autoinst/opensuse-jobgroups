@@ -38,9 +38,11 @@ jobs:
           fetch-depth: 1
       - name: ls
         run: |
-          ls
-          ls /
-          ls /home/runner/work/testrepo/
+          ls /github
+          echo "----2nd----"
+          ls /home
+          echo "----2nd----"
+          ls ..
       - name: Checking if schedules and test data in yaml file exist
         run: |
           for file in ${{ steps.changed-files.outputs.all_modified_files }}; do
