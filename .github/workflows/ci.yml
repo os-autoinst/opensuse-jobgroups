@@ -42,19 +42,7 @@ jobs:
       - name: Upload changed Job group schedules to O3
         run: |
           for file in ${{ steps.changed-files.outputs.all_modified_files }}; do
-            if [[ $file == "Jobgroups/Tumbleweed.yaml" ]]
-            then
-              GROUPID=1
-            elif [[ $file == "Jobgroups/Leap_15.yaml" ]]
-            then
-              GROUPID=50
-            elif [[ $file == "Jobgroups/example.yaml" ]] # will be removed
-            then
-              GROUPID=74
-            else
-              echo "Job group parameters not added in CI."
-              exit 1
-            fi
+            GROUPID=$(./scripts/define_group_id $file)
             echo "Post ${file} to O3 job group ${GROUPID}"
             # POST command changed in order not to interfere with current Job group schedules until repo is approved.
             # openqa-cli api -X POST --o3 --apikey "${{ secrets.APIKEY }}" --apisecret "${{ secrets.APISECRET }}" job_templates_scheduling/$GROUPID schema=JobTemplates-01.yaml --param-file template=$file

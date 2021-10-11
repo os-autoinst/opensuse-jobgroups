@@ -1,0 +1,15 @@
+#!/bin/sh -e
+file="${@}"
+if [[ $file == "Jobgroups/Tumbleweed.yaml" ]]
+then
+  GROUPID=1
+elif [[ $file == "Jobgroups/Leap_15.yaml" ]]
+then
+  GROUPID=50
+elif [[ $file == "Jobgroups/example.yaml" ]] # will be removed
+then
+  GROUPID=74
+else
+  echo "Job group parameters not added."
+  exit 1
+fi
