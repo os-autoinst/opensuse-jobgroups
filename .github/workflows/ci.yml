@@ -33,7 +33,9 @@ jobs:
         with:
           repository: os-autoinst/os-autoinst-distri-opensuse 
           ref: refs/heads/master
-          path: os-autoinst-distri-opensuse
+          path: /os-autoinst-distri-opensuse
+      - name: ls
+        run: ls
       - name: Checking if schedules and test data in yaml file exist
         run: |
           for file in ${{ steps.changed-files.outputs.all_modified_files }}; do
