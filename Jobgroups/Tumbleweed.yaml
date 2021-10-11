@@ -1,3 +1,13 @@
+############################################################
+#                        WARNING                           #
+#                                                          #
+#               This file is managed in GIT!               #
+#  Any changes via the openQA WebUI will get overwritten!  #
+#                                                          #
+#        https://github.com/os-autoinst/o3-jobgroups       #
+#                                                          #
+############################################################
+---
 defaults:
   i586:
     machine: 32bit
@@ -88,540 +98,555 @@ products:
 scenarios:
   i586:
     opensuse-Tumbleweed-DVD-i586:
-    - textmode:
-        priority: 40
-    - textmode:
-        machine: pentium3
-        priority: 40
+      - textmode:
+          priority: 40
+      - textmode:
+          machine: pentium3
+          priority: 40
     opensuse-Tumbleweed-NET-i586:
-    - install_only:
-        priority: 40
-    - install_only:
-        machine: pentium3
-        priority: 40
+      - install_only:
+          priority: 40
+      - install_only:
+          machine: pentium3
+          priority: 40
   i686:
     opensuse-Tumbleweed-GNOME-Live-i686:
-    - gnome-live:
-        priority: 48
+      - gnome-live:
+          priority: 48
     opensuse-Tumbleweed-KDE-Live-i686:
-    - kde-live
-    - kde-live_installation
+      - kde-live
+      - kde-live_installation
     opensuse-Tumbleweed-Rescue-CD-i686:
-    - rescue:
-        priority: 49
-    - rescue:
-        machine: pentium3
-        priority: 49
+      - rescue:
+          priority: 49
+      - rescue:
+          machine: pentium3
+          priority: 49
   x86_64:
     microos-*-DVD-x86_64:
-    - rcshell:
-        machine: 64bit
-    - microos_10G-disk
-    - microos:
-        machine: uefi
-    - microos:
-        machine: 64bit
-    - microos_textmode
-    - container-host:
-        machine: 64bit
-    - remote_ssh_controller:
-        settings:
-          HDD_1: support_server_tumbleweed@64bit.qcow2
-          SYSTEM_ROLE: microos
-          YAML_SCHEDULE: schedule/sle-micro/remote_ssh_controller.yaml
-          DESKTOP: textmode
-          EXTRABOOTPARAMS_BOOT_LOCAL: '3'
-    - remote_ssh_target:
-        settings:
-          DESKTOP: textmode
-          YAML_SCHEDULE: schedule/sle-micro/remote_ssh_target.yaml
+      - rcshell:
+          machine: 64bit
+      - microos_10G-disk
+      - microos:
+          machine: uefi
+      - microos:
+          machine: 64bit
+      - microos_textmode
+      - container-host:
+          machine: 64bit
+          settings:
+            CONTAINERS_UNTESTED_IMAGES: '1'
+      - remote_ssh_controller:
+          settings:
+            HDD_1: support_server_tumbleweed@64bit.qcow2
+            SYSTEM_ROLE: microos
+            YAML_SCHEDULE: schedule/sle-micro/remote_ssh_controller.yaml
+            DESKTOP: textmode
+            EXTRABOOTPARAMS_BOOT_LOCAL: '3'
+      - remote_ssh_target:
+          settings:
+            DESKTOP: textmode
+            YAML_SCHEDULE: schedule/sle-micro/remote_ssh_target.yaml
     microos-*-Kubic-DVD-x86_64:
-    - rcshell:
-        machine: 64bit
-    - kubeadm:
-        machine: 64bit-2G-HD40G
-    - container-host:
-        machine: 64bit
-    - container-host:
-        machine: uefi
+      - rcshell:
+          machine: 64bit
+      - kubeadm:
+          machine: 64bit-2G-HD40G
+      - container-host:
+          machine: 64bit
+          settings:
+            CONTAINERS_UNTESTED_IMAGES: '1'
+      - container-host:
+          machine: uefi
+          settings:
+            CONTAINERS_UNTESTED_IMAGES: '1'
     microos-*-MicroOS-Image-ContainerHost-x86_64:
-    - container-host
-    - container-host2microosnext
-    - container-host-old2microosnext
+      - container-host:
+          settings:
+            CONTAINERS_UNTESTED_IMAGES: '1'
+      - container-host2microosnext:
+          settings:
+            CONTAINERS_UNTESTED_IMAGES: '1'
+      - container-host-old2microosnext:
+          settings:
+            CONTAINERS_UNTESTED_IMAGES: '1'
     microos-*-MicroOS-Image-Kubic-kubeadm-x86_64:
-    - kubeadm:
-        machine: 64bit-2G
+      - kubeadm:
+          machine: 64bit-2G
     microos-*-MicroOS-Image-x86_64:
-    - microos
-    - microos2microosnext
-    - microos-old2microosnext
-    - microos_qemu:
-        settings:
-          QEMUCPU: 'host'
-    - microos_selinux:
-        settings:
-          ENABLE_SELINUX: '1'
+      - microos
+      - microos2microosnext
+      - microos-old2microosnext
+      - microos_qemu:
+          settings:
+            QEMUCPU: 'host'
+      - microos_selinux:
+          settings:
+            ENABLE_SELINUX: '1'
     opensuse-Tumbleweed-DVD-x86_64:
-    - textmode:
-        machine: 64bit
-        priority: 40
-    - kde:
-        machine: USBboot_64
-        priority: 40
-    - kde:
-        machine: 64bit
-        priority: 40
-    - kde:
-        machine: 64bit_cirrus-2G
-        priority: 40
-    - kde:
-        machine: Laptop_64
-        priority: 40
-    - uefi:
-        machine: 64bit
-        priority: 45
-    - uefi:
-        machine: USBboot_64
-        priority: 45
-    - gnome:
-        machine: 64bit_qxl
-        priority: 45
-    - gnome:
-        machine: Laptop_64
-        priority: 45
-    - gnome:
-        machine: 64bit
-        priority: 45
-    - gnome:
-        machine: 64bit_cirrus
-        priority: 45
-    - minimalx:
-        machine: 64bit
-        priority: 45
-    - minimalx+btrfs+sephome
-    #- lxde:
-    #    machine: 64bit
-    #    priority: 49
-    - xfce:
-        machine: 64bit
-        priority: 49
-    - cryptlvm:
-        machine: uefi
-        settings:
-          YAML_SCHEDULE: schedule/yast/opensuse/encryption/cryptlvm.yaml
-    - cryptlvm:
-        machine: 64bit
-        settings:
-          YAML_SCHEDULE: schedule/yast/opensuse/encryption/cryptlvm.yaml        
-    - install_only:
-        machine: smp_64
-        priority: 40
-    - install_only:
-        machine: 64bit-multipath
-        priority: 40
-    - ext4:
-        settings:
-          YAML_SCHEDULE: schedule/yast/opensuse/ext4/ext4.yaml
-    - lvm:
-        priority: 49
-    - uefi-os:
-        machine: 64bit
-        priority: 45
-    - mediacheck:
-        machine: 64bit
-    - rescue_system:
-        priority: 40
-    - gpt
-    - xfs:
-        settings:
-          YAML_SCHEDULE: schedule/yast/opensuse/xfs/xfs.yaml
-          YAML_TEST_DATA: test_data/yast/opensuse/xfs/xfs_partition.yaml
-    - minimalx_btrfs_snapper
-    - create_hdd_textmode:
-        priority: 45
-    - create_hdd_gnome:
-        priority: 45
-    - create_hdd_gnome_libyui
-    - create_hdd_gnome_wicked
-    - create_hdd_kde:
-        priority: 45
-    - lvm+RAID1
-    - boot_to_snapshot
-    - yast2_firstboot
-    - yast2_firstboot_custom
-    - yast2_gui
-    - yast2_nfs_v3_server
-    - yast2_nfs_v3_client
-    - yast2_nfs_v4_server
-    - yast2_nfs_v4_client
-    - yast2_ui_devel
-    - yast2_users
-    - extra_tests_gnome
-    - upgrade_Leap_42.1_gnome:
-        machine: 64bit
-    - upgrade_Leap_42.1_kde:
-        machine: 64bit
-    - create_hdd_xfce:
-        priority: 46
-    - extra_tests_on_kde
-    - extra_tests_on_xfce
-    - extra_tests_textmode
-    - create_hdd_transactional_server
-    - extra_tests_transactional_server
-    - extra_tests_vagrant:
-        description: 'Maintainer: dancermak. Test vagrant, vagrant plugins and the vagrant boxes'
-        settings:
-          BOOT_HDD_IMAGE: '1'
-          DESKTOP: textmode
-          HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
-          QEMUCPU: host
-          QEMUCPUS: '4'
-          QEMURAM: '4096'
-          START_AFTER_TEST: create_hdd_textmode
-          UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
-          YAML_SCHEDULE: schedule/vagrant.yaml
-        testsuite: null
-    - extra_tests_textmode_podman_containers:
-        testsuite: extra_tests_textmode_containers
-        settings:
+      - textmode:
+          machine: 64bit
+          priority: 40
+      - kde:
+          machine: USBboot_64
+          priority: 40
+      - kde:
+          machine: 64bit
+          priority: 40
+      - kde:
+          machine: 64bit_cirrus-2G
+          priority: 40
+      - kde:
+          machine: Laptop_64
+          priority: 40
+      - uefi:
+          machine: 64bit
+          priority: 45
+      - uefi:
+          machine: USBboot_64
+          priority: 45
+      - gnome:
+          machine: 64bit_qxl
+          priority: 45
+      - gnome:
+          machine: Laptop_64
+          priority: 45
+      - gnome:
+          machine: 64bit
+          priority: 45
+      - gnome:
+          machine: 64bit_cirrus
+          priority: 45
+      - minimalx:
+          machine: 64bit
+          priority: 45
+      - minimalx+btrfs+sephome
+      # - lxde:
+      #     machine: 64bit
+      #     priority: 49
+      - xfce:
+          machine: 64bit
+          priority: 49
+      - cryptlvm:
+          machine: uefi
+          settings:
+            YAML_SCHEDULE: schedule/yast/opensuse/encryption/cryptlvm.yaml
+      - cryptlvm:
+          machine: 64bit
+          settings:
+            YAML_SCHEDULE: schedule/yast/opensuse/encryption/cryptlvm.yaml
+      - install_only:
+          machine: smp_64
+          priority: 40
+      - install_only:
+          machine: 64bit-multipath
+          priority: 40
+      - ext4:
+          settings:
+            YAML_SCHEDULE: schedule/yast/opensuse/ext4/ext4.yaml
+      - lvm:
+          priority: 49
+      - uefi-os:
+          machine: 64bit
+          priority: 45
+      - mediacheck:
+          machine: 64bit
+      - rescue_system:
+          priority: 40
+      - gpt
+      - xfs:
+          settings:
+            YAML_SCHEDULE: schedule/yast/opensuse/xfs/xfs.yaml
+            YAML_TEST_DATA: test_data/yast/opensuse/xfs/xfs_partition.yaml
+      - minimalx_btrfs_snapper
+      - create_hdd_textmode:
+          priority: 45
+      - create_hdd_gnome:
+          priority: 45
+      - create_hdd_gnome_libyui
+      - create_hdd_gnome_wicked
+      - create_hdd_kde:
+          priority: 45
+      - lvm+RAID1
+      - boot_to_snapshot
+      - yast2_firstboot
+      - yast2_firstboot_custom
+      - yast2_gui
+      - yast2_nfs_v3_server
+      - yast2_nfs_v3_client
+      - yast2_nfs_v4_server
+      - yast2_nfs_v4_client
+      - yast2_ui_devel
+      - yast2_users
+      - extra_tests_gnome
+      - upgrade_Leap_42.1_gnome:
+          machine: 64bit
+      - upgrade_Leap_42.1_kde:
+          machine: 64bit
+      - create_hdd_xfce:
+          priority: 46
+      - extra_tests_on_kde
+      - extra_tests_on_xfce
+      - extra_tests_textmode
+      - create_hdd_transactional_server
+      - extra_tests_transactional_server
+      - extra_tests_vagrant:
+          description: 'Maintainer: dancermak. Test vagrant, vagrant plugins and the vagrant boxes'
+          settings:
+            BOOT_HDD_IMAGE: '1'
+            DESKTOP: textmode
+            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+            QEMUCPU: host
+            QEMUCPUS: '4'
+            QEMURAM: '4096'
+            START_AFTER_TEST: create_hdd_textmode
+            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
+            YAML_SCHEDULE: schedule/vagrant.yaml
+          testsuite: null
+      - extra_tests_textmode_podman_containers:
+          testsuite: extra_tests_textmode_containers
+          settings:
             YAML_SCHEDULE: schedule/containers/extra_tests_textmode_containers_podman.yaml
             CONTAINERS_UNTESTED_IMAGES: '1'
-    - extra_tests_textmode_docker_containers:
-        testsuite: extra_tests_textmode_containers
-        settings:
+      - extra_tests_textmode_docker_containers:
+          testsuite: extra_tests_textmode_containers
+          settings:
             YAML_SCHEDULE: schedule/containers/extra_tests_textmode_containers_docker_tw.yaml
             CONTAINERS_UNTESTED_IMAGES: '1'
-    - extra_tests_ai_ml
-    - upgrade_Leap_42.2_gnome:
-        machine: 64bit
-    - upgrade_Leap_42.2_kde:
-        machine: 64bit
-    - yast_no_self_update
-    - gnome-gdm:
-        machine: 64bit
-    - kde_dual_windows10:
-        machine: uefi_win
-    - kde_dual_windows10:
-        machine: 64bit_win
-    - gnome_dual_windows10:
-        machine: uefi_win
-    - gnome_dual_windows10:
-        machine: 64bit_win
-    - kde-sddm
-    - gnome+import_ssh_keys:
-        machine: 64bit_cirrus
-    - gnome+do_not_import_ssh_keys:
-        machine: 64bit_cirrus-2G
-    - autoyast_y2_firstboot
-    - autoyast_btrfs_quota
-    - autoyast_gnome:
-        machine: 64bit
-    - autoyast_minimal
-    - autoyast_reinstall_gnome:
-        settings:
-          YAML_TEST_DATA: test_data/yast/opensuse/autoyast_reinstall/autoyast_reinstall_64bit.yaml
-    - autoyast_multi_btrfs:
-        settings:
-          AUTOYAST: autoyast_opensuse/autoyast_multi_btrfs.xml
-          DESKTOP: gnome
-          NUMDISKS: '4'
-          YAML_SCHEDULE: schedule/yast/opensuse/autoyast/autoyast_multi_btrfs.yaml
-        description: AutoYaST installation with multi-device Btrfs. The setup containing 4 hds using two multidevice btrfs, one mounted on / and one mounted on /test. Combines partition-less disk and disk with partition, also includes an encrypted disk.
-        testsuite: null
-        machine: 64bit
-    - autoyast_rules_and_classes:
-        description: Test verifies rules and classes autoyast.
-        settings:
-          YAML_SCHEDULE: schedule/yast/opensuse/autoyast/autoyast_rules_and_classes.yaml
-        testsuite: null    
-    - btrfs:
-        description: |-
-          https://progress.opensuse.org/issues/16570
-          PARTITIONING_WARNINGS=1
-        
-          Test installation with btrfs filesystem. Validates no_COW attributes on subvolumes, checks the /home is not on the separate partition.
-        settings:
-          HDDSIZEGB: '40'
-          YAML_SCHEDULE: schedule/yast/opensuse/btrfs/btrfs.yaml
-        testsuite: null
-    - package-dependency
-    - nvme:
-        machine: uefi
-    - nis_client
-    - nis_server
-    - extra_tests_filesystem
-    - gnuhealth
-    - clone_system
-    - wicked_basic_sut 
-    - wicked_basic_ref
-    - wireguard_server
-    - wireguard_client
-    - ovs-server
-    - ovs-client
-    - salt-master
-    - salt-minion
-    - rsync-server
-    - rsync-client
-    - extra_tests_misc
-    - tomcat
-    - desktopapps-message-gnome
-    - kde-wayland:
-        machine: 64bit_virtio
-        settings:
-          QEMUCPUS: '2'
-          QEMURAM: '2048'
-    - external_iso:
-        machine: 64bit
-    - upgrade_Leap_42.3_gnome:
-        machine: 64bit
-    - upgrade_Leap_42.3_kde
-    - desktopapps-gnome
-    - yast2_ncurses:
-        settings:
-          YAML_SCHEDULE: schedule/yast/opensuse/yast2_ncurses/yast2_ncurses.yaml
-    - upgrade_Leap_42.3_cryptlvm:
-        machine: 64bit
-    - upgrade_Leap_42.3_cryptlvm:
-        machine: uefi
-    - virtualization:
-        settings:
-          YAML_SCHEDULE: schedule/virtualization/virtualization.yaml
-    - toolchain_zypper
-    - crypt_no_lvm
-    - systemd-networkd
-    - transactional_server:
-        settings:
-          YAML_SCHEDULE: schedule/yast/opensuse/transactional_server/transactional_server.yaml
-    - install_offline
-    - system_performance
-    - select_disk:
-        description: 'Maintainer: riafarov, mloviska Test the selection of "first" disk with the guided setup in partitioning. This is also used as a prerequisite for real hardware tests to select the right disk for installation and not a "random" one.'
-        settings:
-          NUMDISKS: '2'
-          YAML_SCHEDULE: schedule/yast/opensuse/select_disk/select_disk.yaml
-        testsuite: null
-    - ext4_textmode:
-        settings:
-          YAML_SCHEDULE: schedule/yast/opensuse/ext4/ext4_textmode.yaml
-    - ext3_textmode:
-        description: 'Mantainer: jeriveramoya Test selection of file system ext3 for / partition in textmode for openSUSE distributions'
-        settings:
-          DESKTOP: textmode
-          FILESYSTEM: ext3
-          INSTALLONLY: '1'
-          VIDEOMODE: text
-          YAML_SCHEDULE: schedule/yast/opensuse/ext3/ext3_textmode.yaml
-        testsuite: null
-    - btrfs_textmode:
-        description: 'Mantainer: jeriveramoya Test selection of file system btrfs for / partition in textmode for openSUSE distributions'
-        settings:
-          DESKTOP: textmode
-          FILESYSTEM: btrfs
-          INSTALLONLY: '1'
-          VIDEOMODE: text
-          YAML_SCHEDULE: schedule/yast/opensuse/btrfs/btrfs.yaml
-        testsuite: null
-    - xfs_textmode:
-        description: 'Mantainer: jeriveramoya Test selection of file system xfs for / partition in textmode for openSUSE distributions'
-        settings:
-          DESKTOP: textmode
-          FILESYSTEM: xfs
-          INSTALLONLY: '1'
-          VIDEOMODE: text
-          YAML_SCHEDULE: schedule/yast/opensuse/xfs/xfs_textmode.yaml
-          YAML_TEST_DATA: test_data/yast/opensuse/xfs/xfs_partition.yaml
-        testsuite: null
-    - apparmor
-    - lvm-encrypt-separate-boot:
-        machine: 64bit
-    - lvm-full-encrypt
-    - openscap
-    - lynis_textmode
-    - lynis_gnome
-    - lvm_thin_provisioning:
-        settings:
-          YAML_SCHEDULE: schedule/yast/opensuse/lvm/lvm_thin_provisioning.yaml
-    - upgrade_Leap_15.2_gnome:
-        machine: 64bit
-    - upgrade_Leap_15.2_with_service_check:
-        machine: 64bit
-    - upgrade_Leap_15.2_with_service_check_nested_vm_down:
-        machine: 64bit
-    - upgrade_Leap_15.2_kde:
-        machine: 64bit
-    - upgrade_Leap_15.2_cryptlvm:
-        machine: uefi
-    - upgrade_Leap_15.0_gnome
-    - upgrade_Leap_15.0_cryptlvm:
-        machine: uefi
-    - upgrade_Leap_15.0_kde
-    - installer_extended
-    - desktopapps-other:
-        description: 'Maintainer: Yuan Ren (yuanren10). See https://progress.opensuse.org/issues/23906'
-        settings:
-          BOOT_HDD_IMAGE: '1'
-          DESKTOP: gnome
-          HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
-          REGRESSION: other
-          START_AFTER_TEST: create_hdd_gnome
-          UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
-        testsuite: null
-    - desktopapps-documentation:
-        description: Maintainer Yaun Ren
-        settings:
-          DESKTOP: gnome
-          HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
-          REGRESSION: documentation
-          START_AFTER_TEST: create_hdd_gnome
-          UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
-        testsuite: null
-    - desktopapps-gb18030
-    - btrfs+warnings:
-        settings:
-          YAML_SCHEDULE: schedule/yast/opensuse/btrfs/btrfs+warnings.yaml
-    - selinux:
-        description: Maintainer (Lily Zhao) llzhao@suse.com
-        settings:
-          ARCH: x86_64
-          BOOT_HDD_IMAGE: '1'
-          DESKTOP: textmode
-          HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
-          MACHINE: 64bit
-          SECURITY_TEST: selinux
-          START_AFTER_TEST: create_hdd_textmode
-          UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
-          VIDEOMODE: text
-        testsuite: null
-    - create_hdd_gnome-x11:
-       priority: 46
-    - create_hdd_gnome-wayland:
-        machine: 64bit_virtio
-        priority: 45
-    - desktopapps-other-x11
-    - desktopapps-documentation-x11
-    - desktopapps-gnome-x11
-    - desktopapps-remote-desktop-xrdp-client1:
-        settings:
-          BOOT_HDD_IMAGE: '1'
-          DESKTOP: gnome
-          HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-gnome-wayland@%MACHINE%.qcow2'
-          NETWORKS: fixed
-          NICTYPE: tap
-          PARALLEL_WITH: desktopapps-remote-desktop-xrdp-server1
-          REGRESSION: remote
-          REMOTE_DESKTOP_TYPE: xrdp_client
-          START_AFTER_TEST: create_hdd_gnome-wayland
-          VIRTIO_CONSOLE: '0'
-          WORKER_CLASS: tap
-        description: ''
-        testsuite: null
-        machine: 64bit_virtio
-    - desktopapps-remote-desktop-xrdp-server1:
-        settings:
-          BOOTFROM: c
-          HDD_1: windows-10-x86_64-20H2@64bit_win.qcow2
-          NETWORKS: fixed
-          NICTYPE: tap
-          NLA: '1'
-          REGRESSION: remote
-          REMOTE_DESKTOP_TYPE: win_server
-          WORKER_CLASS: tap
-        description: ''
-        testsuite: null
-        machine: 64bit_virtio
-    - desktopapps-remote-desktop-xrdp-client2:
-        settings:
-          BOOT_HDD_IMAGE: '1'
-          DESKTOP: gnome
-          HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-gnome-wayland@%MACHINE%.qcow2'
-          NETWORKS: fixed
-          NICTYPE: tap
-          PARALLEL_WITH: desktopapps-remote-desktop-xrdp-server2
-          REGRESSION: remote
-          REMOTE_DESKTOP_TYPE: xrdp_client
-          START_AFTER_TEST: create_hdd_gnome-wayland
-          VIRTIO_CONSOLE: '0'
-          WORKER_CLASS: tap
-        description: ''
-        testsuite: null
-        machine: 64bit_virtio
-    - desktopapps-remote-desktop-xrdp-server2:
-        settings:
-          BOOTFROM: c
-          HDD_1: windows-10-x86_64-20H2@64bit_win.qcow2
-          NETWORKS: fixed
-          NICTYPE: tap
-          NLA: '0'
-          REGRESSION: remote
-          REMOTE_DESKTOP_TYPE: win_server
-          WORKER_CLASS: tap
-        description: ''
-        testsuite: null
-        machine: 64bit_virtio
-    - remote_ssh_controller:
-        settings:
-          HDD_1: support_server_tumbleweed@64bit.qcow2
-    - remote_ssh_target
-    - remote-desktop-client4:
-        description: ''
-        settings:
-          BOOTFROM: c
-          DESKTOP: gnome
-          HDD_1: windows-10-x86_64-20H2@64bit_win.qcow2
-          NETWORKS: fixed
-          NICTYPE: tap
-          PARALLEL_WITH: remote-desktop-supportserver4
-          REGRESSION: remote
-          REMOTE_DESKTOP_TYPE: win_client
-          WORKER_CLASS: tap
-        testsuite: null
-    - remote-desktop-supportserver4:
-        description: ''
-        settings:
-          BOOTFROM: c
-          DESKTOP: gnome
-          HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-gnome-x11@%MACHINE%.qcow2'
-          NETWORKS: fixed
-          NICTYPE: tap
-          REGRESSION: remote
-          REMOTE_DESKTOP_TYPE: xrdp_server
-          SHUTDOWN_NEEDS_AUTH: '1'
-          START_AFTER_TEST: create_hdd_gnome-x11
-          SUPPORT_SERVER: '1'
-          SUPPORT_SERVER_ROLES: dhcp
-          VIRTIO_CONSOLE: '0'
-          WORKER_CLASS: tap
-        testsuite: null
-    - toolkits
-    - gnome-x11-ibus
-    - toolkits-kde
-    - openldap_to_389ds
-    - apparmor_profile:
-        description: |-
-          Maintainer: llzhao@suse.de. 
-          Test AppArmor profiles with an existing disk image.
-        settings:
-          ARCH: x86_64
-          BOOT_HDD_IMAGE: '1'
-          DESKTOP: gnome
-          HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
-          MACHINE: 64bit
-          SECURITY_TEST: apparmor_profile
-          START_AFTER_TEST: create_hdd_gnome
-          UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
-          VIDEOMODE: text
-        testsuite: null
-    - create_swtpm_hdd
-    - create_hdd_textmode_uefi:
-        machine: uefi
-    - create_swtpm_hdd_uefi:
-        machine: uefi
-    - security_swtpm
-    - security_swtpm_uefi
-    - security_389ds_server:
-        description: 'Maintainer: rfan1'
-        testsuite: null
-        settings:
+      - extra_tests_ai_ml
+      - upgrade_Leap_42.2_gnome:
+          machine: 64bit
+      - upgrade_Leap_42.2_kde:
+          machine: 64bit
+      - yast_no_self_update
+      - gnome-gdm:
+          machine: 64bit
+      - kde_dual_windows10:
+          machine: uefi_win
+      - kde_dual_windows10:
+          machine: 64bit_win
+      - gnome_dual_windows10:
+          machine: uefi_win
+      - gnome_dual_windows10:
+          machine: 64bit_win
+      - kde-sddm
+      - gnome+import_ssh_keys:
+          machine: 64bit_cirrus
+      - gnome+do_not_import_ssh_keys:
+          machine: 64bit_cirrus-2G
+      - autoyast_y2_firstboot
+      - autoyast_btrfs_quota
+      - autoyast_gnome:
+          machine: 64bit
+      - autoyast_minimal
+      - autoyast_reinstall_gnome:
+          settings:
+            YAML_TEST_DATA: test_data/yast/opensuse/autoyast_reinstall/autoyast_reinstall_64bit.yaml
+      - autoyast_multi_btrfs:
+          settings:
+            AUTOYAST: autoyast_opensuse/autoyast_multi_btrfs.xml
+            DESKTOP: gnome
+            NUMDISKS: '4'
+            YAML_SCHEDULE: schedule/yast/opensuse/autoyast/autoyast_multi_btrfs.yaml
+          description: AutoYaST installation with multi-device Btrfs. The setup containing 4 hds using two multidevice btrfs, one mounted on / and one mounted
+            on /test. Combines partition-less disk and disk with partition, also includes an encrypted disk.
+          testsuite: null
+          machine: 64bit
+      - autoyast_rules_and_classes:
+          description: Test verifies rules and classes autoyast.
+          settings:
+            YAML_SCHEDULE: schedule/yast/opensuse/autoyast/autoyast_rules_and_classes.yaml
+          testsuite: null
+      - btrfs:
+          description: |-
+            https://progress.opensuse.org/issues/16570
+            PARTITIONING_WARNINGS=1
+
+            Test installation with btrfs filesystem. Validates no_COW attributes on subvolumes, checks the /home is not on the separate partition.
+          settings:
+            HDDSIZEGB: '40'
+            YAML_SCHEDULE: schedule/yast/opensuse/btrfs/btrfs.yaml
+          testsuite: null
+      - package-dependency
+      - nvme:
+          machine: uefi
+      - nis_client
+      - nis_server
+      - extra_tests_filesystem
+      - gnuhealth
+      - clone_system
+      - wicked_basic_sut
+      - wicked_basic_ref
+      - wireguard_server
+      - wireguard_client
+      - ovs-server
+      - ovs-client
+      - salt-master
+      - salt-minion
+      - rsync-server
+      - rsync-client
+      - extra_tests_misc
+      - tomcat
+      - desktopapps-message-gnome
+      - kde-wayland:
+          machine: 64bit_virtio
+          settings:
+            QEMUCPUS: '2'
+            QEMURAM: '2048'
+      - external_iso:
+          machine: 64bit
+      - upgrade_Leap_42.3_gnome:
+          machine: 64bit
+      - upgrade_Leap_42.3_kde
+      - desktopapps-gnome
+      - yast2_ncurses:
+          settings:
+            YAML_SCHEDULE: schedule/yast/opensuse/yast2_ncurses/yast2_ncurses.yaml
+      - upgrade_Leap_42.3_cryptlvm:
+          machine: 64bit
+      - upgrade_Leap_42.3_cryptlvm:
+          machine: uefi
+      - virtualization:
+          settings:
+            YAML_SCHEDULE: schedule/virtualization/virtualization.yaml
+      - toolchain_zypper
+      - crypt_no_lvm
+      - systemd-networkd
+      - transactional_server:
+          settings:
+            YAML_SCHEDULE: schedule/yast/opensuse/transactional_server/transactional_server.yaml
+      - install_offline
+      - system_performance
+      - select_disk:
+          description: 'Maintainer: riafarov, mloviska Test the selection of "first" disk with the guided setup in partitioning. This is also used as a
+            prerequisite for real hardware tests to select the right disk for installation and not a "random" one.'
+          settings:
+            NUMDISKS: '2'
+            YAML_SCHEDULE: schedule/yast/opensuse/select_disk/select_disk.yaml
+          testsuite: null
+      - ext4_textmode:
+          settings:
+            YAML_SCHEDULE: schedule/yast/opensuse/ext4/ext4_textmode.yaml
+      - ext3_textmode:
+          description: 'Mantainer: jeriveramoya Test selection of file system ext3 for / partition in textmode for openSUSE distributions'
+          settings:
+            DESKTOP: textmode
+            FILESYSTEM: ext3
+            INSTALLONLY: '1'
+            VIDEOMODE: text
+            YAML_SCHEDULE: schedule/yast/opensuse/ext3/ext3_textmode.yaml
+          testsuite: null
+      - btrfs_textmode:
+          description: 'Mantainer: jeriveramoya Test selection of file system btrfs for / partition in textmode for openSUSE distributions'
+          settings:
+            DESKTOP: textmode
+            FILESYSTEM: btrfs
+            INSTALLONLY: '1'
+            VIDEOMODE: text
+            YAML_SCHEDULE: schedule/yast/opensuse/btrfs/btrfs_textmode.yaml
+          testsuite: null
+      - xfs_textmode:
+          description: 'Mantainer: jeriveramoya Test selection of file system xfs for / partition in textmode for openSUSE distributions'
+          settings:
+            DESKTOP: textmode
+            FILESYSTEM: xfs
+            INSTALLONLY: '1'
+            VIDEOMODE: text
+            YAML_SCHEDULE: schedule/yast/opensuse/xfs/xfs_textmode.yaml
+            YAML_TEST_DATA: test_data/yast/opensuse/xfs/xfs_partition.yaml
+          testsuite: null
+      - apparmor
+      - lvm-encrypt-separate-boot:
+          machine: 64bit
+      - lvm-full-encrypt
+      - openscap
+      - lynis_textmode
+      - lynis_gnome
+      - lvm_thin_provisioning:
+          settings:
+            YAML_SCHEDULE: schedule/yast/opensuse/lvm/lvm_thin_provisioning.yaml
+      - upgrade_Leap_15.2_gnome:
+          machine: 64bit
+      - upgrade_Leap_15.2_with_service_check:
+          machine: 64bit
+      - upgrade_Leap_15.2_with_service_check_nested_vm_down:
+          machine: 64bit
+      - upgrade_Leap_15.2_kde:
+          machine: 64bit
+      - upgrade_Leap_15.2_cryptlvm:
+          machine: uefi
+      - upgrade_Leap_15.0_gnome
+      - upgrade_Leap_15.0_cryptlvm:
+          machine: uefi
+      - upgrade_Leap_15.0_kde
+      - installer_extended
+      - desktopapps-other:
+          description: 'Maintainer: Yuan Ren (yuanren10). See https://progress.opensuse.org/issues/23906'
+          settings:
+            BOOT_HDD_IMAGE: '1'
+            DESKTOP: gnome
+            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+            REGRESSION: other
+            START_AFTER_TEST: create_hdd_gnome
+            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
+          testsuite: null
+      - desktopapps-documentation:
+          description: Maintainer Yaun Ren
+          settings:
+            DESKTOP: gnome
+            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+            REGRESSION: documentation
+            START_AFTER_TEST: create_hdd_gnome
+            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
+          testsuite: null
+      - desktopapps-gb18030
+      - security_check_kernel_config
+      - btrfs+warnings:
+          settings:
+            YAML_SCHEDULE: schedule/yast/opensuse/btrfs/btrfs+warnings.yaml
+      - selinux:
+          description: Maintainer (Lily Zhao) llzhao@suse.com
+          settings:
+            ARCH: x86_64
+            BOOT_HDD_IMAGE: '1'
+            DESKTOP: textmode
+            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+            MACHINE: 64bit
+            SECURITY_TEST: selinux
+            START_AFTER_TEST: create_hdd_textmode
+            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
+            VIDEOMODE: text
+          testsuite: null
+      - create_hdd_gnome-x11:
+          priority: 46
+      - create_hdd_gnome-wayland:
+          machine: 64bit_virtio
+          priority: 45
+      - desktopapps-other-x11
+      - desktopapps-documentation-x11
+      - desktopapps-gnome-x11
+      - desktopapps-remote-desktop-xrdp-client1:
+          settings:
+            BOOT_HDD_IMAGE: '1'
+            DESKTOP: gnome
+            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-gnome-wayland@%MACHINE%.qcow2'
+            NETWORKS: fixed
+            NICTYPE: tap
+            PARALLEL_WITH: desktopapps-remote-desktop-xrdp-server1
+            REGRESSION: remote
+            REMOTE_DESKTOP_TYPE: xrdp_client
+            START_AFTER_TEST: create_hdd_gnome-wayland
+            VIRTIO_CONSOLE: '0'
+            WORKER_CLASS: tap
+          description: ''
+          testsuite: null
+          machine: 64bit_virtio
+      - desktopapps-remote-desktop-xrdp-server1:
+          settings:
+            BOOTFROM: c
+            HDD_1: windows-10-x86_64-20H2@64bit_win.qcow2
+            NETWORKS: fixed
+            NICTYPE: tap
+            NLA: '1'
+            REGRESSION: remote
+            REMOTE_DESKTOP_TYPE: win_server
+            WORKER_CLASS: tap
+          description: ''
+          testsuite: null
+          machine: 64bit_virtio
+      - desktopapps-remote-desktop-xrdp-client2:
+          settings:
+            BOOT_HDD_IMAGE: '1'
+            DESKTOP: gnome
+            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-gnome-wayland@%MACHINE%.qcow2'
+            NETWORKS: fixed
+            NICTYPE: tap
+            PARALLEL_WITH: desktopapps-remote-desktop-xrdp-server2
+            REGRESSION: remote
+            REMOTE_DESKTOP_TYPE: xrdp_client
+            START_AFTER_TEST: create_hdd_gnome-wayland
+            VIRTIO_CONSOLE: '0'
+            WORKER_CLASS: tap
+          description: ''
+          testsuite: null
+          machine: 64bit_virtio
+      - desktopapps-remote-desktop-xrdp-server2:
+          settings:
+            BOOTFROM: c
+            HDD_1: windows-10-x86_64-20H2@64bit_win.qcow2
+            NETWORKS: fixed
+            NICTYPE: tap
+            NLA: '0'
+            REGRESSION: remote
+            REMOTE_DESKTOP_TYPE: win_server
+            WORKER_CLASS: tap
+          description: ''
+          testsuite: null
+          machine: 64bit_virtio
+      - remote_ssh_controller:
+          settings:
+            HDD_1: support_server_tumbleweed@64bit.qcow2
+      - remote_ssh_target
+      - remote-desktop-client4:
+          description: ''
+          settings:
+            BOOTFROM: c
+            DESKTOP: gnome
+            HDD_1: windows-10-x86_64-20H2@64bit_win.qcow2
+            NETWORKS: fixed
+            NICTYPE: tap
+            PARALLEL_WITH: remote-desktop-supportserver4
+            REGRESSION: remote
+            REMOTE_DESKTOP_TYPE: win_client
+            WORKER_CLASS: tap
+          testsuite: null
+      - remote-desktop-supportserver4:
+          description: ''
+          settings:
+            BOOTFROM: c
+            DESKTOP: gnome
+            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-gnome-x11@%MACHINE%.qcow2'
+            NETWORKS: fixed
+            NICTYPE: tap
+            REGRESSION: remote
+            REMOTE_DESKTOP_TYPE: xrdp_server
+            SHUTDOWN_NEEDS_AUTH: '1'
+            START_AFTER_TEST: create_hdd_gnome-x11
+            SUPPORT_SERVER: '1'
+            SUPPORT_SERVER_ROLES: dhcp
+            VIRTIO_CONSOLE: '0'
+            WORKER_CLASS: tap
+          testsuite: null
+      - toolkits
+      - gnome-x11-ibus
+      - toolkits-kde
+      - openldap_to_389ds
+      - apparmor_profile:
+          description: |-
+            Maintainer: llzhao@suse.de.
+            Test AppArmor profiles with an existing disk image.
+          settings:
+            ARCH: x86_64
+            BOOT_HDD_IMAGE: '1'
+            DESKTOP: gnome
+            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+            MACHINE: 64bit
+            SECURITY_TEST: apparmor_profile
+            START_AFTER_TEST: create_hdd_gnome
+            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
+            VIDEOMODE: text
+          testsuite: null
+      - create_swtpm_hdd
+      - create_hdd_textmode_uefi:
+          machine: uefi
+      - create_swtpm_hdd_uefi:
+          machine: uefi
+      - security_swtpm
+      - security_swtpm_uefi
+      - security_389ds_server:
+          description: 'Maintainer: rfan1'
+          testsuite: null
+          settings:
             BOOT_HDD_IMAGE: '1'
             START_AFTER_TEST: create_hdd_textmode
             HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
@@ -632,10 +657,10 @@ scenarios:
             HOSTNAME: 'server'
             USERNAME: 'wilber'
             YAML_SCHEDULE: schedule/security/389ds_sssd.yaml
-    - security_389ds_sssd_client:
-        description: 'Maintainer: rfan1'
-        testsuite: null
-        settings:
+      - security_389ds_sssd_client:
+          description: 'Maintainer: rfan1'
+          testsuite: null
+          settings:
             BOOT_HDD_IMAGE: '1'
             START_AFTER_TEST: create_hdd_textmode
             HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
@@ -647,303 +672,303 @@ scenarios:
             HOSTNAME: 'client'
             USERNAME: 'wilber'
             YAML_SCHEDULE: schedule/security/389ds_sssd.yaml
-    - security_grub_auth    
-    - openqa_bootstrap
-    - openqa_bootstrap_container:
-        description: 'Maintainer: dheidler. Install openQA in nspawn container using openqa-bootstrap-container script.'
-        settings:
-          +QEMUCPU: host
-          BOOTSTRAP_CONTAINER: '1'
-          BOOT_HDD_IMAGE: '1'
-          DESKTOP: gnome
-          EXTRATEST: openqa_bootstrap
-          HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
-          OPENQA_HOST: http://openqa.opensuse.org
-          START_AFTER_TEST: create_hdd_gnome
-          UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
-        testsuite: null
-    - rootonly
-    - qemu
-    - upgrade_Leap_15.1_gnome
-    - upgrade_boot-into_snapshot_rollback_Leap_15.1_gnome
-    - extra_tests_dracut
-    - boot_linuxrc
-    - RAID0_gpt
-    - RAID1_gpt
-    - RAID5_gpt:
-        description: ''
-        settings:
-          DESKTOP: kde
-          START_AFTER_TEST: RAID0_gpt
-          WORKER_CLASS: heavyload
-          YAML_SCHEDULE: schedule/yast/opensuse/raid/raid5_gpt.yaml
-        testsuite: null
-    - RAID10_gpt:
-        description: ''
-        settings:
-          DESKTOP: kde
-          START_AFTER_TEST: RAID1_gpt
-          WORKER_CLASS: heavyload
-          YAML_SCHEDULE: schedule/yast/opensuse/raid/raid10_gpt.yaml
-        testsuite: null
-    - modify_existing_partition:
-        description: Suite that modifies/resizes a partition on a previsously formatted disk. Depends on create_hdd_gnome.
-        settings:
-          DESKTOP: textmode
-          HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-gnome@%MACHINE%.qcow2'
-          START_AFTER_TEST: create_hdd_gnome
-          YAML_SCHEDULE: schedule/yast/opensuse/modify_existing_partition.yaml
-        testsuite: null
-    - remote_vnc_controller:
-        settings:
-          BOOT_HDD_IMAGE: '1'
-          DESKTOP: gnome
-          HDD_1: support_server_tumbleweed@64bit.qcow2
-          INSTALLONLY: '1'
-          NICTYPE: tap
-          OVS_DEBUG: '1'
-          REMOTE_CONTROLLER: vnc
-          SUPPORT_SERVER: '1'
-          SUPPORT_SERVER_ROLES: dhcp,dns
-          WORKER_CLASS: tap
-          YAML_SCHEDULE: schedule/yast/opensuse/remote_vnc/remote_vnc_controller.yaml
-        description: Controller performs remote installation via vnc to the target
-        testsuite: null
-    - remote_vnc_target:
-        settings:
-          DESKTOP: gnome
-          INSTALLONLY: '1'
-          NICTYPE: tap
-          OVS_DEBUG: '1'
-          PARALLEL_WITH: remote_vnc_controller
-          REMOTE_TARGET: vnc
-          USE_SUPPORT_SERVER: '1'
-          WORKER_CLASS: tap
-          YAML_SCHEDULE: schedule/yast/opensuse/remote_vnc/remote_vnc_target.yaml
-        description: The target of the vnc remote installation triggered by the controller
-        testsuite: null
-    - yast_oneclick_install
-    - firewalld-policy-firewall:
-        machine: 64bit
-        settings:
-          START_AFTER_TEST: 'create_hdd_textmode'
-          HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
-    - firewalld-policy-server:
-        machine: 64bit
-        settings:
-          START_AFTER_TEST: 'create_hdd_textmode'
-          HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
-    - firewalld-policy-client:
-        machine: 64bit
-        settings:
-          START_AFTER_TEST: 'create_hdd_textmode'
-          HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+      - security_grub_auth
+      - openqa_bootstrap
+      - openqa_bootstrap_container:
+          description: 'Maintainer: dheidler. Install openQA in nspawn container using openqa-bootstrap-container script.'
+          settings:
+            +QEMUCPU: host
+            BOOTSTRAP_CONTAINER: '1'
+            BOOT_HDD_IMAGE: '1'
+            DESKTOP: gnome
+            EXTRATEST: openqa_bootstrap
+            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+            OPENQA_HOST: http://openqa.opensuse.org
+            START_AFTER_TEST: create_hdd_gnome
+            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
+          testsuite: null
+      - rootonly
+      - qemu
+      - upgrade_Leap_15.1_gnome
+      - upgrade_boot-into_snapshot_rollback_Leap_15.1_gnome
+      - extra_tests_dracut
+      - boot_linuxrc
+      - RAID0_gpt
+      - RAID1_gpt
+      - RAID5_gpt:
+          description: ''
+          settings:
+            DESKTOP: kde
+            START_AFTER_TEST: RAID0_gpt
+            WORKER_CLASS: heavyload
+            YAML_SCHEDULE: schedule/yast/opensuse/raid/raid5_gpt.yaml
+          testsuite: null
+      - RAID10_gpt:
+          description: ''
+          settings:
+            DESKTOP: kde
+            START_AFTER_TEST: RAID1_gpt
+            WORKER_CLASS: heavyload
+            YAML_SCHEDULE: schedule/yast/opensuse/raid/raid10_gpt.yaml
+          testsuite: null
+      - modify_existing_partition:
+          description: Suite that modifies/resizes a partition on a previsously formatted disk. Depends on create_hdd_gnome.
+          settings:
+            DESKTOP: textmode
+            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-gnome@%MACHINE%.qcow2'
+            START_AFTER_TEST: create_hdd_gnome
+            YAML_SCHEDULE: schedule/yast/opensuse/modify_existing_partition.yaml
+          testsuite: null
+      - remote_vnc_controller:
+          settings:
+            BOOT_HDD_IMAGE: '1'
+            DESKTOP: gnome
+            HDD_1: support_server_tumbleweed@64bit.qcow2
+            INSTALLONLY: '1'
+            NICTYPE: tap
+            OVS_DEBUG: '1'
+            REMOTE_CONTROLLER: vnc
+            SUPPORT_SERVER: '1'
+            SUPPORT_SERVER_ROLES: dhcp,dns
+            WORKER_CLASS: tap
+            YAML_SCHEDULE: schedule/yast/opensuse/remote_vnc/remote_vnc_controller.yaml
+          description: Controller performs remote installation via vnc to the target
+          testsuite: null
+      - remote_vnc_target:
+          settings:
+            DESKTOP: gnome
+            INSTALLONLY: '1'
+            NICTYPE: tap
+            OVS_DEBUG: '1'
+            PARALLEL_WITH: remote_vnc_controller
+            REMOTE_TARGET: vnc
+            USE_SUPPORT_SERVER: '1'
+            WORKER_CLASS: tap
+            YAML_SCHEDULE: schedule/yast/opensuse/remote_vnc/remote_vnc_target.yaml
+          description: The target of the vnc remote installation triggered by the controller
+          testsuite: null
+      - yast_oneclick_install
+      - firewalld-policy-firewall:
+          machine: 64bit
+          settings:
+            START_AFTER_TEST: 'create_hdd_textmode'
+            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+      - firewalld-policy-server:
+          machine: 64bit
+          settings:
+            START_AFTER_TEST: 'create_hdd_textmode'
+            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+      - firewalld-policy-client:
+          machine: 64bit
+          settings:
+            START_AFTER_TEST: 'create_hdd_textmode'
+            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
     opensuse-Tumbleweed-GNOME-Live-x86_64:
-    - gnome-live:
-        machine: uefi-2G
-        priority: 48
-    - gnome-live:
-        machine: 64bit
-        priority: 48
-    - gnome-live:
-        machine: USBboot_64
-        priority: 48
-    - gnome-live:
-        machine: uefi-usb
-        priority: 48
-    - mediacheck:
-        machine: 64bit
+      - gnome-live:
+          machine: uefi-2G
+          priority: 48
+      - gnome-live:
+          machine: 64bit
+          priority: 48
+      - gnome-live:
+          machine: USBboot_64
+          priority: 48
+      - gnome-live:
+          machine: uefi-usb
+          priority: 48
+      - mediacheck:
+          machine: 64bit
     opensuse-Tumbleweed-JeOS-for-kvm-and-xen-x86_64:
-    - jeos:
-        machine: 64bit_virtio
-        priority: 48
-    - jeos:
-        machine: uefi_virtio-2G
-    - jeos-extra:
-        machine: 64bit_virtio-2G
-    - jeos-containers:
-        machine: 64bit_virtio
-        settings:
-            CONTAINERS_UNTESTED_IMAGES: '1'        
-    - zdup_twjeos2twnext:
-        machine: 64bit_virtio
-    - jeos-filesystem:
-         machine: 64bit_virtio
-    - jeos-fips:
-        machine: 64bit_virtio
-    - jeos-ltp-containers:
-        machine: uefi_virtio-2G
-    - jeos-ltp-cve:
-        machine: uefi_virtio-2G
-    - jeos-ltp-dio:
-        machine: uefi_virtio-2G
-    - jeos-ltp-syscalls:
-        machine: uefi_virtio-2G
-    - jeos-ltp-commands:
-        machine: uefi_virtio-2G
-    - jeos-ltp-syscalls-ipc:
-        machine: uefi_virtio-2G
+      - jeos:
+          machine: 64bit_virtio
+          priority: 48
+      - jeos:
+          machine: uefi_virtio-2G
+      - jeos-extra:
+          machine: 64bit_virtio-2G
+      - jeos-containers:
+          machine: 64bit_virtio
+          settings:
+            CONTAINERS_UNTESTED_IMAGES: '1'
+      - zdup_twjeos2twnext:
+          machine: 64bit_virtio
+      - jeos-filesystem:
+          machine: 64bit_virtio
+      - jeos-fips:
+          machine: 64bit_virtio
+      - jeos-ltp-containers:
+          machine: uefi_virtio-2G
+      - jeos-ltp-cve:
+          machine: uefi_virtio-2G
+      - jeos-ltp-dio:
+          machine: uefi_virtio-2G
+      - jeos-ltp-syscalls:
+          machine: uefi_virtio-2G
+      - jeos-ltp-commands:
+          machine: uefi_virtio-2G
+      - jeos-ltp-syscalls-ipc:
+          machine: uefi_virtio-2G
     opensuse-Tumbleweed-KDE-Live-x86_64:
-    - kde-live:
-        machine: uefi-2G
-        priority: 48
-    - kde-live:
-        machine: uefi-usb
-        priority: 48
-    - kde-live:
-        machine: 64bit
-        priority: 48
-    - kde-live:
-        machine: USBboot_64
-        priority: 48
-    - mediacheck:
-        machine: 64bit
-    - kde-live_installation:
-        machine: uefi-2G
-    - kde-live_installation:
-        machine: 64bit
-    - kde-live-wayland:
-        machine: 64bit_virtio-3G
-    - kde_live_upgrade_leap_15.0
-    - kde_live_upgrade_leap_42.3:
-        machine: 64bit-2G
+      - kde-live:
+          machine: uefi-2G
+          priority: 48
+      - kde-live:
+          machine: uefi-usb
+          priority: 48
+      - kde-live:
+          machine: 64bit
+          priority: 48
+      - kde-live:
+          machine: USBboot_64
+          priority: 48
+      - mediacheck:
+          machine: 64bit
+      - kde-live_installation:
+          machine: uefi-2G
+      - kde-live_installation:
+          machine: 64bit
+      - kde-live-wayland:
+          machine: 64bit_virtio-3G
+      - kde_live_upgrade_leap_15.0
+      - kde_live_upgrade_leap_42.3:
+          machine: 64bit-2G
     opensuse-Tumbleweed-NET-x86_64:
-    - textmode:
-        machine: 64bit
-        priority: 40
-    - kde:
-        machine: Laptop_64
-        priority: 40
-    - kde:
-        machine: USBboot_64
-        priority: 40
-    - kde:
-        machine: 64bit
-        priority: 40
-    - uefi:
-        machine: 64bit
-        priority: 45
-    - gnome:
-        machine: 64bit
-        priority: 45
-    - gnome:
-        machine: Laptop_64
-        priority: 45
-    - minimalx:
-        machine: 64bit
-        priority: 45
-    - lxde:
-        machine: 64bit
-        priority: 49
-    - xfce:
-        machine: 64bit
-        priority: 49
-    - RAID0_gpt
-    - RAID1_gpt
-    - RAID5_gpt:
-        description: ''
-        settings:
-          DESKTOP: kde
-          START_AFTER_TEST: RAID0_gpt
-          WORKER_CLASS: heavyload
-          YAML_SCHEDULE: schedule/yast/opensuse/raid/raid5_gpt.yaml
-        testsuite: null
-    - RAID10_gpt:
-        description: ''
-        settings:
-          DESKTOP: kde
-          START_AFTER_TEST: RAID1_gpt
-          WORKER_CLASS: heavyload
-          YAML_SCHEDULE: schedule/yast/opensuse/raid/raid10_gpt.yaml
-        testsuite: null
-    - containers_tw_image_on_centos_host:
-        testsuite: null
-        description: 'Runs docker and podman container test on Centos'
-        settings:
-          DESKTOP: textmode
-          EXTRATEST: cont
-          VIDEOMODE: text
-          KEEP_GRUB_TIMEOUT: '1'
-          BOOT_HDD_IMAGE: '1'
-          HDD_1: 'centOS-8.2.2004-x86_64-minimal.qcow2'
-          CONTAINERS_UNTESTED_IMAGES: '1'
-          CONTAINERS_NO_SUSE_OS: "1"
-          CONTAINER_RUNTIME: "podman,docker"
-          REGISTRY: '18.156.2.117:5000'
-    - containers_tw_image_on_ubuntu_host:
-        testsuite: null
-        description: 'Runs docker and podman container test on Ubuntu'
-        settings:
-          DESKTOP: textmode
-          EXTRATEST: cont
-          VIDEOMODE: text
-          KEEP_GRUB_TIMEOUT: '1'
-          BOOT_HDD_IMAGE: '1'
-          HDD_1: 'ubuntu-20.04.1_1.qcow2'
-          CONTAINERS_UNTESTED_IMAGES: '1'
-          CONTAINERS_NO_SUSE_OS: "1"
-          CONTAINER_RUNTIME: "podman,docker"
-          REGISTRY: '18.156.2.117:5000'
-    - cryptlvm:
-        machine: 64bit
-    - install_only:
-        machine: smp_64
-        priority: 40
-    - uefi-os:
-        machine: 64bit
-        priority: 45
-    - upgrade_Leap_42.1_gnome:
-        machine: 64bit
-    - upgrade_Leap_42.1_kde:
-        machine: 64bit
-    - create_hdd_minimalx
-    - create_hdd_tumbleweed
-    - zdup_tw2twnext_gnome
-    - create_hdd_tumbleweed_kde
-    - zdup_tw2twnext_kde
-    - otherDE_enlightenment
-    - otherDE_lxqt
-    - otherDE_mate
-    - otherDE_awesome
-    - upgrade_Leap_42.2_gnome:
-        machine: 64bit
-    - upgrade_Leap_42.2_kde:
-        machine: 64bit
-    - gnome-gdm:
-        machine: 64bit
-    - kde_dual_windows10:
-        machine: uefi_win
-    - autoyast_gnome:
-        machine: 64bit
-    - upgrade_Leap_42.3_gnome:
-        machine: 64bit
-    - upgrade_Leap_42.3_cryptlvm:
-        machine: 64bit
-    - upgrade_Leap_42.3_cryptlvm:
-        machine: uefi
-    - upgrade_Leap_42.3_kde+system_performance
-    - lvm-encrypt-separate-boot:
-        machine: 64bit
+      - textmode:
+          machine: 64bit
+          priority: 40
+      - kde:
+          machine: Laptop_64
+          priority: 40
+      - kde:
+          machine: USBboot_64
+          priority: 40
+      - kde:
+          machine: 64bit
+          priority: 40
+      - uefi:
+          machine: 64bit
+          priority: 45
+      - gnome:
+          machine: 64bit
+          priority: 45
+      - gnome:
+          machine: Laptop_64
+          priority: 45
+      - minimalx:
+          machine: 64bit
+          priority: 45
+      - lxde:
+          machine: 64bit
+          priority: 49
+      - xfce:
+          machine: 64bit
+          priority: 49
+      - RAID0_gpt
+      - RAID1_gpt
+      - RAID5_gpt:
+          description: ''
+          settings:
+            DESKTOP: kde
+            START_AFTER_TEST: RAID0_gpt
+            WORKER_CLASS: heavyload
+            YAML_SCHEDULE: schedule/yast/opensuse/raid/raid5_gpt.yaml
+          testsuite: null
+      - RAID10_gpt:
+          description: ''
+          settings:
+            DESKTOP: kde
+            START_AFTER_TEST: RAID1_gpt
+            WORKER_CLASS: heavyload
+            YAML_SCHEDULE: schedule/yast/opensuse/raid/raid10_gpt.yaml
+          testsuite: null
+      - containers_tw_image_on_centos_host:
+          testsuite: null
+          description: 'Runs docker and podman container test on Centos'
+          settings:
+            DESKTOP: textmode
+            EXTRATEST: cont
+            VIDEOMODE: text
+            KEEP_GRUB_TIMEOUT: '1'
+            BOOT_HDD_IMAGE: '1'
+            HDD_1: 'centOS-8.2.2004-x86_64-minimal.qcow2'
+            CONTAINERS_UNTESTED_IMAGES: '1'
+            CONTAINERS_NO_SUSE_OS: "1"
+            CONTAINER_RUNTIME: "podman,docker"
+            REGISTRY: '18.156.2.117:5000'
+      - containers_tw_image_on_ubuntu_host:
+          testsuite: null
+          description: 'Runs docker and podman container test on Ubuntu'
+          settings:
+            DESKTOP: textmode
+            EXTRATEST: cont
+            VIDEOMODE: text
+            KEEP_GRUB_TIMEOUT: '1'
+            BOOT_HDD_IMAGE: '1'
+            HDD_1: 'ubuntu-20.04.1_1.qcow2'
+            CONTAINERS_UNTESTED_IMAGES: '1'
+            CONTAINERS_NO_SUSE_OS: "1"
+            CONTAINER_RUNTIME: "podman,docker"
+            REGISTRY: '18.156.2.117:5000'
+      - cryptlvm:
+          machine: 64bit
+      - install_only:
+          machine: smp_64
+          priority: 40
+      - uefi-os:
+          machine: 64bit
+          priority: 45
+      - upgrade_Leap_42.1_gnome:
+          machine: 64bit
+      - upgrade_Leap_42.1_kde:
+          machine: 64bit
+      - create_hdd_minimalx
+      - create_hdd_tumbleweed
+      - zdup_tw2twnext_gnome
+      - create_hdd_tumbleweed_kde
+      - zdup_tw2twnext_kde
+      - otherDE_enlightenment
+      - otherDE_lxqt
+      - otherDE_mate
+      - otherDE_awesome
+      - upgrade_Leap_42.2_gnome:
+          machine: 64bit
+      - upgrade_Leap_42.2_kde:
+          machine: 64bit
+      - gnome-gdm:
+          machine: 64bit
+      - kde_dual_windows10:
+          machine: uefi_win
+      - autoyast_gnome:
+          machine: 64bit
+      - upgrade_Leap_42.3_gnome:
+          machine: 64bit
+      - upgrade_Leap_42.3_cryptlvm:
+          machine: 64bit
+      - upgrade_Leap_42.3_cryptlvm:
+          machine: uefi
+      - upgrade_Leap_42.3_kde+system_performance
+      - lvm-encrypt-separate-boot:
+          machine: 64bit
     opensuse-Tumbleweed-Rescue-CD-x86_64:
-    - rescue:
-        priority: 49
-    - rescue:
-        machine: uefi-usb
-        priority: 49
-    - mediacheck:
-        machine: 64bit
+      - rescue:
+          priority: 49
+      - rescue:
+          machine: uefi-usb
+          priority: 49
+      - mediacheck:
+          machine: 64bit
     opensuse-Tumbleweed-XFCE-Live-x86_64:
-    - xfce-live
-    - xfce-live:
-        machine: uefi-usb
-        priority: 49
-    - mediacheck:
-        machine: 64bit
+      - xfce-live
+      - xfce-live:
+          machine: uefi-usb
+          priority: 49
+      - mediacheck:
+          machine: 64bit
     opensuse-Tumbleweed-WSL-x86_64:
-    - wsl-main:
-        testsuite: null
-        machine: 64bit_win
-        settings: &wsl_settings
+      - wsl-main:
+          testsuite: null
+          machine: 64bit_win
+          settings: &wsl_settings
             BOOT_HDD_IMAGE: '1'
             QEMURAM: '2048'
             QEMUVGA: 'qxl'
@@ -954,20 +979,20 @@ scenarios:
             VNC_STALL_THRESHOLD: '10'
             VNC_TYPING_LIMIT: '15'
             QEMU_ENABLE_SMBD: '1'
-    - wsl-main:
-        testsuite: null
-        machine: uefi_win
-        settings:
-          <<: *wsl_settings
-          HDD_1: 'windows-10-x86_64-21H1@uefi_win.qcow2'
-    - wsl2-main:
-        testsuite: null
-        machine: 64bit_win
-        settings:
-          <<: *wsl_settings
-          WSL2: '1'
-          QEMURAM: '4096'
-          QEMUCPU: 'host,kvm=off,vmx=on,hypervisor=off,hv_time,hv_relaxed,hv_vapic,hv_spinlocks=0x1fff,hv_frequencies,hv_reenlightenment,hv_vpindex,hv-synic,hv-stimer,hv-stimer-direct'
-          QEMUMACHINE: 'q35,accel=whpx'
-          QEMUCPUS: '2'
-          WORKER_CLASS: 'openqaworker1'
+      - wsl-main:
+          testsuite: null
+          machine: uefi_win
+          settings:
+            <<: *wsl_settings
+            HDD_1: 'windows-10-x86_64-21H1@uefi_win.qcow2'
+      - wsl2-main:
+          testsuite: null
+          machine: 64bit_win
+          settings:
+            <<: *wsl_settings
+            WSL2: '1'
+            QEMURAM: '4096'
+            QEMUCPU: 'host,kvm=off,vmx=on,hypervisor=off,hv_time,hv_relaxed,hv_vapic,hv_spinlocks=0x1fff,hv_frequencies,hv_reenlightenment,hv_vpindex,hv-synic,hv-stimer,hv-stimer-direct'
+            QEMUMACHINE: 'q35,accel=whpx'
+            QEMUCPUS: '2'
+            WORKER_CLASS: 'openqaworker1'
