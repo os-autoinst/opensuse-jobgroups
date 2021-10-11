@@ -420,9 +420,6 @@ scenarios:
       - extra_tests_on_kde
       - extra_tests_on_xfce
       - extra_tests_in_textmode
-        #      - extra_tests_textmode_containers:
-        #          settings:
-        #            YAML_SCHEDULE: schedule/containers/extra_tests_textmode_containers.yaml
       - extra_tests_ai_ml
       - autoyast_minimal:
           settings:
