@@ -15,3 +15,4 @@ scenarios:
           settings:
             HDD_1: opensuse-%VERSION%-%ARCH%-%BUILD%-gnome-libyui@%MACHINE%.qcow2
           testsuite: yast2_gui
+
