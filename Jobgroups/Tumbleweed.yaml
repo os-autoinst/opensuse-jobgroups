@@ -970,7 +970,6 @@ scenarios:
           machine: 64bit_win
           settings: &wsl_settings
             BOOT_HDD_IMAGE: '1'
-            QEMURAM: '2048'
             QEMUVGA: 'qxl'
             QEMUMACHINE: 'q35'
             SCC_REGISTER: '0'

@@ -419,7 +419,6 @@ scenarios:
           testsuite: null
       - extra_tests_on_kde
       - extra_tests_on_xfce
-      - gnome-ext4
       - extra_tests_in_textmode
         #      - extra_tests_textmode_containers:
         #          settings:
