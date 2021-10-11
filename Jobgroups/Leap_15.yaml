@@ -244,7 +244,6 @@ scenarios:
           machine: uefi
       - upgrade_Leap_15.0_kde:
           machine: 64bit
-      - upgrade_Leap_15.1_gnome
       - upgrade_Leap_15.2_gnome
       - upgrade_Leap_15.2_cryptlvm
       - installer_extended

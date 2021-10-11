@@ -13,3 +13,4 @@ scenarios:
     opensuse-Tumbleweed-DVD-x86_64:
       - yast2_gui_2:
           testsuite: yast2_gui
+      - aloha
