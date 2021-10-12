@@ -17,18 +17,15 @@ jobs:
         run: |
           [[ -z "${{ secrets.APIKEY }}" ]] && echo "::warning No APIKEY set" || true
           [[ -z "${{ secrets.APISECRET }}" ]] && echo "::warning No APISECRET set" || true
-      - name: Get changed files
-        id: changed-files
-        uses: tj-actions/changed-files@v1.1.3
       - name: Get Job group changed files
-        id: changed-jobgroup-files
+        id: changed-files
         run: |
-          CHANGED_FILES="${{ steps.changed-files.outputs.all_modified_files }}"
-          CHANGED_JOBGROUP_FILES=$(./scripts/extract_non_jobgroups $CHANGED_FILES)
-          echo "::set-output name=files::${CHANGED_JOBGROUP_FILES}"
+          CHANGED_FILES=$(git diff --diff-filter="ACMR" --name-only ${{ github.event.before }}..${{ github.event.after }} | grep Jobgroups | awk -v d=" " '{s=(NR==1?s:s d)$0}END{print s}')
+          echo $CHANGED_FILES
+          echo "::set-output name=files::${CHANGED_FILES}"
       - name: Run yamllint for modified Job group schedules
         run: |
-          for file in ${{ steps.changed-jobgroup-files.outputs.files }}; do
+          for file in ${{ steps.changed-files.outputs.files }}; do
             yamllint $file
           done
       - name: Clone os-autoinst-distri-opensuse repository
@@ -41,12 +38,12 @@ jobs:
           fetch-depth: 1
       - name: Check if YAML_SCHEDULE and YAML_TEST_DATA exist in os-autoinst-distri-opensuse
         run: |
-          for file in ${{ steps.changed-jobgroup-files.outputs.files }}; do
+          for file in ${{ steps.changed-files.outputs.files }}; do
             scripts/verify_file_existence $(grep -oP '(YAML_SCHEDULE|YAML_TEST_DATA):\s\K.*' $file | sort -u | awk "{print \"../os-autoinst-distri-opensuse/\" \$0}") 
           done
       - name: Upload changed Job group schedules to O3
         run: |
-          for file in ${{ steps.changed-jobgroup-files.outputs.files }}; do
+          for file in ${{ steps.changed-files.outputs.files }}; do
             GROUPID=$(./scripts/define_group_id $file)
             echo "Post ${file} to O3 job group ${GROUPID}"
             # POST command changed in order not to interfere with current Job group schedules until repo is approved.
