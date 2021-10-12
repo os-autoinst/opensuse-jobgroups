@@ -921,7 +921,6 @@ scenarios:
           machine: 64bit
       - upgrade_Leap_42.1_kde:
           machine: 64bit
-      - otherDE_lxqt
       - otherDE_mate
       - otherDE_awesome
       - upgrade_Leap_42.2_gnome:
