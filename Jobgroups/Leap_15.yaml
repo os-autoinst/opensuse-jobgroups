@@ -114,7 +114,6 @@ scenarios:
       - rescue_system:
           machine: 64bit
       - gpt
-      - xfs
       - minimalx_btrfs_snapper
       - create_hdd_textmode
       - create_hdd_gnome:
