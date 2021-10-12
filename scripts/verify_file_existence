@@ -1,5 +1,5 @@
 #!/bin/sh -e
-files="${@:?"Need files to check as argument"}"
+files="${@}"
 success=0
 for file in $files; do
 	if [ ! -f "$file" ]; then
