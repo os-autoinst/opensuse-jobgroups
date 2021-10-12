@@ -921,7 +921,6 @@ scenarios:
           machine: 64bit
       - upgrade_Leap_42.1_kde:
           machine: 64bit
-      - zdup_tw2twnext_kde
       - otherDE_enlightenment
       - otherDE_lxqt
       - otherDE_mate
