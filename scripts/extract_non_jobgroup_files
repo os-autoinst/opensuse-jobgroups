@@ -1,0 +1,11 @@
+#!/bin/sh -e
+files="${@}"
+
+for i in ${files}; do
+if [[ $i == Jobgroups* ]]
+then
+jobgroup-files="${jobgroup-files} ${i}" 
+fi
+done
+
+echo $jobgroup-files
