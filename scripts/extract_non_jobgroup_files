@@ -4,8 +4,8 @@ files="${@}"
 for i in ${files}; do
 if [[ $i == Jobgroups* ]]
 then
-jobgroup-files="${jobgroup-files} ${i}" 
+jobgroup_files="${jobgroup_files} ${i}" 
 fi
 done
 
-echo $jobgroup-files
+echo $jobgroup_files
