@@ -141,7 +141,6 @@ scenarios:
           machine: uefi
       - boot_to_snapshot
       - yast2_gui
-      - extra_tests_gnome
       - systemd-networkd
       - upgrade_Leap_42.1_gnome:
           machine: 64bit

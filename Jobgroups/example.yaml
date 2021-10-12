@@ -14,5 +14,4 @@ scenarios:
       - yast2_gui_2:
           settings:
             HDD_1: opensuse-%VERSION%-%ARCH%-%BUILD%-gnome-libyui@%MACHINE%.qcow2
-            YAMS_SCHEDULE: schedule/yast/yast2_gui/yast2_gui_opensuse.yaml
           testsuite: yast2_gui
