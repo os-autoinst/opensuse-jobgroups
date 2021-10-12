@@ -147,7 +147,6 @@ scenarios:
           machine: 64bit
       - upgrade_Leap_42.1_kde:
           machine: 64bit
-      - extra_tests_textmode
       - extra_tests_textmode_podman_containers:
           testsuite: extra_tests_textmode_containers
           settings:

@@ -886,7 +886,6 @@ scenarios:
           description: 'Runs docker and podman container test on Centos'
           settings:
             DESKTOP: textmode
-            EXTRATEST: cont
             VIDEOMODE: text
             KEEP_GRUB_TIMEOUT: '1'
             BOOT_HDD_IMAGE: '1'
