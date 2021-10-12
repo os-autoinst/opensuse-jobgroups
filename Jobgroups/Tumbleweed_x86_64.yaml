@@ -907,7 +907,6 @@ scenarios:
             HDD_1: 'ubuntu-20.04.1_1.qcow2'
             CONTAINERS_UNTESTED_IMAGES: '1'
             CONTAINERS_NO_SUSE_OS: "1"
-            REGISTRY: '18.156.2.117:5000'
       - cryptlvm:
           machine: 64bit
       - install_only:
