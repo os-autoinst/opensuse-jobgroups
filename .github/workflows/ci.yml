@@ -23,7 +23,7 @@ jobs:
       - name: Get Job group changed files
         run: |
           CHANGED_FILES="${{ steps.changed-files.outputs.all_modified_files }}"
-          CHANGED_JOBGROUP_FILES=$(./scripts/extract_non_jobgroup $CHANGED_FILES)
+          CHANGED_JOBGROUP_FILES=$(./scripts/extract_non_jobgroups $CHANGED_FILES)
           echo "::set-env name=CHANGED_JOBGROUP_FILES::$CHANGED_JOBGROUP_FILES"
       - name: Run yamllint for modified Job group schedules
         run: |
