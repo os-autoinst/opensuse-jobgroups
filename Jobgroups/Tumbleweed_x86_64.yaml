@@ -894,6 +894,7 @@ scenarios:
             CONTAINERS_NO_SUSE_OS: "1"
             CONTAINER_RUNTIME: "podman,docker"
             REGISTRY: '18.156.2.117:5000'
+            YAML_SCHEDULE: schedule/that/does/not/exist
       - containers_tw_image_on_ubuntu_host:
           testsuite: null
           description: 'Runs docker and podman container test on Ubuntu'
