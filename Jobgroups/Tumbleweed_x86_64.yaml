@@ -906,7 +906,6 @@ scenarios:
             BOOT_HDD_IMAGE: '1'
             HDD_1: 'ubuntu-20.04.1_1.qcow2'
             CONTAINERS_UNTESTED_IMAGES: '1'
-            CONTAINERS_NO_SUSE_OS: "1"
       - cryptlvm:
           machine: 64bit
       - install_only:
