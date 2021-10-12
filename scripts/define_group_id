@@ -1,6 +1,6 @@
 #!/bin/sh -e
 file="${@}"
-if [[ $file == "Jobgroups/Tumbleweed.yaml" ]]
+if [[ $file == "Jobgroups/Tumbleweed_x86_64.yaml" ]]
 then
   GROUPID=1
 elif [[ $file == "Jobgroups/Leap_15.yaml" ]]
