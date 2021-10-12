@@ -516,7 +516,6 @@ scenarios:
       - extra_tests_on_gnome
       - extra_tests_on_kde
       - extra_tests_in_textmode
-      - extra_tests_filesystem
       - yast2_ncurses:
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/yast2_ncurses/yast2_ncurses.yaml
