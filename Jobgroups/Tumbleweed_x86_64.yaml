@@ -893,8 +893,8 @@ scenarios:
             HDD_1: 'centOS-8.2.2004-x86_64-minimal.qcow2'
             CONTAINERS_UNTESTED_IMAGES: '1'
             CONTAINERS_NO_SUSE_OS: "1"
-            REGISTRY: '18.156.2.117:5000'
-      - containers_tw_image_on_ubuntu_host:
+             REGISTRY: '18.156.2.117:5000'
+      - containers_tw_image_on_ubuntu_host:  
           testsuite: null
           description: 'Runs docker and podman container test on Ubuntu'
           settings:
