@@ -1,0 +1,11 @@
+#!/bin/sh -e
+all_changed_files="${@}"
+
+for i in ${all_changed_files}; do
+if [[ $i == Jobgroups* ]]
+then
+changed_jobgroup_files="${changed_jobgroup_files} ${i}"
+fi
+done
+
+echo $changed_jobgroup_files
