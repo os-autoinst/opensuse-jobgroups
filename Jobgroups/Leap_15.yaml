@@ -421,9 +421,6 @@ scenarios:
       - extra_tests_on_xfce
       - gnome-ext4
       - extra_tests_in_textmode
-        #      - extra_tests_textmode_containers:
-        #          settings:
-        #            YAML_SCHEDULE: schedule/containers/extra_tests_textmode_containers.yaml
       - extra_tests_ai_ml
       - autoyast_minimal:
           settings:
@@ -520,9 +517,6 @@ scenarios:
       - extra_tests_on_kde
       - extra_tests_in_textmode
       - extra_tests_filesystem
-      - extra_tests_textmode_containers:
-          settings:
-            YAML_SCHEDULE: schedule/containers/extra_tests_textmode_containers.yaml
       - yast2_ncurses:
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/yast2_ncurses/yast2_ncurses.yaml
