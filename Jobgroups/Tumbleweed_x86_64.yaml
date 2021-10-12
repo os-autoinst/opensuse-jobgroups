@@ -921,7 +921,6 @@ scenarios:
           machine: 64bit
       - upgrade_Leap_42.1_kde:
           machine: 64bit
-      - create_hdd_minimalx
       - zdup_tw2twnext_gnome
       - create_hdd_tumbleweed_kde
       - zdup_tw2twnext_kde
