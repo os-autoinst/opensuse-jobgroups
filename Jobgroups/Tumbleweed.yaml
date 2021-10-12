@@ -287,7 +287,6 @@ scenarios:
           priority: 46
       - extra_tests_on_kde
       - extra_tests_on_xfce
-      - extra_tests_textmode
       - create_hdd_transactional_server
       - extra_tests_transactional_server
       - extra_tests_vagrant:

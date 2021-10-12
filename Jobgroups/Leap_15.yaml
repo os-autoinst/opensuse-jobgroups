@@ -114,7 +114,6 @@ scenarios:
       - rescue_system:
           machine: 64bit
       - gpt
-      - create_hdd_textmode
       - create_hdd_gnome:
           machine: 64bit
       - create_hdd_gnome:
