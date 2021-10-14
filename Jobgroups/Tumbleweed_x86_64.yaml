@@ -901,7 +901,6 @@ scenarios:
           settings:
             DESKTOP: textmode
             EXTRATEST: cont
-            VIDEOMODE: text
             KEEP_GRUB_TIMEOUT: '1'
             BOOT_HDD_IMAGE: '1'
             HDD_1: 'ubuntu-20.04.1_1.qcow2'
