@@ -20,9 +20,6 @@ jobs:
         run: |
           [[ -z "${{ secrets.APIKEY }}" ]] && echo "::warning No APIKEY set" || true
           [[ -z "${{ secrets.APISECRET }}" ]] && echo "::warning No APISECRET set" || true
-          #     - name: Get all changed files
-          #       id: all-changed-files
-          #       uses: tj-actions/changed-files@v10.1
       - name: Get Job group changed files
         id: changed-files
         run: |
