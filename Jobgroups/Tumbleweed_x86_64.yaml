@@ -893,7 +893,6 @@ scenarios:
             HDD_1: 'centOS-8.2.2004-x86_64-minimal.qcow2'
             CONTAINERS_UNTESTED_IMAGES: '1'
             CONTAINERS_NO_SUSE_OS: "1"
-            CONTAINER_RUNTIME: "podman,docker"
             REGISTRY: '18.156.2.117:5000'
       - containers_tw_image_on_ubuntu_host:
           testsuite: null
@@ -902,7 +901,6 @@ scenarios:
             DESKTOP: textmode
             EXTRATEST: cont
             VIDEOMODE: text
-            KEEP_GRUB_TIMEOUT: '1'
             BOOT_HDD_IMAGE: '1'
             HDD_1: 'ubuntu-20.04.1_1.qcow2'
             CONTAINERS_UNTESTED_IMAGES: '1'
