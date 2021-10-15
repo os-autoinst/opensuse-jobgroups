@@ -39,8 +39,12 @@ jobs:
           fetch-depth: 1
       - name: Check if YAML_SCHEDULE and YAML_TEST_DATA exist in os-autoinst-distri-opensuse
         run: |
+          ls
+          echo "here"
+          ls ..
+          echo "here"
           for file in ${{ steps.changed-files.outputs.files }}; do
-            scripts/verify_file_existence $(grep -oP '(YAML_SCHEDULE|YAML_TEST_DATA):\s\K.*' $file | sort -u | awk "{print \"../os-autoinst-distri-opensuse/\" \$0}") 
+            scripts/verify_file_existence $(grep -oP '(YAML_SCHEDULE|YAML_TEST_DATA):\s\K.*' $file | sort -u | awk "{print \"os-autoinst-distri-opensuse/\" \$0}") 
           done
   after-merge:
     if: github.event.pull_request.merged == 'true'
