@@ -42,18 +42,3 @@ jobs:
           for file in ${{ steps.changed-files.outputs.files }}; do
             scripts/verify_file_existence $(grep -oP '(YAML_SCHEDULE|YAML_TEST_DATA):\s\K.*' $file | sort -u | awk "{print \"../os-autoinst-distri-opensuse/\" \$0}") 
           done
-  after-merge:
-    if: github.event.pull_request.merged == 'true'
-    needs: static
-    runs-on: ubuntu-latest
-      container:
-        image: docker://registry.opensuse.org/home/syrianidou_sofia/containers/tumbleweed:o3-jobgroups
-      steps:
-        - name: Upload changed Job group schedules to O3
-          run: |
-            for file in ${{ steps.changed-files.outputs.files }}; do
-              GROUPID=$(./scripts/define_group_id $file)
-              echo "Post ${file} to O3 job group ${GROUPID}"
-              # POST command commented out, not to interfere with current Job group schedules until repo is approved.
-              # openqa-cli api -X POST --o3 --apikey "${{ secrets.APIKEY }}" --apisecret "${{ secrets.APISECRET }}" job_templates_scheduling/$GROUPID schema=JobTemplates-01.yaml --param-file template=$file
-            done
