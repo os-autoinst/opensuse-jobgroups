@@ -7,7 +7,7 @@ on:
     paths:
       - 'Jobgroups/**.yaml'
 jobs:
-  static:
+  static-check:
     runs-on: ubuntu-latest 
     steps:
       - name: Git Checkout
