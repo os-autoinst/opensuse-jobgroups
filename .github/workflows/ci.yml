@@ -9,11 +9,9 @@ on:
 jobs:
   static:
     runs-on: ubuntu-latest 
-    container:
-      image: docker://registry.opensuse.org/home/syrianidou_sofia/containers/tumbleweed:o3-jobgroups
     steps:
       - name: Git Checkout
-        uses: actions/checkout@v1   # using v1 due to bug#1190670
+        uses: actions/checkout@v2
         with:
           fetch-depth: 0
       - name: Check if APIKEY and APISECRET are set
@@ -32,7 +30,7 @@ jobs:
             yamllint $file
           done
       - name: Clone os-autoinst-distri-opensuse repository
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
         with:
           repository: os-autoinst/os-autoinst-distri-opensuse 
           ref: refs/heads/master
@@ -44,11 +42,18 @@ jobs:
           for file in ${{ steps.changed-files.outputs.files }}; do
             scripts/verify_file_existence $(grep -oP '(YAML_SCHEDULE|YAML_TEST_DATA):\s\K.*' $file | sort -u | awk "{print \"../os-autoinst-distri-opensuse/\" \$0}") 
           done
-      - name: Upload changed Job group schedules to O3
-        run: |
-          for file in ${{ steps.changed-files.outputs.files }}; do
-            GROUPID=$(./scripts/define_group_id $file)
-            echo "Post ${file} to O3 job group ${GROUPID}"
-            # POST command commented out, not to interfere with current Job group schedules until repo is approved.
-            # openqa-cli api -X POST --o3 --apikey "${{ secrets.APIKEY }}" --apisecret "${{ secrets.APISECRET }}" job_templates_scheduling/$GROUPID schema=JobTemplates-01.yaml --param-file template=$file
-          done
+  after-merge:
+    if: github.event.pull_request.merged == 'true'
+    needs: static
+    runs-on: ubuntu-latest
+      container:
+        image: docker://registry.opensuse.org/home/syrianidou_sofia/containers/tumbleweed:o3-jobgroups
+      steps:
+        - name: Upload changed Job group schedules to O3
+          run: |
+            for file in ${{ steps.changed-files.outputs.files }}; do
+              GROUPID=$(./scripts/define_group_id $file)
+              echo "Post ${file} to O3 job group ${GROUPID}"
+              # POST command commented out, not to interfere with current Job group schedules until repo is approved.
+              # openqa-cli api -X POST --o3 --apikey "${{ secrets.APIKEY }}" --apisecret "${{ secrets.APISECRET }}" job_templates_scheduling/$GROUPID schema=JobTemplates-01.yaml --param-file template=$file
+            done
