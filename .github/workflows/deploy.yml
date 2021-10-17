@@ -1,12 +1,12 @@
 name: Deploy
 on:
-  push:
-    branches:
-      - master
+  pull_request:
+    types: [closed]
     paths:
       - 'Jobgroups/**.yaml'
 jobs:
   publish:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     container:
       image: docker://registry.opensuse.org/home/syrianidou_sofia/containers/tumbleweed:o3-jobgroups
@@ -21,6 +21,8 @@ jobs:
         CHANGED_FILES=$(git diff --exit-code --diff-filter="*ACDMRTUX" --name-only HEAD^ HEAD| grep Jobgroups | awk -v d=" " '{s=(NR==1?s:s d)$0}END{print s}')
         echo $CHANGED_FILES
         echo "::set-output name=files::${CHANGED_FILES}"
+    - name: Check APIs
+      run: echo "There is something" if ${{ secrets.APIKEY }}
     - name: Upload changed Job group schedules to O3
       run: |
         for file in ${{ steps.changed-files.outputs.files }}; do
