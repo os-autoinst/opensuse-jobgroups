@@ -42,3 +42,10 @@ jobs:
           for file in ${{ steps.changed-files.outputs.files }}; do
             scripts/verify_file_existence $(grep -oP '(YAML_SCHEDULE|YAML_TEST_DATA):\s\K.*' $file | sort -u | awk "{print \"os-autoinst-distri-opensuse/\" \$0}") 
           done
+      - name: Check secret
+        run: |
+          if [[ -z "${{ secrets.SOMESECRET }}" ]]
+          then
+          echo "All good"
+          fi
+
