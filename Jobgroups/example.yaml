@@ -15,5 +15,6 @@ scenarios:
           settings:
             HDD_1: opensuse-%VERSION%-%ARCH%-%BUILD%-gnome-libyui@%MACHINE%.qcow2
             SOMEVAR: 15
+            MYVAR: 13
             ANOTHERVAR: 16
           testsuite: yast2_gui
