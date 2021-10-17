@@ -21,12 +21,6 @@ jobs:
         CHANGED_FILES=$(git diff --exit-code --diff-filter="*ACDMRTUX" --name-only HEAD^ HEAD| grep Jobgroups | awk -v d=" " '{s=(NR==1?s:s d)$0}END{print s}')
         echo $CHANGED_FILES
         echo "::set-output name=files::${CHANGED_FILES}"
-    - name: Check APIs
-      run: |
-        if [[ -z "${{ secrets.APIKEY }}" ]] 
-        then
-        echo "No APIKEY still"
-        fi
     - name: Upload changed Job group schedules to O3
       run: |
         for file in ${{ steps.changed-files.outputs.files }}; do
