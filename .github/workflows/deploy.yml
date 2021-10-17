@@ -22,10 +22,12 @@ jobs:
         echo $CHANGED_FILES
         echo "::set-output name=files::${CHANGED_FILES}"
     - name: Check secret
+      env:
+        MYVAR: ${{ secrets.SOMESECRET }}
       run: |
-        if [[ -z "${{ secrets.SOMESECRET }}" ]]
+        if [[ -z "$MYVAR" ]]
         then
-        echo "All good"
+        echo "Empty"
         fi
     - name: Upload changed Job group schedules to O3
       run: |

@@ -43,9 +43,11 @@ jobs:
             scripts/verify_file_existence $(grep -oP '(YAML_SCHEDULE|YAML_TEST_DATA):\s\K.*' $file | sort -u | awk "{print \"os-autoinst-distri-opensuse/\" \$0}") 
           done
       - name: Check secret
+        env:
+          MYVAR: ${{ secrets.SOMESECRET }}
         run: |
-          if [[ -z "${{ secrets.SOMESECRET }}" ]]
+          if [[ -z "$MYVAR" ]]
           then
-          echo "All good"
+          echo "Empty"
           fi
 
