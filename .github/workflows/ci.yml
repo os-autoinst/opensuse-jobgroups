@@ -16,8 +16,8 @@ jobs:
           fetch-depth: 0
       - name: Check if APIKEY and APISECRET are set
         run: |
-          [[ -z "${{ secrets.APIKEY }}" ]] && echo "No APIKEY set"
-          [[ -z "${{ secrets.APISECRET }}" ]] && echo "No APISECRET set"
+          [[ -z "${{ secrets.APIKEY }}" ]] && echo "No APIKEY set" || true
+          [[ -z "${{ secrets.APISECRET }}" ]] && echo "No APISECRET set" || true
       - name: Get Job group changed files
         id: changed-files
         run: |
