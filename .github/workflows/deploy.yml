@@ -22,10 +22,8 @@ jobs:
         echo $CHANGED_FILES
         echo "::set-output name=files::${CHANGED_FILES}"
     - name: Check secret
-      env:
-        MYVAR: ${{ secrets.SOMESECRET }}
       run: |
-        if [[ -z "$MYVAR" ]]
+        if [[ -z "${{ secrets.SOMESECRET }}" ]]
         then
         echo "Empty"
         fi
