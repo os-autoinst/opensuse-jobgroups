@@ -16,8 +16,8 @@ jobs:
           fetch-depth: 0
       - name: Check if APIKEY and APISECRET are set
         run: |
-          [[ -z "${{ secrets.APIKEY }}" ]] && echo "No APIKEY set" || true
-          [[ -z "${{ secrets.APISECRET }}" ]] && echo "No APISECRET set" || true
+          [[ -z "${{ secrets.APIKEY }}" ]] && echo "No APIKEY set"
+          [[ -z "${{ secrets.APISECRET }}" ]] && echo "No APISECRET set"
       - name: Get Job group changed files
         id: changed-files
         run: |
@@ -42,3 +42,10 @@ jobs:
           for file in ${{ steps.changed-files.outputs.files }}; do
             scripts/verify_file_existence $(grep -oP '(YAML_SCHEDULE|YAML_TEST_DATA):\s\K.*' $file | sort -u | awk "{print \"os-autoinst-distri-opensuse/\" \$0}") 
           done
+      - name: Check secret
+        run: |
+          if [[ -z "${{ secrets.SOMESECRET }}" ]]
+          then
+          echo "All good"
+          fi
+
