@@ -22,7 +22,11 @@ jobs:
         echo $CHANGED_FILES
         echo "::set-output name=files::${CHANGED_FILES}"
     - name: Check APIs
-      run: echo "There is something" if ${{ secrets.APIKEY }}
+      run: |
+        if [[ -z "${{ secrets.APIKEY }}" ]] 
+        then
+        echo "No APIKEY still"
+        fi
     - name: Upload changed Job group schedules to O3
       run: |
         for file in ${{ steps.changed-files.outputs.files }}; do
