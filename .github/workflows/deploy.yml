@@ -30,10 +30,6 @@ jobs:
         for file in ${{ steps.changed-files.outputs.files }}; do
           GROUPID=$(./scripts/define_group_id $file)
           echo "Post ${file} to O3 job group ${GROUPID}"
-          if [[ -z "$APIKEY" ]]
-          then
-          echo "No bueno"
-          fi
           # POST command commented out, not to interfere with current Job group schedules until repo is approved.
           # openqa-cli api -X POST --o3 --apikey "$APIKEY" --apisecret "$APISECRET" job_templates_scheduling/$GROUPID schema=JobTemplates-01.yaml --param-file template=$file
         done
