@@ -17,4 +17,5 @@ scenarios:
             SOMEVAR: 15
             ANOTHERVAR: 16
             ANDANOTHER: 13
+            AANDANOTHER: 10
           testsuite: yast2_gui
