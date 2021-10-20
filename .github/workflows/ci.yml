@@ -4,6 +4,7 @@ on:
     paths:
       - 'Jobgroups/**.yaml'
   pull_request:
+    types: [ opened, edited, reopened ]
     paths:
       - 'Jobgroups/**.yaml'
 jobs:
