@@ -18,4 +18,5 @@ scenarios:
             ANOTHERVAR: 16
             ANDANOTHER: 13
             AANDANOTHER: 10
+            AAANDANOTHER: 12
           testsuite: yast2_gui
