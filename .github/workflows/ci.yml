@@ -1,8 +1,9 @@
 name: CI
 on: 
-# push:
-#   paths:
-#     - 'Jobgroups/**.yaml'
+  push:
+    branches-ignore: [ master ]
+    paths:
+      - 'Jobgroups/**.yaml'
   pull_request:
     types: [ opened, edited, reopened ]
     paths:
