@@ -21,17 +21,14 @@ jobs:
         CHANGED_FILES=$(git diff --exit-code --diff-filter="*ACDMRTUX" --name-only HEAD^ HEAD| grep Jobgroups | awk -v d=" " '{s=(NR==1?s:s d)$0}END{print s}')
         echo $CHANGED_FILES
         echo "::set-output name=files::${CHANGED_FILES}"
-    - name: Check secret
-      run: |
-        if [[ -z "${{ secrets.SOMESECRET }}" ]]
-        then
-        echo "Empty"
-        fi
     - name: Upload changed Job group schedules to O3
+        env:
+          APIKEY: "${{ secrets.APIKEY }}"
+          APISECRET: "${{ secrets.APISECRET }}"
       run: |
         for file in ${{ steps.changed-files.outputs.files }}; do
           GROUPID=$(./scripts/define_group_id $file)
           echo "Post ${file} to O3 job group ${GROUPID}"
           # POST command commented out, not to interfere with current Job group schedules until repo is approved.
-          # openqa-cli api -X POST --o3 --apikey "${{ secrets.APIKEY }}" --apisecret "${{ secrets.APISECRET }}" job_templates_scheduling/$GROUPID schema=JobTemplates-01.yaml --param-file template=$file
+          openqa-cli api -X POST --o3 --apikey $APIKEY --apisecret $APISECRET job_templates_scheduling/$GROUPID schema=JobTemplates-01.yaml --param-file template=$file
         done
