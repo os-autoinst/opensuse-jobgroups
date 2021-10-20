@@ -22,9 +22,9 @@ jobs:
         echo $CHANGED_FILES
         echo "::set-output name=files::${CHANGED_FILES}"
     - name: Upload changed Job group schedules to O3
-        env:
-          APIKEY: "${{ secrets.APIKEY }}"
-          APISECRET: "${{ secrets.APISECRET }}"
+      env:
+        APIKEY: "${{ secrets.APIKEY }}"
+        APISECRET: "${{ secrets.APISECRET }}"
       run: |
         for file in ${{ steps.changed-files.outputs.files }}; do
           GROUPID=$(./scripts/define_group_id $file)
