@@ -14,5 +14,5 @@ scenarios:
       - yast2_gui_2:
           settings:
             HDD_1: opensuse-%VERSION%-%ARCH%-%BUILD%-gnome-libyui@%MACHINE%.qcow2
-            somevar: 627
+            somevar: 27
           testsuite: yast2_gui
