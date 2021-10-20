@@ -4,8 +4,11 @@ on:
     types: [closed]
     paths:
       - 'Jobgroups/**.yaml'
+    branches: 
+      - master
 jobs:
   publish:
+    environment: Deployment
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     container:
