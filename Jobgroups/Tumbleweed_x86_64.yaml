@@ -4,7 +4,7 @@
 #               This file is managed in GIT!               #
 #  Any changes via the openQA WebUI will get overwritten!  #
 #                                                          #
-#        https://github.com/os-autoinst/o3-jobgroups       #
+#    https://github.com/os-autoinst/opensuse-jobgroups     #
 #                                                          #
 ############################################################
 ---
@@ -303,15 +303,18 @@ scenarios:
             UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
             YAML_SCHEDULE: schedule/vagrant.yaml
           testsuite: null
-      - extra_tests_textmode_podman_containers:
+      - containers_host_docker:
           testsuite: extra_tests_textmode_containers
           settings:
-            YAML_SCHEDULE: schedule/containers/extra_tests_textmode_containers_podman.yaml
-            CONTAINERS_UNTESTED_IMAGES: '1'
-      - extra_tests_textmode_docker_containers:
+            CONTAINER_RUNTIME: 'docker'
+      - containers_host_podman:
           testsuite: extra_tests_textmode_containers
           settings:
-            YAML_SCHEDULE: schedule/containers/extra_tests_textmode_containers_docker_tw.yaml
+            CONTAINER_RUNTIME: 'podman'
+      - containers_image:
+          testsuite: extra_tests_textmode_containers
+          settings:
+            CONTAINER_RUNTIME: 'docker,podman'
             CONTAINERS_UNTESTED_IMAGES: '1'
       - extra_tests_ai_ml
       - upgrade_Leap_42.2_gnome:
@@ -348,8 +351,9 @@ scenarios:
             DESKTOP: gnome
             NUMDISKS: '4'
             YAML_SCHEDULE: schedule/yast/opensuse/autoyast/autoyast_multi_btrfs.yaml
-          description: AutoYaST installation with multi-device Btrfs. The setup containing 4 hds using two multidevice btrfs, one mounted on / and one mounted
-            on /test. Combines partition-less disk and disk with partition, also includes an encrypted disk.
+          description: AutoYaST installation with multi-device Btrfs. The setup containing 4 hds using two
+                       multidevice btrfs, one mounted on / and one mounted on /test. Combines partition-less
+                       disk and disk with partition, also includes an encrypted disk.
           testsuite: null
           machine: 64bit
       - autoyast_rules_and_classes:
@@ -418,8 +422,9 @@ scenarios:
       - install_offline
       - system_performance
       - select_disk:
-          description: 'Maintainer: riafarov, mloviska Test the selection of "first" disk with the guided setup in partitioning. This is also used as a
-            prerequisite for real hardware tests to select the right disk for installation and not a "random" one.'
+          description: 'Maintainer: riafarov, mloviska Test the selection of "first" disk with the guided
+                        setup in partitioning. This is also used as a prerequisite for real hardware tests
+                        to select the right disk for installation and not a "random" one.'
           settings:
             NUMDISKS: '2'
             YAML_SCHEDULE: schedule/yast/opensuse/select_disk/select_disk.yaml
@@ -501,6 +506,11 @@ scenarios:
           testsuite: null
       - desktopapps-gb18030
       - security_check_kernel_config
+      - security_pam
+      - security_tpm2:
+          settings:
+            YAML_SCHEDULE: schedule/security/tpm2.yaml
+      - system_check
       - btrfs+warnings:
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/btrfs/btrfs+warnings.yaml
@@ -548,6 +558,8 @@ scenarios:
             NETWORKS: fixed
             NICTYPE: tap
             NLA: '1'
+            # poo#101620
+            QEMUMACHINE: 'pc-i440fx-4.2'
             REGRESSION: remote
             REMOTE_DESKTOP_TYPE: win_server
             WORKER_CLASS: tap
@@ -577,6 +589,8 @@ scenarios:
             NETWORKS: fixed
             NICTYPE: tap
             NLA: '0'
+            # poo#101620
+            QEMUMACHINE: 'pc-i440fx-4.2'
             REGRESSION: remote
             REMOTE_DESKTOP_TYPE: win_server
             WORKER_CLASS: tap
@@ -595,6 +609,8 @@ scenarios:
             HDD_1: windows-10-x86_64-20H2@64bit_win.qcow2
             NETWORKS: fixed
             NICTYPE: tap
+            # poo#101620
+            QEMUMACHINE: 'pc-i440fx-4.2'
             PARALLEL_WITH: remote-desktop-supportserver4
             REGRESSION: remote
             REMOTE_DESKTOP_TYPE: win_client
@@ -655,7 +671,7 @@ scenarios:
             NICTYPE: tap
             VIDEOMODE: text
             HOSTNAME: 'server'
-            USERNAME: 'wilber'
+            SSS_USERNAME: 'wilber'
             YAML_SCHEDULE: schedule/security/389ds_sssd.yaml
       - security_389ds_sssd_client:
           description: 'Maintainer: rfan1'
@@ -670,7 +686,7 @@ scenarios:
             PARALLEL_WITH: security_389ds_server
             VIDEOMODE: text
             HOSTNAME: 'client'
-            USERNAME: 'wilber'
+            SSS_USERNAME: 'wilber'
             YAML_SCHEDULE: schedule/security/389ds_sssd.yaml
       - security_grub_auth
       - openqa_bootstrap
@@ -689,6 +705,7 @@ scenarios:
           testsuite: null
       - rootonly
       - qemu
+      - extra_tests_webframeworks
       - upgrade_Leap_15.1_gnome
       - upgrade_boot-into_snapshot_rollback_Leap_15.1_gnome
       - extra_tests_dracut
@@ -949,6 +966,10 @@ scenarios:
       - upgrade_Leap_42.3_kde+system_performance
       - lvm-encrypt-separate-boot:
           machine: 64bit
+      - kde+selinux:
+          machine: uefi
+      - gnome+selinux:
+          machine: uefi
     opensuse-Tumbleweed-Rescue-CD-x86_64:
       - rescue:
           priority: 49
@@ -974,7 +995,7 @@ scenarios:
             QEMUVGA: 'qxl'
             QEMUMACHINE: 'q35'
             SCC_REGISTER: '0'
-            YAML_SCHEDULE: schedule/wsl/wsl_main.yaml
+            YAML_SCHEDULE: 'schedule/wsl/wsl_main.yaml'
             HDD_1: 'windows-10-x86_64-21H1@64bit_win.qcow2'
             VNC_STALL_THRESHOLD: '10'
             VNC_TYPING_LIMIT: '15'

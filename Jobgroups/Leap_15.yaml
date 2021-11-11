@@ -4,7 +4,7 @@
 #               This file is managed in GIT!               #
 #  Any changes via the openQA WebUI will get overwritten!  #
 #                                                          #
-#        https://github.com/os-autoinst/o3-jobgroups       #
+#    https://github.com/os-autoinst/opensuse-jobgroups     #
 #                                                          #
 ############################################################
 ---
@@ -263,6 +263,7 @@ scenarios:
       - toolkits
       - rootonly
       - qemu
+      - extra_tests_webframeworks
       - extra_tests_dracut
       - yast2_firstboot
       - autoyast_y2_firstboot:
