@@ -1,0 +1,19 @@
+defaults:
+  x86_64:
+    machine: 64bit-2G
+    priority: 60
+products:
+  opensuse-*-Argon-Live-x86_64:
+    distri: opensuse
+    flavor: Argon-Live
+    version: '*'
+scenarios:
+  x86_64:
+    opensuse-*-Argon-Live-x86_64:
+    - krypton-live:
+        machine: USBboot_64-2G
+    - krypton-live-wayland:
+        machine: uefi-usb-2G
+        settings:
+          QEMUVGA: virtio
+    - krypton-live-installation

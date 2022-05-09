@@ -1,0 +1,13 @@
+defaults:
+  ppc64le:
+    machine: ppc64le
+    priority: 50
+products:
+  sle-15.0-Server-DVD-ppc64le:
+    distri: sle
+    flavor: Server-DVD
+    version: '15.0'
+scenarios:
+  ppc64le:
+    sle-15.0-Server-DVD-ppc64le:
+    - install_textmode

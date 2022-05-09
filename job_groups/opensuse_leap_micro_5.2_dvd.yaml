@@ -1,0 +1,81 @@
+---
+.default_settings: &default_settings
+  DESKTOP: 'textmode'
+
+.dvd_settings: &dvd_settings
+  <<: *default_settings
+  YAML_SCHEDULE: 'schedule/sle-micro/dvd.yaml'
+
+.dvd_autoyast_settings: &dvd_autoyast_settings
+  <<: *default_settings
+  YAML_SCHEDULE: 'schedule/sle-micro/autoyast.yaml'
+  AUTOYAST: 'autoyast_opensuse/autoyast_leap-micro.xml.ep'
+  AUTOYAST_PREPARE_PROFILE: '1'
+
+.dvd_selinux_settings: &dvd_selinux_settings
+  <<: *dvd_settings
+  ENABLE_SELINUX: '1'
+
+.dvd_qemu_settings: &dvd_qemu_settings
+  <<: *dvd_settings
+  QEMUCPU: 'host'
+  PATTERNS: 'default,kvm'
+  YAML_SCHEDULE: 'schedule/sle-micro/dvd_virt.yaml'
+
+defaults:
+  x86_64:
+    machine: 64bit
+    priority: 50
+  aarch64:
+    machine: aarch64
+    priority: 50
+
+products:
+  leap-micro-5.2-DVD-x86_64: &product_dvd
+    distri: leap-micro
+    flavor: DVD
+    version: '5.2'
+  leap-micro-5.2-DVD-aarch64:
+    *product_dvd
+
+scenarios:
+  x86_64:
+    leap-micro-5.2-DVD-x86_64:
+      - microos_installation_default:
+          machine: [64bit, uefi]
+          settings:
+            <<: *dvd_settings
+      - microos_installation_autoyast: &dvd_autoyast_test
+          settings:
+            <<: *dvd_autoyast_settings
+      - microos_installation_selinux: &dvd_selinux_test
+          settings:
+            <<: *dvd_selinux_settings
+      - microos_installation_virt:
+          settings:
+            <<: *dvd_qemu_settings
+      - microos_ssh_installation_controller:
+          settings:
+            <<: *default_settings
+            +BETA: ""
+            EXTRABOOTPARAMS_BOOT_LOCAL: '3'
+      - microos_ssh_installation_target:
+          settings:
+            <<: *default_settings
+            MIRROR_HTTP: http://download.opensuse.org/distribution/leap-micro/%VERSION%/product/repo/Leap-Micro-%VERSION%-%ARCH%-Media/
+            MIRROR_HTTPS: https://download.opensuse.org/distribution/leap-micro/%VERSION%/product/repo/Leap-Micro-%VERSION%-%ARCH%-Media/
+            MIRROR_PREFIX: http://download.opensuse.org/distribution/leap-micro/5.2/product/repo/
+            INSTALL_SOURCE: http
+            
+  aarch64:
+    leap-micro-5.2-DVD-aarch64:
+      - microos_installation_default:
+          settings:
+            *dvd_settings
+      - microos_installation_autoyast:
+          *dvd_autoyast_test
+      - microos_installation_selinux:
+          *dvd_selinux_test
+      - microos_installation_virt:
+          settings:
+            <<: *dvd_qemu_settings

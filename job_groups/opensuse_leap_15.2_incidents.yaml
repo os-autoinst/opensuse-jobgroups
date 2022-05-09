@@ -1,0 +1,17 @@
+
+defaults:
+  x86_64:
+    machine: 64bit-2G
+    priority: 50
+products:
+  opensuse-15.2-DVD-Incidents-x86_64:
+    distri: opensuse
+    flavor: DVD-Incidents
+    version: '15.2'
+scenarios:
+  x86_64:
+    opensuse-15.2-DVD-Incidents-x86_64:
+    - kde
+    - gnome
+    - cryptlvm:
+        machine: uefi-2G

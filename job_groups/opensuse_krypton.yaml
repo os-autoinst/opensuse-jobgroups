@@ -1,0 +1,19 @@
+defaults:
+  x86_64:
+    machine: uefi-2G
+    priority: 60
+products:
+  opensuse-*-Krypton-Live-x86_64:
+    distri: opensuse
+    flavor: Krypton-Live
+    version: '*'
+scenarios:
+  x86_64:
+    opensuse-*-Krypton-Live-x86_64:
+    - krypton-live:
+        machine: USBboot_64-2G
+    - krypton-live-wayland:
+        machine: uefi-usb-2G
+        settings:
+          QEMUVGA: virtio
+    - krypton-live-installation

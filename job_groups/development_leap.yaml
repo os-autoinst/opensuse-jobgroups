@@ -1,0 +1,87 @@
+defaults:
+  x86_64:
+    machine: 64bit
+    priority: 60
+  aarch64:
+    machine: aarch64
+    priority: 60
+  ppc64le:
+    machine: ppc64le
+    priority: 50
+  s390x:
+    machine: s390x-zVM-vswitch-l2
+    priority: 50
+products:
+  opensuse-15.2-DVD-x86_64:
+    distri: opensuse
+    flavor: DVD
+    version: '15.2'
+  opensuse-Leap-15.3-DVD-x86_64:
+    distri: opensuse
+    flavor: DVD
+    version: '15.3'
+  opensuse-15.3-container-test-x86_64:
+    distri: opensuse
+    flavor: container-test
+    version: '15.3'
+  opensuse-Leap15.3-JeOS-for-kvm-and-xen-x86_64:
+    distri: opensuse
+    flavor: JeOS-for-kvm-and-xen
+    version: '15.3'
+  opensuse-Leap15.4-JeOS-for-kvm-and-xen-x86_64:
+    distri: opensuse
+    flavor: JeOS-for-kvm-and-xen
+    version: '15.4'
+  opensuse-Leap-15.4-DVD-aarch64:
+    distri: opensuse
+    flavor: DVD
+    version: '15.4'
+  opensuse-Leap-15.4-DVD-x86_64:
+    distri: opensuse
+    flavor: DVD
+    version: '15.4'
+  opensuse-Leap-15.4-NET-x86_64:
+    distri: opensuse
+    flavor: NET
+    version: '15.4'
+  opensuse-Leap-15.4-DVD-s390x:
+    distri: opensuse
+    flavor: DVD
+    version: '15.4'
+scenarios:
+  x86_64:
+    opensuse-15.3-container-test-x86_64:
+      - containers_on_centos_host_x86_64
+      - containers_on_ubuntu_host_x86_64
+    opensuse-Leap-15.3-DVD-x86_64:
+      - iscsi_client_normal_auth_backstore_hdd
+      - iscsi_server_normal_auth_backstore_hdd
+    opensuse-Leap15.3-JeOS-for-kvm-and-xen-x86_64:
+    - jeos-fips
+    opensuse-Leap-15.4-DVD-x86_64:
+      - libssh
+      - security_postgresql_ssl_server:
+          testsuite: postgresql_ssl
+          settings:
+            HOSTNAME: server
+            NICTYPE: tap
+            WORKER_CLASS: tap
+      - security_postgresql_ssl_client:
+          testsuite: postgresql_ssl
+          settings:
+            PARALLEL_WITH: security_postgresql_ssl_server
+            HOSTNAME: client
+            NICTYPE: tap
+            WORKER_CLASS: tap
+      - ecryptfs
+      - libserf
+    opensuse-Leap15.4-JeOS-for-kvm-and-xen-x86_64:
+    - jeos-apparmor:
+        machine: 64bit_virtio-2G
+  aarch64:
+    opensuse-Leap-15.4-DVD-aarch64:
+    - ecryptfs
+    - libserf
+
+
+

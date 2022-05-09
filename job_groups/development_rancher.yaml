@@ -1,0 +1,41 @@
+# Scheduled from: https://github.com/pdostal/qe-rancher
+defaults:
+  x86_64:
+    machine: 64bit
+    priority: 55
+products:
+  opensuse-Tumbleweed-DVD-rancher-x86_64:
+    distri: opensuse
+    flavor: DVD-rancher
+    version: Tumbleweed
+  opensuse-Tumbleweed-DVD-rancher-k3s-x86_64:
+    distri: opensuse
+    flavor: DVD-rancher-k3s
+    version: Tumbleweed
+  opensuse-Tumbleweed-DVD-rancher-rke1-x86_64:
+    distri: opensuse
+    flavor: DVD-rancher-rke1
+    version: Tumbleweed
+  opensuse-15.3-DVD-rancher-x86_64:
+    distri: opensuse
+    flavor: DVD-rancher
+    version: '15.3'
+scenarios: 
+  x86_64:
+    opensuse-Tumbleweed-DVD-rancher-x86_64:
+    - rancher-gnome-podman
+    - rancher-gnome-docker
+    opensuse-15.3-DVD-rancher-x86_64:
+    - rancher-gnome-podman
+    - rancher-gnome-docker
+    opensuse-Tumbleweed-DVD-rancher-k3s-x86_64:
+    - rancher-gnome-k3s-master
+    - rancher-gnome-k3s-worker1
+    - rancher-gnome-k3s-worker2
+    - rancher-gnome-supportserver
+    opensuse-Tumbleweed-DVD-rancher-rke1-x86_64:
+    - rancher-gnome-rke1-master
+    - rancher-gnome-rke1-worker1
+    - rancher-gnome-rke1-worker2
+    - rancher-gnome-supportserver
+

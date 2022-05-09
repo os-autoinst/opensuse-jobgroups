@@ -1,0 +1,116 @@
+defaults:
+  ppc64le:
+    machine: ppc64le
+    priority: 50
+  x86_64:
+    machine: 64bit
+    priority: 50
+products:
+  microos-*-Staging-DVD-x86_64:
+    distri: microos
+    flavor: Staging-DVD
+    version: '*'
+  microos-*-Staging-Kubic-DVD-x86_64:
+    distri: microos
+    flavor: Staging-Kubic-DVD
+    version: '*'
+  opensuse-*-Staging-DVD-x86_64:
+    distri: opensuse
+    flavor: Staging-DVD
+    version: '*'
+  opensuse-Core-Staging-DVD-ppc64le:
+    distri: opensuse
+    flavor: Staging-DVD
+    version: Core
+  opensuse-Core-Staging-DVD-x86_64:
+    distri: opensuse
+    flavor: Staging-DVD
+    version: Core
+scenarios:
+  ppc64le:
+    opensuse-Core-Staging-DVD-ppc64le:
+    - minimalx
+    - rescue_system
+  x86_64:
+    microos-*-Staging-DVD-x86_64:
+    - microos:
+        machine: uefi-staging
+    - container-host-microos:
+        testsuite: container-host
+        machine: 64bit-2G-HD40G
+        settings:
+          CONTAINER_RUNTIME: podman
+          CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
+    microos-*-Staging-Kubic-DVD-x86_64:
+    - kubeadm:
+        machine: 64bit-2G-HD40G
+    - container-host-kubic:
+        testsuite: container-host
+        machine: uefi-staging
+        settings:
+          CONTAINER_RUNTIME: podman
+          CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
+    opensuse-*-Staging-DVD-x86_64:
+    - textmode:
+        machine: 64bit
+    - kde:
+        machine: 64bit
+        priority: 45
+    - kde_usbboot:
+        testsuite: kde
+        machine: USBboot_64
+        priority: 45
+    - gnome:
+        machine: 64bit
+        priority: 45
+    - create_hdd_gnome-staging:
+        machine: 64bit
+        priority: 45
+    - yast2_users-staging:
+        machine: 64bit
+        priority: 45
+    - minimalx:
+        machine: 64bit
+        priority: 45
+    - minimalx:
+        machine: uefi-staging
+        priority: 45
+    - cryptlvm:
+        machine: 64bit
+    - rescue_system:
+        machine: 64bit
+    - upgrade_staging:
+        machine: 64bit
+    - autoyast_mini:
+        description: Autoyast installation test using minimal profile, hence relying on default values. Configured parameters are set not to ignore any messages and create users as per requirements for openQA tests.
+        settings:
+          AUTOYAST: autoyast/mini.xml
+          AUTOYAST_CONFIRM: '1'
+          DESKTOP: textmode
+          INSTALLONLY: '1'
+        testsuite: null
+    - RAID0_gpt
+    - RAID1_gpt:
+        machine: 64bit
+    opensuse-Core-Staging-DVD-x86_64:
+    - textmode:
+        machine: 64bit
+    - kde:
+        machine: 64bit
+        priority: 45
+    - gnome:
+        machine: 64bit
+        priority: 45
+    - minimalx:
+        machine: 64bit
+    - cryptlvm:
+        machine: 64bit
+    - rescue_system:
+        machine: 64bit
+    - upgrade_staging:
+        machine: 64bit
+    - create_hdd_kde
+# the lvm+RAID1 job here bleeds into Letter stagings as 'RAID1' test, which in turn fails
+#    - lvm+RAID1
+    - RAID1_gpt:
+        machine: 64bit

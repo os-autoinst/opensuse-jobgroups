@@ -1,0 +1,16 @@
+defaults:
+  aarch64:
+    machine: aarch64-HD24G
+    priority: 55
+products:
+  opensuse-15.1-JeOS-for-AArch64-aarch64:
+    distri: opensuse
+    flavor: JeOS-for-AArch64
+    version: '15.1'
+scenarios:
+  aarch64:
+    opensuse-15.1-JeOS-for-AArch64-aarch64:
+    - jeos
+    - jeos-extra:
+        settings:
+          EXCLUDE_MODULES: "libgpiod"

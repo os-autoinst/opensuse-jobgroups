@@ -1,0 +1,129 @@
+defaults:
+  ppc64:
+    machine: ppc64
+    priority: 50
+  ppc64le:
+    machine: ppc64le
+    priority: 50
+products:
+  opensuse-Tumbleweed-DVD-ppc64:
+    distri: opensuse
+    flavor: DVD
+    version: Tumbleweed
+  opensuse-Tumbleweed-DVD-ppc64le:
+    distri: opensuse
+    flavor: DVD
+    version: Tumbleweed
+  opensuse-Tumbleweed-NET-ppc64:
+    distri: opensuse
+    flavor: NET
+    version: Tumbleweed
+  opensuse-Tumbleweed-NET-ppc64le:
+    distri: opensuse
+    flavor: NET
+    version: Tumbleweed
+  microos-*-DVD-ppc64le:
+    distri: microos
+    flavor: DVD
+    version: '*'
+  microos-*-Kubic-DVD-ppc64le:
+    distri: microos
+    flavor: Kubic-DVD
+    version: '*'
+scenarios:
+  ppc64:
+    opensuse-Tumbleweed-DVD-ppc64:
+    - textmode
+    - minimalx:
+        machine: ppc64
+    - RAID0:
+        settings:
+          YAML_SCHEDULE: schedule/yast/opensuse/raid/raid0_gpt.yaml
+          YAML_TEST_DATA: test_data/yast/raid/raid0_prep_boot.yaml
+    - RAID1:
+        settings:
+          YAML_SCHEDULE: schedule/yast/opensuse/raid/raid1_gpt.yaml
+          YAML_TEST_DATA: test_data/yast/raid/raid1_prep_boot.yaml
+    - RAID5:
+        settings:
+          YAML_SCHEDULE: schedule/yast/opensuse/raid/raid5_gpt.yaml
+          YAML_TEST_DATA: test_data/yast/raid/raid5_prep_boot.yaml
+    - lvm
+    - mediacheck
+    - rescue_system
+    - gpt
+    - create_hdd_textmode
+    - install_minimalx:
+        machine: ppc64-multipath
+    - boot_to_snapshot
+    opensuse-Tumbleweed-NET-ppc64:
+    - minimalx:
+        machine: ppc64
+    - install_minimalx:
+        machine: ppc64
+  ppc64le:
+    opensuse-Tumbleweed-DVD-ppc64le:
+    - textmode
+    - gnome
+    - minimalx:
+        machine: ppc64le
+    - RAID0:
+        settings:
+          YAML_SCHEDULE: schedule/yast/opensuse/raid/raid0_gpt.yaml
+          YAML_TEST_DATA: test_data/yast/raid/raid0_prep_boot.yaml
+    - RAID1:
+        settings:
+          YAML_SCHEDULE: schedule/yast/opensuse/raid/raid1_gpt.yaml
+          YAML_TEST_DATA: test_data/yast/raid/raid1_prep_boot.yaml
+    - RAID5:
+        settings:
+          YAML_SCHEDULE: schedule/yast/opensuse/raid/raid5_gpt.yaml
+          YAML_TEST_DATA: test_data/yast/raid/raid5_prep_boot.yaml
+    - RAID10:
+        settings:
+          YAML_SCHEDULE: schedule/yast/opensuse/raid/raid10_gpt.yaml
+          YAML_TEST_DATA: test_data/yast/raid/raid10_prep_boot.yaml
+    - install_only
+    - lvm
+    - mediacheck
+    - rescue_system
+    - gpt
+    - create_hdd_textmode
+    - create_hdd_gnome
+    - create_hdd_gnome_libyui
+    - create_hdd_kde
+    - install_minimalx:
+        machine: ppc64le-multipath
+    - boot_to_snapshot
+    - extra_tests_gnome
+    - extra_tests_on_kde
+    - extra_tests_textmode
+    - containers_host_docker:
+        testsuite: extra_tests_textmode_containers
+        settings:
+          CONTAINER_RUNTIME: 'docker'
+    - containers_host_podman:
+        testsuite: extra_tests_textmode_containers
+        settings:
+          CONTAINER_RUNTIME: 'podman'
+    - extra_tests_filesystem
+    - yast2_ncurses:
+        settings:
+          YAML_SCHEDULE: schedule/yast/opensuse/yast2_ncurses/yast2_ncurses.yaml
+    - toolchain_zypper
+    - ext4_textmode:
+        settings:
+          YAML_SCHEDULE: schedule/yast/opensuse/ext4/ext4_textmode.yaml
+    - extra_tests_dracut
+    opensuse-Tumbleweed-NET-ppc64le:
+    - minimalx:
+        machine: ppc64le
+    - install_minimalx:
+        machine: ppc64le
+    microos-*-DVD-ppc64le:
+    - rcshell
+    - microos_10G-disk
+    microos-*-Kubic-DVD-ppc64le:
+    - rcshell
+    - kubeadm:
+        machine: ppc64le-4G-HD40G

@@ -1,0 +1,66 @@
+defaults:
+  x86_64:
+    machine: 64bit-2G
+    priority: 55
+  aarch64:
+    machine: aarch64
+    priority: 50
+products:
+  microos-15.2-DVD-x86_64:
+    distri: microos
+    flavor: DVD
+    version: '15.2'
+  microos-15.2-DVD-aarch64:
+    distri: microos
+    flavor: DVD
+    version: '15.2'
+  microos-15.2-MicroOS-Image-ContainerHost-x86_64:
+    distri: microos
+    flavor: MicroOS-Image-ContainerHost
+    version: '15.2'
+  microos-15.2-MicroOS-Image-x86_64:
+    distri: microos
+    flavor: MicroOS-Image
+    version: '15.2'
+  microos-15.2-MicroOS-Image-RT-x86_64:
+    distri: microos
+    flavor: MicroOS-Image-RT
+    version: '15.2'
+  microos-15.2-MicroOS-Image-ContainerHost-aarch64:
+    distri: microos
+    flavor: MicroOS-Image-ContainerHost
+    version: '15.2'
+  microos-15.2-MicroOS-Image-aarch64:
+    distri: microos
+    flavor: MicroOS-Image
+    version: '15.2'    
+scenarios:
+ x86_64:
+    microos-15.2-DVD-x86_64:
+    - rcshell:
+        machine: 64bit
+    - microos_10G-disk
+    - microos:
+        machine: [64bit_virtio, uefi_virtio]
+    - microos_textmode
+    - container-host:
+        machine: 64bit
+    microos-15.2-MicroOS-Image-x86_64:
+    - microos:
+        machine: [64bit_virtio, uefi_virtio]
+    microos-15.2-MicroOS-Image-RT-x86_64:
+    - microos:
+        machine: [64bit_virtio, uefi_virtio]
+    microos-15.2-MicroOS-Image-ContainerHost-x86_64:
+    - container-host
+ aarch64:
+    microos-15.2-DVD-aarch64:
+    - rcshell
+    - microos_10G-disk
+    - microos
+    - microos_textmode
+    - container-host
+    microos-15.2-MicroOS-Image-aarch64:
+    - microos
+    microos-15.2-MicroOS-Image-ContainerHost-aarch64:
+    - container-host

@@ -1,0 +1,94 @@
+defaults:
+  x86_64:
+    machine: 64bit-2G
+    priority: 55
+  aarch64:
+    machine: USBboot_aarch64
+    priority: 55
+products:
+  opensuse-Jump15.2-JeOS-for-kvm-and-xen-x86_64:
+    distri: opensuse
+    flavor: JeOS-for-kvm-and-xen
+    version: 'Jump:15.2'
+  opensuse-Jump15.2-GNOME-Live-x86_64:
+    distri: opensuse
+    flavor: GNOME-Live
+    version: 'Jump:15.2'
+  opensuse-Jump15.2-KDE-Live-x86_64:
+    distri: opensuse
+    flavor: KDE-Live
+    version: 'Jump:15.2'
+  opensuse-Jump15.2-Rescue-CD-x86_64:
+    distri: opensuse
+    flavor: Rescue-CD
+    version: 'Jump:15.2'
+  opensuse-Jump15.2-GNOME-Live-aarch64:
+    distri: opensuse
+    flavor: GNOME-Live
+    version: 'Jump:15.2'
+  opensuse-Jump15.2-KDE-Live-aarch64:
+    distri: opensuse
+    flavor: KDE-Live
+    version: 'Jump:15.2'
+  opensuse-Jump15.2-Rescue-CD-aarch64:
+    distri: opensuse
+    flavor: Rescue-CD
+    version: 'Jump:15.2'
+scenarios:
+  x86_64:
+    opensuse-Jump15.2-JeOS-for-kvm-and-xen-x86_64:
+    - jeos:
+        machine: 64bit_virtio-2G
+    - jeos:
+        machine: uefi_virtio-2G
+    - jeos-extra:
+        machine: 64bit_virtio-2G
+    - jeos-containers:
+        machine: 64bit_virtio-2G
+    - jeos-filesystem:
+        machine: 64bit_virtio-2G
+    opensuse-Jump15.2-GNOME-Live-x86_64:
+    - gnome-live:
+        machine: uefi-2G
+    - gnome-live:
+        machine: 64bit-2G
+    - gnome-live:
+        machine: uefi-usb-2G
+    - gnome-live:
+        machine: USBboot_64-2G
+    - mediacheck:
+        machine: 64bit
+    opensuse-Jump15.2-KDE-Live-x86_64:
+    - kde-live:
+        machine: uefi-usb-2G
+    - kde-live:
+        machine: 64bit-2G
+    - kde-live:
+        machine: USBboot_64-2G
+    - kde-live:
+        machine: uefi-2G
+    - mediacheck:
+        machine: 64bit
+    - kde-live_installation
+    - kde-live-wayland:
+        machine: 64bit_virtio-2G
+    - kde_live_upgrade_leap_42.3
+    - kde_live_upgrade_leap_15.0:
+        machine: 64bit
+    opensuse-Jump15.2-Rescue-CD-x86_64:
+    - rescue
+    - mediacheck:
+        machine: 64bit
+  aarch64:
+    opensuse-Jump15.2-Rescue-CD-aarch64:
+    - rescue
+    - mediacheck
+    opensuse-Jump15.2-KDE-Live-aarch64:
+    - kde-live
+    - kde-live_installation
+    - kde_live_upgrade_leap_15.0:
+        machine: aarch64
+    - mediacheck
+    opensuse-Jump15.2-GNOME-Live-aarch64:
+    - gnome-live
+    - mediacheck

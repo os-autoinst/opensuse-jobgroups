@@ -1,0 +1,104 @@
+---
+.default_settings: &default_settings
+  DESKTOP: 'textmode'
+
+.image_settings: &image_settings
+  <<: *default_settings
+  YAML_SCHEDULE: 'schedule/sle-micro/raw_image.yaml'
+  BOOT_HDD_IMAGE: '1'
+  HDD_2: 'ignition.qcow2'
+  NUMDISKS: '2'
+  HDDSIZEGB_1: '30'
+  ENABLE_SELINUX: '1'
+
+.image_container_settings: &image_container_settings
+  <<: *image_settings
+  SKIP_DOCKER_IMAGE_TESTS: '1'
+  REGISTRY: '18.156.2.117:5000'
+  CONTAINER_RUNTIME: 'podman'
+  CONTAINER_IMAGE_VERSIONS: '15.2,15.3'
+  YAML_SCHEDULE: ''
+
+.selfinstall_settings: &selfinstall_settings
+  <<: *default_settings
+  NUMDISKS: '2'
+  HDD_2: 'ignition.qcow2' # openQA will create a qcow2 on the fly
+  HDDSIZEGB_1: '30'
+  QEMU_VIRTIO_RNG: '1'
+  QEMUVGA: 'virtio'
+  YAML_SCHEDULE: 'schedule/sle-micro/selfinstall.yaml'
+
+.image_qemu_settings: &image_qemu_settings
+  <<: *image_settings
+  QEMUCPU: 'host'
+  YAML_SCHEDULE: 'schedule/sle-micro/virt.yaml'
+
+defaults:
+  x86_64:
+    machine: 64bit
+    priority: 50
+  aarch64:
+    machine: aarch64
+    priority: 50
+    settings:
+      QEMUCPUS: '2'
+
+products:
+  leap-micro-5.2-MicroOS-Image-SelfInstall-x86_64:
+    distri: leap-micro
+    flavor: MicroOS-Image-SelfInstall
+    version: '5.2'
+  leap-micro-5.2-MicroOS-Image-RT-SelfInstall-x86_64:
+    distri: leap-micro
+    flavor: MicroOS-Image-RT-SelfInstall
+    version: '5.2'
+  leap-micro-5.2-MicroOS-Image-x86_64: &product_image
+    distri: leap-micro
+    flavor: MicroOS-Image
+    version: '5.2'
+  leap-micro-5.2-MicroOS-Image-aarch64:
+    *product_image
+  leap-micro-5.2-MicroOS-Image-RT-x86_64:
+    distri: leap-micro
+    flavor: MicroOS-Image-RT
+    version: '5.2'
+
+scenarios:
+  x86_64:
+    leap-micro-5.2-MicroOS-Image-x86_64:
+      - microos_image_default:
+          machine: [64bit, uefi]
+          settings:
+            <<: *image_settings
+      - microos_containers:
+          settings:
+            <<: *image_container_settings
+      - microos_virtualization:
+          settings:
+            <<: *image_qemu_settings
+    leap-micro-5.2-MicroOS-Image-RT-x86_64:
+      - microos_image_default:
+          settings:
+            *image_settings
+    leap-micro-5.2-MicroOS-Image-SelfInstall-x86_64:
+      - microos_installation_default:
+          machine: 64bit
+          settings:
+            <<: *selfinstall_settings
+    leap-micro-5.2-MicroOS-Image-RT-SelfInstall-x86_64:
+      - microos_installation_default:
+          machine: 64bit
+          settings:
+            <<: *selfinstall_settings
+
+  aarch64:
+    leap-micro-5.2-MicroOS-Image-aarch64:
+      - microos_image_default:
+          settings:
+            *image_settings
+      - microos_containers:
+          settings:
+            <<: *image_container_settings
+      - microos_virtualization:
+          settings:
+            <<: *image_qemu_settings

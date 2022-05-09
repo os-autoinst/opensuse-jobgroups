@@ -1,0 +1,33 @@
+defaults:
+  s390x:
+    machine: s390x-zVM-vswitch-l2
+    priority: 50
+products:
+  opensuse-Tumbleweed-DVD-s390x:
+    distri: opensuse
+    flavor: DVD
+    version: Tumbleweed
+  microos-*-DVD-s390x:
+    distri: microos
+    flavor: DVD
+    version: '*'
+  microos-*-Kubic-DVD-s390x:
+    distri: microos
+    flavor: Kubic-DVD
+    version: '*'
+scenarios:
+  s390x:
+    opensuse-Tumbleweed-DVD-s390x:
+    - textmode:
+        priority: 50
+        settings:
+          EXTRABOOTPARAMS: hvc_iucv=8
+    - textmode-server:
+        testsuite: null
+        settings:
+          DESKTOP: textmode
+          EXTRABOOTPARAMS: hvc_iucv=8
+          FILESYSTEM: xfs
+          BSC1167736: yes
+    - install_ltp_s390x:
+        priority: 51
