@@ -149,7 +149,7 @@ elif args.fetch:
 			continue
 		if args.filter_file_name and os.path.basename(args.filter_file_name) not in (gname, '%s.yaml' % gname):
 			continue
-		print("Fetching %i -> %s" % (gid, gname))
+		print("Fetching %i -> %s" % (gid, gname), file=sys.stderr)
 		job_group = job_groups_by_id[gid]
 		if not args.dry_run:
 			template = job_group['template']
@@ -171,7 +171,7 @@ elif args.push:
 			continue
 		job_group = job_groups_by_id[gid]
 		if args.dry_run:
-			print("Checking %s -> %i" % (gname, gid))
+			print("Checking %s -> %i" % (gname, gid), file=sys.stderr)
 			r = api_request('-X', 'POST', 'job_templates_scheduling/%i' % gid, 'schema=JobTemplates-01.yaml',
 				'preview=1', '--param-file', 'template=job_groups/%s.yaml' % gname
 			)
@@ -181,7 +181,7 @@ elif args.push:
 			elif r.get('changes'):
 				print('  ' + r['changes'].replace("\n", "\n  "), file=sys.stderr)
 		else:
-			print("Pushing %s -> %i" % (gname, gid))
+			print("Pushing %s -> %i" % (gname, gid), file=sys.stderr)
 			r = api_request('-X', 'POST', 'job_templates_scheduling/%i' % gid, 'schema=JobTemplates-01.yaml',
 				'preview=0', '--param-file', 'template=job_groups/%s.yaml' % gname
 			)
@@ -197,6 +197,6 @@ elif args.orphans:
 	exit_code = 0
 	for job_group_file in os.listdir('job_groups'):
 		if job_group_file not in job_groups_yaml:
-			print("Found orphaned file: %s" % job_group_file)
+			print("Found orphaned file: %s" % job_group_file, file=sys.stderr)
 			exit_code = 1
 	os._exit(exit_code)
