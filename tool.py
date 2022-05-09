@@ -99,13 +99,14 @@ parser = argparse.ArgumentParser(
 
 parser.add_argument('--dry-run', action='store_true', help="Don't actually do anything. In push mode do serverside check via preview=1")
 parser.add_argument('--gendb', action='store_true', help="Generate job_groups.yaml from O3")
+parser.add_argument('--orphans', action='store_true', help="Check that there are job_group files that are not defined in job_groups.yaml")
 parser.add_argument('--fetch', action='store_true', help="Download all jobgroups as defined in job_groups.yaml")
 parser.add_argument('--push', action='store_true', help="Upload all jobgroups as defined in job_groups.yaml")
 parser.add_argument('-j', dest='filter_job_group', type=int, help="Perform fetch or push action only for this jobgroup id")
 parser.add_argument('-f', dest='filter_file_name', type=str, help="Perform fetch or push action only for this jobgroup yaml file")
 args = parser.parse_args()
 
-if not (args.fetch or args.push or args.gendb):
+if not (args.fetch or args.push or args.gendb or args.orphans):
 	parser.print_help()
 	os._exit(1)
 
@@ -189,4 +190,13 @@ elif args.push:
 				os._exit(1) # let's stop on the first error here
 			elif r.get('changes'):
 				print('  ' + r['changes'].replace("\n", "\n  "), file=sys.stderr)
+	os._exit(exit_code)
+
+elif args.orphans:
+	job_groups_yaml = {'%s.yaml' % v: k for k, v in job_groups_db.items()}
+	exit_code = 0
+	for job_group_file in os.listdir('job_groups'):
+		if job_group_file not in job_groups_yaml:
+			print("Found orphaned file: %s" % job_group_file)
+			exit_code = 1
 	os._exit(exit_code)
