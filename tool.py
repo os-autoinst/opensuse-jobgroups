@@ -4,10 +4,12 @@ import os
 import sys
 import json
 import yaml
+import math
 import argparse
 import configparser
 import subprocess
 from textwrap import dedent
+
 
 def get_api_credentials():
 	user_config = os.path.expanduser("~/.config/openqa/client.conf")
@@ -35,6 +37,7 @@ def get_api_credentials():
 			)
 	print("Error: Unable to get API credentials", file=sys.stderr)
 
+
 api_credentials = None
 def api_request(*args):
 	global api_credentials
@@ -56,6 +59,7 @@ def api_request(*args):
 		os._exit(1)
 	return j
 
+
 def show_server_error(r):
 	try:
 		for e in r['error']:
@@ -65,6 +69,25 @@ def show_server_error(r):
 	except:
 		print("Error %(error_status)i: %(error)s" % r, file=sys.stderr)
 
+
+def generate_header(filename):
+	content = [
+		"WARNING",
+		"",
+		"This file is managed in GIT!",
+		"Any changes via the openQA WebUI will get overwritten!",
+		"",
+		"https://github.com/os-autoinst/opensuse-jobgroups",
+		filename
+	]
+	line_length = max(max([len(line)+4 for line in content]), 58)
+	content.insert(0, '#' * line_length)
+	content.append('#' * line_length)
+	def _align(line):
+		prefix_len = math.floor((line_length - len(line)) / 2)
+		suffix_len = math.ceil((line_length - len(line)) / 2)
+		return ' ' * prefix_len + line + ' ' * suffix_len
+	return "\n".join(map(lambda l: "#%s#" % l, map(_align, content)))
 
 parser = argparse.ArgumentParser(
 	description = 'Fetch and push jobgroups from and to openqa.opensuse.org',
@@ -128,8 +151,11 @@ elif args.fetch:
 		print("Fetching %i -> %s" % (gid, gname))
 		job_group = job_groups_by_id[gid]
 		if not args.dry_run:
-			#TODO: generate header if not found
-			open('job_groups/%s.yaml' % gname, 'w').write(job_group['template'])
+			template = job_group['template']
+			filename = 'job_groups/%s.yaml' % gname
+			if not "This file is managed in GIT" in template:
+				template = generate_header(filename) + "\n" + template
+			open(filename, 'w').write(template)
 
 elif args.push:
 	job_groups_by_id = {}
