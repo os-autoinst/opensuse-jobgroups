@@ -1,3 +1,12 @@
+############################################################
+#                         WARNING                          #
+#                                                          #
+#               This file is managed in GIT!               #
+#  Any changes via the openQA WebUI will get overwritten!  #
+#                                                          #
+#    https://github.com/os-autoinst/opensuse-jobgroups     #
+#       job_groups/opensuse_leap_micro_5.2_dvd.yaml        #
+############################################################
 ---
 .default_settings: &default_settings
   DESKTOP: 'textmode'

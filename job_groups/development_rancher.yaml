@@ -1,3 +1,12 @@
+############################################################
+#                         WARNING                          #
+#                                                          #
+#               This file is managed in GIT!               #
+#  Any changes via the openQA WebUI will get overwritten!  #
+#                                                          #
+#    https://github.com/os-autoinst/opensuse-jobgroups     #
+#           job_groups/development_rancher.yaml            #
+############################################################
 # Scheduled from: https://github.com/pdostal/qe-rancher
 defaults:
   x86_64:
