@@ -1,35 +1,24 @@
 name: Deploy
 on:
-  pull_request_target:
-    types: [ closed ]
-    paths:
-      - 'Jobgroups/**.yaml'
+  push:
+    branches:
+      - master
 jobs:
   publish:
-    environment: Deployment
-    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     container:
       image: docker://registry.opensuse.org/home/syrianidou_sofia/containers/tumbleweed:o3-jobgroups
     steps:
-    - name: Git Checkout
-      uses: actions/checkout@v1 # using v1 for Tumbleweed container due to bug#1190670
-      with:
-        fetch-depth: 0
-    - name: Get Job group changed files
-      id: changed-files
-      run: |
-        CHANGED_FILES=$(git diff --exit-code --diff-filter="*ACDMRTUX" --name-only HEAD^ HEAD| grep Jobgroups | awk -v d=" " '{s=(NR==1?s:s d)$0}END{print s}')
-        echo $CHANGED_FILES
-        echo "::set-output name=files::${CHANGED_FILES}"
-    - name: Upload changed Job group schedules to O3
-      env:
-        APIKEY: "${{ secrets.APIKEY }}"
-        APISECRET: "${{ secrets.APISECRET }}"
-      run: |
-        for file in ${{ steps.changed-files.outputs.files }}; do
-          GROUPID=$(./scripts/define_group_id $file)
-          echo "Post ${file} to O3 job group ${GROUPID}"
-          # POST command commented out, not to interfere with current Job group schedules until repo is approved.
-          # openqa-cli api -X POST --o3 --apikey "$APIKEY" --apisecret "$APISECRET" job_templates_scheduling/$GROUPID schema=JobTemplates-01.yaml --param-file template=$file
-        done
+
+      - name: Git Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Upload job group schedules to O3
+        env:
+          APIKEY: "${{ secrets.APIKEY }}"
+          APISECRET: "${{ secrets.APISECRET }}"
+        run: |
+          #FIXME only do a dry run for now
+          ./tool.py --dry-run --push
