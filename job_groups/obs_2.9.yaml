@@ -1,0 +1,22 @@
+############################################################
+#                         WARNING                          #
+#                                                          #
+#               This file is managed in GIT!               #
+#  Any changes via the openQA WebUI will get overwritten!  #
+#                                                          #
+#    https://github.com/os-autoinst/opensuse-jobgroups     #
+#                 job_groups/obs_2.9.yaml                  #
+############################################################
+defaults:
+  x86_64:
+    machine: 64bit-4G
+    priority: 50
+products:
+  obs-2.9-Appliance-x86_64:
+    distri: obs
+    flavor: Appliance
+    version: '2.9'
+scenarios:
+  x86_64:
+    obs-2.9-Appliance-x86_64:
+    - obs_appliance

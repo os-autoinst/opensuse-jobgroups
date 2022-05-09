@@ -1,0 +1,22 @@
+############################################################
+#                         WARNING                          #
+#                                                          #
+#               This file is managed in GIT!               #
+#  Any changes via the openQA WebUI will get overwritten!  #
+#                                                          #
+#    https://github.com/os-autoinst/opensuse-jobgroups     #
+#           job_groups/sles_12_sp3_powerpc.yaml            #
+############################################################
+defaults:
+  ppc64le:
+    machine: ppc64le
+    priority: 50
+products:
+  sle-*-Server-DVD-ppc64le:
+    distri: sle
+    flavor: Server-DVD
+    version: '*'
+scenarios:
+  ppc64le:
+    sle-*-Server-DVD-ppc64le:
+    - install_gnome

@@ -1,0 +1,38 @@
+############################################################
+#                         WARNING                          #
+#                                                          #
+#               This file is managed in GIT!               #
+#  Any changes via the openQA WebUI will get overwritten!  #
+#                                                          #
+#    https://github.com/os-autoinst/opensuse-jobgroups     #
+#     job_groups/opensuse_leap_15.4_armv7_images.yaml      #
+############################################################
+defaults:
+  armv7hl:
+    machine: aarch32
+    priority: 50
+products:
+  opensuse-Leap-15.4-JeOS-for-AArch64-armv7hl:
+    distri: opensuse
+    flavor: JeOS-for-AArch64
+    version: 15.4
+  opensuse-Leap-15.4-JeOS-for-RPi-armv7hl:
+    distri: opensuse
+    flavor: JeOS-for-RPi
+    version: 15.4
+scenarios:
+  armv7hl:
+    opensuse-Leap-15.4-JeOS-for-AArch64-armv7hl:
+    - jeos:
+        machine: aarch32-HD24G
+    - jeos-extra:
+        machine: aarch32-HD24G
+        settings:
+          # rails is completely broken, no fix in sight (boo#1174315)
+          # kdump_and_crash: no crash for armv7
+          EXCLUDE_MODULES: "rails,kdump_and_crash"
+    opensuse-Leap-15.4-JeOS-for-RPi-armv7hl:
+    - jeos:
+        machine: RPi2B
+        settings:
+          PASSWORD: linux

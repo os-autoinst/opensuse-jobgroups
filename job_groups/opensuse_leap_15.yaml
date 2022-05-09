@@ -1,11 +1,11 @@
 ############################################################
-#                        WARNING                           #
+#                         WARNING                          #
 #                                                          #
 #               This file is managed in GIT!               #
 #  Any changes via the openQA WebUI will get overwritten!  #
 #                                                          #
 #    https://github.com/os-autoinst/opensuse-jobgroups     #
-#                                                          #
+#             job_groups/opensuse_leap_15.yaml             #
 ############################################################
 ---
 defaults:
@@ -116,9 +116,13 @@ scenarios:
       - gpt
       - xfs
       - minimalx_btrfs_snapper
-      - create_hdd_textmode
+      - create_hdd_textmode:
+          settings:
+            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
       - create_hdd_gnome:
           machine: 64bit
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - create_hdd_gnome:
           machine: uefi
       - create_hdd_kde:
@@ -152,12 +156,11 @@ scenarios:
       - extra_tests_textmode_podman_containers:
           testsuite: extra_tests_textmode_containers
           settings:
-            YAML_SCHEDULE: schedule/containers/extra_tests_textmode_containers_podman.yaml
+            CONTAINER_RUNTIME: 'podman'
       - extra_tests_textmode_docker_containers:
           testsuite: extra_tests_textmode_containers
           settings:
-            YAML_SCHEDULE: schedule/containers/extra_tests_textmode_containers_docker.yaml
-            CONTAINERS_UNTESTED_IMAGES: '1'
+            CONTAINER_RUNTIME: 'docker'
       - extra_tests_ai_ml
       - upgrade_Leap_42.2_gnome:
           machine: 64bit
@@ -189,21 +192,36 @@ scenarios:
       - autoyast_reinstall_gnome:
           settings:
             YAML_TEST_DATA: test_data/yast/opensuse/autoyast_reinstall/autoyast_reinstall_64bit.yaml
+            QEMU_VIRTIO_RNG: "0"
       - package-dependency
       - extra_tests_filesystem
       - gnuhealth
-      - clone_system
+      - clone_system:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - wicked_basic_sut
       - kde-wayland:
           machine: 64bit_virtio-2G
       - zdup-Leap-15.0-gnome:
           machine: 64bit_cirrus
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - zdup-Leap-15.0-kde:
           machine: 64bit_cirrus
-      - zdup-Leap-15.1-gnome
-      - zdup-Leap-15.1-kde
-      - zdup-Leap-15.2-gnome
-      - zdup-Leap-15.2-kde
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - zdup-Leap-15.1-gnome:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - zdup-Leap-15.1-kde:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - zdup-Leap-15.2-gnome:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - zdup-Leap-15.2-kde:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_42.3_gnome:
           machine: 64bit
       - upgrade_Leap_42.3_kde:
@@ -240,16 +258,42 @@ scenarios:
             YAML_SCHEDULE: schedule/yast/opensuse/lvm/lvm_thin_provisioning.yaml
       - upgrade_Leap_15.0_gnome:
           machine: 64bit
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.0_cryptlvm:
           machine: uefi
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.0_kde:
           machine: 64bit
-      - upgrade_Leap_15.1_gnome
-      - upgrade_Leap_15.1_kde
-      - upgrade_Leap_15.2_gnome
-      - upgrade_Leap_15.2_kde
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.1_gnome:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.1_kde:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.2_gnome:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.2_kde:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.3_gnome:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.3_kde:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.2_cryptlvm:
           machine: uefi
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.3_cryptlvm:
+          machine: uefi
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - installer_extended
       - btrfs:
           settings:
@@ -341,24 +385,52 @@ scenarios:
       - upgrade_Leap_42.3_kde+system_performance
       - upgrade_Leap_15.0_gnome:
           machine: 64bit
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.0_cryptlvm:
           machine: uefi
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.0_kde:
           machine: 64bit
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - zdup-Leap-15.0-kde:
           machine: 64bit_cirrus
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - zdup-Leap-15.0-gnome:
           machine: 64bit_cirrus
-      - upgrade_Leap_15.1_gnome
-      - upgrade_Leap_15.1_kde
-      - upgrade_Leap_15.2_gnome
-      - upgrade_Leap_15.2_kde
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.1_gnome:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.1_kde:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.2_gnome:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.2_kde:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.2_cryptlvm:
           machine: uefi
-      - zdup-Leap-15.1-gnome
-      - zdup-Leap-15.1-kde
-      - zdup-Leap-15.2-gnome
-      - zdup-Leap-15.2-kde
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - zdup-Leap-15.1-gnome:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - zdup-Leap-15.1-kde:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - zdup-Leap-15.2-gnome:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - zdup-Leap-15.2-kde:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
   aarch64:
     opensuse-Leap-15.4-DVD-aarch64:
       - textmode:
@@ -398,6 +470,8 @@ scenarios:
           priority: 40
       - create_hdd_gnome:
           priority: 40
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - create_hdd_gnome_libyui
       - create_hdd_gnome_wicked:
           priority: 45
@@ -448,11 +522,19 @@ scenarios:
             YAML_SCHEDULE: schedule/yast/opensuse/transactional_server/transactional_server.yaml
       - system_performance
       - apparmor
-      - zdup-Leap-15.0-gnome
+      - zdup-Leap-15.0-gnome:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - openscap
-      - upgrade_Leap_15.0_gnome
-      - upgrade_Leap_15.0_kde
-      - upgrade_Leap_15.1_gnome
+      - upgrade_Leap_15.0_gnome:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.0_kde:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.1_gnome:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - btrfs+warnings:
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/btrfs/btrfs+warnings.yaml
@@ -475,6 +557,18 @@ scenarios:
       - yast2_nfs_v4_client
       - yast2_nfs_v4_server
       - yast2_firstboot
+      - security_tpm2_swtpm:
+          testsuite: null
+          settings:
+            BOOT_HDD_IMAGE: '1'
+            START_AFTER_TEST: create_hdd_textmode
+            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
+            UEFI: '1'
+            YAML_SCHEDULE: schedule/security/tpm2.yaml
+            QEMUTPM: 'instance'
+            QEMUTPM_VER: '2.0'
+            DESKTOP: textmode
     opensuse-Leap-15.4-NET-aarch64:
       - textmode:
           machine: aarch64
@@ -509,7 +603,9 @@ scenarios:
       - rescue_system
       - gpt
       - create_hdd_textmode
-      - create_hdd_gnome
+      - create_hdd_gnome:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - create_hdd_kde
       - install_minimalx:
           machine: ppc64le-multipath
@@ -537,6 +633,7 @@ scenarios:
             DESKTOP: textmode
             EXTRABOOTPARAMS: hvc_iucv=8
             FILESYSTEM: xfs
+            BSC1167736: yes
     opensuse-Leap-15.4-NET-s390x:
       - textmode:
           priority: 50

@@ -1,0 +1,52 @@
+############################################################
+#                         WARNING                          #
+#                                                          #
+#               This file is managed in GIT!               #
+#  Any changes via the openQA WebUI will get overwritten!  #
+#                                                          #
+#    https://github.com/os-autoinst/opensuse-jobgroups     #
+#                  job_groups/openqa.yaml                  #
+############################################################
+defaults:
+  x86_64:
+    machine: 64bit-2G
+    priority: 50
+    settings:
+      INSTALL: '1'
+      INSTALL_ONLY: '1'
+      QEMUCPU: host
+      UPDATE: '0'
+
+products:
+  openqa-*-dev-x86_64:
+    distri: openqa
+    flavor: dev
+    version: '*'
+scenarios:
+  x86_64:
+    openqa-*-dev-x86_64:
+    - openqa_install+publish:
+        testsuite: null
+        settings:
+          PUBLISH_HDD_1: 'opensuse-Tumbleweed-%ARCH%@%MACHINE%-%BUILD%.qcow2'
+          PUBLISH_PFLASH_VARS: 'opensuse-Tumbleweed-%ARCH%@%MACHINE%-%BUILD%-uefi-vars.qcow2'
+          PYTHON: '1'
+        description: >-
+          Maintainer: okurz@suse.de Test for installation of openQA itself.
+          To be used with "openqa" distri. Publishes an qcow2 image including the openQA installation
+          ready to run as an appliance.
+    - openqa_from_git:
+        testsuite: null
+        settings:
+          OPENQA_FROM_GIT: '1'
+        description: >-
+          Maintainer: okurz@suse.de Test for running openQA itself from git. To be used with "openqa"
+          distri.
+    - openqa_from_containers:
+        testsuite: null
+        settings:
+          OPENQA_CONTAINERS: '1'
+          OPENQA_FROM_GIT: '1' # see: main.pm, avoid load_osautoinst_tests
+          RETRY: 2:https://progress.opensuse.org/issues/108665
+        description: >-
+          Maintainer: okurz@suse.de Test for running openQA itself from containers. To be used with "openqa" distri. Introduced retry on the job level due to https://progress.opensuse.org/issues/108665 as there can still be sporadic network issues sometimes.

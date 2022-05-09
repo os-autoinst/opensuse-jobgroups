@@ -1,0 +1,402 @@
+############################################################
+#                         WARNING                          #
+#                                                          #
+#               This file is managed in GIT!               #
+#  Any changes via the openQA WebUI will get overwritten!  #
+#                                                          #
+#    https://github.com/os-autoinst/opensuse-jobgroups     #
+#          job_groups/development_tumbleweed.yaml          #
+############################################################
+defaults:
+  armv7hl:
+    machine: aarch32
+    priority: 55
+  aarch64:
+    machine: aarch64
+    priority: 55
+  s390x:
+    machine: s390x-zVM-vswitch-l2
+    priority: 55
+  x86_64:
+    machine: 64bit
+    priority: 55
+products:
+  kubic-*-DVD-aarch64:
+    distri: kubic
+    flavor: DVD
+    version: '*'
+  kubic-*-DVD-x86_64:
+    distri: kubic
+    flavor: DVD
+    version: '*'
+  opensuse-Tumbleweed-DVD-aarch64:
+    distri: opensuse
+    flavor: DVD
+    version: Tumbleweed
+  opensuse-Tumbleweed-DVD-s390x:
+    distri: opensuse
+    flavor: DVD
+    version: Tumbleweed
+  opensuse-Tumbleweed-DVD-x86_64:
+    distri: opensuse
+    flavor: DVD
+    version: Tumbleweed
+  opensuse-Tumbleweed-JeOS-for-AArch64-aarch64:
+    distri: opensuse
+    flavor: JeOS-for-AArch64
+    version: Tumbleweed
+  opensuse-Tumbleweed-JeOS-for-RPi-aarch64:
+    distri: opensuse
+    flavor: JeOS-for-RPi
+    version: Tumbleweed
+  opensuse-Tumbleweed-JeOS-for-AArch64-armv7hl:
+    distri: opensuse
+    flavor: JeOS-for-AArch64
+    version: Tumbleweed
+  opensuse-Tumbleweed-JeOS-for-RPi-armv7hl:
+    distri: opensuse
+    flavor: JeOS-for-RPi
+    version: Tumbleweed
+  opensuse-Tumbleweed-JeOS-for-kvm-and-xen-x86_64:
+    distri: opensuse
+    flavor: JeOS-for-kvm-and-xen
+    version: Tumbleweed
+  opensuse-Tumbleweed-KDE-Live-x86_64:
+    distri: opensuse
+    flavor: KDE-Live
+    version: Tumbleweed
+  opensuse-Tumbleweed-NET-aarch64:
+    distri: opensuse
+    flavor: NET
+    version: Tumbleweed
+  opensuse-Tumbleweed-NET-x86_64:
+    distri: opensuse
+    flavor: NET
+    version: Tumbleweed
+  opensuse-TumbleweedTest-DVD-x86_64:
+    distri: opensuse
+    flavor: DVD
+    version: TumbleweedTest
+  opensuse-TumbleweedTest-multi-machine-x86_64:
+    distri: opensuse
+    flavor: multi-machine
+    version: TumbleweedTest
+  microos-*-MicroOS-Image-x86_64:
+    distri: microos
+    flavor: MicroOS-Image
+    version: Tumbleweed
+  microos-*-MicroOS-Image-ContainerHost-x86_64:
+    distri: microos
+    flavor: MicroOS-Image-ContainerHost
+    version: Tumbleweed
+  microos-*-MicroOS-Image-k3s-x86_64:
+    distri: microos
+    flavor: MicroOS-Image-k3s
+    version: Tumbleweed
+  microos-*-DVD-x86_64:
+    distri: microos
+    flavor: DVD
+    version: '*'
+scenarios:
+  aarch64:
+    opensuse-Tumbleweed-DVD-aarch64:   
+    - supportserver_generator_from_hdd_gnome:
+        settings:
+          BOOTFROM: c
+          BOOT_HDD_IMAGE: '1'
+          CONSOLE_JUST_ACTIVATED: '0'
+          DESKTOP: gnome
+          HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-gnome@%MACHINE%.qcow2'
+          PUBLISH_HDD_1: openqa_support_server_%DISTRI%-%VERSION%_%ARCH%_%BUILD%@%MACHINE%_%DESKTOP%.qcow2
+          UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-gnome@%MACHINE%-uefi-vars.qcow2'
+          YAML_SCHEDULE: schedule/supportserver_generator_from_hdd.yaml
+        testsuite: null
+    - install_only:
+        machine: aarch64-uefi_https_boot
+    - install_only:
+        machine: aarch64_cpu_max_mte_on
+    - install_only:
+        machine: aarch64_qemu_sbsa_usb
+    - repo_inst
+    - create_hdd_textmode_ext4             
+# wicked_settings anchor is also used in opensuse-Tumbleweed-DVD-x86_64 , please keep in mind before tweak content
+    - wicked_startandstop_sut: &wicked_settings
+        settings:
+          DESKTOP: textmode
+          EXTRATEST: wicked
+          VIDEOMODE: text
+          WICKED_TCPDUMP: '1'
+          VIRTIO_CONSOLE_NUM: '2'
+          _QUIET_SCRIPT_CALLS: '1'
+          BOOT_HDD_IMAGE: '1'
+          HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+          UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
+          WORKER_CLASS: tap
+          NICTYPE: tap
+          OVS_DEBUG: '1'
+          TAPDEV: 'auto,auto'
+          START_AFTER_TEST: 'create_hdd_textmode' 
+    - wicked_startandstop_ref:
+        *wicked_settings
+    - wicked_ipv6_ref:
+        *wicked_settings
+    - wicked_ipv6_sut:
+        *wicked_settings
+    - firewalld-policy-firewall:
+        settings:
+          START_AFTER_TEST: 'create_hdd_textmode'
+          HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+    - firewalld-policy-server:
+        settings:
+          START_AFTER_TEST: 'create_hdd_textmode'
+          HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+    - firewalld-policy-client:
+        settings:
+          START_AFTER_TEST: 'create_hdd_textmode'
+          HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+    - lynis_gnome
+    - lynis_textmode
+    - upgrade_Leap_15.3_gnome
+    - upgrade_Leap_15.3_kde
+    opensuse-Tumbleweed-NET-aarch64:
+    - yast2_ncurses_minimalx
+    opensuse-Tumbleweed-JeOS-for-AArch64-aarch64:
+    - jeos-extra:
+        machine: aarch64_cpu_max-HD24G
+    - jeos:
+        machine: aarch64_cpu_max_mte_on-HD24G
+    - jeos:
+        machine: aarch64_cpu_max-HD24G
+    - jeos:
+        machine: aarch64_qemu_sbsa
+    opensuse-Tumbleweed-JeOS-for-RPi-aarch64:
+    - jeos-extra:
+        machine: RPi3
+        settings:
+          PASSWORD: linux
+    - jeos-extra:
+        machine: RPi4
+        settings:
+          PASSWORD: linux
+    - zdup_twjeos2twnext_rpi:
+        machine: RPi3
+        settings:
+          PASSWORD: linux
+    - zdup_twjeos2twnext_rpi:
+        machine: RPi4
+        settings:
+          PASSWORD: linux
+    - zdup_twjeos2twnext_rpi2:
+        machine: RPi2B
+        settings:
+          PASSWORD: linux
+  armv7hl:
+    opensuse-Tumbleweed-JeOS-for-RPi-armv7hl:
+    - jeos-extra:
+        machine: RPi2B
+        settings:
+          PASSWORD: linux
+    - jeos-containers:
+        machine: RPi2B
+        settings:
+          PASSWORD: linux
+  s390x:
+    opensuse-Tumbleweed-DVD-s390x:
+    - ltp_cve_s390x
+    - ltp_syscalls_s390x
+    - ltp_net_features_s390x
+    - wireguard_server
+    - wireguard_client
+    - create_hdd_textmode
+    - toolchain_zypper
+    - minimalx:
+        settings:
+          YAML_SCHEDULE: schedule/yast/minimalx_zvm.yaml
+  x86_64:
+    opensuse-Tumbleweed-DVD-x86_64:
+    - libssh
+    - scap_workbench:
+        settings:
+          YAML_SCHEDULE: schedule/security/scap_workbench.yaml
+          CASEDIR: "https://github.com/STARRY-S/os-autoinst-distri-opensuse.git#security_scap_workbench"
+    - iscsi_client_normal_auth_backstore_hdd
+    - iscsi_server_normal_auth_backstore_hdd
+    - yast2_apparmor
+    - lynis_textmode
+    - lynis_gnome
+#    - security_pam_faillock:
+#        testsuite: null
+#        settings:
+#          BOOT_HDD_IMAGE: '1'
+#          START_AFTER_TEST: create_hdd_textmode
+#          HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+#          YAML_SCHEDULE: schedule/security/pam_faillock.yaml
+#          DESKTOP: textmode
+#    - security_smartcard_update:
+#        testsuite: null
+#        settings:
+#          BOOT_HDD_IMAGE: '1'
+#          START_AFTER_TEST: create_hdd_textmode
+#          HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+#          YAML_SCHEDULE: schedule/security/smartcard.yaml
+#          DESKTOP: textmode
+    - containers_host_helm:
+        testsuite: extra_tests_textmode_containers
+        settings:
+          CONTAINER_RUNTIME: 'helm'
+    - security_vsftpd:
+        settings:
+          YAML_SCHEDULE: schedule/security/vsftpd.yaml
+    - wicked_advanced_sut: 
+        *wicked_settings
+    - wicked_advanced_ref:
+        *wicked_settings
+    - wicked_startandstop_sut:
+        *wicked_settings
+    - wicked_startandstop_ref:
+        *wicked_settings
+    - wicked_aggregate_sut: &wicked_no_tcpdump
+        settings:
+          DESKTOP: textmode
+          EXTRATEST: wicked
+          VIDEOMODE: text
+          VIRTIO_CONSOLE_NUM: '2'
+          _QUIET_SCRIPT_CALLS: '1'
+          BOOT_HDD_IMAGE: '1'
+          HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+          UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
+          WORKER_CLASS: tap
+          NICTYPE: tap
+          OVS_DEBUG: '1'
+          TAPDEV: 'auto,auto'
+          START_AFTER_TEST: 'create_hdd_textmode' 
+    - wicked_aggregate_ref:
+        *wicked_no_tcpdump
+    - wicked_ipv6_ref:
+        *wicked_settings
+    - wicked_ipv6_sut:
+        *wicked_settings
+    - wicked_wlan_sut:
+        *wicked_settings
+    - wicked_wlan_ref:
+        *wicked_settings
+    - gnome+import_ssh_keys
+    - samba_ncurses
+    - gnome+do_not_import_ssh_keys
+    - desktopapps-message-wayland:
+        machine: 64bit_virtio
+    - repo_inst
+    - create_hdd_textmode_ext4:
+        machine: uefi
+    - create_hdd_textmode_ext4_mok_enroll:
+        machine: uefi
+    - ima_measurement:
+        machine: uefi
+        settings:
+           BOOT_MENU: "1"
+    - ima_appraisal:
+        machine: uefi
+        settings:
+           BOOT_MENU: "1"
+    - evm_protection:
+        machine: uefi
+        settings:
+           BOOT_MENU: "1"
+    - upgrade_Leap_42.3_cryptlvm-50GB:
+        machine: 64bit
+        priority: 100
+    - upgrade_Leap_42.3_cryptlvm-50GB:
+        machine: uefi
+        priority: 100
+#    - autoyast_rules_and_classes_2:
+#        description: Test verifies rules and classes autoyast.
+#        settings:
+#          YAML_SCHEDULE: schedule/yast/autoyast/autoyast_opensuse_rules_and_classes.yaml
+#        testsuite: null
+    # iob
+    # - ibtest-master:
+    #     machine: 64bit-ipmi-large-mem
+    # - ibtest-slave:
+    #     machine: 64bit-ipmi-large-mem
+    opensuse-TumbleweedTest-DVD-x86_64:
+    - create_hdd_textmode:
+        machine: 64bit 
+    - upgrade_Leap_42.3_kde
+    - regression-installation:
+        description: |-
+          Maintainer: qkzhu@suse.com
+        
+          See
+          https://github.com/os-autoinst/os-autoinst-distri-opensuse/pull/3462
+        settings:
+          DESKTOP: gnome
+          HDDSIZEGB: '25'
+          PUBLISH_HDD_1: openSUSE-%VERSION%-%BUILD%-%ARCH%_for_regression.qcow2
+          PUBLISH_PFLASH_VARS: openSUSE-%VERSION%-%BUILD%-%ARCH%_for_regression-uefi-vars.qcow2
+          QEMU_COMPRESS_QCOW2: '1'
+          REGRESSION: installation
+        testsuite: null
+    - desktopapps-gnome
+    opensuse-TumbleweedTest-multi-machine-x86_64:
+    - create_hdd_textmode:
+        machine: 64bit 
+    - autofs_server:
+        machine: 64bit
+    - autofs_client:
+        machine: 64bit
+    - crypt_test_krb5_kdc:
+        description: 'Maintainer: wnereiz'
+        settings:
+          BOOT_HDD_IMAGE: '1'
+          HDD_1: '%DISTRI%-Tumbleweed-%ARCH%-%BUILD%-textmode@%MACHINE%.qcow2'
+          NETWORKS: fixed
+          NICTYPE: tap
+          SECURITY_TEST: crypt_krb5kdc
+          START_AFTER_TEST: create_hdd_textmode
+          WORKER_CLASS: tap
+        testsuite: null
+    - crypt_test_krb5_server:
+        description: 'Maintainer: wnereiz'
+        settings:
+          BOOT_HDD_IMAGE: '1'
+          HDD_1: '%DISTRI%-Tumbleweed-%ARCH%-%BUILD%-textmode@%MACHINE%.qcow2'
+          NETWORKS: fixed
+          NICTYPE: tap
+          PARALLEL_WITH: crypt_test_krb5_kdc
+          SECURITY_TEST: crypt_krb5server
+          START_AFTER_TEST: create_hdd_textmode
+          WORKER_CLASS: tap
+        testsuite: null
+    - crypt_test_krb5_client:
+        description: |-
+          Maintainer: wnereiz
+        
+          HDD_1=%DISTRI%-%VERSION%-%ARCH%-%BUILD%-textmode@%MACHINE%.qcow2
+        settings:
+          BOOT_HDD_IMAGE: '1'
+          HDD_1: '%DISTRI%-Tumbleweed-%ARCH%-%BUILD%-textmode@%MACHINE%.qcow2'
+          NETWORKS: fixed
+          NICTYPE: tap
+          PARALLEL_WITH: crypt_test_krb5_server
+          SECURITY_TEST: crypt_krb5client
+          START_AFTER_TEST: create_hdd_textmode
+          WORKER_CLASS: tap
+        testsuite: null
+    microos-*-MicroOS-Image-k3s-x86_64:
+    - microos
+    opensuse-Tumbleweed-JeOS-for-kvm-and-xen-x86_64:
+    - jeos-nfs-server:
+         settings:
+            +SCC_REGISTER: never
+            BOOT_HDD_IMAGE: "1"
+            DESKTOP: textmode
+            VIDEOMODE: text
+            BOOTLOADER_TIMEOUT: "300"
+    - jeos-nfs-client:
+         settings:
+            +SCC_REGISTER: never
+            BOOT_HDD_IMAGE: "1"
+            DESKTOP: textmode
+            VIDEOMODE: text
+            BOOTLOADER_TIMEOUT: "300"
+    - rancher-gnome-supportserver

@@ -1,11 +1,11 @@
 ############################################################
-#                        WARNING                           #
+#                         WARNING                          #
 #                                                          #
 #               This file is managed in GIT!               #
 #  Any changes via the openQA WebUI will get overwritten!  #
 #                                                          #
 #    https://github.com/os-autoinst/opensuse-jobgroups     #
-#                                                          #
+#           job_groups/opensuse_tumbleweed.yaml            #
 ############################################################
 ---
 defaults:
@@ -113,6 +113,8 @@ scenarios:
     opensuse-Tumbleweed-GNOME-Live-i686:
       - gnome-live:
           priority: 48
+          settings:
+            QEMURAM: '2048'
     opensuse-Tumbleweed-KDE-Live-i686:
       - kde-live
       - kde-live_installation
@@ -135,7 +137,7 @@ scenarios:
       - container-host:
           machine: 64bit
           settings:
-            CONTAINERS_UNTESTED_IMAGES: '1'
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
       - remote_ssh_controller:
           settings:
             HDD_1: support_server_tumbleweed@64bit.qcow2
@@ -155,34 +157,37 @@ scenarios:
       - container-host:
           machine: 64bit
           settings:
-            CONTAINERS_UNTESTED_IMAGES: '1'
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
       - container-host:
           machine: uefi
           settings:
-            CONTAINERS_UNTESTED_IMAGES: '1'
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
     microos-*-MicroOS-Image-ContainerHost-x86_64:
       - container-host:
           settings:
-            CONTAINERS_UNTESTED_IMAGES: '1'
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
       - container-host2microosnext:
           settings:
-            CONTAINERS_UNTESTED_IMAGES: '1'
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
       - container-host-old2microosnext:
           settings:
-            CONTAINERS_UNTESTED_IMAGES: '1'
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
     microos-*-MicroOS-Image-Kubic-kubeadm-x86_64:
       - kubeadm:
           machine: 64bit-2G
     microos-*-MicroOS-Image-x86_64:
-      - microos
+      - microos:
+          settings:
+            #SELinux is enabled by default, but this allows running some checks
+            ENABLE_SELINUX: '1' 
+      - microos-combustion
+      - microos-ignition
+      - microos-wizard
       - microos2microosnext
       - microos-old2microosnext
       - microos_qemu:
           settings:
             QEMUCPU: 'host'
-      - microos_selinux:
-          settings:
-            ENABLE_SELINUX: '1'
     opensuse-Tumbleweed-DVD-x86_64:
       - textmode:
           machine: 64bit
@@ -220,6 +225,7 @@ scenarios:
       - minimalx:
           machine: 64bit
           priority: 45
+      - gnome-boot-hdd
       - minimalx+btrfs+sephome
       # - lxde:
       #     machine: 64bit
@@ -241,9 +247,26 @@ scenarios:
       - install_only:
           machine: 64bit-multipath
           priority: 40
-      - ext4:
+      - guided_ext4:
           settings:
-            YAML_SCHEDULE: schedule/yast/opensuse/ext4/ext4.yaml
+            DESKTOP: gnome
+            FILESYSTEM: ext4
+            NOAUTOLOGIN: '1'
+            YAML_SCHEDULE_DEFAULT: schedule/yast/tumbleweed/flows/default.yaml
+            YAML_SCHEDULE_FLOWS: gnome,guided,autologin_off
+            YAML_SCHEDULE: schedule/yast/tumbleweed/guided_ext4.yaml
+          testsuite: null
+      - guided_ext4_textmode:
+          description: |-
+            Mantainer: jeriveramoya Test selection of file system ext4 for / partition in textmode for openSUSE distributions
+          settings:
+            DESKTOP: textmode
+            FILESYSTEM: ext4
+            VIDEOMODE: text            
+            YAML_SCHEDULE_DEFAULT: schedule/yast/tumbleweed/flows/default.yaml
+            YAML_SCHEDULE_FLOWS: server,guided
+            YAML_SCHEDULE: schedule/yast/tumbleweed/guided_ext4.yaml
+          testsuite: null
       - lvm:
           priority: 49
       - uefi-os:
@@ -279,10 +302,6 @@ scenarios:
       - yast2_ui_devel
       - yast2_users
       - extra_tests_gnome
-      - upgrade_Leap_42.1_gnome:
-          machine: 64bit
-      - upgrade_Leap_42.1_kde:
-          machine: 64bit
       - create_hdd_xfce:
           priority: 46
       - extra_tests_on_kde
@@ -311,16 +330,17 @@ scenarios:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIME: 'podman'
+      - containers_host_containerd:
+          testsuite: extra_tests_textmode_containers
+          settings:
+            CONTAINER_RUNTIME: 'containerd_clictl,containerd_nerdctl'
       - containers_image:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIME: 'docker,podman'
             CONTAINERS_UNTESTED_IMAGES: '1'
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
       - extra_tests_ai_ml
-      - upgrade_Leap_42.2_gnome:
-          machine: 64bit
-      - upgrade_Leap_42.2_kde:
-          machine: 64bit
       - yast_no_self_update
       - gnome-gdm:
           machine: 64bit
@@ -361,7 +381,7 @@ scenarios:
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/autoyast/autoyast_rules_and_classes.yaml
           testsuite: null
-      - btrfs:
+      - guided_btrfs:
           description: |-
             https://progress.opensuse.org/issues/16570
             PARTITIONING_WARNINGS=1
@@ -369,13 +389,23 @@ scenarios:
             Test installation with btrfs filesystem. Validates no_COW attributes on subvolumes, checks the /home is not on the separate partition.
           settings:
             HDDSIZEGB: '40'
-            YAML_SCHEDULE: schedule/yast/opensuse/btrfs/btrfs.yaml
+            YAML_SCHEDULE_DEFAULT: schedule/yast/tumbleweed/flows/default.yaml
+            YAML_SCHEDULE_FLOWS: kde,guided
+            YAML_SCHEDULE: schedule/yast/tumbleweed/guided_btrfs.yaml
+          testsuite: null
+      - guided_btrfs_textmode:
+          description: 'Mantainer: jeriveramoya Test selection of file system btrfs for / partition in textmode for openSUSE distributions'
+          settings:
+            DESKTOP: textmode
+            FILESYSTEM: btrfs
+            VIDEOMODE: text
+            YAML_SCHEDULE_DEFAULT: schedule/yast/tumbleweed/flows/default.yaml
+            YAML_SCHEDULE_FLOWS: server,guided
+            YAML_SCHEDULE: schedule/yast/tumbleweed/guided_btrfs.yaml
           testsuite: null
       - package-dependency
       - nvme:
           machine: uefi
-      - nis_client
-      - nis_server
       - extra_tests_filesystem
       - gnuhealth
       - clone_system
@@ -387,6 +417,8 @@ scenarios:
       - ovs-client
       - salt-master
       - salt-minion
+      - autofs_server
+      - autofs_client
       - rsync-server
       - rsync-client
       - extra_tests_misc
@@ -399,9 +431,6 @@ scenarios:
             QEMURAM: '2048'
       - external_iso:
           machine: 64bit
-      - upgrade_Leap_42.3_gnome:
-          machine: 64bit
-      - upgrade_Leap_42.3_kde
       - desktopapps-gnome
       - yast2_ncurses:
           settings:
@@ -429,9 +458,6 @@ scenarios:
             NUMDISKS: '2'
             YAML_SCHEDULE: schedule/yast/opensuse/select_disk/select_disk.yaml
           testsuite: null
-      - ext4_textmode:
-          settings:
-            YAML_SCHEDULE: schedule/yast/opensuse/ext4/ext4_textmode.yaml
       - ext3_textmode:
           description: 'Mantainer: jeriveramoya Test selection of file system ext3 for / partition in textmode for openSUSE distributions'
           settings:
@@ -440,15 +466,6 @@ scenarios:
             INSTALLONLY: '1'
             VIDEOMODE: text
             YAML_SCHEDULE: schedule/yast/opensuse/ext3/ext3_textmode.yaml
-          testsuite: null
-      - btrfs_textmode:
-          description: 'Mantainer: jeriveramoya Test selection of file system btrfs for / partition in textmode for openSUSE distributions'
-          settings:
-            DESKTOP: textmode
-            FILESYSTEM: btrfs
-            INSTALLONLY: '1'
-            VIDEOMODE: text
-            YAML_SCHEDULE: schedule/yast/opensuse/btrfs/btrfs_textmode.yaml
           testsuite: null
       - xfs_textmode:
           description: 'Mantainer: jeriveramoya Test selection of file system xfs for / partition in textmode for openSUSE distributions'
@@ -465,25 +482,55 @@ scenarios:
           machine: 64bit
       - lvm-full-encrypt
       - openscap
-      - lynis_textmode
-      - lynis_gnome
       - lvm_thin_provisioning:
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/lvm/lvm_thin_provisioning.yaml
-      - upgrade_Leap_15.2_gnome:
+      - upgrade_Leap_42.1_gnome:
           machine: 64bit
-      - upgrade_Leap_15.2_with_service_check:
+      - upgrade_Leap_42.1_kde:
           machine: 64bit
-      - upgrade_Leap_15.2_with_service_check_nested_vm_down:
+      - upgrade_Leap_42.2_gnome:
           machine: 64bit
-      - upgrade_Leap_15.2_kde:
+      - upgrade_Leap_42.2_kde:
           machine: 64bit
-      - upgrade_Leap_15.2_cryptlvm:
-          machine: uefi
-      - upgrade_Leap_15.0_gnome
+      - upgrade_Leap_42.3_gnome:
+          machine: 64bit
+      - upgrade_Leap_42.3_kde
+      - upgrade_Leap_15.0_gnome:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.0_cryptlvm:
           machine: uefi
-      - upgrade_Leap_15.0_kde
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.0_kde:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.1_kde:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.2_gnome:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.2_with_service_check:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.2_with_service_check_nested_vm_down:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.2_kde:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.2_cryptlvm:
+          machine: uefi
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.3_gnome:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.3_kde:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - installer_extended
       - desktopapps-other:
           description: 'Maintainer: Yuan Ren (yuanren10). See https://progress.opensuse.org/issues/23906'
@@ -505,11 +552,107 @@ scenarios:
             UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
           testsuite: null
       - desktopapps-gb18030
+      - usbguard:
+          settings:
+            YAML_SCHEDULE: schedule/security/usbguard.yaml
       - security_check_kernel_config
+      - security_audit:
+          settings:
+            YAML_SCHEDULE: schedule/security/audit.yaml
+      - security_build_nested_hdd:
+          testsuite: null
+          settings:
+            BOOT_HDD_IMAGE: '1'
+            START_AFTER_TEST: create_hdd_textmode
+            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+            DESKTOP: textmode
+            YAML_SCHEDULE: schedule/security/build_nested_hdd.yaml
+            PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%_nested_l2.qcow2'
+      - apparmor_profile_dnsmasq:
+          settings:
+            YAML_SCHEDULE: schedule/security/apparmor_profile_dnsmasq.yaml
       - security_pam
       - security_tpm2:
           settings:
             YAML_SCHEDULE: schedule/security/tpm2.yaml
+      - security_tpm2_swtpm:
+          testsuite: null
+          settings:
+            BOOT_HDD_IMAGE: '1'
+            START_AFTER_TEST: create_hdd_textmode
+            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+            YAML_SCHEDULE: schedule/security/tpm2.yaml
+            QEMUTPM: 'instance'
+            QEMUTPM_VER: '2.0'
+            DESKTOP: textmode
+      - security_tpm2_swtpm_uefi:
+          testsuite: null
+          machine: uefi
+          settings:
+            START_AFTER_TEST: create_hdd_textmode_uefi
+            BOOT_HDD_IMAGE: '1'
+            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+            UEFI_PFLASH_CODE: '/usr/share/qemu/ovmf-x86_64-ms-code.bin'
+            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
+            YAML_SCHEDULE: schedule/security/tpm2.yaml
+            QEMUTPM: 'instance'
+            QEMUTPM_VER: '2.0'
+            DESKTOP: textmode             
+      - security_tpm2_keylime:
+          testsuite: null
+          settings:
+            BOOT_HDD_IMAGE: '1'
+            START_AFTER_TEST: create_hdd_textmode
+            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+            YAML_SCHEDULE: schedule/security/keylime.yaml
+            QEMUTPM: 'instance'
+            QEMUTPM_VER: '2.0'
+            DESKTOP: textmode
+      - security_tpm2_keylime_uefi:
+          machine: uefi
+          testsuite: null
+          settings:
+            BOOT_HDD_IMAGE: '1'
+            START_AFTER_TEST: create_hdd_textmode_uefi
+            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+            UEFI_PFLASH_CODE: '/usr/share/qemu/ovmf-x86_64-ms-code.bin'
+            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
+            YAML_SCHEDULE: schedule/security/keylime.yaml
+            QEMUTPM: 'instance'
+            QEMUTPM_VER: '2.0'
+            DESKTOP: textmode               
+      - unlock_luks2_volume_with_tpm2:
+          testsuite: null
+          settings:
+            DESKTOP: gnome
+            HDDSIZEGB: '30'
+            ENCRYPT: '1'
+            LUKS2_ENCRYPT: '1'
+            YAML_SCHEDULE: schedule/security/autoyast_btrfs_luks2_tw.yaml
+            QEMURAM: '4096'
+            QEMUTPM: 'instance'
+            QEMUTPM_VER: '2.0'            
+      - security_tpm_tools:
+          testsuite: null
+          settings:
+            BOOT_HDD_IMAGE: '1'
+            START_AFTER_TEST: create_hdd_textmode
+            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+            YAML_SCHEDULE: schedule/security/tpm_selftest.yaml
+            QEMUTPM: 'instance'
+            QEMUTPM_VER: '1.2'
+            DESKTOP: textmode
+      - secureboot_kernel_lockdown:
+          testsuite: null
+          machine: uefi
+          settings:
+            START_AFTER_TEST: create_hdd_textmode_uefi
+            BOOT_HDD_IMAGE: '1'
+            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+            UEFI_PFLASH_CODE: '/usr/share/qemu/ovmf-x86_64-ms-code.bin'
+            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
+            YAML_SCHEDULE: schedule/security/secureboot_kernel_lockdown.yaml
+            DESKTOP: textmode             
       - system_check
       - btrfs+warnings:
           settings:
@@ -658,7 +801,7 @@ scenarios:
       - create_swtpm_hdd_uefi:
           machine: uefi
       - security_swtpm
-      - security_swtpm_uefi
+      - security_swtpm_uefi   
       - security_389ds_server:
           description: 'Maintainer: rfan1'
           testsuite: null
@@ -688,26 +831,26 @@ scenarios:
             HOSTNAME: 'client'
             SSS_USERNAME: 'wilber'
             YAML_SCHEDULE: schedule/security/389ds_sssd.yaml
+      - security_smartcard_update:
+          testsuite: null
+          settings:
+            BOOT_HDD_IMAGE: '1'
+            START_AFTER_TEST: create_hdd_textmode
+            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+            YAML_SCHEDULE: schedule/security/smartcard.yaml
+            DESKTOP: textmode   
       - security_grub_auth
       - openqa_bootstrap
-      - openqa_bootstrap_container:
-          description: 'Maintainer: dheidler. Install openQA in nspawn container using openqa-bootstrap-container script.'
-          settings:
-            +QEMUCPU: host
-            BOOTSTRAP_CONTAINER: '1'
-            BOOT_HDD_IMAGE: '1'
-            DESKTOP: gnome
-            EXTRATEST: openqa_bootstrap
-            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
-            OPENQA_HOST: http://openqa.opensuse.org
-            START_AFTER_TEST: create_hdd_gnome
-            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
-          testsuite: null
+      - openqa_bootstrap_container
       - rootonly
       - qemu
       - extra_tests_webframeworks
-      - upgrade_Leap_15.1_gnome
-      - upgrade_boot-into_snapshot_rollback_Leap_15.1_gnome
+      - upgrade_Leap_15.1_gnome:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - upgrade_boot-into_snapshot_rollback_Leap_15.1_gnome:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - extra_tests_dracut
       - boot_linuxrc
       - RAID0_gpt
@@ -782,16 +925,18 @@ scenarios:
             HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
     opensuse-Tumbleweed-GNOME-Live-x86_64:
       - gnome-live:
-          machine: uefi-2G
+          machine: uefi
+          priority: 48
+          settings:
+            QEMURAM: '4096'
+      - gnome-live:
+          machine: 64bit-4G
           priority: 48
       - gnome-live:
-          machine: 64bit
+          machine: USBboot_64-2G
           priority: 48
       - gnome-live:
-          machine: USBboot_64
-          priority: 48
-      - gnome-live:
-          machine: uefi-usb
+          machine: uefi-usb-4G
           priority: 48
       - mediacheck:
           machine: 64bit
@@ -803,10 +948,14 @@ scenarios:
           machine: uefi_virtio-2G
       - jeos-extra:
           machine: 64bit_virtio-2G
-      - jeos-containers:
-          machine: 64bit_virtio
+      - jeos-apparmor:
+          machine: 64bit_virtio-2G
+      - jeos-container_host:
+          machine: 64bit_virtio-2G
+      - jeos-container_image:
+          machine: 64bit_virtio-2G
           settings:
-            CONTAINERS_UNTESTED_IMAGES: '1'
+              CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
       - zdup_twjeos2twnext:
           machine: 64bit_virtio
       - jeos-filesystem:
@@ -846,9 +995,16 @@ scenarios:
           machine: 64bit
       - kde-live-wayland:
           machine: 64bit_virtio-3G
-      - kde_live_upgrade_leap_15.0
       - kde_live_upgrade_leap_42.3:
           machine: 64bit-2G
+      - kde_live_upgrade_leap_15.0:
+          settings:
+              QEMU_VIRTIO_RNG: "0"
+      - kde_live_upgrade_leap_15.2:
+          machine: uefi
+      - kde_live_upgrade_leap_15.3:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
     opensuse-Tumbleweed-NET-x86_64:
       - textmode:
           machine: 64bit
@@ -863,9 +1019,6 @@ scenarios:
           machine: 64bit
           priority: 40
       - uefi:
-          machine: 64bit
-          priority: 45
-      - gnome:
           machine: 64bit
           priority: 45
       - gnome:
@@ -900,21 +1053,22 @@ scenarios:
           testsuite: null
       - containers_tw_image_on_centos_host:
           testsuite: null
-          description: 'Runs docker and podman container test on Centos'
+          description: 'Runs image container test on Centos using podman'
           settings:
             DESKTOP: textmode
             EXTRATEST: cont
             VIDEOMODE: text
             KEEP_GRUB_TIMEOUT: '1'
             BOOT_HDD_IMAGE: '1'
-            HDD_1: 'centOS-8.2.2004-x86_64-minimal.qcow2'
+            HDD_1: 'centOS-Stream-8-x86_64-20220128-minimal.qcow2'
             CONTAINERS_UNTESTED_IMAGES: '1'
+            CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed'
             CONTAINERS_NO_SUSE_OS: "1"
-            CONTAINER_RUNTIME: "podman,docker"
+            CONTAINER_RUNTIME: "podman"
             REGISTRY: '18.156.2.117:5000'
       - containers_tw_image_on_ubuntu_host:
           testsuite: null
-          description: 'Runs docker and podman container test on Ubuntu'
+          description: 'Runs image container test on Ubuntu using docker and podman'
           settings:
             DESKTOP: textmode
             EXTRATEST: cont
@@ -923,6 +1077,7 @@ scenarios:
             BOOT_HDD_IMAGE: '1'
             HDD_1: 'ubuntu-20.04.1_1.qcow2'
             CONTAINERS_UNTESTED_IMAGES: '1'
+            CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed'
             CONTAINERS_NO_SUSE_OS: "1"
             CONTAINER_RUNTIME: "podman,docker"
             REGISTRY: '18.156.2.117:5000'
@@ -938,6 +1093,24 @@ scenarios:
           machine: 64bit
       - upgrade_Leap_42.1_kde:
           machine: 64bit
+      - upgrade_Leap_15.0_gnome:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.0_kde:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - zdup-Leap-15.2-kde:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - zdup-Leap-15.2-gnome:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - zdup-Leap-15.3-kde:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - zdup-Leap-15.3-gnome:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - create_hdd_minimalx
       - create_hdd_tumbleweed
       - zdup_tw2twnext_gnome
@@ -970,6 +1143,8 @@ scenarios:
           machine: uefi
       - gnome+selinux:
           machine: uefi
+      - textmode+selinux:
+          machine: uefi
     opensuse-Tumbleweed-Rescue-CD-x86_64:
       - rescue:
           priority: 49
@@ -979,7 +1154,9 @@ scenarios:
       - mediacheck:
           machine: 64bit
     opensuse-Tumbleweed-XFCE-Live-x86_64:
-      - xfce-live
+      - xfce-live:
+          settings:
+            QEMURAM: '3072'
       - xfce-live:
           machine: uefi-usb
           priority: 49
@@ -996,7 +1173,7 @@ scenarios:
             QEMUMACHINE: 'q35'
             SCC_REGISTER: '0'
             YAML_SCHEDULE: 'schedule/wsl/wsl_main.yaml'
-            HDD_1: 'windows-10-x86_64-21H1@64bit_win.qcow2'
+            HDD_1: 'windows-10-x86_64-21H2@64bit_win.qcow2'
             VNC_STALL_THRESHOLD: '10'
             VNC_TYPING_LIMIT: '15'
             QEMU_ENABLE_SMBD: '1'
@@ -1005,7 +1182,7 @@ scenarios:
           machine: uefi_win
           settings:
             <<: *wsl_settings
-            HDD_1: 'windows-10-x86_64-21H1@uefi_win.qcow2'
+            HDD_1: 'windows-10-x86_64-21H2@uefi_win.qcow2'
       - wsl2-main:
           testsuite: null
           machine: 64bit_win
