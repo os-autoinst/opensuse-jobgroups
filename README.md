@@ -6,6 +6,24 @@ Changes to the repo are automatically checked by CI and applied to openqa.opensu
 You can find the individual jobgroups in the `job_groups` directory.
 The mapping of the serverside job group IDs to these files is done in `job_groups.yaml`.
 
+## tool.py
+
+All operations in this repo can be done using the `tool.py` script.
+It only uses python3 standard libraries but it requires `openqa-cli`
+tool to be installed.
+
+For most operations it needs API credentials for openqa.opensuse.org.
+They can be supplied in three different ways:
+
+* `APIKEY` and `APISECRET` environment variables
+* `~/.config/openqa/client.conf`
+* `/etc/openqa/client.conf`
+
+It always must be called with the root of this git repo as the
+current working directory.
+
+For more information refer to `./tool.py --help`.
+
 
 ## Adding a new job group
 
