@@ -7,6 +7,7 @@
 #    https://github.com/os-autoinst/opensuse-jobgroups     #
 #                job_groups/windows_10.yaml                #
 ############################################################
+---
 defaults:
   x86_64:
     machine: uefi_win
@@ -19,7 +20,7 @@ products:
 scenarios:
   x86_64:
     windows-10-DVD-x86_64:
-    - windows_10:
-        machine: 64bit_win
-    - windows_10:
-        machine: uefi_win
+      - windows_10:
+          machine: 64bit_win
+      - windows_10:
+          machine: uefi_win
