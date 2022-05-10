@@ -1,37 +1,53 @@
 name: CI
-on: [push, pull_request]
+on: [push, pull_request_target]
 jobs:
   static-check:
     runs-on: ubuntu-latest 
     container:
       image: docker://registry.opensuse.org/home/syrianidou_sofia/containers/tumbleweed:o3-jobgroups
     steps:
+
       - name: Git Checkout
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
-      - name: Get Job group changed files
+      - name: Git Checkout PR
+        uses: actions/checkout@v3
+        with:
+          ref: ${{github.event.pull_request.head.ref}}
+          repository: ${{github.event.pull_request.head.repo.full_name}}
+          path: opensuse-jobgroups-pr
+          fetch-depth: 0
+
+      - name: Get modified job group yaml files
         id: changed-files
         run: |
+          cd opensuse-jobgroups-pr
           git config --global --add safe.directory '*'
           CHANGED_FILES=$(git diff --diff-filter="*ACDMRTUX" --name-only origin/master job_groups/ | tr '\n' ' ')
           echo $CHANGED_FILES
           echo "::set-output name=files::${CHANGED_FILES}"
 
-      - name: Run yamllint for modified Job group schedules
-        run: yamllint -f github ${{ steps.changed-files.outputs.files }}
+      - name: Run yamllint for modified job group schedules
+        run: |
+          ls -l
+          pwd
+          yamllint -f github job_groups.yaml ${{ steps.changed-files.outputs.files }}
 
       - name: Check for orphaned yaml files
         env:
           APIKEY: "${{ secrets.APIKEY }}"
           APISECRET: "${{ secrets.APISECRET }}"
-        run: ./tool.py --orphans
+        run: |
+          ./tool.py --orphans
+
       - name: Run serverside checks
         env:
           APIKEY: "${{ secrets.APIKEY }}"
           APISECRET: "${{ secrets.APISECRET }}"
         run: ./tool.py --dry-run --push
+
       - name: Clone os-autoinst-distri-opensuse repository
         uses: actions/checkout@v2
         with:
@@ -43,9 +59,10 @@ jobs:
       - name: Check if YAML_SCHEDULE and YAML_TEST_DATA exist in os-autoinst-distri-opensuse
         run: |
           for file in ${{ steps.changed-files.outputs.files }}; do
-            for file_ref in $(grep -oP '(YAML_SCHEDULE|YAML_TEST_DATA):\s\K.*' $file | sort -u | awk "{print \"os-autoinst-distri-opensuse/\" \$0}") ; do
+            for file_ref in $(grep -oP '(YAML_SCHEDULE|YAML_TEST_DATA):\s\K.*' $file | tr -d "'" | tr -d '"' | sort -u | awk "{print \"os-autoinst-distri-opensuse/\" \$0}") ; do
+
               if ! test -f "$file_ref" ; then
-                echo "Error: Reference from '${file}' to non existing '%{file_ref}'"
+                echo "Error: Reference from '${file}' to non existing '${file_ref}'"
                 exit 1
               fi
             done

@@ -178,8 +178,8 @@ scenarios:
     microos-*-MicroOS-Image-x86_64:
       - microos:
           settings:
-            #SELinux is enabled by default, but this allows running some checks
-            ENABLE_SELINUX: '1' 
+            # SELinux is enabled by default, but this allows running some checks
+            ENABLE_SELINUX: '1'
       - microos-combustion
       - microos-ignition
       - microos-wizard
@@ -262,7 +262,7 @@ scenarios:
           settings:
             DESKTOP: textmode
             FILESYSTEM: ext4
-            VIDEOMODE: text            
+            VIDEOMODE: text
             YAML_SCHEDULE_DEFAULT: schedule/yast/tumbleweed/flows/default.yaml
             YAML_SCHEDULE_FLOWS: server,guided
             YAML_SCHEDULE: schedule/yast/tumbleweed/guided_ext4.yaml
@@ -597,7 +597,7 @@ scenarios:
             YAML_SCHEDULE: schedule/security/tpm2.yaml
             QEMUTPM: 'instance'
             QEMUTPM_VER: '2.0'
-            DESKTOP: textmode             
+            DESKTOP: textmode
       - security_tpm2_keylime:
           testsuite: null
           settings:
@@ -620,7 +620,7 @@ scenarios:
             YAML_SCHEDULE: schedule/security/keylime.yaml
             QEMUTPM: 'instance'
             QEMUTPM_VER: '2.0'
-            DESKTOP: textmode               
+            DESKTOP: textmode
       - unlock_luks2_volume_with_tpm2:
           testsuite: null
           settings:
@@ -631,7 +631,7 @@ scenarios:
             YAML_SCHEDULE: schedule/security/autoyast_btrfs_luks2_tw.yaml
             QEMURAM: '4096'
             QEMUTPM: 'instance'
-            QEMUTPM_VER: '2.0'            
+            QEMUTPM_VER: '2.0'
       - security_tpm_tools:
           testsuite: null
           settings:
@@ -652,7 +652,7 @@ scenarios:
             UEFI_PFLASH_CODE: '/usr/share/qemu/ovmf-x86_64-ms-code.bin'
             UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
             YAML_SCHEDULE: schedule/security/secureboot_kernel_lockdown.yaml
-            DESKTOP: textmode             
+            DESKTOP: textmode
       - system_check
       - btrfs+warnings:
           settings:
@@ -801,7 +801,7 @@ scenarios:
       - create_swtpm_hdd_uefi:
           machine: uefi
       - security_swtpm
-      - security_swtpm_uefi   
+      - security_swtpm_uefi
       - security_389ds_server:
           description: 'Maintainer: rfan1'
           testsuite: null
@@ -838,7 +838,7 @@ scenarios:
             START_AFTER_TEST: create_hdd_textmode
             HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
             YAML_SCHEDULE: schedule/security/smartcard.yaml
-            DESKTOP: textmode   
+            DESKTOP: textmode
       - security_grub_auth
       - openqa_bootstrap
       - openqa_bootstrap_container
@@ -955,7 +955,7 @@ scenarios:
       - jeos-container_image:
           machine: 64bit_virtio-2G
           settings:
-              CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
       - zdup_twjeos2twnext:
           machine: 64bit_virtio
       - jeos-filesystem:
@@ -999,7 +999,7 @@ scenarios:
           machine: 64bit-2G
       - kde_live_upgrade_leap_15.0:
           settings:
-              QEMU_VIRTIO_RNG: "0"
+            QEMU_VIRTIO_RNG: "0"
       - kde_live_upgrade_leap_15.2:
           machine: uefi
       - kde_live_upgrade_leap_15.3:
