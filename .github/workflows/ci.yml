@@ -31,8 +31,7 @@ jobs:
 
       - name: Run yamllint for modified job group schedules
         run: |
-          ls -l
-          pwd
+          cd opensuse-jobgroups-pr
           yamllint -f github job_groups.yaml ${{ steps.changed-files.outputs.files }}
 
       - name: Check for orphaned yaml files
@@ -40,16 +39,19 @@ jobs:
           APIKEY: "${{ secrets.APIKEY }}"
           APISECRET: "${{ secrets.APISECRET }}"
         run: |
-          ./tool.py --orphans
+          cd opensuse-jobgroups-pr
+          ../tool.py --orphans
 
       - name: Run serverside checks
         env:
           APIKEY: "${{ secrets.APIKEY }}"
           APISECRET: "${{ secrets.APISECRET }}"
-        run: ./tool.py --dry-run --push
+        run: |
+          cd opensuse-jobgroups-pr
+          ../tool.py --dry-run --push
 
       - name: Clone os-autoinst-distri-opensuse repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: os-autoinst/os-autoinst-distri-opensuse 
           ref: refs/heads/master
