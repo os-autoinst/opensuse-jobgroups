@@ -200,4 +200,16 @@ elif args.orphans:
 		if job_group_file not in job_groups_yaml:
 			print("Found orphaned file: %s" % job_group_file, file=sys.stderr)
 			exit_code = 1
+
+	job_groups_by_id = {}
+	for job_group in job_groups:
+		job_groups_by_id[job_group['id']] = job_group
+	for gid, gname in job_groups_db.items():
+		if not gid in job_groups_by_id:
+			print("Job group '%i' in job_groups.yaml doesn't exist on the server" % gid, file=sys.stderr)
+			exit_code = 1
+		jgfile = 'job_groups/%s.yaml' % gname
+		if not os.path.exists(jgfile):
+			print("Job group file '%s' referenced by job_groups.yaml doesn't exist" % jgfile, file=sys.stderr)
+			exit_code = 1
 	os._exit(exit_code)
