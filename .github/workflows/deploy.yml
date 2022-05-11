@@ -20,5 +20,4 @@ jobs:
           APIKEY: "${{ secrets.APIKEY }}"
           APISECRET: "${{ secrets.APISECRET }}"
         run: |
-          #FIXME only do a dry run for now
-          ./tool.py --dry-run --push
+          ./tool.py --push
