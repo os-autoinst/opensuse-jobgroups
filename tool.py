@@ -90,6 +90,7 @@ def generate_header(filename):
 		return ' ' * prefix_len + line + ' ' * suffix_len
 	return "\n".join(map(lambda l: "#%s#" % l, map(_align, content)))
 
+
 parser = argparse.ArgumentParser(
 	description = 'Fetch and push jobgroups from and to openqa.opensuse.org',
 	epilog = dedent("""
@@ -98,16 +99,33 @@ parser = argparse.ArgumentParser(
 	""")
 )
 
-parser.add_argument('--dry-run', action='store_true', help="Don't actually do anything. In push mode do serverside check via preview=1")
-parser.add_argument('--gendb', action='store_true', help="Generate job_groups.yaml from O3")
-parser.add_argument('--orphans', action='store_true', help="Check that there are job_group files that are not defined in job_groups.yaml")
-parser.add_argument('--fetch', action='store_true', help="Download all jobgroups as defined in job_groups.yaml")
-parser.add_argument('--push', action='store_true', help="Upload all jobgroups as defined in job_groups.yaml")
-parser.add_argument('-j', dest='filter_job_group', type=int, help="Perform fetch or push action only for this jobgroup id")
-parser.add_argument('-f', dest='filter_file_name', type=str, help="Perform fetch or push action only for this jobgroup yaml file")
+group = parser.add_mutually_exclusive_group()
+group.add_argument('--gendb', action='store_const', dest='action', const='gendb',
+	help="Generate job_groups.yaml from O3"
+)
+group.add_argument('--orphans', action='store_const', dest='action', const='orphans',
+	help="Check that every job group file has a corresponding entry in job_groups.yaml and serverside db"
+)
+group.add_argument('--fetch', action='store_const', dest='action', const='fetch',
+	help="Download all jobgroups as defined in job_groups.yaml"
+)
+group.add_argument('--push', action='store_const', dest='action', const='push',
+	help="Upload all jobgroups as defined in job_groups.yaml"
+)
+
+parser.add_argument('--dry-run', action='store_true',
+	help="Don't actually do anything. In push mode do serverside check via preview=1"
+)
+parser.add_argument('-j', dest='filter_job_group', type=int,
+	help="Perform fetch or push action only for this jobgroup id"
+)
+parser.add_argument('-f', dest='filter_file_name', type=str,
+	help="Perform fetch or push action only for this jobgroup yaml file"
+)
 args = parser.parse_args()
 
-if not (args.fetch or args.push or args.gendb or args.orphans):
+
+if not args.action:
 	parser.print_help()
 	os._exit(1)
 
@@ -123,7 +141,7 @@ job_groups = sorted(api_request('job_groups'), key=lambda i: i['id'])
 
 
 
-if args.gendb:
+if args.action == 'gendb':
 	job_groups_db = {}
 	for job_group in job_groups:
 		fs_name = job_group['name'].strip().lower().\
@@ -140,7 +158,7 @@ if args.gendb:
 	if not args.dry_run:
 		yaml.safe_dump(job_groups_db, open('job_groups.yaml', 'w'))
 
-elif args.fetch:
+elif args.action == 'fetch':
 	job_groups_by_id = {}
 	for job_group in job_groups:
 		job_groups_by_id[job_group['id']] = job_group
@@ -159,7 +177,7 @@ elif args.fetch:
 				template = generate_header(filename) + "\n" + template
 			open(filename, 'w').write(template)
 
-elif args.push:
+elif args.action == 'push':
 	job_groups_by_id = {}
 	for job_group in job_groups:
 		job_groups_by_id[job_group['id']] = job_group
@@ -193,7 +211,7 @@ elif args.push:
 				print('  ' + r['changes'].replace("\n", "\n  "), file=sys.stderr)
 	os._exit(exit_code)
 
-elif args.orphans:
+elif args.action == 'orphans':
 	job_groups_yaml = {'%s.yaml' % v: k for k, v in job_groups_db.items()}
 	exit_code = 0
 	for job_group_file in os.listdir('job_groups'):
