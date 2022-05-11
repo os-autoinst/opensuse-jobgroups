@@ -37,6 +37,13 @@
   QEMUVGA: 'virtio'
   YAML_SCHEDULE: 'schedule/sle-micro/selfinstall.yaml'
 
+.selfinstall_settings_aarch64: &selfinstall_settings_aarch64
+  <<: *default_settings
+  NUMDISKS: '2'
+  HDD_2: 'ignition.qcow2' # openQA will create a qcow2 on the fly
+  HDDSIZEGB_1: '30'
+  YAML_SCHEDULE: 'schedule/sle-micro/selfinstall.yaml'
+
 .image_qemu_settings: &image_qemu_settings
   <<: *image_settings
   QEMUCPU: 'host'
@@ -55,15 +62,19 @@ defaults:
 products:
   leap-micro-5.2-MicroOS-Image-SelfInstall-x86_64:
     distri: leap-micro
-    flavor: MicroOS-Image-SelfInstall
+    flavor: Default-SelfInstall
     version: '5.2'
   leap-micro-5.2-MicroOS-Image-RT-SelfInstall-x86_64:
     distri: leap-micro
-    flavor: MicroOS-Image-RT-SelfInstall
+    flavor: Default-RT-SelfInstall
     version: '5.2'
   leap-micro-5.2-MicroOS-Image-x86_64: &product_image
     distri: leap-micro
     flavor: MicroOS-Image
+    version: '5.2'
+  leap-micro-5.2-MicroOS-Image-SelfInstall-aarch64:
+    distri: leap-micro
+    flavor: Default-SelfInstall
     version: '5.2'
   leap-micro-5.2-MicroOS-Image-aarch64:
     *product_image
@@ -101,6 +112,10 @@ scenarios:
             <<: *selfinstall_settings
 
   aarch64:
+    leap-micro-5.2-MicroOS-Image-SelfInstall-aarch64:
+      - microos_installation_default:
+          settings:
+            <<: *selfinstall_settings_aarch64
     leap-micro-5.2-MicroOS-Image-aarch64:
       - microos_image_default:
           settings:
