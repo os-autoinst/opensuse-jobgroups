@@ -214,6 +214,43 @@ scenarios:
           YAML_SCHEDULE: schedule/yast/minimalx_zvm.yaml
   x86_64:
     opensuse-Tumbleweed-DVD-x86_64:
+    - create_hdd_gnome_encrypt_separate_boot:
+        testsuite: null
+        settings:
+          DESKTOP: gnome
+          HDDSIZEGB: '20'
+          ENCRYPT: '1'
+          QEMURAM: '2048'
+          YAML_SCHEDULE: schedule/security/autoyast_btrfs_luks1_separate_boot_tw.yaml
+          PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%_encrypt_separate_boot.qcow2'
+          CASEDIR: 'https://github.com/STARRY-S/os-autoinst-distri-opensuse.git#security_autoyast_btrfs_luks1'
+    - luks1_decrypt_ssh_client:
+        testsuite: null
+        settings:
+          DESKTOP: textmode
+          BOOT_HDD_IMAGE: '1'
+          WORKER_CLASS: tap
+          NICTYPE: tap
+          HOSTNAME: 'client'
+          PARALLEL_WITH: luks1_decrypt_ssh_server
+          START_AFTER_TEST: create_hdd_textmode
+          HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+          YAML_SCHEDULE: schedule/security/luks1_decrypt_ssh_client.yaml
+          CASEDIR: 'https://github.com/STARRY-S/os-autoinst-distri-opensuse.git#security_autoyast_btrfs_luks1'
+    - luks1_decrypt_ssh_server:
+        testsuite: null
+        settings:
+          DESKTOP: gnome
+          BOOT_HDD_IMAGE: '1'
+          ENCRYPT: '1'
+          QEMURAM: '2048'
+          WORKER_CLASS: tap
+          NICTYPE: tap
+          HOSTNAME: 'server'
+          START_AFTER_TEST: create_hdd_gnome_encrypt_separate_boot
+          HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%_encrypt_separate_boot.qcow2'
+          YAML_SCHEDULE: schedule/security/luks1_decrypt_ssh_server.yaml
+          CASEDIR: 'https://github.com/STARRY-S/os-autoinst-distri-opensuse.git#security_autoyast_btrfs_luks1'
     - libssh
     - scap_workbench:
         settings:
