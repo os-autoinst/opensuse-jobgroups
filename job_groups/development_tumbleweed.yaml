@@ -220,6 +220,7 @@ scenarios:
           DESKTOP: gnome
           HDDSIZEGB: '20'
           ENCRYPT: '1'
+          STORAGE_NG: '1'
           QEMURAM: '2048'
           YAML_SCHEDULE: schedule/security/autoyast_btrfs_luks1_separate_boot_tw.yaml
           PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%_encrypt_separate_boot.qcow2'
@@ -243,6 +244,7 @@ scenarios:
           DESKTOP: gnome
           BOOT_HDD_IMAGE: '1'
           ENCRYPT: '1'
+          STORAGE_NG: '1'
           QEMURAM: '2048'
           WORKER_CLASS: tap
           NICTYPE: tap
