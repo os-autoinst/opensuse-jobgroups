@@ -1,5 +1,11 @@
 name: CI
 on: [push, pull_request_target]
+# Note how this runs on:pull_request_target and not on:pull_request!
+# The difference is that this runs always with the ci.yaml, tool.py and context
+# of the master branch. This is necessary to allow accessing the API credential secrets
+# which shouldn't be used with an untrusted tool.py.
+# The PR code is checked out into a subdirectory (opensuse-jobgroups-pr) and checked with
+# the tool.py from the master branch.
 jobs:
   static-check:
     runs-on: ubuntu-latest 
