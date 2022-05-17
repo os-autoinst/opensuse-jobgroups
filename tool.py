@@ -146,7 +146,10 @@ parser.add_argument('--github', action='store_true',
 	help="Print parsable errors for Github CI (Github workflow commands)"
 )
 parser.add_argument('-j', dest='filter_job_group', type=int,
-	help="Perform fetch or push action only for this jobgroup id"
+	help="""
+		Perform fetch, push or gendb action only for this jobgroup id.
+		For gendb this will append the respective entry.
+	"""
 )
 parser.add_argument('-f', dest='filter_file_name', type=str,
 	help="Perform fetch or push action only for this jobgroup yaml file"
