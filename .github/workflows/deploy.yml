@@ -20,4 +20,4 @@ jobs:
           APIKEY: "${{ secrets.APIKEY }}"
           APISECRET: "${{ secrets.APISECRET }}"
         run: |
-          ./tool.py --push
+          ./tool.py --push --github

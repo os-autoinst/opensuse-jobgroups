@@ -50,7 +50,7 @@ jobs:
           APISECRET: "${{ secrets.APISECRET }}"
         run: |
           cd opensuse-jobgroups-pr
-          ../tool.py --orphans
+          ../tool.py --orphans --github
 
       - name: Run serverside checks
         env:
@@ -58,7 +58,7 @@ jobs:
           APISECRET: "${{ secrets.APISECRET }}"
         run: |
           cd opensuse-jobgroups-pr
-          ../tool.py --dry-run --push
+          ../tool.py --dry-run --push --github
 
       - name: Clone os-autoinst-distri-opensuse repository
         uses: actions/checkout@v3

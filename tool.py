@@ -63,15 +63,25 @@ def api_request(*args):
 	return j
 
 
-def show_server_error(r):
+def github_workflow_encode(s):
+	return s.replace('%', '%25').replace('\r', '%0d').replace('\n', '%0a').replace(':', '%3a').replace(',', '%2c')
+
+
+def show_server_error(r, filename=""):
 	try:
 		assert not isinstance(r['error'], str)
 		for e in r['error']:
 			if isinstance(e, dict):
 				e = "  YAML Path: %(path)s\n  Message: %(message)s" % e
-			print("Error %i:\n%s" % (r['error_status'], e), file=sys.stderr)
+			emsg = "Error %i:\n%s" % (r['error_status'], e)
+			print(emsg, file=sys.stderr)
+			if args.github:
+				print("::error file=%s::%s" % (filename, github_workflow_encode(emsg)))
 	except:
-		print("Error %(error_status)i: %(error)s" % r, file=sys.stderr)
+		emsg = "Error %(error_status)i: %(error)s" % r
+		print(emsg, file=sys.stderr)
+		if args.github:
+			print("::error file=%s::%s" % (filename, github_workflow_encode(emsg)))
 
 
 def generate_header(filename):
@@ -118,6 +128,9 @@ group.add_argument('--push', action='store_const', dest='action', const='push',
 
 parser.add_argument('--dry-run', action='store_true',
 	help="Don't actually do anything. In push mode do serverside check via preview=1"
+)
+parser.add_argument('--github', action='store_true',
+	help="Print parsable errors for Github CI (Github workflow commands)"
 )
 parser.add_argument('-j', dest='filter_job_group', type=int,
 	help="Perform fetch or push action only for this jobgroup id"
@@ -198,7 +211,7 @@ elif args.action == 'push':
 				'preview=1', '--param-file', 'template=job_groups/%s.yaml' % gname
 			)
 			if r.get('error'):
-				show_server_error(r)
+				show_server_error(r, 'job_groups/%s.yaml' % gname)
 				exit_code = 1 # let's show the user all the error at once
 			elif r.get('changes'):
 				print('  ' + r['changes'].replace("\n", "\n  "), file=sys.stderr)
@@ -208,7 +221,7 @@ elif args.action == 'push':
 				'preview=0', '--param-file', 'template=job_groups/%s.yaml' % gname
 			)
 			if r.get('error'):
-				show_server_error(r)
+				show_server_error(r, 'job_groups/%s.yaml' % gname)
 				os._exit(1) # let's stop on the first error here
 			elif r.get('changes'):
 				print('  ' + r['changes'].replace("\n", "\n  "), file=sys.stderr)
@@ -220,6 +233,8 @@ elif args.action == 'orphans':
 	for job_group_file in os.listdir('job_groups'):
 		if job_group_file not in job_groups_yaml:
 			print("Found orphaned file: %s" % job_group_file, file=sys.stderr)
+			if args.github:
+				print("::error file=%s::This file is orphaned" % job_group_file)
 			exit_code = 1
 
 	job_groups_by_id = {}
@@ -227,10 +242,16 @@ elif args.action == 'orphans':
 		job_groups_by_id[job_group['id']] = job_group
 	for gid, gname in job_groups_db.items():
 		if not gid in job_groups_by_id:
-			print("Job group '%i' in job_groups.yaml doesn't exist on the server" % gid, file=sys.stderr)
+			emsg = "Job group '%i' in job_groups.yaml doesn't exist on the server" % gid
+			print(emsg, file=sys.stderr)
+			if args.github:
+				print("::error file=job_groups.yaml::%s" % github_workflow_encode(emsg))
 			exit_code = 1
 		jgfile = 'job_groups/%s.yaml' % gname
 		if not os.path.exists(jgfile):
-			print("Job group file '%s' referenced by job_groups.yaml doesn't exist" % jgfile, file=sys.stderr)
+			emsg = "Job group file '%s' referenced by job_groups.yaml doesn't exist" % jgfile
+			print(emsg, file=sys.stderr)
+			if args.github:
+				print("::error file=job_groups.yaml::%s" % github_workflow_encode(emsg))
 			exit_code = 1
 	os._exit(exit_code)
