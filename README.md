@@ -28,13 +28,15 @@ For more information refer to `./tool.py --help`.
 ## Adding a new job group
 
 First create the jobgroup on the server and get the group id from the url.
-Then use `tool.py` to download the jobgroup yaml template:
+
+Then use `tool.py` to add the jobgroup to the mapping file (`job_groups.yaml`)
+```
+$ ./tool.py --gendb -j 86
+86: sles_12_sp3_powerpc
+```
+
+Finally download the jobgroup yaml template:
 ```
 $ ./tool.py --fetch -j 86
 Fetching 86 -> sles_12_sp3_powerpc
-```
-
-Finally add the job group with it's id (as printed by `tool.py`) to `job_groups.yaml`:
-```yaml
-86: sles_12_sp3_powerpc
 ```

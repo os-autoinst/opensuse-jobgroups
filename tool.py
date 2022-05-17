@@ -106,6 +106,17 @@ def generate_header(filename):
 	return "\n".join(map(lambda l: "#%s#" % l, map(_align, content)))
 
 
+def normalize_jobgroup_filename(s):
+	return s.strip().lower().\
+		replace(' ', '_').\
+		replace('(', '').replace(')', '').\
+		replace(':', '').replace('/', '').\
+		replace('_-_', '-').\
+		replace(',', '').replace('+', '').\
+		replace('__', '_').\
+		replace('[deprecated]', 'DEPRECATED')
+
+
 parser = argparse.ArgumentParser(
 	description = 'Fetch and push jobgroups from and to openqa.opensuse.org',
 	epilog = dedent("""
@@ -160,20 +171,23 @@ job_groups = sorted(api_request('job_groups'), key=lambda i: i['id'])
 
 
 if args.action == 'gendb':
-	job_groups_db = {}
+	if not args.filter_job_group:
+		job_groups_db = {}
+	yaml_line = None
 	for job_group in job_groups:
-		fs_name = job_group['name'].strip().lower().\
-			replace(' ', '_').\
-			replace('(', '').replace(')', '').\
-			replace(':', '').replace('/', '').\
-			replace('_-_', '-').\
-			replace(',', '').replace('+', '').\
-			replace('__', '_').\
-			replace('[deprecated]', 'DEPRECATED')
-		job_groups_db[job_group['id']] = fs_name
-		print(yaml.safe_dump({job_group['id']: fs_name}).strip())
-		#print("%(id)i: %(name)s" % job_group)
-	if not args.dry_run:
+		if args.filter_job_group and args.filter_job_group != job_group['id']:
+			continue
+		fs_name = normalize_jobgroup_filename(job_group['name'])
+		if not args.filter_job_group:
+			job_groups_db[job_group['id']] = fs_name
+		yaml_line = yaml.safe_dump({job_group['id']: fs_name}).strip()
+		print(yaml_line)
+	if args.filter_job_group:
+		if yaml_line and args.filter_job_group not in job_groups_db:
+			with open('job_groups.yaml', 'a') as f:
+				f.write(yaml_line)
+				f.write("\n")
+	elif not args.dry_run:
 		yaml.safe_dump(job_groups_db, open('job_groups.yaml', 'w'))
 
 elif args.action == 'fetch':
