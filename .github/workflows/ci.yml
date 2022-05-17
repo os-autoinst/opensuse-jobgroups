@@ -33,8 +33,8 @@ jobs:
           real_origin_url=$(git remote get-url origin)
           cd opensuse-jobgroups-pr
           git remote set-url origin $real_origin_url
-          git fetch origin master:master
-          git diff --diff-filter="*ACDMRTUX" origin/master job_groups/
+          git fetch origin master:omaster
+          git diff --diff-filter="*ACDMRTUX" omaster job_groups/
           CHANGED_FILES=$(git diff --diff-filter="*ACDMRTUX" --name-only origin/master job_groups/ | tr '\n' ' ')
           echo $CHANGED_FILES
           echo "::set-output name=files::${CHANGED_FILES}"
