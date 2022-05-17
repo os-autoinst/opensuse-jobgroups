@@ -29,8 +29,11 @@ jobs:
       - name: Get modified job group yaml files
         id: changed-files
         run: |
+          real_origin_url=$(git remote get-url origin)
           cd opensuse-jobgroups-pr
           git config --global --add safe.directory '*'
+          git remote set-url origin $real_origin_url
+          git fetch origin master:master
           git diff --diff-filter="*ACDMRTUX" origin/master job_groups/
           CHANGED_FILES=$(git diff --diff-filter="*ACDMRTUX" --name-only origin/master job_groups/ | tr '\n' ' ')
           echo $CHANGED_FILES
