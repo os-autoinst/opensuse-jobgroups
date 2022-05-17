@@ -22,5 +22,7 @@ scenarios:
     windows-10-DVD-x86_64:
       - windows_10:
           machine: 64bit_win
+          settings1:
+            YAML_SCHEDULE: 'notfound.yaml'
       - windows_10:
           machine: uefi_win
