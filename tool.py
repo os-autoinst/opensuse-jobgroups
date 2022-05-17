@@ -62,7 +62,7 @@ def api_request(*args):
 
 def show_server_error(r):
 	try:
-		assert not isinstance(e, str)
+		assert not isinstance(r['error'], str)
 		for e in r['error']:
 			if isinstance(e, dict):
 				e = "  YAML Path: %(path)s\n  Message: %(message)s" % e
