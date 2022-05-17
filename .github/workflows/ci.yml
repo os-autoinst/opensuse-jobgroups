@@ -31,6 +31,7 @@ jobs:
         run: |
           cd opensuse-jobgroups-pr
           git config --global --add safe.directory '*'
+          git diff --diff-filter="*ACDMRTUX" origin/master job_groups/
           CHANGED_FILES=$(git diff --diff-filter="*ACDMRTUX" --name-only origin/master job_groups/ | tr '\n' ' ')
           echo $CHANGED_FILES
           echo "::set-output name=files::${CHANGED_FILES}"
