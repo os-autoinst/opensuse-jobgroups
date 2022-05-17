@@ -131,7 +131,13 @@ scenarios:
     microos-*-MicroOS-Image-Kubic-kubeadm-aarch64:
     - kubeadm
     microos-*-MicroOS-Image-aarch64:
-    - microos
+    - microos:
+          settings:
+            # SELinux is enabled by default, but this allows running some checks
+            ENABLE_SELINUX: '1'
+    - microos-combustion
+    - microos-ignition
+    - microos-wizard
     - microos2microosnext:
         settings:
           HDD_1_URL: 'http://download.opensuse.org/ports/aarch64/tumbleweed/appliances/openSUSE-MicroOS.aarch64-kvm-and-xen.qcow2?foo=%BUILD%'
@@ -139,9 +145,6 @@ scenarios:
     - microos_qemu:
         settings:
           EXCLUDE_MODULES: kvm
-    - microos_selinux:
-        settings:
-          ENABLE_SELINUX: '1'
     opensuse-Tumbleweed-DVD-aarch64:
     - security_tpm2_swtpm:
         testsuite: null
