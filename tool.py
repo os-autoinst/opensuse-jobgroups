@@ -74,14 +74,16 @@ def show_server_error(r, filename=""):
 			if isinstance(e, dict):
 				e = "  YAML Path: %(path)s\n  Message: %(message)s" % e
 			emsg = "Error %i:\n%s" % (r['error_status'], e)
-			print(emsg, file=sys.stderr)
 			if args.github:
 				print("::error file=%s::%s" % (filename, github_workflow_encode(emsg)))
+			else:
+				print(emsg, file=sys.stderr)
 	except:
 		emsg = "Error %(error_status)i: %(error)s" % r
-		print(emsg, file=sys.stderr)
 		if args.github:
 			print("::error file=%s::%s" % (filename, github_workflow_encode(emsg)))
+		else:
+			print(emsg, file=sys.stderr)
 
 
 def generate_header(filename):
@@ -232,9 +234,10 @@ elif args.action == 'orphans':
 	exit_code = 0
 	for job_group_file in os.listdir('job_groups'):
 		if job_group_file not in job_groups_yaml:
-			print("Found orphaned file: %s" % job_group_file, file=sys.stderr)
 			if args.github:
-				print("::error file=%s::This file is orphaned" % job_group_file)
+				print("::error file=%s::Found orphaned file: job_groups/%s" % (job_group_file, job_group_file))
+			else:
+				print("Found orphaned file: job_groups/%s" % job_group_file, file=sys.stderr)
 			exit_code = 1
 
 	job_groups_by_id = {}
@@ -243,15 +246,17 @@ elif args.action == 'orphans':
 	for gid, gname in job_groups_db.items():
 		if not gid in job_groups_by_id:
 			emsg = "Job group '%i' in job_groups.yaml doesn't exist on the server" % gid
-			print(emsg, file=sys.stderr)
 			if args.github:
 				print("::error file=job_groups.yaml::%s" % github_workflow_encode(emsg))
+			else:
+				print(emsg, file=sys.stderr)
 			exit_code = 1
 		jgfile = 'job_groups/%s.yaml' % gname
 		if not os.path.exists(jgfile):
 			emsg = "Job group file '%s' referenced by job_groups.yaml doesn't exist" % jgfile
-			print(emsg, file=sys.stderr)
 			if args.github:
 				print("::error file=job_groups.yaml::%s" % github_workflow_encode(emsg))
+			else:
+				print(emsg, file=sys.stderr)
 			exit_code = 1
 	os._exit(exit_code)
