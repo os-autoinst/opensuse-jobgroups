@@ -64,7 +64,7 @@ def api_request(*args):
 
 
 def github_workflow_encode(s):
-	return s.replace('%', '%25').replace('\r', '%0D').replace('\n', '%0A').replace(':', '%3A').replace(',', '%2C')
+	return s.replace('%', '%25').replace('\r', '%0D').replace('\n', '%0A')
 
 
 def show_server_error(r, filename=""):
