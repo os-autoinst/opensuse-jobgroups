@@ -8,8 +8,11 @@ import math
 import argparse
 import configparser
 import subprocess
+import functools
 from textwrap import dedent
 
+# Autoflush on print
+print = functools.partial(print, flush=True)
 
 def get_api_credentials():
 	user_config = os.path.expanduser("~/.config/openqa/client.conf")
