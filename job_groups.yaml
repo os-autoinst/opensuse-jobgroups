@@ -19,9 +19,6 @@
 34: opensuse_tumbleweed_s390x
 35: opensuse_gnome_next
 36: opensuse_leap_42.3_jeos
-38: development_tumbleweed
-39: development_leap
-41: development_kubic
 48: opensuse_leap_42.3_incidents
 49: opensuse_leap_42.3_updates
 50: opensuse_leap_15
@@ -43,11 +40,9 @@
 69: opensuse_leap_15.2_updates
 70: opensuse_leap_15.2_incidents
 73: opensuse_leap_15.2_microos
-74: development_other
 75: opensuse_jump
 76: opensuse_jump_15.2_images
 77: opensuse_leap_15.3_images
-78: development_rancher
 79: opensuse_leap_15_arm
 80: opensuse_leap_15.3_updates
 81: opensuse_leap_15.3_incidents
