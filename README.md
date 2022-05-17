@@ -29,7 +29,7 @@ For more information refer to `./tool.py --help`.
 
 First create the jobgroup on the server and get the group id from the url.
 
-Then use `tool.py` to add the jobgroup to the mapping file (`job_groups.yaml`)
+Then use `tool.py` to add the jobgroup to the mapping file (`job_groups.yaml`):
 ```
 $ ./tool.py --gendb -j 86
 86: sles_12_sp3_powerpc
