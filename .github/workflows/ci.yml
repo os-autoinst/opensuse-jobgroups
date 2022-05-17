@@ -67,7 +67,7 @@ jobs:
       - name: Check if YAML_SCHEDULE and YAML_TEST_DATA exist in os-autoinst-distri-opensuse
         run: |
           for file in ${{ steps.changed-files.outputs.files }}; do
-            for file_ref in $(grep -oP '(YAML_SCHEDULE|YAML_TEST_DATA):\s\K.*' $file | tr -d "'" | tr -d '"' | sort -u | grep -v "^$" | awk "{print \"os-autoinst-distri-opensuse/\" \$0}") ; do
+            for file_ref in $(grep -oP '^[^#]*(YAML_SCHEDULE|YAML_TEST_DATA):\s\K.*' $file | tr -d "'" | tr -d '"' | sort -u | grep -v "^$" | awk "{print \"os-autoinst-distri-opensuse/\" \$0}") ; do
 
               if ! test -f "$file_ref" ; then
                 echo "Error: Reference from '${file}' to non existing '${file_ref}'"
