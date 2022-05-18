@@ -30,6 +30,8 @@ jobs:
         id: changed-files
         run: |
           git config --global --add safe.directory '*'
+          git config --global user.email "github@opensuse.org"
+          git config --global user.name "CI Workflow"
           real_origin_url=$(git remote get-url origin)
           cd opensuse-jobgroups-pr
           git remote set-url origin $real_origin_url
