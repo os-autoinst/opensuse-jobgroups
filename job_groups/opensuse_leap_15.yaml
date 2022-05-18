@@ -119,6 +119,7 @@ scenarios:
       - create_hdd_textmode:
           settings:
             UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
+            QEMU_VIRTIO_RNG: "0"
       - create_hdd_gnome:
           machine: 64bit
           settings:
@@ -129,7 +130,9 @@ scenarios:
           machine: uefi
       - create_hdd_kde:
           machine: 64bit
-      - create_hdd_gnome_libyui
+      - create_hdd_gnome_libyui:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - create_hdd_cryptlvm:
           settings:
             DESKTOP: gnome
@@ -144,7 +147,9 @@ scenarios:
           testsuite: null
           machine: uefi
       - boot_to_snapshot
-      - yast2_gui
+      - yast2_gui:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - extra_tests_gnome
       - systemd-networkd
       - upgrade_Leap_42.1_gnome:
@@ -468,16 +473,22 @@ scenarios:
       - xfs
       - create_hdd_textmode:
           priority: 40
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - create_hdd_gnome:
           priority: 40
           settings:
             QEMU_VIRTIO_RNG: "0"
-      - create_hdd_gnome_libyui
+      - create_hdd_gnome_libyui:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - create_hdd_gnome_wicked:
           priority: 45
       - create_hdd_kde
       - boot_to_snapshot
-      - yast2_gui
+      - yast2_gui:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - extra_tests_on_gnome
       - create_hdd_xfce
       - create_hdd_cryptlvm:
@@ -602,7 +613,9 @@ scenarios:
       - mediacheck
       - rescue_system
       - gpt
-      - create_hdd_textmode
+      - create_hdd_textmode:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - create_hdd_gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
