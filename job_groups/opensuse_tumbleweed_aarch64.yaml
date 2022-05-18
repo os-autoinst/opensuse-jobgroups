@@ -7,6 +7,7 @@
 #    https://github.com/os-autoinst/opensuse-jobgroups     #
 #       job_groups/opensuse_tumbleweed_aarch64.yaml        #
 ############################################################
+---
 defaults:
   aarch64:
     machine: aarch64
@@ -508,95 +509,95 @@ scenarios:
       - installer_extended
     opensuse-Tumbleweed-GNOME-Live-aarch64:
       - gnome-live:
-        machine: USBboot_aarch64
+          machine: USBboot_aarch64
       - mediacheck:
-        machine: USBboot_aarch64
-        priority: 40
+          machine: USBboot_aarch64
+          priority: 40
     opensuse-Tumbleweed-JeOS-for-AArch64-aarch64:
       - jeos:
-        machine: aarch64-HD24G
-        priority: 45
+          machine: aarch64-HD24G
+          priority: 45
       - jeos-extra:
-        machine: aarch64-HD24G
-        priority: 45
+          machine: aarch64-HD24G
+          priority: 45
       - jeos-containers:
-        machine: aarch64-HD24G
-        priority: 45
+          machine: aarch64-HD24G
+          priority: 45
       - jeos-filesystem:
-        machine: aarch64-HD24G
+          machine: aarch64-HD24G
       - jeos-fips:
-        machine: aarch64-HD24G
+          machine: aarch64-HD24G
       - jeos-ltp-commands:
-        machine: aarch64-HD24G
+          machine: aarch64-HD24G
       - jeos-ltp-containers:
-        machine: aarch64-HD24G
+          machine: aarch64-HD24G
       - jeos-ltp-cve:
-        machine: aarch64-HD24G
+          machine: aarch64-HD24G
       - jeos-ltp-dio:
-        machine: aarch64-HD24G
+          machine: aarch64-HD24G
       - jeos-ltp-syscalls:
-        machine: aarch64-HD24G
+          machine: aarch64-HD24G
       - jeos-ltp-syscalls-ipc:
-        machine: aarch64-HD24G
+          machine: aarch64-HD24G
       - zdup_twjeos2twnext_aarch64:
-        machine: aarch64-HD24G
-        priority: 45
+          machine: aarch64-HD24G
+          priority: 45
     opensuse-Tumbleweed-JeOS-for-RPi-aarch64:
       - jeos:
-        machine: RPi3
-        settings:
-          PASSWORD: linux
+          machine: RPi3
+          settings:
+            PASSWORD: linux
       - jeos_extra_tests_ai_ml:
-        machine: RPi4
-        settings:
-          PASSWORD: linux
+          machine: RPi4
+          settings:
+            PASSWORD: linux
       - jeos-containers:
-        machine: RPi3
-        settings:
-          PASSWORD: linux
-          TIMEOUT_SCALE: '3'
+          machine: RPi3
+          settings:
+            PASSWORD: linux
+            TIMEOUT_SCALE: '3'
       - jeos:
-        machine: RPi4
-        settings:
-          PASSWORD: linux
+          machine: RPi4
+          settings:
+            PASSWORD: linux
       - jeos_extra_tests_vagrant:
-        machine: RPi4
-        settings:
-          PASSWORD: linux
+          machine: RPi4
+          settings:
+            PASSWORD: linux
     opensuse-Tumbleweed-KDE-Live-aarch64:
       - kde-live:
-        machine: USBboot_aarch64-3G
+          machine: USBboot_aarch64-3G
       - mediacheck:
-        machine: USBboot_aarch64
-        priority: 40
+          machine: USBboot_aarch64
+          priority: 40
       - kde-live_installation:
-        machine: USBboot_aarch64
+          machine: USBboot_aarch64
       - kde_live_upgrade_leap_15.0
     opensuse-Tumbleweed-NET-aarch64:
       - textmode:
-        machine: aarch64
+          machine: aarch64
       - minimalx:
-        machine: aarch64
+          machine: aarch64
       - RAID0_gpt_uefi:
-        priority: 45
+          priority: 45
       - RAID1_gpt_uefi:
-        priority: 45
+          priority: 45
       - RAID5_gpt_uefi
       - RAID10_gpt_uefi
       - cryptlvm:
-        settings:
-          YAML_SCHEDULE: schedule/yast/opensuse/encryption/cryptlvm.yaml
+          settings:
+            YAML_SCHEDULE: schedule/yast/opensuse/encryption/cryptlvm.yaml
       - install_only:
-        machine: aarch64
+          machine: aarch64
       - install_only:
-        machine: aarch64-secureboot-opensuse-key
+          machine: aarch64-secureboot-opensuse-key
       - create_hdd_minimalx:
-        priority: 40
+          priority: 40
       - create_hdd_tumbleweed:
-        priority: 45
+          priority: 45
       - zdup_tw2twnext_gnome
       - create_hdd_tumbleweed_kde:
-        priority: 45
+          priority: 45
       - zdup_tw2twnext_kde
       - otherDE_enlightenment
       - otherDE_lxqt
@@ -607,46 +608,46 @@ scenarios:
       - zdup-Leap-15.3-gnome
     opensuse-Tumbleweed-Rescue-CD-aarch64:
       - rescue:
-        machine: USBboot_aarch64
+          machine: USBboot_aarch64
       - mediacheck:
-        machine: USBboot_aarch64
-        priority: 40
+          machine: USBboot_aarch64
+          priority: 40
     opensuse-Tumbleweed-XFCE-Live-aarch64:
       - mediacheck:
-        machine: USBboot_aarch64
-        priority: 40
+          machine: USBboot_aarch64
+          priority: 40
       - xfce-live:
-        machine: USBboot_aarch64
+          machine: USBboot_aarch64
   armv7hl:
     opensuse-Tumbleweed-JeOS-for-AArch64-armv7hl:
       - jeos:
-        machine: aarch32-HD24G
-        priority: 45
+          machine: aarch32-HD24G
+          priority: 45
       - jeos-extra:
-        machine: aarch32-HD24G
-        settings:
-          EXCLUDE_MODULES: kdump_and_crash
+          machine: aarch32-HD24G
+          settings:
+            EXCLUDE_MODULES: kdump_and_crash
     opensuse-Tumbleweed-JeOS-for-RPi-armv7hl:
       - jeos:
-        machine: RPi2B
-        settings:
-          PASSWORD: linux
+          machine: RPi2B
+          settings:
+            PASSWORD: linux
     opensuse-Tumbleweed-NET-armv7hl:
       - textmode
       - install_only
       - mediacheck:
-        priority: 30
+          priority: 30
       - rescue_system
       - create_hdd_minimalx:
-        priority: 40
+          priority: 40
       - otherDE_awesome
       - otherDE_enlightenment
       - otherDE_lxqt
       - create_hdd_textmode:
-        priority: 40
+          priority: 40
       - extra_tests_in_textmode:
-        settings:
-          EXCLUDE_MODULES: kdump_and_crash
+          settings:
+            EXCLUDE_MODULES: kdump_and_crash
       - extra_tests_dracut
       - extra_tests_filesystem
       - systemd-networkd
