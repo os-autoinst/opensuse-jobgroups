@@ -1,0 +1,63 @@
+---
+############################################################
+#                         WARNING                          #
+#                                                          #
+#               This file is managed in GIT!               #
+#  Any changes via the openQA WebUI will get overwritten!  #
+#                                                          #
+#    https://github.com/os-autoinst/opensuse-jobgroups     #
+#        job_groups/opensuse_leap_15.4_updates.yaml        #
+############################################################
+defaults:
+  x86_64:
+    machine: 64bit
+    priority: 50
+products:
+  opensuse-15.4-DVD-Updates-x86_64:
+    distri: opensuse
+    flavor: DVD-Updates
+    version: '15.4'
+scenarios:
+  x86_64:
+    opensuse-15.4-DVD-Updates-x86_64:
+      - textmode:
+          machine: 64bit
+      - gnome:
+          machine: uefi
+          settings:
+            QEMUVGA: cirrus
+      - gnome:
+          machine: 64bit-2G
+          settings:
+            QEMUVGA: cirrus
+      - cryptlvm:
+          settings:
+            YAML_SCHEDULE: schedule/yast/opensuse/encryption/cryptlvm.yaml
+      - install_with_updates_gnome:
+          machine: 64bit-2G
+          settings:
+            QEMUVGA: cirrus
+      - install_with_updates_kde:
+          machine: uefi-2G
+          # poo#95137
+          settings:
+            EXCLUDE_MODULES: 'kontact'
+      - create_hdd_gnome:
+          machine: 64bit
+      - create_hdd_gnome:
+          machine: uefi
+      - create_hdd_kde:
+          machine: uefi
+      - create_hdd_kde:
+          machine: 64bit
+      - create_hdd_gnome_libyui
+      - create_hdd_textmode
+      - extra_tests_on_kde
+      - gnuhealth
+      - toolkits
+      - openqa_bootstrap
+      # poo#107242
+      # - openqa_bootstrap_container
+      - yast2_firstboot
+      - extra_tests_misc
+      - kde
