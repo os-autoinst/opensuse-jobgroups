@@ -34,6 +34,7 @@ jobs:
           cd opensuse-jobgroups-pr
           git remote set-url origin $real_origin_url
           git fetch origin master:omaster
+          git rebase omaster
           git diff --diff-filter="*ACMRTUX" omaster job_groups/
           CHANGED_FILES=$(git diff --diff-filter="*ACMRTUX" --name-only origin/master job_groups/ | tr '\n' ' ')
           echo $CHANGED_FILES
