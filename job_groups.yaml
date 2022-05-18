@@ -61,3 +61,6 @@
 94: opensuse_leap_micro_5.2_image
 95: opensuse_leap_micro_5.2_dvd
 96: d-installer
+97: opensuse_leap_15.4_incidents
+98: opensuse_leap_15.4_updates
+99: opensuse_leap_15.4_backports
