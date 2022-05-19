@@ -249,10 +249,10 @@ elif args.action == 'push':
 elif args.action == 'orphans':
 	job_groups_yaml = {'%s.yaml' % v: k for k, v in job_groups_db.items()}
 	exit_code = 0
-	for job_group_file in os.listdir('job_groups'):
+	for job_group_file in (f for f in os.listdir('job_groups') if f.endswith('.yaml')):
 		if job_group_file not in job_groups_yaml:
 			if args.github:
-				print("::error file=%s::Found orphaned file: job_groups/%s" % (job_group_file, job_group_file))
+				print("::error file=job_groups/%s::Found orphaned file: job_groups/%s" % (job_group_file, job_group_file))
 			else:
 				print("Found orphaned file: job_groups/%s" % job_group_file, file=sys.stderr)
 			exit_code = 1
