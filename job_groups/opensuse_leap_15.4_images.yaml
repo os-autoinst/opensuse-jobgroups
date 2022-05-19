@@ -72,6 +72,8 @@ scenarios:
     opensuse-Leap15.4-JeOS-for-kvm-and-xen-x86_64:
     - jeos:
         machine: 64bit_virtio-2G
+        settings:
+          INFLUXDB_SERVER: '35.158.113.219'
     - jeos:
         machine: uefi_virtio-2G
     - jeos-extra:

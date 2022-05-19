@@ -517,6 +517,8 @@ scenarios:
       - jeos:
           machine: aarch64-HD24G
           priority: 45
+          settings:
+            INFLUXDB_SERVER: '35.158.113.219'
       - jeos-extra:
           machine: aarch64-HD24G
           priority: 45

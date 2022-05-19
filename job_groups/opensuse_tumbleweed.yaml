@@ -985,6 +985,8 @@ scenarios:
       - jeos:
           machine: 64bit_virtio
           priority: 48
+          settings:
+            INFLUXDB_SERVER: '35.158.113.219'
       - jeos:
           machine: uefi_virtio-2G
       - jeos-extra:
