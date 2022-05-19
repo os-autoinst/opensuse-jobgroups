@@ -7,7 +7,9 @@
 #    https://github.com/os-autoinst/opensuse-jobgroups     #
 #       job_groups/opensuse_tumbleweed_aarch64.yaml        #
 ############################################################
+
 ---
+
 defaults:
   aarch64:
     machine: aarch64
@@ -517,6 +519,8 @@ scenarios:
       - jeos:
           machine: aarch64-HD24G
           priority: 45
+          settings:
+            INFLUXDB_SERVER: '35.158.113.219'
       - jeos-extra:
           machine: aarch64-HD24G
           priority: 45

@@ -7,7 +7,9 @@
 #    https://github.com/os-autoinst/opensuse-jobgroups     #
 #           job_groups/opensuse_tumbleweed.yaml            #
 ############################################################
+
 ---
+
 defaults:
   i586:
     machine: 32bit
@@ -372,8 +374,8 @@ scenarios:
             NUMDISKS: '4'
             YAML_SCHEDULE: schedule/yast/opensuse/autoyast/autoyast_multi_btrfs.yaml
           description: AutoYaST installation with multi-device Btrfs. The setup containing 4 hds using two
-                       multidevice btrfs, one mounted on / and one mounted on /test. Combines partition-less
-                       disk and disk with partition, also includes an encrypted disk.
+            multidevice btrfs, one mounted on / and one mounted on /test. Combines partition-less
+            disk and disk with partition, also includes an encrypted disk.
           testsuite: null
           machine: 64bit
       - autoyast_rules_and_classes:
@@ -452,8 +454,8 @@ scenarios:
       - system_performance
       - select_disk:
           description: 'Maintainer: riafarov, mloviska Test the selection of "first" disk with the guided
-                        setup in partitioning. This is also used as a prerequisite for real hardware tests
-                        to select the right disk for installation and not a "random" one.'
+            setup in partitioning. This is also used as a prerequisite for real hardware tests
+            to select the right disk for installation and not a "random" one.'
           settings:
             NUMDISKS: '2'
             YAML_SCHEDULE: schedule/yast/opensuse/select_disk/select_disk.yaml
@@ -985,6 +987,8 @@ scenarios:
       - jeos:
           machine: 64bit_virtio
           priority: 48
+          settings:
+            INFLUXDB_SERVER: '35.158.113.219'
       - jeos:
           machine: uefi_virtio-2G
       - jeos-extra:
