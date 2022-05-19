@@ -891,6 +891,7 @@ scenarios:
             SUPPORT_SERVER: '1'
             SUPPORT_SERVER_ROLES: dhcp,dns
             WORKER_CLASS: tap
+            QEMURAM: '2048'
             YAML_SCHEDULE: schedule/yast/opensuse/remote_vnc/remote_vnc_controller.yaml
           description: Controller performs remote installation via vnc to the target
           testsuite: null
@@ -904,6 +905,7 @@ scenarios:
             REMOTE_TARGET: vnc
             USE_SUPPORT_SERVER: '1'
             WORKER_CLASS: tap
+            QEMURAM: '2048'
             YAML_SCHEDULE: schedule/yast/opensuse/remote_vnc/remote_vnc_target.yaml
           description: The target of the vnc remote installation triggered by the controller
           testsuite: null
