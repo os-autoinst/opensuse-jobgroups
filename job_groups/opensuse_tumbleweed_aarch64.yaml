@@ -7,7 +7,9 @@
 #    https://github.com/os-autoinst/opensuse-jobgroups     #
 #       job_groups/opensuse_tumbleweed_aarch64.yaml        #
 ############################################################
+
 ---
+
 defaults:
   aarch64:
     machine: aarch64
