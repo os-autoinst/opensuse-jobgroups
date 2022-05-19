@@ -24,6 +24,14 @@ current working directory.
 
 For more information refer to `./tool.py --help`.
 
+## yamllint and yamltidy
+
+The CI uses yamllint to check if the yaml files are wellformed.
+To tidy up your yaml, you can make use of [yamltidy](https://github.com/perlpunk/yamltidy).
+Simply run `yamltidy -i job_groups/my_file.yaml`.
+This repo comes with sane default configurations that will be automatically used for both
+tools.
+
 
 ## Adding a new job group
 
