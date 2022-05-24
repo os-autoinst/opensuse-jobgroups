@@ -224,9 +224,11 @@ scenarios:
       - zdup-Leap-15.2-gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
+            +HDD_1: "%DISTRI%-15.2-%ARCH%-GM-Updated-gnome@%MACHINE%.qcow2"
       - zdup-Leap-15.2-kde:
           settings:
             QEMU_VIRTIO_RNG: "0"
+            +HDD_1: "%DISTRI%-15.2-%ARCH%-GM-Updated-kde@%MACHINE%.qcow2"
       - upgrade_Leap_42.3_gnome:
           machine: 64bit
       - upgrade_Leap_42.3_kde:
@@ -417,9 +419,11 @@ scenarios:
       - upgrade_Leap_15.2_gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
+            +HDD_1: "%DISTRI%-15.2-%ARCH%-GM-Updated-gnome@%MACHINE%.qcow2"
       - upgrade_Leap_15.2_kde:
           settings:
             QEMU_VIRTIO_RNG: "0"
+            +HDD_1: "%DISTRI%-15.2-%ARCH%-GM-Updated-kde@%MACHINE%.qcow2"
       - upgrade_Leap_15.2_cryptlvm:
           machine: uefi
           settings:
