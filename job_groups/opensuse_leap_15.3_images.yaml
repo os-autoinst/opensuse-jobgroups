@@ -158,9 +158,9 @@ scenarios:
             CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap/15.3/images/totest/containers/opensuse/leap:15.3'
       - container_image_on_ubuntu_host:
           testsuite: container-image
-          description: 'Container image validation on Ubuntu 20.04'
+          description: 'Container image validation on Ubuntu 22.04'
           settings:
-            HDD_1: 'ubuntu-20.04.1_1.qcow2'
+            HDD_1: 'ubuntu-22.04.qcow2'
             KEEP_GRUB_TIMEOUT: '1'
             DESKTOP: 'textmode'
             VIDEOMODE: 'text'
@@ -181,7 +181,7 @@ scenarios:
           testsuite: container-image
           machine: ppc64le
           settings:
-              # we force the ppc64le machine and ARCH here because OBS sync doesn't trigger ppc64le jobs
+            # we force the ppc64le machine and ARCH here because OBS sync doesn't trigger ppc64le jobs
             +ARCH: 'ppc64le'
             HDD_1: 'opensuse-15.2-ppc64le-GM-kde@ppc64le.qcow2'
             DESKTOP: 'kde'
