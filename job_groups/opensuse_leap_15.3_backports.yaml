@@ -7,6 +7,7 @@
 #    https://github.com/os-autoinst/opensuse-jobgroups     #
 #       job_groups/opensuse_leap_15.3_backports.yaml       #
 ############################################################
+---
 defaults:
   x86_64:
     machine: 64bit-2G
@@ -19,22 +20,24 @@ products:
 scenarios:
   x86_64:
     opensuse-15.3-DVD-Backports-x86_64:
-    - textmode:
-        machine: 64bit
-    - kde
-    - gnome:
-        machine: uefi
-        settings:
-          QEMUVGA: cirrus
-    - gnome:
-        machine: 64bit-2G
-        settings:
-          QEMUVGA: cirrus
-    - cryptlvm:
-        settings:
-          YAML_SCHEDULE: schedule/yast/opensuse/encryption/cryptlvm.yaml
-    - install_with_updates_gnome:
-        settings:
-          QEMUVGA: cirrus
-    - install_with_updates_kde:
-        machine: uefi-2G
+      - textmode:
+          machine: 64bit
+      - kde:
+          settings:
+            ZYPPER_WHITELISTED_ORPHANS: libpeas-loader-python
+      - gnome:
+          machine: [uefi, 64bit-2G]
+          settings:
+            QEMUVGA: cirrus
+            ZYPPER_WHITELISTED_ORPHANS: libpeas-loader-python
+      - cryptlvm:
+          settings:
+            YAML_SCHEDULE: schedule/yast/opensuse/encryption/cryptlvm.yaml
+      - install_with_updates_gnome:
+          settings:
+            QEMUVGA: cirrus
+            ZYPPER_WHITELISTED_ORPHANS: libpeas-loader-python
+      - install_with_updates_kde:
+          machine: uefi-2G
+          settings:
+            ZYPPER_WHITELISTED_ORPHANS: libpeas-loader-python
