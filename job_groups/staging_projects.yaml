@@ -123,7 +123,7 @@ scenarios:
     - upgrade_staging:
         machine: 64bit
     - create_hdd_kde
-# the lvm+RAID1 job here bleeds into Letter stagings as 'RAID1' test, which in turn fails
-#    - lvm+RAID1
+    # the lvm+RAID1 job here bleeds into Letter stagings as 'RAID1' test, which in turn fails
+    # - lvm+RAID1
     - RAID1_gpt:
         machine: 64bit
