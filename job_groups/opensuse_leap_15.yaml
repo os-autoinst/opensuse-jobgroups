@@ -207,20 +207,6 @@ scenarios:
       - wicked_basic_sut
       - kde-wayland:
           machine: 64bit_virtio-2G
-      - zdup-Leap-15.0-gnome:
-          machine: 64bit_cirrus
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - zdup-Leap-15.0-kde:
-          machine: 64bit_cirrus
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - zdup-Leap-15.1-gnome:
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - zdup-Leap-15.1-kde:
-          settings:
-            QEMU_VIRTIO_RNG: "0"
       - zdup-Leap-15.2-gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
@@ -432,20 +418,6 @@ scenarios:
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.3_cryptlvm:
           machine: uefi
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - zdup-Leap-15.0-kde:
-          machine: 64bit_cirrus
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - zdup-Leap-15.0-gnome:
-          machine: 64bit_cirrus
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - zdup-Leap-15.1-gnome:
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - zdup-Leap-15.1-kde:
           settings:
             QEMU_VIRTIO_RNG: "0"
       - zdup-Leap-15.2-gnome:
