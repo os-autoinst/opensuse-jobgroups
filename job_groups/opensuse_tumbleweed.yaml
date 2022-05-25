@@ -25,10 +25,6 @@ products:
     distri: microos
     flavor: DVD
     version: '*'
-  microos-*-Kubic-DVD-x86_64:
-    distri: microos
-    flavor: Kubic-DVD
-    version: '*'
   opensuse-Tumbleweed-DVD-i586:
     distri: opensuse
     flavor: DVD
@@ -52,10 +48,6 @@ products:
   microos-*-MicroOS-Image-ContainerHost-x86_64:
     distri: microos
     flavor: MicroOS-Image-ContainerHost
-    version: Tumbleweed
-  microos-*-MicroOS-Image-Kubic-kubeadm-x86_64:
-    distri: microos
-    flavor: MicroOS-Image-Kubic-kubeadm
     version: Tumbleweed
   microos-*-MicroOS-Image-x86_64:
     distri: microos
@@ -151,19 +143,6 @@ scenarios:
           settings:
             DESKTOP: textmode
             YAML_SCHEDULE: schedule/sle-micro/remote_ssh_target.yaml
-    microos-*-Kubic-DVD-x86_64:
-      - rcshell:
-          machine: 64bit
-      - kubeadm:
-          machine: 64bit-2G-HD40G
-      - container-host:
-          machine: 64bit
-          settings:
-            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
-      - container-host:
-          machine: uefi
-          settings:
-            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
     microos-*-MicroOS-Image-ContainerHost-x86_64:
       - container-host:
           settings:
@@ -174,9 +153,6 @@ scenarios:
       - container-host-old2microosnext:
           settings:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
-    microos-*-MicroOS-Image-Kubic-kubeadm-x86_64:
-      - kubeadm:
-          machine: 64bit-2G
     microos-*-MicroOS-Image-x86_64:
       - microos:
           settings:
