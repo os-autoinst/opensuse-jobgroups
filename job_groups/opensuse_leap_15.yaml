@@ -559,7 +559,18 @@ scenarios:
             YAML_SCHEDULE: schedule/yast/opensuse/transactional_server/transactional_server.yaml
       - system_performance
       - apparmor
-      - zdup-Leap-15.0-gnome:
+      - zdup-Leap-15.2-gnome:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+            +HDD_1: "%DISTRI%-15.2-%ARCH%-GM-Updated-gnome@%MACHINE%.qcow2"
+      - zdup-Leap-15.2-kde:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+            +HDD_1: "%DISTRI%-15.2-%ARCH%-GM-Updated-kde@%MACHINE%.qcow2"
+      - zdup-Leap-15.3-gnome:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - zdup-Leap-15.3-kde:
           settings:
             QEMU_VIRTIO_RNG: "0"
       - openscap
