@@ -229,6 +229,12 @@ scenarios:
           settings:
             QEMU_VIRTIO_RNG: "0"
             +HDD_1: "%DISTRI%-15.2-%ARCH%-GM-Updated-kde@%MACHINE%.qcow2"
+      - zdup-Leap-15.3-gnome:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - zdup-Leap-15.3-kde:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_42.3_gnome:
           machine: 64bit
       - upgrade_Leap_42.3_kde:
@@ -402,14 +408,6 @@ scenarios:
           machine: 64bit
           settings:
             QEMU_VIRTIO_RNG: "0"
-      - zdup-Leap-15.0-kde:
-          machine: 64bit_cirrus
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - zdup-Leap-15.0-gnome:
-          machine: 64bit_cirrus
-          settings:
-            QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.1_gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
@@ -428,6 +426,24 @@ scenarios:
           machine: uefi
           settings:
             QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.3_gnome:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.3_kde:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.3_cryptlvm:
+          machine: uefi
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - zdup-Leap-15.0-kde:
+          machine: 64bit_cirrus
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - zdup-Leap-15.0-gnome:
+          machine: 64bit_cirrus
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - zdup-Leap-15.1-gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
@@ -438,6 +454,12 @@ scenarios:
           settings:
             QEMU_VIRTIO_RNG: "0"
       - zdup-Leap-15.2-kde:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - zdup-Leap-15.3-gnome:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - zdup-Leap-15.3-kde:
           settings:
             QEMU_VIRTIO_RNG: "0"
   aarch64:
