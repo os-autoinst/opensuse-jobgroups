@@ -24,7 +24,7 @@ scenarios:
           machine: 64bit
       - kde:
           settings:
-            ZYPPER_WHITELISTED_ORPHANS: libpeas-loader-python
+            ZYPPER_WHITELISTED_ORPHANS: libreoffice-gtk2
       - gnome:
           machine: [uefi, 64bit-2G]
           settings:
@@ -40,4 +40,4 @@ scenarios:
       - install_with_updates_kde:
           machine: uefi-2G
           settings:
-            ZYPPER_WHITELISTED_ORPHANS: libpeas-loader-python
+            ZYPPER_WHITELISTED_ORPHANS: libreoffice-gtk2
