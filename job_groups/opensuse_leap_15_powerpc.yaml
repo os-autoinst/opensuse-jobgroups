@@ -7,6 +7,7 @@
 #    https://github.com/os-autoinst/opensuse-jobgroups     #
 #         job_groups/opensuse_leap_15_powerpc.yaml         #
 ############################################################
+---
 defaults:
   ppc64le:
     machine: ppc64le
@@ -23,29 +24,29 @@ products:
 scenarios:
   ppc64le:
     opensuse-15.2-DVD-ppc64le:
-    - textmode
-    - gnome
-    - minimalx:
-        machine: ppc64le
-    - RAID0
-    - lvm
-    - mediacheck
-    - rescue_system
-    - gpt
-    - create_hdd_textmode
-    - create_hdd_gnome
-    - create_hdd_kde
-    - install_minimalx:
-        machine: ppc64le-multipath
-    - boot_to_snapshot
-    - extra_tests_on_gnome
-    - extra_tests_on_kde
-    - extra_tests_in_textmode
-    - extra_tests_textmode_containers:
-        settings:
+      - textmode
+      - gnome
+      - minimalx:
+          machine: ppc64le
+      - RAID0
+      - lvm
+      - mediacheck
+      - rescue_system
+      - gpt
+      - create_hdd_textmode
+      - create_hdd_gnome
+      - create_hdd_kde
+      - install_minimalx:
+          machine: ppc64le-multipath
+      - boot_to_snapshot
+      - extra_tests_on_gnome
+      - extra_tests_on_kde
+      - extra_tests_in_textmode
+      - extra_tests_textmode_containers:
+          settings:
             YAML_SCHEDULE: schedule/containers/extra_tests_textmode_containers.yaml
-    - yast2_ncurses
-    - extra_tests_dracut
+      - yast2_ncurses
+      - extra_tests_dracut
     opensuse-15.2-NET-ppc64le:
-    - minimalx:
-        machine: ppc64le
+      - minimalx:
+          machine: ppc64le

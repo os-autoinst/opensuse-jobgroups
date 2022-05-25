@@ -7,6 +7,7 @@
 #    https://github.com/os-autoinst/opensuse-jobgroups     #
 #             job_groups/opensuse_krypton.yaml             #
 ############################################################
+---
 defaults:
   x86_64:
     machine: uefi-2G
@@ -19,10 +20,10 @@ products:
 scenarios:
   x86_64:
     opensuse-*-Krypton-Live-x86_64:
-    - krypton-live:
-        machine: USBboot_64-2G
-    - krypton-live-wayland:
-        machine: uefi-usb-2G
-        settings:
-          QEMUVGA: virtio
-    - krypton-live-installation
+      - krypton-live:
+          machine: USBboot_64-2G
+      - krypton-live-wayland:
+          machine: uefi-usb-2G
+          settings:
+            QEMUVGA: virtio
+      - krypton-live-installation

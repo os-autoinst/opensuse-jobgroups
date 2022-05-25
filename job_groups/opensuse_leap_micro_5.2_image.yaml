@@ -31,7 +31,7 @@
 .selfinstall_settings: &selfinstall_settings
   <<: *default_settings
   NUMDISKS: '2'
-  HDD_2: 'ignition.qcow2' # openQA will create a qcow2 on the fly
+  HDD_2: 'ignition.qcow2'  # openQA will create a qcow2 on the fly
   HDDSIZEGB_1: '30'
   QEMU_VIRTIO_RNG: '1'
   QEMUVGA: 'virtio'
@@ -40,7 +40,7 @@
 .selfinstall_settings_aarch64: &selfinstall_settings_aarch64
   <<: *default_settings
   NUMDISKS: '2'
-  HDD_2: 'ignition.qcow2' # openQA will create a qcow2 on the fly
+  HDD_2: 'ignition.qcow2'  # openQA will create a qcow2 on the fly
   HDDSIZEGB_1: '30'
   YAML_SCHEDULE: 'schedule/sle-micro/selfinstall.yaml'
 

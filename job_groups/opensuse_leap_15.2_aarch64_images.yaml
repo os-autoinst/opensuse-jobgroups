@@ -7,6 +7,7 @@
 #    https://github.com/os-autoinst/opensuse-jobgroups     #
 #    job_groups/opensuse_leap_15.2_aarch64_images.yaml     #
 ############################################################
+---
 defaults:
   aarch64:
     machine: aarch64-HD24G
@@ -35,36 +36,36 @@ products:
 scenarios:
   aarch64:
     opensuse-15.2-JeOS-for-AArch64-aarch64:
-    - jeos:
-        priority: 45
-    - jeos-extra:
-        settings:
-          # rails is completely broken, no fix in sight (boo#1174315)
-          EXCLUDE_MODULES: "rails"
-        priority: 45
+      - jeos:
+          priority: 45
+      - jeos-extra:
+          settings:
+            # rails is completely broken, no fix in sight (boo#1174315)
+            EXCLUDE_MODULES: "rails"
+          priority: 45
     opensuse-15.2-JeOS-for-RPi-aarch64:
-    - jeos:
-        machine: RPi3
-        settings:
-          PASSWORD: linux
+      - jeos:
+          machine: RPi3
+          settings:
+            PASSWORD: linux
     opensuse-15.2-Rescue-CD-aarch64:
-    - rescue:
-        machine: USBboot_aarch64
-    - mediacheck:
-        machine: USBboot_aarch64
-        priority: 40
+      - rescue:
+          machine: USBboot_aarch64
+      - mediacheck:
+          machine: USBboot_aarch64
+          priority: 40
     opensuse-15.2-KDE-Live-aarch64:
-    - kde-live:
-        machine: USBboot_aarch64
-    - mediacheck:
-        machine: USBboot_aarch64
-    - kde-live_installation:
-        machine: USBboot_aarch64
-    - kde_live_upgrade_leap_15.0:
-        machine: aarch64
+      - kde-live:
+          machine: USBboot_aarch64
+      - mediacheck:
+          machine: USBboot_aarch64
+      - kde-live_installation:
+          machine: USBboot_aarch64
+      - kde_live_upgrade_leap_15.0:
+          machine: aarch64
     opensuse-15.2-GNOME-Live-aarch64:
-    - gnome-live:
-        machine: USBboot_aarch64
-    - mediacheck:
-        machine: USBboot_aarch64
-        priority: 40
+      - gnome-live:
+          machine: USBboot_aarch64
+      - mediacheck:
+          machine: USBboot_aarch64
+          priority: 40

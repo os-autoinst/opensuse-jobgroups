@@ -7,6 +7,7 @@
 #    https://github.com/os-autoinst/opensuse-jobgroups     #
 #               job_groups/kiwi_images.yaml                #
 ############################################################
+---
 defaults:
   x86_64:
     machine: 64bit
@@ -342,7 +343,6 @@ scenarios:
           description: Test a disk image produced by kiwi in EFI mode for opensuse Tumbleweed
 
 
-
     kiwi-opensuse-Leap-live-iso-x86_64:
       - kiwi_live_image_test:
           description: Tests of the kiwi live images for opensuse Leap
@@ -382,7 +382,6 @@ scenarios:
     kiwi-opensuse-Leap-disk-x86_64-efi:
       - kiwi_disk_image_test_efi:
           description: Test a disk image produced by kiwi in EFI mode for opensuse Leap
-
 
 
     kiwi-fedora-34-live-iso-x86_64:
@@ -426,7 +425,6 @@ scenarios:
           description: Test a disk image produced by kiwi in EFI mode for fedora 34
 
 
-
     kiwi-fedora-Rawhide-live-iso-x86_64:
       - kiwi_live_image_test:
           description: Tests of the kiwi live images for fedora Rawhide
@@ -466,7 +464,6 @@ scenarios:
     kiwi-fedora-Rawhide-disk-x86_64-efi:
       - kiwi_disk_image_test_efi:
           description: Test a disk image produced by kiwi in EFI mode for fedora Rawhide
-
 
 
     kiwi-centos-7-live-iso-x86_64:
@@ -510,7 +507,6 @@ scenarios:
           description: Test a disk image produced by kiwi in EFI mode for centos 7
 
 
-
     kiwi-centos-8-live-iso-x86_64:
       - kiwi_live_image_test:
           description: Tests of the kiwi live images for centos 8
@@ -550,7 +546,6 @@ scenarios:
     kiwi-centos-8-disk-x86_64-efi:
       - kiwi_disk_image_test_efi:
           description: Test a disk image produced by kiwi in EFI mode for centos 8
-
 
 
     kiwi-centos-9-live-iso-x86_64:
@@ -594,7 +589,6 @@ scenarios:
           description: Test a disk image produced by kiwi in EFI mode for centos 9
 
 
-
     kiwi-sle-15-live-iso-x86_64:
       - kiwi_live_image_test:
           description: Tests of the kiwi live images for sle 15
@@ -634,7 +628,6 @@ scenarios:
     kiwi-sle-15-disk-x86_64-efi:
       - kiwi_disk_image_test_efi:
           description: Test a disk image produced by kiwi in EFI mode for sle 15
-
 
 
     kiwi-ubuntu-21.04-live-iso-x86_64:
@@ -678,7 +671,6 @@ scenarios:
           description: Test a disk image produced by kiwi in EFI mode for ubuntu 21.04
 
 
-
     kiwi-debian-10-live-iso-x86_64:
       - kiwi_live_image_test:
           description: Tests of the kiwi live images for debian 10
@@ -720,7 +712,6 @@ scenarios:
           description: Test a disk image produced by kiwi in EFI mode for debian 10
 
 
-
     kiwi-archlinux-rolling-live-iso-x86_64:
       - kiwi_live_image_test:
           description: Tests of the kiwi live images for archlinux rolling
@@ -760,4 +751,3 @@ scenarios:
     kiwi-archlinux-rolling-disk-x86_64-efi:
       - kiwi_disk_image_test_efi:
           description: Test a disk image produced by kiwi in EFI mode for archlinux rolling
-

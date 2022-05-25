@@ -7,5 +7,6 @@
 #    https://github.com/os-autoinst/opensuse-jobgroups     #
 #            job_groups/opensuse_leap_42.2.yaml            #
 ############################################################
+---
 products: {}
 scenarios: {}

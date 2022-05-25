@@ -75,7 +75,7 @@ scenarios:
             MIRROR_HTTPS: https://download.opensuse.org/distribution/leap-micro/%VERSION%/product/repo/Leap-Micro-%VERSION%-%ARCH%-Media/
             MIRROR_PREFIX: http://download.opensuse.org/distribution/leap-micro/5.2/product/repo/
             INSTALL_SOURCE: http
-            
+
   aarch64:
     leap-micro-5.2-DVD-aarch64:
       - microos_installation_default:
