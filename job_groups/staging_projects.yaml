@@ -20,10 +20,6 @@ products:
     distri: microos
     flavor: Staging-DVD
     version: '*'
-  microos-*-Staging-Kubic-DVD-x86_64:
-    distri: microos
-    flavor: Staging-Kubic-DVD
-    version: '*'
   opensuse-*-Staging-DVD-x86_64:
     distri: opensuse
     flavor: Staging-DVD
@@ -48,15 +44,6 @@ scenarios:
       - container-host-microos:
           testsuite: container-host
           machine: 64bit-2G-HD40G
-          settings:
-            CONTAINER_RUNTIME: podman
-            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
-    microos-*-Staging-Kubic-DVD-x86_64:
-      - kubeadm:
-          machine: 64bit-2G-HD40G
-      - container-host-kubic:
-          testsuite: container-host
-          machine: uefi-staging
           settings:
             CONTAINER_RUNTIME: podman
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
