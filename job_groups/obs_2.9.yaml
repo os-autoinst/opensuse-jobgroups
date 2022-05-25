@@ -20,4 +20,4 @@ products:
 scenarios:
   x86_64:
     obs-2.9-Appliance-x86_64:
-    - obs_appliance
+      - obs_appliance

@@ -20,4 +20,4 @@ products:
 scenarios:
   ppc64le:
     sle-15.0-Server-DVD-ppc64le:
-    - install_textmode
+      - install_textmode

@@ -20,7 +20,7 @@ products:
 scenarios:
   aarch64:
     opensuse-15.1-JeOS-for-AArch64-aarch64:
-    - jeos
-    - jeos-extra:
-        settings:
-          EXCLUDE_MODULES: "libgpiod"
+      - jeos
+      - jeos-extra:
+          settings:
+            EXCLUDE_MODULES: "libgpiod"

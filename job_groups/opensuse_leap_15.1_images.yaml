@@ -32,51 +32,51 @@ products:
 scenarios:
   x86_64:
     opensuse-15.1-GNOME-Live-x86_64:
-    - gnome-live:
-        machine: uefi-usb-2G
-        settings:
-          QEMUVGA: cirrus
-    - gnome-live:
-        machine: USBboot_64-2G
-        settings:
-          QEMUVGA: cirrus
-    - gnome-live:
-        machine: 64bit-2G
-        settings:
-          QEMUVGA: cirrus
-    - gnome-live:
-        machine: uefi-2G
-        settings:
-          QEMUVGA: cirrus
-    - mediacheck:
-        machine: 64bit
+      - gnome-live:
+          machine: uefi-usb-2G
+          settings:
+            QEMUVGA: cirrus
+      - gnome-live:
+          machine: USBboot_64-2G
+          settings:
+            QEMUVGA: cirrus
+      - gnome-live:
+          machine: 64bit-2G
+          settings:
+            QEMUVGA: cirrus
+      - gnome-live:
+          machine: uefi-2G
+          settings:
+            QEMUVGA: cirrus
+      - mediacheck:
+          machine: 64bit
     opensuse-15.1-JeOS-for-kvm-and-xen-x86_64:
-    - jeos:
-        machine: 64bit_virtio-2G
-    - jeos:
-        machine: uefi_virtio-2G
-    - jeos-extra:
-        machine: 64bit_virtio-2G
-        settings:
-          EXCLUDE_MODULES: java,slp
-    - jeos-containers:
-        machine: 64bit_virtio-2G
-    - jeos-filesystem:
-        machine: 64bit_virtio-2G
+      - jeos:
+          machine: 64bit_virtio-2G
+      - jeos:
+          machine: uefi_virtio-2G
+      - jeos-extra:
+          machine: 64bit_virtio-2G
+          settings:
+            EXCLUDE_MODULES: java,slp
+      - jeos-containers:
+          machine: 64bit_virtio-2G
+      - jeos-filesystem:
+          machine: 64bit_virtio-2G
     opensuse-15.1-KDE-Live-x86_64:
-    - kde-live:
-        machine: 64bit-2G
-    - kde-live:
-        machine: uefi-usb-2G
-    - kde-live:
-        machine: uefi-2G
-    - kde-live:
-        machine: USBboot_64-2G
-    - mediacheck:
-        machine: 64bit
-    - kde-live_installation
-    - kde-live-wayland:
-        machine: 64bit_virtio-2G
-    - kde_live_upgrade_leap_42.3
+      - kde-live:
+          machine: 64bit-2G
+      - kde-live:
+          machine: uefi-usb-2G
+      - kde-live:
+          machine: uefi-2G
+      - kde-live:
+          machine: USBboot_64-2G
+      - mediacheck:
+          machine: 64bit
+      - kde-live_installation
+      - kde-live-wayland:
+          machine: 64bit_virtio-2G
+      - kde_live_upgrade_leap_42.3
     opensuse-15.1-Rescue-CD-x86_64:
-    - rescue
+      - rescue

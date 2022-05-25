@@ -20,7 +20,7 @@ products:
 scenarios:
   x86_64:
     opensuse-15.2-DVD-Incidents-x86_64:
-    - kde
-    - gnome
-    - cryptlvm:
-        machine: uefi-2G
+      - kde
+      - gnome
+      - cryptlvm:
+          machine: uefi-2G

@@ -20,10 +20,10 @@ products:
 scenarios:
   x86_64:
     opensuse-*-Argon-Live-x86_64:
-    - krypton-live:
-        machine: USBboot_64-2G
-    - krypton-live-wayland:
-        machine: uefi-usb-2G
-        settings:
-          QEMUVGA: virtio
-    - krypton-live-installation
+      - krypton-live:
+          machine: USBboot_64-2G
+      - krypton-live-wayland:
+          machine: uefi-usb-2G
+          settings:
+            QEMUVGA: virtio
+      - krypton-live-installation

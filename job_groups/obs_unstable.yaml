@@ -20,4 +20,4 @@ products:
 scenarios:
   x86_64:
     obs-Unstable-Appliance-x86_64:
-    - obs_appliance
+      - obs_appliance

@@ -20,16 +20,16 @@ products:
 scenarios:
   x86_64:
     opensuse-*-Gnome-Live-x86_64:
-    - gnome-live:
-        machine: 64bit-4G
-    - gnome-live:
-        settings:
-          QEMURAM: '4096'
-    - gnome-live:
-        machine: uefi
-        settings:
-          QEMURAM: '4096'
-    - gnome-live:
-        machine: USBboot_64
-        settings:
-          QEMURAM: '4096'
+      - gnome-live:
+          machine: 64bit-4G
+      - gnome-live:
+          settings:
+            QEMURAM: '4096'
+      - gnome-live:
+          machine: uefi
+          settings:
+            QEMURAM: '4096'
+      - gnome-live:
+          machine: USBboot_64
+          settings:
+            QEMURAM: '4096'

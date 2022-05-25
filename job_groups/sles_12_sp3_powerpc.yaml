@@ -20,4 +20,4 @@ products:
 scenarios:
   ppc64le:
     sle-*-Server-DVD-ppc64le:
-    - install_gnome
+      - install_gnome
