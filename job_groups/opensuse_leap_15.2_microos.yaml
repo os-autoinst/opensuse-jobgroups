@@ -43,7 +43,7 @@ products:
   microos-15.2-MicroOS-Image-aarch64:
     distri: microos
     flavor: MicroOS-Image
-    version: '15.2'    
+    version: '15.2'
 scenarios:
  x86_64:
     microos-15.2-DVD-x86_64:

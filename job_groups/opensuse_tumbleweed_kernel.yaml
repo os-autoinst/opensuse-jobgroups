@@ -37,7 +37,7 @@ scenarios:
     - extra_tests_kernel
     - kdump:
         settings:
-          CRASH_MEMORY: '320'    
+          CRASH_MEMORY: '320'
     - install_ltp+opensuse+DVD
     - ltp_aio_stress_part1
     - ltp_aio_stress_part2
@@ -118,7 +118,7 @@ scenarios:
     - extra_tests_kernel
     - kdump:
         settings:
-          CRASH_MEMORY: '640'       
+          CRASH_MEMORY: '640'
     - install_ltp+opensuse+DVD
     - kernel-live-patching
     - ltp_aio_stress_part1
