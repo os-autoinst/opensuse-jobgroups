@@ -7,6 +7,7 @@
 #    https://github.com/os-autoinst/opensuse-jobgroups     #
 #         job_groups/opensuse_leap_15_aarch64.yaml         #
 ############################################################
+---
 defaults:
   aarch64:
     machine: aarch64
