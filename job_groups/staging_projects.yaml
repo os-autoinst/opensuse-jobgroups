@@ -92,7 +92,10 @@ scenarios:
     - upgrade_staging:
         machine: 64bit
     - autoyast_mini:
-        description: Autoyast installation test using minimal profile, hence relying on default values. Configured parameters are set not to ignore any messages and create users as per requirements for openQA tests.
+        description: |
+          Autoyast installation test using minimal profile, hence relying on default values.
+          Configured parameters are set not to ignore any messages and create users
+          as per requirements for openQA tests.
         settings:
           AUTOYAST: autoyast/mini.xml
           AUTOYAST_CONFIRM: '1'
