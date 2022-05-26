@@ -40,7 +40,7 @@ scenarios:
           # poo#95137
           settings:
             EXCLUDE_MODULES: 'kontact'
-            ZYPPER_WHITELISTED_ORPHANS: libpeas-loader-python
+            ZYPPER_WHITELISTED_ORPHANS: libreoffice-gtk2
       - create_hdd_gnome:
           machine: 64bit
       - create_hdd_gnome:
@@ -61,4 +61,4 @@ scenarios:
       - extra_tests_misc
       - kde:
           settings:
-            ZYPPER_WHITELISTED_ORPHANS: libpeas-loader-python
+            ZYPPER_WHITELISTED_ORPHANS: libreoffice-gtk2
