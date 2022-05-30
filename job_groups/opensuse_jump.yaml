@@ -146,7 +146,7 @@ scenarios:
       - extra_tests_in_textmode
       - extra_tests_textmode_containers:
           settings:
-            YAML_SCHEDULE: schedule/containers/extra_tests_textmode_containers.yaml
+            CONTAINER_RUNTIME: docker
       - extra_tests_ai_ml
       - zdup-Leap-42.2-gnome:
           machine: 64bit_cirrus
@@ -370,7 +370,7 @@ scenarios:
       - extra_tests_in_textmode
       - extra_tests_textmode_containers:
           settings:
-            YAML_SCHEDULE: schedule/containers/extra_tests_textmode_containers.yaml
+            CONTAINER_RUNTIME: docker
       - extra_tests_ai_ml
       - autoyast_minimal
       - package-dependency:
@@ -454,7 +454,7 @@ scenarios:
       - extra_tests_filesystem
       - extra_tests_textmode_containers:
           settings:
-            YAML_SCHEDULE: schedule/containers/extra_tests_textmode_containers.yaml
+            CONTAINER_RUNTIME: docker
       - yast2_ncurses
       - extra_tests_dracut
     opensuse-Jump-15.2-NET-ppc64le:
