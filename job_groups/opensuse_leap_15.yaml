@@ -207,20 +207,6 @@ scenarios:
       - wicked_basic_sut
       - kde-wayland:
           machine: 64bit_virtio-2G
-      - zdup-Leap-15.0-gnome:
-          machine: 64bit_cirrus
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - zdup-Leap-15.0-kde:
-          machine: 64bit_cirrus
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - zdup-Leap-15.1-gnome:
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - zdup-Leap-15.1-kde:
-          settings:
-            QEMU_VIRTIO_RNG: "0"
       - zdup-Leap-15.2-gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
@@ -417,11 +403,9 @@ scenarios:
       - upgrade_Leap_15.2_gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
-            +HDD_1: "%DISTRI%-15.2-%ARCH%-GM-Updated-gnome@%MACHINE%.qcow2"
       - upgrade_Leap_15.2_kde:
           settings:
             QEMU_VIRTIO_RNG: "0"
-            +HDD_1: "%DISTRI%-15.2-%ARCH%-GM-Updated-kde@%MACHINE%.qcow2"
       - upgrade_Leap_15.2_cryptlvm:
           machine: uefi
           settings:
@@ -436,26 +420,14 @@ scenarios:
           machine: uefi
           settings:
             QEMU_VIRTIO_RNG: "0"
-      - zdup-Leap-15.0-kde:
-          machine: 64bit_cirrus
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - zdup-Leap-15.0-gnome:
-          machine: 64bit_cirrus
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - zdup-Leap-15.1-gnome:
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - zdup-Leap-15.1-kde:
-          settings:
-            QEMU_VIRTIO_RNG: "0"
       - zdup-Leap-15.2-gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
+            +HDD_1: "%DISTRI%-15.2-%ARCH%-GM-Updated-gnome@%MACHINE%.qcow2"
       - zdup-Leap-15.2-kde:
           settings:
             QEMU_VIRTIO_RNG: "0"
+            +HDD_1: "%DISTRI%-15.2-%ARCH%-GM-Updated-kde@%MACHINE%.qcow2"
       - zdup-Leap-15.3-gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
@@ -559,7 +531,18 @@ scenarios:
             YAML_SCHEDULE: schedule/yast/opensuse/transactional_server/transactional_server.yaml
       - system_performance
       - apparmor
-      - zdup-Leap-15.0-gnome:
+      - zdup-Leap-15.2-gnome:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+            +HDD_1: "%DISTRI%-15.2-%ARCH%-GM-Updated-gnome@%MACHINE%.qcow2"
+      - zdup-Leap-15.2-kde:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+            +HDD_1: "%DISTRI%-15.2-%ARCH%-GM-Updated-kde@%MACHINE%.qcow2"
+      - zdup-Leap-15.3-gnome:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - zdup-Leap-15.3-kde:
           settings:
             QEMU_VIRTIO_RNG: "0"
       - openscap
