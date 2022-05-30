@@ -132,6 +132,10 @@ scenarios:
           machine: 64bit
           settings:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
+      - containers_host_helm:
+          testsuite: extra_tests_textmode_containers
+          settings:
+            CONTAINER_RUNTIME: 'helm'
       - remote_ssh_controller:
           settings:
             HDD_1: support_server_tumbleweed@64bit.qcow2
