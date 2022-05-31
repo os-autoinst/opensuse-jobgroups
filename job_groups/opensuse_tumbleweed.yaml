@@ -946,6 +946,16 @@ scenarios:
             START_AFTER_TEST: create_hdd_gnome_encrypt_separate_boot
             HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%_encrypt_separate_boot.qcow2'
             YAML_SCHEDULE: schedule/security/luks1_decrypt_ssh_server.yaml
+      - autoyast_create_hdd_gnome_uefi:
+          testsuite: create_hdd_desktop_ay_uefi
+          machine: uefi
+          settings:
+            DESKTOP: gnome
+      - autoyast_create_hdd_textmode_uefi:
+          testsuite: create_hdd_desktop_ay_uefi
+          machine: uefi
+          settings:
+            DESKTOP: textmode
     opensuse-Tumbleweed-GNOME-Live-x86_64:
       - gnome-live:
           machine: uefi
