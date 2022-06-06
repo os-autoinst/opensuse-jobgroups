@@ -113,6 +113,8 @@ scenarios:
       - nfs_cthon04-nfs4
       - nfs_pynfs_nfs40_all
       - nfs_pynfs_nfs41_all
+      - create_hdd_xfstests
+      - xfstests_btrfs-btrfs-001-050
   ppc64le:
     opensuse-Tumbleweed-DVD-ppc64le:
       - extra_tests_kernel
@@ -195,6 +197,8 @@ scenarios:
       - nfs_cthon04-nfs4
       - nfs_pynfs_nfs40_all
       - nfs_pynfs_nfs41_all
+      - create_hdd_xfstests
+      - xfstests_btrfs-btrfs-001-050
   x86_64:
     opensuse-Tumbleweed-DVD-x86_64:
       - extra_tests_kernel
