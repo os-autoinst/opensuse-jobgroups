@@ -8,6 +8,15 @@
 #    https://github.com/os-autoinst/opensuse-jobgroups     #
 #        job_groups/opensuse_leap_15.4_updates.yaml        #
 ############################################################
+
+.zdup_settings: &zdup
+  +ISO: "openSUSE-Leap-15.4-DVD-x86_64.iso"
+  ZDUPREPOS: "http://download.opensuse.org/distribution/leap/15.4/repo/oss/,
+              http://download.opensuse.org/update/leap/15.4/oss/,
+              http://download.opensuse.org/update/leap/15.4/backports/,
+              http://download.opensuse.org/update/leap/15.4/sle/
+              "
+
 defaults:
   x86_64:
     machine: 64bit
@@ -63,15 +72,19 @@ scenarios:
       - kde
       - zdup-Leap-15.2-gnome:
           settings:
+            <<: *zdup
             QEMU_VIRTIO_RNG: "0"
             +HDD_1: "%DISTRI%-15.2-%ARCH%-GM-Updated-gnome@%MACHINE%.qcow2"
       - zdup-Leap-15.2-kde:
           settings:
+            <<: *zdup
             QEMU_VIRTIO_RNG: "0"
             +HDD_1: "%DISTRI%-15.2-%ARCH%-GM-Updated-kde@%MACHINE%.qcow2"
       - zdup-Leap-15.3-gnome:
           settings:
+            <<: *zdup
             QEMU_VIRTIO_RNG: "0"
       - zdup-Leap-15.3-kde:
           settings:
+            <<: *zdup
             QEMU_VIRTIO_RNG: "0"
