@@ -460,6 +460,7 @@ scenarios:
             YAML_TEST_DATA: test_data/yast/opensuse/xfs/xfs_partition.yaml
           testsuite: null
       - apparmor
+      - scap_workbench
       - lvm-encrypt-separate-boot:
           machine: 64bit
       - lvm-full-encrypt
