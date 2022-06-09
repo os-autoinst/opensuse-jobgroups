@@ -247,6 +247,7 @@ elif args.action == 'push':
 	os._exit(exit_code)
 
 elif args.action == 'orphans':
+	# Check for job group files that are not referenced by job_groups.yaml
 	job_groups_yaml = {'%s.yaml' % v: k for k, v in job_groups_db.items()}
 	exit_code = 0
 	for job_group_file in (f for f in os.listdir('job_groups') if f.endswith('.yaml')):
@@ -261,6 +262,7 @@ elif args.action == 'orphans':
 	for job_group in job_groups:
 		job_groups_by_id[job_group['id']] = job_group
 	for gid, gname in job_groups_db.items():
+		# Check for job groups referenced by job_groups.yaml that do not exist on the server
 		if not gid in job_groups_by_id:
 			emsg = "Job group '%i' in job_groups.yaml doesn't exist on the server" % gid
 			if args.github:
@@ -269,6 +271,7 @@ elif args.action == 'orphans':
 				print(emsg, file=sys.stderr)
 			exit_code = 1
 		jgfile = 'job_groups/%s.yaml' % gname
+		# Check for job group files referenced by job_groups.yaml that do not exist in the repo
 		if not os.path.exists(jgfile):
 			emsg = "Job group file '%s' referenced by job_groups.yaml doesn't exist" % jgfile
 			if args.github:
