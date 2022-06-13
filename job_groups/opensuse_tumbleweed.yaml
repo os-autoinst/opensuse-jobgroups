@@ -1101,7 +1101,7 @@ scenarios:
             CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed'
             CONTAINERS_NO_SUSE_OS: "1"
             CONTAINER_RUNTIME: "podman"
-            REGISTRY: '18.156.2.117:5000'
+            REGISTRY: '3.71.98.16:5000'
       - containers_tw_image_on_ubuntu_host:
           testsuite: null
           description: 'Runs image container test on Ubuntu using docker and podman'
@@ -1116,7 +1116,7 @@ scenarios:
             CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed'
             CONTAINERS_NO_SUSE_OS: "1"
             CONTAINER_RUNTIME: "podman,docker"
-            REGISTRY: '18.156.2.117:5000'
+            REGISTRY: '3.71.98.16:5000'
       - cryptlvm:
           machine: 64bit
       - install_only:
