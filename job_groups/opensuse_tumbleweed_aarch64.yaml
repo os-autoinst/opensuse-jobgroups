@@ -532,6 +532,8 @@ scenarios:
           machine: aarch64-HD24G
       - jeos-ltp-dio:
           machine: aarch64-HD24G
+      - jeos-ltp-ima:
+          machine: aarch64-HD24G
       - jeos-ltp-syscalls:
           machine: aarch64-HD24G
       - jeos-ltp-syscalls-ipc:
