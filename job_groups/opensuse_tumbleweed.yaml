@@ -998,6 +998,8 @@ scenarios:
           machine: 64bit_virtio
       - jeos-fips:
           machine: 64bit_virtio
+      - jeos-ltp-commands:
+          machine: uefi_virtio-2G
       - jeos-ltp-containers:
           machine: uefi_virtio-2G
       - jeos-ltp-cve:
@@ -1005,8 +1007,6 @@ scenarios:
       - jeos-ltp-dio:
           machine: uefi_virtio-2G
       - jeos-ltp-syscalls:
-          machine: uefi_virtio-2G
-      - jeos-ltp-commands:
           machine: uefi_virtio-2G
       - jeos-ltp-syscalls-ipc:
           machine: uefi_virtio-2G

@@ -92,6 +92,8 @@ scenarios:
             CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap/15.4/images/totest/containers/opensuse/leap:15.4'
       - jeos-filesystem:
           machine: 64bit_virtio-2G
+      - jeos-ltp-commands:
+          machine: 64bit_virtio
       - jeos-ltp-containers:
           machine: 64bit_virtio
       - jeos-ltp-cve:
@@ -99,8 +101,6 @@ scenarios:
       - jeos-ltp-dio:
           machine: 64bit_virtio
       - jeos-ltp-syscalls:
-          machine: 64bit_virtio
-      - jeos-ltp-commands:
           machine: 64bit_virtio
       - jeos-ltp-syscalls-ipc:
           machine: 64bit_virtio
