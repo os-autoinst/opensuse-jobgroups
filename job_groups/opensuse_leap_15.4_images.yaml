@@ -76,7 +76,7 @@ scenarios:
       - jeos:
           machine: 64bit_virtio-2G
           settings:
-            INFLUXDB_SERVER: '35.158.113.219'
+            INFLUXDB_SERVER: '18.156.198.190'
       - jeos:
           machine: uefi_virtio-2G
       - jeos-extra:
