@@ -11,11 +11,11 @@
 
 .zdup_settings: &zdup
   +ISO: "openSUSE-Leap-15.4-DVD-x86_64.iso"
-  ZDUPREPOS: "http://download.opensuse.org/distribution/leap/15.4/repo/oss/,
-              http://download.opensuse.org/update/leap/15.4/oss/,
-              http://download.opensuse.org/update/leap/15.4/backports/,
-              http://download.opensuse.org/update/leap/15.4/sle/
-              "
+  ZDUPREPOS: >
+    http://download.opensuse.org/distribution/leap/15.4/repo/oss/,
+    http://download.opensuse.org/update/leap/15.4/oss/,
+    http://download.opensuse.org/update/leap/15.4/backports/,
+    http://download.opensuse.org/update/leap/15.4/sle/
 
 defaults:
   x86_64:
