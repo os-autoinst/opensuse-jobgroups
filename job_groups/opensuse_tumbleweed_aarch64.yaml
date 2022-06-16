@@ -338,6 +338,9 @@ scenarios:
       - system_performance
       - system_check
       - apparmor
+      - scap_workbench
+      - libserf
+      - ecryptfs
       - security_grub_auth
       - zdup-Leap-15.2-gnome
       - openscap
