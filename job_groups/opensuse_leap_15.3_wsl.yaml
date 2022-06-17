@@ -33,6 +33,7 @@ scenarios:
             VNC_STALL_THRESHOLD: '10'
             VNC_TYPING_LIMIT: '15'
             QEMU_ENABLE_SMBD: '1'
+            INSTALL_FROM: 'build'
       - wsl-main:
           testsuite: null
           machine: uefi_win
@@ -49,3 +50,16 @@ scenarios:
             QEMUMACHINE: 'q35,accel=whpx'
             QEMUCPUS: '2'
             WORKER_CLASS: 'openqaworker7'
+      - wsl-install-MSStore-Leap15.3:
+          testsuite: null
+          description: |
+            Basic WSL test Test scope:
+                1) Prepare WSL and other features in Windows
+                2) Download the winget utility and install it
+                3) Install WSL image from the MS Store via CLI
+          settings:
+            <<: *settings
+            VERSION: 'openSUSE Leap 15.3'
+            INSTALL_FROM: 'msstore'
+            QEMURAM: '4096'
+            QEMUCPUS: '2'
