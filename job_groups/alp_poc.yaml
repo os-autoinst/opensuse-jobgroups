@@ -31,9 +31,6 @@
   QEMU_VIRTIO_RNG: '1'
   QEMUVGA: 'virtio'
 
-.transactional_settings: &transactional_settings
-  TRANSACTIONAL: '1'
-
 defaults:
   x86_64:
     machine: 64bit
@@ -82,7 +79,7 @@ scenarios:
       - alp_default:
           machine: [64bit, uefi]
           settings:
-            <<: [*image_settings, *transactional_settings]
+            <<: *image_settings
     alp-0.1-kvm-and-xen_NonTransactional-x86_64:
       - alp_default:
           machine: [64bit, uefi]
@@ -90,12 +87,10 @@ scenarios:
             <<: *image_settings
     alp-0.1-SelfInstall-x86_64:
       - alp_selfinstall:
-          machine: uefi
           settings:
-            <<: [*selfinstall_settings_x86_64, *transactional_settings]
+            <<: *selfinstall_settings_x86_64
     alp-0.1-SelfInstall_NonTransactional-x86_64:
       - alp_selfinstall:
-          machine: uefi
           settings:
             <<: *selfinstall_settings_x86_64
 
@@ -103,7 +98,7 @@ scenarios:
     alp-0.1-kvm-and-xen-aarch64:
       - alp_default:
           settings:
-            <<: [*image_settings, *transactional_settings]
+            <<: *image_settings
     alp-0.1-kvm-and-xen_NonTransactional-aarch64:
       - alp_default:
           settings:
@@ -111,7 +106,7 @@ scenarios:
     alp-0.1-SelfInstall-aarch64:
       - alp_selfinstall:
           settings:
-            <<: [*selfinstall_settings, *transactional_settings]
+            <<: *selfinstall_settings
     alp-0.1-SelfInstall_NonTransactional-aarch64:
       - alp_selfinstall:
           settings:
