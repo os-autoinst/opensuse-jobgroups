@@ -461,6 +461,8 @@ scenarios:
           testsuite: null
       - apparmor
       - scap_workbench
+      - libserf
+      - ecryptfs
       - lvm-encrypt-separate-boot:
           machine: 64bit
       - lvm-full-encrypt
