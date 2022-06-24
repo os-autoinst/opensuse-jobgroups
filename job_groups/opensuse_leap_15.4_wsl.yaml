@@ -33,7 +33,7 @@ scenarios:
             VNC_STALL_THRESHOLD: '10'
             VNC_TYPING_LIMIT: '15'
             QEMU_ENABLE_SMBD: '1'
-            INSTALL_FROM: 'build'
+            WSL_INSTALL_FROM: 'build'
       - wsl-main:
           testsuite: null
           machine: uefi_win
@@ -59,7 +59,7 @@ scenarios:
                 3) Install WSL image from the MS Store via CLI
           settings:
             <<: *settings
-            VERSION: 'openSUSE Leap 15.4'
-            INSTALL_FROM: 'msstore'
+            WSL_VERSION: 'openSUSE Leap 15.4'
+            WSL_INSTALL_FROM: 'msstore'
             QEMURAM: '4096'
             QEMUCPUS: '2'
