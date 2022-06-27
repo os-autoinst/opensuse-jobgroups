@@ -1233,3 +1233,16 @@ scenarios:
             QEMUMACHINE: 'q35,accel=whpx'
             QEMUCPUS: '2'
             WORKER_CLASS: 'openqaworker1'
+      - wsl-install-MSStore-TW:
+          testsuite: null
+          description: |
+            Basic WSL test Test scope:
+                1) Prepare WSL and other features in Windows
+                2) Download the winget utility and install it
+                3) Install WSL image from the MS Store via CLI
+          settings:
+            <<: *wsl_settings
+            WSL_VERSION: 'openSUSE Tumbleweed'
+            WSL_INSTALL_FROM: 'msstore'
+            QEMURAM: '4096'
+            QEMUCPUS: '2'
