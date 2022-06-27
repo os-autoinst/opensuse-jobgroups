@@ -1241,7 +1241,7 @@ scenarios:
                 2) Download the winget utility and install it
                 3) Install WSL image from the MS Store via CLI
           settings:
-            <<: *settings
+            <<: *wsl_settings
             WSL_VERSION: 'openSUSE Tumbleweed'
             WSL_INSTALL_FROM: 'msstore'
             QEMURAM: '4096'
