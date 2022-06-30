@@ -322,6 +322,7 @@ scenarios:
             CONTAINER_RUNTIME: 'docker,podman'
             CONTAINERS_UNTESTED_IMAGES: '1'
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
+            IMAGE_STORE_DATA: '1'
       - extra_tests_ai_ml
       - yast_no_self_update
       - gnome-gdm:
