@@ -194,6 +194,7 @@ scenarios:
             +ARCH: 'ppc64le'
             HDD_1: 'opensuse-15.3-ppc64le-160.3-textmode@ppc64le.qcow2'
             CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap/15.3/images/totest/containers/opensuse/leap:15.3'
+            IMAGE_STORE_DATA: '1'
   aarch64:
     opensuse-15.3-JeOS-for-AArch64-aarch64:
       - jeos:
@@ -259,3 +260,4 @@ scenarios:
             HDD_1: 'opensuse-15.3-aarch64-160.3-textmode@aarch64.qcow2'
             UEFI_PFLASH_VARS: 'opensuse-15.3-aarch64-160.3-textmode@aarch64-uefi-vars.qcow2'
             CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap/15.3/images/totest/containers/opensuse/leap:15.3'
+            IMAGE_STORE_DATA: '1'
