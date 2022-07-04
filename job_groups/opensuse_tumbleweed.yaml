@@ -323,6 +323,7 @@ scenarios:
             CONTAINERS_UNTESTED_IMAGES: '1'
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
             IMAGE_STORE_DATA: '1'
+            POSTGRES_IP: '18.156.198.190'
       - extra_tests_ai_ml
       - yast_no_self_update
       - gnome-gdm:
