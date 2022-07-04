@@ -249,6 +249,7 @@ scenarios:
             CONTAINER_RUNTIME: 'docker,podman'
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/arm/totest/containers/opensuse/tumbleweed
             IMAGE_STORE_DATA: '1'
+            POSTGRES_IP: '18.156.198.190'
       - create_hdd_textmode_secureboot:
           testsuite: null
           machine: aarch64-secureboot-opensuse-key
