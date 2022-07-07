@@ -179,6 +179,8 @@ scenarios:
           settings:
             HDD_1: 'opensuse-15.3-x86_64-20210906-4-textmode@64bit.qcow2'
             CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap/15.4/images/totest/containers/opensuse/leap:15.4'
+            IMAGE_STORE_DATA: '1'
+            POSTGRES_IP: '18.156.198.190'
       - container_image_on_leap15.2_host:
           testsuite: container-image
           description: 'Container image validation on Leap 15.2 GM'
@@ -204,8 +206,6 @@ scenarios:
             +ARCH: 'ppc64le'
             HDD_1: 'opensuse-15.3-ppc64le-160.3-textmode@ppc64le.qcow2'
             CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap/15.4/images/totest/containers/opensuse/leap:15.4'
-            IMAGE_STORE_DATA: '1'
-            POSTGRES_IP: '18.156.198.190'
   aarch64:
     opensuse-15.4-JeOS-for-AArch64-aarch64:
       - jeos:
