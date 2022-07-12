@@ -243,6 +243,10 @@ scenarios:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIME: 'podman'
+      - containers_host_containerd:
+          testsuite: extra_tests_textmode_containers
+          settings:
+            CONTAINER_RUNTIME: 'containerd_clictl,containerd_nerdctl'
       - containers_image:
           testsuite: extra_tests_textmode_containers
           settings:
