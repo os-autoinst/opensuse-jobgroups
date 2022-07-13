@@ -514,9 +514,12 @@ scenarios:
       - jeos-extra:
           machine: aarch64-HD24G
           priority: 45
-      - jeos-containers:
+      - jeos-apparmor:
           machine: aarch64-HD24G
-          priority: 45
+      - jeos-container_host:
+          machine: aarch64-HD24G
+      - jeos-container_image:
+          machine: aarch64-HD24G
       - jeos-filesystem:
           machine: aarch64-HD24G
       - jeos-fips:
