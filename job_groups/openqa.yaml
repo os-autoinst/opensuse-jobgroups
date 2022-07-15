@@ -48,7 +48,6 @@ scenarios:
           settings:
             OPENQA_CONTAINERS: '1'
             OPENQA_FROM_GIT: '1'  # see: main.pm, avoid load_osautoinst_tests
-            RETRY: 2:https://progress.opensuse.org/issues/108665
           description: >-
             Maintainer: okurz@suse.de Test for running openQA itself from containers.
             To be used with "openqa" distri.
