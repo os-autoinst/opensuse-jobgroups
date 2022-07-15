@@ -32,7 +32,6 @@ scenarios:
             PUBLISH_HDD_1: 'opensuse-Tumbleweed-%ARCH%@%MACHINE%-%BUILD%.qcow2'
             PUBLISH_PFLASH_VARS: 'opensuse-Tumbleweed-%ARCH%@%MACHINE%-%BUILD%-uefi-vars.qcow2'
             PYTHON: '1'
-            RETRY: 3:https://progress.opensuse.org/issues/112232
           description: >-
             Maintainer: okurz@suse.de Test for installation of openQA itself.
             To be used with "openqa" distri. Publishes an qcow2 image including the openQA installation
