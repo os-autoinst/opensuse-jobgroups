@@ -88,3 +88,48 @@ scenarios:
           settings:
             <<: *zdup
             QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.2_gnome:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.2_kde:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.3_gnome:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.3_kde:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.2_cryptlvm:
+          machine: uefi
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.3_cryptlvm:
+          machine: uefi
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - apparmor
+      - autoyast_gnome:
+          machine: 64bit
+          settings:
+            AUTOYAST: autoyast_opensuse/opensuse_leap_gnome.xml
+      - extra_tests_textmode_podman_containers:
+          testsuite: extra_tests_textmode_containers
+          settings:
+            CONTAINER_RUNTIME: 'podman'
+      - extra_tests_textmode_docker_containers:
+          testsuite: extra_tests_textmode_containers
+          settings:
+            CONTAINER_RUNTIME: 'docker'
+      - create_hdd_transactional_server:
+          settings:
+            # use main.pm schedule over YAML as it is used among other create_hdd test suite in updates testing
+            # YAML schedule requires several changes to be used for updates testing
+            # *update/zypper_clear_repos* should be omitted
+            # *console/zypper_{ar,ref}* replaced by console/zypper_add_repos
+            # *transactional/install_updates* to apply updates on transactional system
+            +YAML_SCHEDULE: ''
+      - extra_tests_transactional_server
+      - security_audit:
+          settings:
+            YAML_SCHEDULE: schedule/security/audit.yaml
