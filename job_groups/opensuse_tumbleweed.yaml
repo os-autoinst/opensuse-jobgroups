@@ -279,6 +279,7 @@ scenarios:
       - yast2_nfs_v4_client
       - yast2_ui_devel
       - yast2_users
+      - yast2_apparmor
       - extra_tests_gnome
       - create_hdd_xfce:
           priority: 46
