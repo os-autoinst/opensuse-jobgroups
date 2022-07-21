@@ -317,6 +317,10 @@ scenarios:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIME: 'helm'
+      - containers_host_kubectl:
+          testsuite: extra_tests_textmode_containers
+          settings:
+            CONTAINER_RUNTIME: 'kubectl'
       - containers_image:
           testsuite: extra_tests_textmode_containers
           settings:
