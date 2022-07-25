@@ -1157,9 +1157,13 @@ scenarios:
           settings:
             QEMU_VIRTIO_RNG: "0"
       - create_hdd_minimalx
-      - create_hdd_tumbleweed
+      - create_hdd_tumbleweed:
+          # Workaround for boo#1200753
+          machine: 64bit-3G
       - zdup_tw2twnext_gnome
-      - create_hdd_tumbleweed_kde
+      - create_hdd_tumbleweed_kde:
+          # Workaround for boo#1200753
+          machine: 64bit-3G
       - zdup_tw2twnext_kde
       - otherDE_enlightenment
       - otherDE_lxqt
