@@ -21,8 +21,15 @@ defaults:
   x86_64:
     machine: 64bit
     priority: 50
+  aarch64:
+    machine: aarch64
+    priority: 50
 products:
   opensuse-15.4-DVD-Updates-x86_64:
+    distri: opensuse
+    flavor: DVD-Updates
+    version: '15.4'
+  opensuse-15.4-DVD-Updates-aarch64:
     distri: opensuse
     flavor: DVD-Updates
     version: '15.4'
@@ -96,7 +103,6 @@ scenarios:
             QEMU_VIRTIO_RNG: "0"
       - apparmor
       - autoyast_gnome:
-          machine: 64bit
           settings:
             AUTOYAST: autoyast_opensuse/opensuse_leap_gnome.xml
       - extra_tests_textmode_podman_containers:
@@ -119,3 +125,17 @@ scenarios:
       - security_audit:
           settings:
             YAML_SCHEDULE: schedule/security/audit.yaml
+  aarch64:
+    opensuse-15.4-DVD-Updates-aarch64:
+      - create_hdd_gnome:
+          machine: aarch64
+      - extra_tests_on_gnome:
+          machine: aarch64
+      - create_hdd_kde:
+          machine: aarch64
+      - extra_tests_on_kde:
+          machine: aarch64
+      - create_hdd_textmode:
+          machine: aarch64
+      - extra_tests_in_textmode:
+          machine: aarch64
