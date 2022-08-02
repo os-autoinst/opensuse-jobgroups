@@ -29,21 +29,12 @@ products:
 scenarios:
   x86_64:
     opensuse-15.4-DVD-Updates-x86_64:
-      - textmode:
-          machine: 64bit
-      - gnome:
-          machine: uefi
-          settings:
-            QEMUVGA: cirrus
-      - gnome:
-          machine: 64bit-2G
-          settings:
-            QEMUVGA: cirrus
+      - textmode
       - cryptlvm:
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/encryption/cryptlvm.yaml
       - install_with_updates_gnome:
-          machine: 64bit-2G
+          machine: uefi-2G
           settings:
             QEMUVGA: cirrus
       - install_with_updates_kde:
@@ -51,25 +42,20 @@ scenarios:
           # poo#95137
           settings:
             EXCLUDE_MODULES: 'kontact'
-      - create_hdd_gnome:
-          machine: 64bit
-      - create_hdd_gnome:
-          machine: uefi
-      - create_hdd_kde:
-          machine: uefi
-      - create_hdd_kde:
-          machine: 64bit
-      - create_hdd_gnome_libyui
+      - create_hdd_gnome
+      - create_hdd_kde
       - create_hdd_textmode
       - extra_tests_on_kde
+      - extra_tests_textmode
+      - extra_tests_gnome
+      - extra_tests_filesystem
+      - extra_tests_webframeworks
       - gnuhealth
       - toolkits
       - openqa_bootstrap
       # poo#107242
       # - openqa_bootstrap_container
-      - yast2_firstboot
       - extra_tests_misc
-      - kde
       - zdup-Leap-15.2-gnome:
           settings:
             <<: *zdup
