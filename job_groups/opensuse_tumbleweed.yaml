@@ -690,6 +690,7 @@ scenarios:
           settings:
             BOOTFROM: c
             HDD_1: windows-10-x86_64-20H2@64bit_win.qcow2
+            WIN_VERSION: '10'
             NETWORKS: fixed
             NICTYPE: tap
             NLA: '1'
@@ -721,6 +722,7 @@ scenarios:
           settings:
             BOOTFROM: c
             HDD_1: windows-10-x86_64-20H2@64bit_win.qcow2
+            WIN_VERSION: '10'
             NETWORKS: fixed
             NICTYPE: tap
             NLA: '0'
@@ -1227,6 +1229,7 @@ scenarios:
             SCC_REGISTER: '0'
             YAML_SCHEDULE: 'schedule/wsl/wsl_main.yaml'
             HDD_1: 'windows-10-x86_64-21H2@64bit_win.qcow2'
+            WIN_VERSION: '10'
             VNC_STALL_THRESHOLD: '10'
             VNC_TYPING_LIMIT: '15'
             QEMU_ENABLE_SMBD: '1'
