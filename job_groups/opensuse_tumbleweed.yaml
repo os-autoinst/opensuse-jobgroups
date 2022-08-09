@@ -744,6 +744,7 @@ scenarios:
             BOOTFROM: c
             DESKTOP: gnome
             HDD_1: windows-10-x86_64-20H2@64bit_win.qcow2
+            WIN_VERSION: '10'
             NETWORKS: fixed
             NICTYPE: tap
             # poo#101620
