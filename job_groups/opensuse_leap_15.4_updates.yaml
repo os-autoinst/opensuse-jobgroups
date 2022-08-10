@@ -117,6 +117,10 @@ scenarios:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIME: 'podman'
+      - extra_tests_textmode_kubectl_containers:
+          testsuite: extra_tests_textmode_containers
+          settings:
+            CONTAINER_RUNTIME: 'kubectl'
       - extra_tests_textmode_docker_containers:
           testsuite: extra_tests_textmode_containers
           settings:
