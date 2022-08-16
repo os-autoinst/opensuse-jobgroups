@@ -1,0 +1,282 @@
+############################################################
+#                         WARNING                          #
+#                                                          #
+#               This file is managed in GIT!               #
+#  Any changes via the openQA WebUI will get overwritten!  #
+#                                                          #
+#    https://github.com/os-autoinst/opensuse-jobgroups     #
+#        job_groups/opensuse_leap_15.5_images.yaml         #
+############################################################
+
+---
+
+defaults:
+  x86_64:
+    machine: 64bit-2G
+    priority: 55
+  aarch64:
+    machine: USBboot_aarch64
+    priority: 55
+products:
+  opensuse-Leap15.5-JeOS-for-kvm-and-xen-x86_64:
+    distri: opensuse
+    flavor: JeOS-for-kvm-and-xen
+    version: '15.5'
+  opensuse-15.5-JeOS-for-AArch64-aarch64:
+    distri: opensuse
+    flavor: JeOS-for-AArch64
+    version: 15.5
+  opensuse-15.5-JeOS-for-RPi-aarch64:
+    distri: opensuse
+    flavor: JeOS-for-RPi
+    version: 15.5
+  opensuse-Leap15.5-GNOME-Live-x86_64:
+    distri: opensuse
+    flavor: GNOME-Live
+    version: '15.5'
+  opensuse-Leap15.5-KDE-Live-x86_64:
+    distri: opensuse
+    flavor: KDE-Live
+    version: '15.5'
+  opensuse-Leap15.5-Rescue-CD-x86_64:
+    distri: opensuse
+    flavor: Rescue-CD
+    version: '15.5'
+  opensuse-Leap15.5-XFCE-Live-x86_64:
+    distri: opensuse
+    flavor: XFCE-Live
+    version: '15.5'
+  opensuse-Leap15.5-GNOME-Live-aarch64:
+    distri: opensuse
+    flavor: GNOME-Live
+    version: '15.5'
+  opensuse-Leap15.5-KDE-Live-aarch64:
+    distri: opensuse
+    flavor: KDE-Live
+    version: '15.5'
+  opensuse-Leap15.5-Rescue-CD-aarch64:
+    distri: opensuse
+    flavor: Rescue-CD
+    version: '15.5'
+  opensuse-Leap15.5-XFCE-Live-aarch64:
+    distri: opensuse
+    flavor: XFCE-Live
+    version: '15.5'
+  opensuse-15.5-Container-Image-x86_64:
+    distri: opensuse
+    flavor: Container-Image
+    version: '15.5'
+  opensuse-15.5-Container-Image-aarch64:
+    distri: opensuse
+    flavor: Container-Image
+    version: '15.5'
+scenarios:
+  x86_64:
+    opensuse-Leap15.5-JeOS-for-kvm-and-xen-x86_64:
+      - jeos:
+          machine: 64bit_virtio-2G
+          settings:
+            INFLUXDB_SERVER: '18.156.198.190'
+      - jeos:
+          machine: uefi_virtio-2G
+      - jeos-extra:
+          machine: 64bit_virtio-2G
+          settings:
+            # Completely broken, no fix in sight (boo#1174315)
+            EXCLUDE_MODULES: "rails"
+      - jeos-container_host:
+          machine: 64bit_virtio-2G
+      - jeos-container_image:
+          machine: 64bit_virtio-2G
+          settings:
+            CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap/15.5/images/totest/containers/opensuse/leap:15.5'
+      - jeos-filesystem:
+          machine: 64bit_virtio-2G
+      - jeos-ltp-commands:
+          machine: 64bit_virtio
+      - jeos-ltp-containers:
+          machine: 64bit_virtio
+      - jeos-ltp-cve:
+          machine: 64bit_virtio
+      - jeos-ltp-dio:
+          machine: 64bit_virtio
+      - jeos-ltp-syscalls:
+          machine: 64bit_virtio
+      - jeos-ltp-syscalls-ipc:
+          machine: 64bit_virtio
+    opensuse-Leap15.5-GNOME-Live-x86_64:
+      - gnome-live:
+          machine: uefi-2G
+      - gnome-live:
+          machine: 64bit-2G
+      - gnome-live:
+          machine: uefi-usb-2G
+      - gnome-live:
+          machine: USBboot_64-2G
+      - mediacheck:
+          machine: 64bit
+    opensuse-Leap15.5-KDE-Live-x86_64:
+      - kde-live:
+          machine: uefi-usb-2G
+      - kde-live:
+          machine: 64bit-2G
+      - kde-live:
+          machine: USBboot_64-2G
+      - kde-live:
+          machine: uefi-2G
+      - mediacheck:
+          machine: 64bit
+      - kde-live_installation
+      - kde-live-wayland:
+          machine: 64bit_virtio-2G
+      - kde_live_upgrade_leap_42.3
+      - kde_live_upgrade_leap_15.0:
+          machine: 64bit
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - kde_live_upgrade_leap_15.2:
+          machine: uefi
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - kde_live_upgrade_leap_15.3:
+          machine: 64bit
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+    opensuse-Leap15.5-Rescue-CD-x86_64:
+      - rescue
+      - rescue:
+          machine: uefi-usb-2G
+      - mediacheck:
+          machine: 64bit
+    opensuse-Leap15.5-XFCE-Live-x86_64:
+      - xfce-live
+      - xfce-live:
+          machine: uefi-usb-2G
+      - mediacheck
+    opensuse-15.5-Container-Image-x86_64:
+      - container_image_on_centos_host:
+          testsuite: container-image
+          description: 'Container image validation on CentOS 8.2'
+          settings:
+            HDD_1: 'centOS-Stream-8-x86_64-20220128-minimal.qcow2'
+            KEEP_GRUB_TIMEOUT: '1'
+            DESKTOP: 'textmode'
+            VIDEOMODE: 'text'
+            CONTAINER_RUNTIME: 'podman'
+            CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap/15.5/images/totest/containers/opensuse/leap:15.5'
+      - container_image_on_ubuntu_host:
+          testsuite: container-image
+          description: 'Container image validation on Ubuntu 22.04'
+          settings:
+            HDD_1: 'ubuntu-22.04.qcow2'
+            KEEP_GRUB_TIMEOUT: '1'
+            DESKTOP: 'textmode'
+            VIDEOMODE: 'text'
+            CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap/15.5/images/totest/containers/opensuse/leap:15.5'
+      - container_image_on_leap15.3_host:
+          testsuite: container-image
+          description: 'Container image validation on Leap 15.2 GM'
+          settings:
+            HDD_1: 'opensuse-15.3-x86_64-20210906-4-textmode@64bit.qcow2'
+            CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap/15.5/images/totest/containers/opensuse/leap:15.5'
+            IMAGE_STORE_DATA: '1'
+            POSTGRES_IP: '18.156.198.190'
+      - container_image_on_leap15.2_host:
+          testsuite: container-image
+          description: 'Container image validation on Leap 15.2 GM'
+          settings:
+            HDD_1: 'opensuse-15.2-x86_64-695.1-textmode@64bit.qcow2'
+            CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap/15.5/images/totest/containers/opensuse/leap:15.5'
+            # Product bug:
+            # podman-20886.scope: Failed to add PIDs to scope's control group: Permission denied
+            # EXCLUDE_MODULES: rootless_podman #uncomment if needed
+      - container_image_on_leap15.2_host:
+          testsuite: container-image
+          machine: ppc64le
+          settings:
+            # we force the ppc64le machine and ARCH here because OBS sync doesn't trigger ppc64le jobs
+            +ARCH: 'ppc64le'
+            HDD_1: 'opensuse-15.2-ppc64le-GM-kde@ppc64le.qcow2'
+            DESKTOP: 'kde'
+            CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap/15.5/images/totest/containers/opensuse/leap:15.5'
+      - container_image_on_leap15.3_host:
+          testsuite: container-image
+          machine: ppc64le
+          settings:
+            +ARCH: 'ppc64le'
+            HDD_1: 'opensuse-15.3-ppc64le-160.3-textmode@ppc64le.qcow2'
+            CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap/15.5/images/totest/containers/opensuse/leap:15.5'
+  aarch64:
+    opensuse-15.5-JeOS-for-AArch64-aarch64:
+      - jeos:
+          settings:
+            # Max size isn't that strict
+            EXCLUDE_MODULES: "diskusage"
+      - jeos-extra:
+          settings:
+            # Rails is completely broken, no fix in sight (boo#1174315)
+            EXCLUDE_MODULES: "rails,diskusage"
+      - jeos-container_host:
+          testsuite: null
+          settings:
+            DESKTOP: textmode
+            EXTRABOOTPARAMS: quiet
+            REGISTRY: 3.71.98.16:5000
+            NUMDISKS: '2'
+            CONTAINER_RUNTIME: "podman,docker"
+            # Max size isn't that strict
+            EXCLUDE_MODULES: "diskusage"
+      - jeos-container_image:
+          testsuite: null
+          settings:
+            DESKTOP: textmode
+            EXTRABOOTPARAMS: quiet
+            REGISTRY: 3.71.98.16:5000
+            CONTAINER_RUNTIME: "podman,docker"
+            CONTAINERS_UNTESTED_IMAGES: '1'
+            CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap/15.5/images/totest/containers/opensuse/leap:15.5'
+            EXCLUDE_MODULES: "diskusage"
+      - jeos-filesystem:
+          settings:
+            EXCLUDE_MODULES: "diskusage"
+      - jeos-ltp-containers
+      - jeos-ltp-cve
+      - jeos-ltp-dio
+      - jeos-ltp-syscalls
+      - jeos-ltp-commands
+      - jeos-ltp-syscalls-ipc
+    opensuse-15.5-JeOS-for-RPi-aarch64:
+      - jeos:
+          machine: RPi3
+          settings:
+            PASSWORD: linux
+      - jeos:
+          machine: RPi4
+          settings:
+            PASSWORD: linux
+    opensuse-Leap15.5-Rescue-CD-aarch64:
+      - rescue
+      - mediacheck
+    opensuse-Leap15.5-KDE-Live-aarch64:
+      - kde-live
+      - kde-live_installation
+      - kde_live_upgrade_leap_15.0:
+          machine: aarch64
+      - kde_live_upgrade_leap_15.3:
+          machine: aarch64
+      - mediacheck
+    opensuse-Leap15.5-GNOME-Live-aarch64:
+      - gnome-live
+      - mediacheck
+    opensuse-Leap15.5-XFCE-Live-aarch64:
+      - xfce-live
+      - mediacheck
+    opensuse-15.5-Container-Image-aarch64:
+      - container_image_on_leap15.3_host:
+          testsuite: container-image
+          settings:
+            HDD_1: 'opensuse-15.3-aarch64-160.3-textmode@aarch64.qcow2'
+            UEFI_PFLASH_VARS: 'opensuse-15.3-aarch64-160.3-textmode@aarch64-uefi-vars.qcow2'
+            CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap/15.5/images/totest/containers/opensuse/leap:15.5'
+            IMAGE_STORE_DATA: '1'
+            POSTGRES_IP: '18.156.198.190'
