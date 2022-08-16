@@ -22,41 +22,41 @@ defaults:
     machine: s390x-zVM-vswitch-l2
     priority: 50
 products:
-  opensuse-Leap-15.4-DVD-x86_64:
+  opensuse-Leap-15.5-DVD-x86_64:
     distri: opensuse
     flavor: DVD
-    version: '15.4'
-  opensuse-Leap-15.4-NET-x86_64:
+    version: '15.5'
+  opensuse-Leap-15.5-NET-x86_64:
     distri: opensuse
     flavor: NET
-    version: '15.4'
-  opensuse-Leap-15.4-DVD-aarch64:
+    version: '15.5'
+  opensuse-Leap-15.5-DVD-aarch64:
     distri: opensuse
     flavor: DVD
-    version: '15.4'
-  opensuse-Leap-15.4-NET-aarch64:
+    version: '15.5'
+  opensuse-Leap-15.5-NET-aarch64:
     distri: opensuse
     flavor: NET
-    version: '15.4'
-  opensuse-Leap-15.4-DVD-ppc64le:
+    version: '15.5'
+  opensuse-Leap-15.5-DVD-ppc64le:
     distri: opensuse
     flavor: DVD
-    version: '15.4'
-  opensuse-Leap-15.4-NET-ppc64le:
+    version: '15.5'
+  opensuse-Leap-15.5-NET-ppc64le:
     distri: opensuse
     flavor: NET
-    version: '15.4'
-  opensuse-Leap-15.4-DVD-s390x:
+    version: '15.5'
+  opensuse-Leap-15.5-DVD-s390x:
     distri: opensuse
     flavor: DVD
-    version: '15.4'
-  opensuse-Leap-15.4-NET-s390x:
+    version: '15.5'
+  opensuse-Leap-15.5-NET-s390x:
     distri: opensuse
     flavor: NET
-    version: '15.4'
+    version: '15.5'
 scenarios:
   x86_64:
-    opensuse-Leap-15.4-DVD-x86_64:
+    opensuse-Leap-15.5-DVD-x86_64:
       - textmode:
           machine: 64bit
       - kde:
@@ -312,7 +312,7 @@ scenarios:
       - autoyast_y2_firstboot:
           settings:
             AUTOYAST: autoyast_opensuse/autoyast_firstboot_leap.xml
-    opensuse-Leap-15.4-NET-x86_64:
+    opensuse-Leap-15.5-NET-x86_64:
       - textmode:
           machine: 64bit
       - kde:
@@ -435,7 +435,7 @@ scenarios:
           settings:
             QEMU_VIRTIO_RNG: "0"
   aarch64:
-    opensuse-Leap-15.4-DVD-aarch64:
+    opensuse-Leap-15.5-DVD-aarch64:
       - textmode:
           machine: aarch64
       - kde:
@@ -589,7 +589,7 @@ scenarios:
             QEMUTPM: 'instance'
             QEMUTPM_VER: '2.0'
             DESKTOP: textmode
-    opensuse-Leap-15.4-NET-aarch64:
+    opensuse-Leap-15.5-NET-aarch64:
       - textmode:
           machine: aarch64
       - minimalx:
@@ -609,7 +609,7 @@ scenarios:
       - otherDE_awesome
       - lxde
   ppc64le:
-    opensuse-Leap-15.4-DVD-ppc64le:
+    opensuse-Leap-15.5-DVD-ppc64le:
       - textmode
       - gnome
       - minimalx:
@@ -640,11 +640,11 @@ scenarios:
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/yast2_ncurses/yast2_ncurses.yaml
       - extra_tests_dracut
-    opensuse-Leap-15.4-NET-ppc64le:
+    opensuse-Leap-15.5-NET-ppc64le:
       - minimalx:
           machine: ppc64le
   s390x:
-    opensuse-Leap-15.4-DVD-s390x:
+    opensuse-Leap-15.5-DVD-s390x:
       - textmode:
           priority: 50
           settings:
@@ -656,7 +656,7 @@ scenarios:
             EXTRABOOTPARAMS: hvc_iucv=8
             FILESYSTEM: xfs
             BSC1167736: yes
-    opensuse-Leap-15.4-NET-s390x:
+    opensuse-Leap-15.5-NET-s390x:
       - textmode:
           priority: 50
           settings:
