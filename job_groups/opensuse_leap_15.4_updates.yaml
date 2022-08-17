@@ -21,29 +21,27 @@ defaults:
   x86_64:
     machine: 64bit
     priority: 50
+  aarch64:
+    machine: aarch64
+    priority: 50
 products:
   opensuse-15.4-DVD-Updates-x86_64:
+    distri: opensuse
+    flavor: DVD-Updates
+    version: '15.4'
+  opensuse-15.4-DVD-Updates-aarch64:
     distri: opensuse
     flavor: DVD-Updates
     version: '15.4'
 scenarios:
   x86_64:
     opensuse-15.4-DVD-Updates-x86_64:
-      - textmode:
-          machine: 64bit
-      - gnome:
-          machine: uefi
-          settings:
-            QEMUVGA: cirrus
-      - gnome:
-          machine: 64bit-2G
-          settings:
-            QEMUVGA: cirrus
+      - textmode
       - cryptlvm:
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/encryption/cryptlvm.yaml
       - install_with_updates_gnome:
-          machine: 64bit-2G
+          machine: uefi-2G
           settings:
             QEMUVGA: cirrus
       - install_with_updates_kde:
@@ -51,25 +49,20 @@ scenarios:
           # poo#95137
           settings:
             EXCLUDE_MODULES: 'kontact'
-      - create_hdd_gnome:
-          machine: 64bit
-      - create_hdd_gnome:
-          machine: uefi
-      - create_hdd_kde:
-          machine: uefi
-      - create_hdd_kde:
-          machine: 64bit
-      - create_hdd_gnome_libyui
+      - create_hdd_gnome
+      - create_hdd_kde
       - create_hdd_textmode
       - extra_tests_on_kde
+      - extra_tests_textmode
+      - extra_tests_gnome
+      - extra_tests_filesystem
+      - extra_tests_webframeworks
       - gnuhealth
       - toolkits
       - openqa_bootstrap
       # poo#107242
       # - openqa_bootstrap_container
-      - yast2_firstboot
       - extra_tests_misc
-      - kde
       - zdup-Leap-15.2-gnome:
           settings:
             <<: *zdup
@@ -110,7 +103,6 @@ scenarios:
             QEMU_VIRTIO_RNG: "0"
       - apparmor
       - autoyast_gnome:
-          machine: 64bit
           settings:
             AUTOYAST: autoyast_opensuse/opensuse_leap_gnome.xml
       - extra_tests_textmode_podman_containers:
@@ -137,3 +129,17 @@ scenarios:
       - security_audit:
           settings:
             YAML_SCHEDULE: schedule/security/audit.yaml
+  aarch64:
+    opensuse-15.4-DVD-Updates-aarch64:
+      - create_hdd_gnome:
+          machine: aarch64
+      - extra_tests_on_gnome:
+          machine: aarch64
+      - create_hdd_kde:
+          machine: aarch64
+      - extra_tests_on_kde:
+          machine: aarch64
+      - create_hdd_textmode:
+          machine: aarch64
+      - extra_tests_in_textmode:
+          machine: aarch64
