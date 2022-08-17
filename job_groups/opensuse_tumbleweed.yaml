@@ -689,13 +689,12 @@ scenarios:
       - desktopapps-remote-desktop-xrdp-server1:
           settings:
             BOOTFROM: c
-            HDD_1: windows-10-x86_64-20H2@64bit_win.qcow2
+            HDD_1: windows-10-x86_64-21H2@64bit_win.qcow2
             WIN_VERSION: '10'
             NETWORKS: fixed
             NICTYPE: tap
             NLA: '1'
-            # poo#101620
-            QEMUMACHINE: 'pc-i440fx-4.2'
+            QEMUMACHINE: 'q35'
             REGRESSION: remote
             REMOTE_DESKTOP_TYPE: win_server
             WORKER_CLASS: tap
@@ -721,13 +720,12 @@ scenarios:
       - desktopapps-remote-desktop-xrdp-server2:
           settings:
             BOOTFROM: c
-            HDD_1: windows-10-x86_64-20H2@64bit_win.qcow2
+            HDD_1: windows-10-x86_64-21H2@64bit_win.qcow2
             WIN_VERSION: '10'
             NETWORKS: fixed
             NICTYPE: tap
             NLA: '0'
-            # poo#101620
-            QEMUMACHINE: 'pc-i440fx-4.2'
+            QEMUMACHINE: 'q35'
             REGRESSION: remote
             REMOTE_DESKTOP_TYPE: win_server
             WORKER_CLASS: tap
@@ -743,12 +741,11 @@ scenarios:
           settings:
             BOOTFROM: c
             DESKTOP: gnome
-            HDD_1: windows-10-x86_64-20H2@64bit_win.qcow2
+            HDD_1: windows-10-x86_64-21H2@64bit_win.qcow2
             WIN_VERSION: '10'
             NETWORKS: fixed
             NICTYPE: tap
-            # poo#101620
-            QEMUMACHINE: 'pc-i440fx-4.2'
+            QEMUMACHINE: 'q35'
             PARALLEL_WITH: remote-desktop-supportserver4
             REGRESSION: remote
             REMOTE_DESKTOP_TYPE: win_client
