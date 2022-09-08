@@ -328,7 +328,7 @@ scenarios:
             CONTAINERS_UNTESTED_IMAGES: '1'
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
             IMAGE_STORE_DATA: '1'
-            POSTGRES_IP: '18.156.198.190'
+            POSTGRES_IP: '18.196.183.86'
       - extra_tests_ai_ml
       - yast_no_self_update
       - gnome-gdm:
@@ -988,7 +988,7 @@ scenarios:
           machine: 64bit_virtio
           priority: 48
           settings:
-            INFLUXDB_SERVER: '18.156.198.190'
+            INFLUXDB_SERVER: '18.196.183.86'
       - jeos:
           machine: uefi_virtio-2G
       - jeos-extra:
