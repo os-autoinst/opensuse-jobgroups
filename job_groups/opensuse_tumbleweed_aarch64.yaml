@@ -253,7 +253,7 @@ scenarios:
             CONTAINER_RUNTIME: 'docker,podman'
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/arm/totest/containers/opensuse/tumbleweed
             IMAGE_STORE_DATA: '1'
-            POSTGRES_IP: '18.156.198.190'
+            POSTGRES_IP: '18.196.183.86'
       - create_hdd_textmode_secureboot:
           testsuite: null
           machine: aarch64-secureboot-opensuse-key
@@ -510,7 +510,7 @@ scenarios:
           machine: aarch64-HD24G
           priority: 45
           settings:
-            INFLUXDB_SERVER: '18.156.198.190'
+            INFLUXDB_SERVER: '18.196.183.86'
       - jeos-extra:
           machine: aarch64-HD24G
           priority: 45

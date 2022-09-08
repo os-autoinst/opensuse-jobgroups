@@ -76,7 +76,7 @@ scenarios:
       - jeos:
           machine: 64bit_virtio-2G
           settings:
-            INFLUXDB_SERVER: '18.156.198.190'
+            INFLUXDB_SERVER: '18.196.183.86'
       - jeos:
           machine: uefi_virtio-2G
       - jeos-extra:
@@ -182,7 +182,7 @@ scenarios:
             HDD_1: 'opensuse-15.3-x86_64-20210906-4-textmode@64bit.qcow2'
             CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap/15.4/images/totest/containers/opensuse/leap:15.4'
             IMAGE_STORE_DATA: '1'
-            POSTGRES_IP: '18.156.198.190'
+            POSTGRES_IP: '18.196.183.86'
       - container_image_on_leap15.2_host:
           testsuite: container-image
           description: 'Container image validation on Leap 15.2 GM'
@@ -281,4 +281,4 @@ scenarios:
             UEFI_PFLASH_VARS: 'opensuse-15.3-aarch64-160.3-textmode@aarch64-uefi-vars.qcow2'
             CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap/15.4/images/totest/containers/opensuse/leap:15.4'
             IMAGE_STORE_DATA: '1'
-            POSTGRES_IP: '18.156.198.190'
+            POSTGRES_IP: '18.196.183.86'
