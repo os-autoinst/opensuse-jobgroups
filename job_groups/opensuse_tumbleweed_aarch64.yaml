@@ -239,6 +239,14 @@ scenarios:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIME: 'docker'
+      - containers_host_helm:
+          testsuite: extra_tests_textmode_containers
+          settings:
+            CONTAINER_RUNTIME: 'helm'
+      - containers_host_kubectl:
+          testsuite: extra_tests_textmode_containers
+          settings:
+            CONTAINER_RUNTIME: 'kubectl'
       - containers_host_podman:
           testsuite: extra_tests_textmode_containers
           settings:
