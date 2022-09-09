@@ -363,6 +363,8 @@ scenarios:
       - upgrade_Leap_15.1_gnome
       - upgrade_Leap_15.2_gnome
       - upgrade_Leap_15.2_kde
+      - upgrade_Leap_15.3_gnome
+      - upgrade_Leap_15.3_kde
       - btrfs+warnings:
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/btrfs/btrfs+warnings.yaml
