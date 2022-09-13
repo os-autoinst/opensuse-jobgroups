@@ -162,10 +162,12 @@ scenarios:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIME: 'podman'
+            CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap:15.4'
       - extra_tests_textmode_docker_containers:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIME: 'docker'
+            CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap:15.4'
       - extra_tests_ai_ml
       - upgrade_Leap_42.2_gnome:
           machine: 64bit
