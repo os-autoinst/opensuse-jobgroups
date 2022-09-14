@@ -424,10 +424,6 @@ scenarios:
       - yast2_ncurses:
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/yast2_ncurses/yast2_ncurses.yaml
-      - upgrade_Leap_42.3_cryptlvm:
-          machine: 64bit
-      - upgrade_Leap_42.3_cryptlvm:
-          machine: uefi
       - virtualization:
           settings:
             YAML_SCHEDULE: schedule/virtualization/virtualization.yaml
@@ -477,17 +473,6 @@ scenarios:
       - lvm_thin_provisioning:
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/lvm/lvm_thin_provisioning.yaml
-      - upgrade_Leap_42.1_gnome:
-          machine: 64bit
-      - upgrade_Leap_42.1_kde:
-          machine: 64bit
-      - upgrade_Leap_42.2_gnome:
-          machine: 64bit
-      - upgrade_Leap_42.2_kde:
-          machine: 64bit
-      - upgrade_Leap_42.3_gnome:
-          machine: 64bit
-      - upgrade_Leap_42.3_kde
       - upgrade_Leap_15.0_gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
@@ -1042,8 +1027,6 @@ scenarios:
           machine: 64bit
       - kde-live-wayland:
           machine: 64bit_virtio-3G
-      - kde_live_upgrade_leap_42.3:
-          machine: 64bit-2G
       - kde_live_upgrade_leap_15.0:
           settings:
             QEMU_VIRTIO_RNG: "0"
@@ -1136,10 +1119,6 @@ scenarios:
       - uefi-os:
           machine: 64bit
           priority: 45
-      - upgrade_Leap_42.1_gnome:
-          machine: 64bit
-      - upgrade_Leap_42.1_kde:
-          machine: 64bit
       - upgrade_Leap_15.0_gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
@@ -1175,23 +1154,12 @@ scenarios:
       - otherDE_lxqt
       - otherDE_mate
       - otherDE_awesome
-      - upgrade_Leap_42.2_gnome:
-          machine: 64bit
-      - upgrade_Leap_42.2_kde:
-          machine: 64bit
       - gnome-gdm:
           machine: 64bit
       - kde_dual_windows10:
           machine: uefi_win
       - autoyast_gnome:
           machine: 64bit
-      - upgrade_Leap_42.3_gnome:
-          machine: 64bit
-      - upgrade_Leap_42.3_cryptlvm:
-          machine: 64bit
-      - upgrade_Leap_42.3_cryptlvm:
-          machine: uefi
-      - upgrade_Leap_42.3_kde+system_performance
       - lvm-encrypt-separate-boot:
           machine: 64bit
       - kde+selinux:
