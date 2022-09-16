@@ -140,6 +140,11 @@ scenarios:
           machine: [64bit, uefi]
           settings:
             <<: [*selfinstall_settings_x86_64, *networking]
+      - alp-databases-x86_64:
+          machine: [64bit, uefi]
+          settings:
+            <<: *image_settings
+            YAML_SCHEDULE: 'schedule/alp/alp_databases.yaml'
 
   aarch64:
     alp-0.1-kvm-and-xen-aarch64:
