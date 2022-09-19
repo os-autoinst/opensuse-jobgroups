@@ -37,7 +37,7 @@ jobs:
           git remote set-url origin $real_origin_url
           git fetch origin master:omaster
           git rebase omaster
-          git diff --diff-filter="*ACMRTUX" omaster job_groups/
+          git diff --diff-filter="*ACMRTUXD" omaster job_groups/
           CHANGED_FILES=$(git diff --diff-filter="*ACMRTUX" --name-only origin/master job_groups/ | tr '\n' ' ')
           echo $CHANGED_FILES
           echo "::set-output name=files::${CHANGED_FILES}"
