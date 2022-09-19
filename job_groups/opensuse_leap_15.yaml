@@ -313,6 +313,10 @@ scenarios:
       - extra_tests_webframeworks
       - extra_tests_dracut
       - yast2_firstboot
+      - openscap:
+          settings:
+            QEMUCPU: 'host'
+            QEMURAM: '2048'
       - autoyast_y2_firstboot:
           settings:
             AUTOYAST: autoyast_opensuse/autoyast_firstboot_leap.xml
