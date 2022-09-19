@@ -1,0 +1,63 @@
+############################################################
+#                         WARNING                          #
+#                                                          #
+#               This file is managed in GIT!               #
+#  Any changes via the openQA WebUI will get overwritten!  #
+#                                                          #
+#    https://github.com/os-autoinst/opensuse-jobgroups/    #
+#      alp.yaml                                            #
+############################################################
+---
+.default_settings: &default_settings
+  DESKTOP: 'textmode'
+
+.image_settings: &image_settings
+  <<: *default_settings
+  BOOT_HDD_IMAGE: '1'
+  HDD_2: 'ignition.qcow2'
+  NUMDISKS: '2'
+  HDDSIZEGB_1: '30'
+  ENABLE_SELINUX: '1'
+
+.selfinstall_settings: &selfinstall_settings
+  <<: *default_settings
+  SELFINSTALL: '1'
+  NUMDISKS: '2'
+  HDD_2: 'ignition.qcow2'  # openQA will create a qcow2 on the fly
+  HDDSIZEGB_1: '30'
+
+.selfinstall_settings_x86_64: &selfinstall_settings_x86_64
+  <<: *selfinstall_settings
+  QEMU_VIRTIO_RNG: '1'
+  QEMUVGA: 'virtio'
+
+.containers_host_podman: &containers_host_podman
+  REGISTRY: '3.71.98.16:5000'
+  CONTAINER_RUNTIME: podman
+
+defaults:
+  x86_64:
+    machine: 64bit
+    priority: 50
+  aarch64:
+    machine: aarch64
+    priority: 50
+
+products:
+  alp-0.1-kvm-x86_64:
+    distri: alp
+    flavor: kvm
+    version: '0.1'
+
+scenarios:
+  x86_64:
+    alp-0.1-kvm-x86_64:
+      - alp_default:
+          machine: [64bit, uefi]
+          settings:
+            <<: *image_settings
+      - containers:
+          testsuite: null
+          machine: [64bit, uefi]
+          settings:
+            <<: [*image_settings, *containers_host_podman]
