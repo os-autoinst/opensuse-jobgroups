@@ -54,6 +54,7 @@ scenarios:
       - create_hdd_textmode
       - extra_tests_on_kde
       - extra_tests_textmode
+      - extra_tests_webserver
       - extra_tests_gnome
       - extra_tests_filesystem
       - extra_tests_webframeworks

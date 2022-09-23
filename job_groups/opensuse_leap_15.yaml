@@ -158,6 +158,7 @@ scenarios:
           machine: 64bit
       - extra_tests_on_kde
       - extra_tests_textmode
+      - extra_tests_webserver
       - extra_tests_textmode_podman_containers:
           testsuite: extra_tests_textmode_containers
           settings:
