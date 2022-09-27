@@ -286,6 +286,7 @@ scenarios:
       - extra_tests_on_kde
       - extra_tests_on_xfce
       - extra_tests_textmode
+      - extra_tests_webserver
       - create_hdd_transactional_server
       - extra_tests_transactional_server
       - extra_tests_vagrant:
