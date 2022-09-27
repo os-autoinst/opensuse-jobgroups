@@ -23,7 +23,7 @@ scenarios:
       - krypton-live:
           machine: USBboot_64-2G
       - krypton-live-wayland:
-          machine: uefi-usb-2G
+          machine: uefi_virtio-2G
           settings:
-            QEMUVGA: virtio
+            USBBOOT: '1'
       - krypton-live-installation
