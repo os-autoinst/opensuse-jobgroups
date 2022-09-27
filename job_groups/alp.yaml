@@ -35,6 +35,37 @@
   REGISTRY: '3.71.98.16:5000'
   CONTAINER_RUNTIME: podman
 
+.publish_hdd: &publish_hdd
+  PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+
+.install_ltp: &install_ltp
+  BOOT_HDD_IMAGE: '1'
+  DESKTOP: 'textmode'
+  GRUB_PARAM: 'debug_pagealloc=on;ima_policy=tcb'
+  HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+  INSTALL_LTP: 'from_repo'
+  LTP_ENV: 'LVM_DIR=/var/tmp/'
+  PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%FLAVOR%@%MACHINE%-with-ltp.qcow2'
+  QEMUCPUS: '4'
+  QEMURAM: '4096'
+  START_AFTER_TEST: 'alp_default'
+  QA_HEAD_REPO: 'http://download.opensuse.org/repositories/benchmark:/ltp:/stable/openSUSE_Tumbleweed/'
+  LTP_PKG: 'ltp-stable'
+
+.ltp: &ltp
+  BOOT_HDD_IMAGE: '1'
+  DESKTOP: 'textmode'
+  HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%FLAVOR%@%MACHINE%-with-ltp.qcow2'
+  QEMUCPUS: '2'
+  START_AFTER_TEST: 'install_ltp'
+
+.ltp_cve: &ltp_cve
+  LTP_COMMAND_FILE: 'cve'
+
+.ltp_syscalls: &ltp_syscalls
+  LTP_COMMAND_FILE: 'syscalls'
+  LTP_COMMAND_EXCLUDE: '_16$|^(move_pages|msg(ctl|get|rcv|snd|stress)|sem(ctl|get|op|snd)|shm(at|ctl|dt|get))'
+
 defaults:
   x86_64:
     machine: 64bit
@@ -59,12 +90,27 @@ scenarios:
       - alp_default:
           machine: [64bit, uefi]
           settings:
-            <<: *image_settings
+            <<: [*image_settings, *publish_hdd]
       - containers:
           testsuite: null
           machine: [64bit, uefi]
           settings:
             <<: [*image_settings, *containers_host_podman]
+      - install_ltp:
+          machine: [64bit]
+          settings:
+            <<: *install_ltp
+          testsuite: null
+      - ltp_cve:
+          machine: [64bit]
+          settings:
+            <<: [*ltp, *ltp_cve]
+          testsuite: null
+      - ltp_syscalls:
+          machine: [64bit]
+          settings:
+            <<: [*ltp, *ltp_syscalls]
+          testsuite: null
     alp-0.1-kvm_encrypted-x86_64:
       - alp_encrypted:
           machine: [64bit, uefi]
