@@ -181,7 +181,8 @@ scenarios:
           settings:
             HDD_1: 'opensuse-15.3-x86_64-20210906-4-textmode@64bit.qcow2'
             CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap/15.4/images/totest/containers/opensuse/leap:15.4'
-            IMAGE_STORE_DATA: '1'
+            # Temporarily disabled due to db instance being down
+            IMAGE_STORE_DATA: '0'
             POSTGRES_IP: '18.196.183.86'
       - container_image_on_leap15.2_host:
           testsuite: container-image
@@ -280,5 +281,6 @@ scenarios:
             HDD_1: 'opensuse-15.3-aarch64-160.3-textmode@aarch64.qcow2'
             UEFI_PFLASH_VARS: 'opensuse-15.3-aarch64-160.3-textmode@aarch64-uefi-vars.qcow2'
             CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap/15.4/images/totest/containers/opensuse/leap:15.4'
-            IMAGE_STORE_DATA: '1'
+            # Temporarily disabled due to db instance being down
+            IMAGE_STORE_DATA: '0'
             POSTGRES_IP: '18.196.183.86'

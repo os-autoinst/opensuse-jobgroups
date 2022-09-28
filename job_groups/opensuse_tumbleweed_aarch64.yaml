@@ -260,7 +260,8 @@ scenarios:
           settings:
             CONTAINER_RUNTIME: 'docker,podman'
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/arm/totest/containers/opensuse/tumbleweed
-            IMAGE_STORE_DATA: '1'
+            # Temporarily disabled due to db instance being down
+            IMAGE_STORE_DATA: '0'
             POSTGRES_IP: '18.196.183.86'
       - create_hdd_textmode_secureboot:
           testsuite: null
