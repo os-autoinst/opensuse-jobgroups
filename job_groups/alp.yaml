@@ -42,7 +42,7 @@
   BOOT_HDD_IMAGE: '1'
   DESKTOP: 'textmode'
   GRUB_PARAM: 'debug_pagealloc=on;ima_policy=tcb'
-  HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+  +HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
   INSTALL_LTP: 'from_repo'
   LTP_ENV: 'LVM_DIR=/var/tmp/'
   PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%FLAVOR%@%MACHINE%-with-ltp.qcow2'
@@ -55,8 +55,9 @@
 .ltp: &ltp
   BOOT_HDD_IMAGE: '1'
   DESKTOP: 'textmode'
-  HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%FLAVOR%@%MACHINE%-with-ltp.qcow2'
+  +HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%FLAVOR%@%MACHINE%-with-ltp.qcow2'
   QEMUCPUS: '2'
+  LTP_KNOWN_ISSUES: 'https://raw.githubusercontent.com/openSUSE/kernel-qe/main/ltp_known_issues.yaml'
   START_AFTER_TEST: 'install_ltp'
 
 .ltp_cve: &ltp_cve
