@@ -57,6 +57,7 @@
   DESKTOP: 'textmode'
   HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%FLAVOR%@%MACHINE%-with-ltp.qcow2'
   QEMUCPUS: '2'
+  LTP_KNOWN_ISSUES: 'https://raw.githubusercontent.com/openSUSE/kernel-qe/main/ltp_known_issues.yaml'
   START_AFTER_TEST: 'install_ltp'
 
 .ltp_cve: &ltp_cve
