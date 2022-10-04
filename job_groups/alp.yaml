@@ -35,6 +35,9 @@
   REGISTRY: '3.71.98.16:5000'
   CONTAINER_RUNTIME: podman
 
+.networking: &networking
+  YAML_SCHEDULE: 'schedule/alp/networking.yaml'
+
 .publish_hdd: &publish_hdd
   PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
 
@@ -97,6 +100,11 @@ scenarios:
           machine: [64bit, uefi]
           settings:
             <<: [*image_settings, *containers_host_podman]
+      - networking:
+          testsuite: null
+          machine: [64bit, uefi]
+          settings:
+            <<: [*image_settings, *networking]
       - install_ltp:
           machine: [64bit]
           settings:
