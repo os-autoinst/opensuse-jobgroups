@@ -70,6 +70,9 @@
   LTP_COMMAND_FILE: 'syscalls'
   LTP_COMMAND_EXCLUDE: '_16$|^(move_pages|msg(ctl|get|rcv|snd|stress)|sem(ctl|get|op|snd)|shm(at|ctl|dt|get))'
 
+.k3s: &k3s
+  CONTAINER_RUNTIME: 'k3s'
+
 defaults:
   x86_64:
     machine: 64bit
@@ -120,6 +123,11 @@ scenarios:
           settings:
             <<: [*ltp, *ltp_syscalls]
           testsuite: null
+      - k3s:
+          testsuite: null
+          machine: [64bit, uefi]
+          settings:
+            <<: [*image_settings, *containers_host_podman, *k3s]
     alp-0.1-kvm_encrypted-x86_64:
       - alp_encrypted:
           machine: [64bit, uefi]
