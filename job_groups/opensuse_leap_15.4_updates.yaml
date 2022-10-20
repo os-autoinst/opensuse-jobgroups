@@ -65,49 +65,41 @@ scenarios:
       # - openqa_bootstrap_container
       - extra_tests_misc
       - zdup-Leap-15.2-gnome:
-          machine: 64bit-2G
           settings:
             <<: *zdup
             QEMU_VIRTIO_RNG: "0"
             +HDD_1: "%DISTRI%-15.2-%ARCH%-GM-Updated-gnome@%MACHINE%.qcow2"
       - zdup-Leap-15.2-kde:
-          machine: 64bit-2G
           settings:
             <<: *zdup
             QEMU_VIRTIO_RNG: "0"
             +HDD_1: "%DISTRI%-15.2-%ARCH%-GM-Updated-kde@%MACHINE%.qcow2"
       - zdup-Leap-15.3-gnome:
-          machine: 64bit-2G
           settings:
             <<: *zdup
             QEMU_VIRTIO_RNG: "0"
       - zdup-Leap-15.3-kde:
-          machine: 64bit-2G
           settings:
             <<: *zdup
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.2_gnome:
-          machine: 64bit-2G
           settings:
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.2_kde:
-          machine: 64bit-2G
           settings:
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.3_gnome:
-          machine: 64bit-2G
           settings:
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.3_kde:
-          machine: 64bit-2G
           settings:
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.2_cryptlvm:
-          machine: uefi-2G
+          machine: uefi
           settings:
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.3_cryptlvm:
-          machine: uefi-2G
+          machine: uefi
           settings:
             QEMU_VIRTIO_RNG: "0"
       - apparmor
