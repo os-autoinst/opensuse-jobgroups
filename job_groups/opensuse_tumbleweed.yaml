@@ -827,7 +827,6 @@ scenarios:
       - openqa_bootstrap_container
       - rootonly
       - qemu
-      - extra_tests_webframeworks
       - upgrade_Leap_15.1_gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
