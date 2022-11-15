@@ -311,7 +311,6 @@ scenarios:
       - toolkits
       - rootonly
       - qemu
-      - extra_tests_webframeworks
       - extra_tests_dracut
       - yast2_firstboot
       - openscap:
