@@ -70,7 +70,6 @@ scenarios:
       - ltp_input
       - ltp_io
       - ltp_ipc
-      - ltp_irq
       - ltp_kernel_misc
       - ltp_kernel_sched
       - ltp_lvm
@@ -154,7 +153,6 @@ scenarios:
       - ltp_input
       - ltp_io
       - ltp_ipc
-      - ltp_irq
       - ltp_kernel_misc
       - ltp_kernel_sched
       - ltp_lvm
@@ -237,7 +235,6 @@ scenarios:
       - ltp_input
       - ltp_io
       - ltp_ipc
-      - ltp_irq
       - ltp_kernel_misc
       - ltp_kernel_sched
       - ltp_lvm
