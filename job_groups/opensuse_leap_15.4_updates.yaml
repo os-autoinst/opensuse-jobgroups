@@ -40,6 +40,7 @@ scenarios:
       - create_hdd_leap_gnome_autoyast
       - create_hdd_leap_kde_autoyast
       - create_hdd_leap_textmode_autoyast
+      - create_hdd_leap_transactional_server_autoyast
       - create_hdd_leap_gnome_uefi_autoyast:
           machine: 'uefi'
           testsuite: 'create_hdd_leap_gnome_autoyast'
@@ -174,7 +175,11 @@ scenarios:
             # *console/zypper_{ar,ref}* replaced by console/zypper_add_repos
             # *transactional/install_updates* to apply updates on transactional system
             +YAML_SCHEDULE: ''
-      - extra_tests_transactional_server
+      - extra_tests_transactional_server:
+          testsuite: 'extra_tests_transactional_server'
+          settings:
+            START_AFTER_TEST: 'create_hdd_leap_transactional_server_autoyast'
+            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%_serverro_ay@%MACHINE%.qcow2'
       - security_audit:
           settings:
             YAML_SCHEDULE: schedule/security/audit.yaml
