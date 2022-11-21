@@ -522,39 +522,24 @@ scenarios:
           priority: 40
     opensuse-Tumbleweed-JeOS-for-AArch64-aarch64:
       - jeos:
-          machine: aarch64-HD24G
           priority: 45
           settings:
             INFLUXDB_SERVER: '18.196.183.86'
       - jeos-extra:
-          machine: aarch64-HD24G
           priority: 45
-      - jeos-apparmor:
-          machine: aarch64-HD24G
-      - jeos-container_host:
-          machine: aarch64-HD24G
-      - jeos-container_image:
-          machine: aarch64-HD24G
-      - jeos-filesystem:
-          machine: aarch64-HD24G
-      - jeos-fips:
-          machine: aarch64-HD24G
-      - jeos-ltp-commands:
-          machine: aarch64-HD24G
-      - jeos-ltp-containers:
-          machine: aarch64-HD24G
-      - jeos-ltp-cve:
-          machine: aarch64-HD24G
-      - jeos-ltp-dio:
-          machine: aarch64-HD24G
-      - jeos-ltp-ima:
-          machine: aarch64-HD24G
-      - jeos-ltp-syscalls:
-          machine: aarch64-HD24G
-      - jeos-ltp-syscalls-ipc:
-          machine: aarch64-HD24G
+      - jeos-apparmor
+      - jeos-container_host
+      - jeos-container_image
+      - jeos-filesystem
+      - jeos-fips
+      - jeos-ltp-commands
+      - jeos-ltp-containers
+      - jeos-ltp-cve
+      - jeos-ltp-dio
+      - jeos-ltp-ima
+      - jeos-ltp-syscalls
+      - jeos-ltp-syscalls-ipc
       - zdup_twjeos2twnext_aarch64:
-          machine: aarch64-HD24G
           priority: 45
     opensuse-Tumbleweed-JeOS-for-RPi-aarch64:
       - jeos:
@@ -635,10 +620,8 @@ scenarios:
   armv7hl:
     opensuse-Tumbleweed-JeOS-for-AArch64-armv7hl:
       - jeos:
-          machine: aarch32-HD24G
           priority: 45
       - jeos-extra:
-          machine: aarch32-HD24G
           settings:
             EXCLUDE_MODULES: kdump_and_crash
     opensuse-Tumbleweed-JeOS-for-RPi-armv7hl:
