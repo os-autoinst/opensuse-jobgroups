@@ -157,7 +157,9 @@ scenarios:
       - upgrade_Leap_42.1_kde:
           machine: 64bit
       - extra_tests_on_kde
-      - extra_tests_textmode
+      - extra_tests_textmode:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - extra_tests_webserver
       - extra_tests_textmode_podman_containers:
           testsuite: extra_tests_textmode_containers
@@ -204,7 +206,9 @@ scenarios:
             YAML_TEST_DATA: test_data/yast/opensuse/autoyast_reinstall/autoyast_reinstall_64bit.yaml
             QEMU_VIRTIO_RNG: "0"
       - package-dependency
-      - extra_tests_filesystem
+      - extra_tests_filesystem:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - gnuhealth
       - clone_system:
           settings:
@@ -367,8 +371,12 @@ scenarios:
           machine: 64bit
       - upgrade_Leap_42.1_kde:
           machine: 64bit
-      - create_hdd_xfce
-      - extra_tests_on_xfce
+      - create_hdd_xfce:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - extra_tests_on_xfce:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - create_hdd_minimalx
       - otherDE_enlightenment
       - otherDE_lxqt
@@ -496,7 +504,9 @@ scenarios:
           settings:
             QEMU_VIRTIO_RNG: "0"
       - extra_tests_on_gnome
-      - create_hdd_xfce
+      - create_hdd_xfce:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - create_hdd_cryptlvm:
           settings:
             DESKTOP: gnome
@@ -510,9 +520,13 @@ scenarios:
           description: ''
           testsuite: null
       - extra_tests_on_kde
-      - extra_tests_on_xfce
+      - extra_tests_on_xfce:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - gnome-ext4
-      - extra_tests_in_textmode
+      - extra_tests_in_textmode:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - extra_tests_ai_ml
       - autoyast_minimal:
           settings:
@@ -522,7 +536,9 @@ scenarios:
             # poo#89632
             PACKAGES: "quota-nfs,-samba,-shim"
             INSTALLATION_BLOCKED: "shim"
-      - extra_tests_filesystem
+      - extra_tests_filesystem:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - gnuhealth
       - wicked_basic_sut
       - kde-wayland
@@ -642,8 +658,12 @@ scenarios:
       - boot_to_snapshot
       - extra_tests_on_gnome
       - extra_tests_on_kde
-      - extra_tests_in_textmode
-      - extra_tests_filesystem
+      - extra_tests_in_textmode:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - extra_tests_filesystem:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - yast2_ncurses:
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/yast2_ncurses/yast2_ncurses.yaml
