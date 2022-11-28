@@ -55,6 +55,14 @@ jobs:
           cd opensuse-jobgroups-pr
           ../tool.py --orphans --github
 
+      - name: Check for correct yaml headers
+        env:
+          APIKEY: "${{ secrets.APIKEY }}"
+          APISECRET: "${{ secrets.APISECRET }}"
+        run: |
+          cd opensuse-jobgroups-pr
+          ../tool.py --headers --github
+
       - name: Run serverside checks
         env:
           APIKEY: "${{ secrets.APIKEY }}"

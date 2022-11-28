@@ -4,8 +4,8 @@
 #               This file is managed in GIT!               #
 #  Any changes via the openQA WebUI will get overwritten!  #
 #                                                          #
-#    https://github.com/os-autoinst/opensuse-jobgroups/    #
-#      alp.yaml                                            #
+#    https://github.com/os-autoinst/opensuse-jobgroups     #
+#                   job_groups/alp.yaml                    #
 ############################################################
 ---
 .default_settings: &default_settings

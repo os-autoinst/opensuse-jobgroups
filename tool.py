@@ -2,6 +2,7 @@
 
 import os
 import sys
+import re
 import json
 import yaml
 import math
@@ -132,6 +133,9 @@ group.add_argument('--gendb', action='store_const', dest='action', const='gendb'
 group.add_argument('--orphans', action='store_const', dest='action', const='orphans',
 	help="Check that every job group file has a corresponding entry in job_groups.yaml and serverside db"
 )
+group.add_argument('--headers', action='store_const', dest='action', const='headers',
+	help="Check that every job group file has the correct header"
+)
 group.add_argument('--fetch', action='store_const', dest='action', const='fetch',
 	help="Download all jobgroups as defined in job_groups.yaml"
 )
@@ -208,7 +212,8 @@ elif args.action == 'fetch':
 		if not args.dry_run:
 			template = job_group['template']
 			filename = 'job_groups/%s.yaml' % gname
-			if not "This file is managed in GIT" in template:
+			header = generate_header(filename)
+			if not (template.startswith(header) or template.startswith("---\n"+header)):
 				template = generate_header(filename) + "\n" + template
 			open(filename, 'w').write(template)
 
@@ -279,4 +284,27 @@ elif args.action == 'orphans':
 			else:
 				print(emsg, file=sys.stderr)
 			exit_code = 1
+	os._exit(exit_code)
+
+elif args.action == 'headers':
+	exit_code = 0
+	for job_group_file in (f for f in os.listdir('job_groups') if f.endswith('.yaml')):
+		job_group_path = 'job_groups/%s' % job_group_file
+		header = generate_header(job_group_path)
+		with open(job_group_path) as f:
+			text = f.read()
+			if not (text.startswith(header) or text.startswith("---\n"+header)):
+				emsg = "Job group '%s' doesn't have a valid header - expected:\n%s" % (job_group_path, header)
+				if args.github:
+					print("::error file=%s::%s" % (job_group_path, github_workflow_encode(emsg)))
+				else:
+					print(emsg, file=sys.stderr)
+				exit_code = 1
+			if len(re.findall("This file is managed in GIT!", text)) > 1:
+				emsg = "Job group '%s' has multiple headers" % job_group_path
+				if args.github:
+					print("::error file=%s::%s" % (job_group_path, github_workflow_encode(emsg)))
+				else:
+					print(emsg, file=sys.stderr)
+				exit_code = 1
 	os._exit(exit_code)
