@@ -40,7 +40,7 @@
 69: opensuse_leap_15.2_updates
 70: opensuse_leap_15.2_incidents
 73: opensuse_leap_15.2_microos
-75: opensuse_jump
+75: opensuse_tumbleweed_legacy_x86
 76: opensuse_jump_15.2_images
 77: opensuse_leap_15.3_images
 79: opensuse_leap_15_arm
@@ -65,9 +65,9 @@
 98: opensuse_leap_15.4_updates
 99: opensuse_leap_15.4_backports
 100: alp
-105: alp-staging
 101: opensuse_leap_micro_5.3_image
 102: opensuse_leap_micro_5.3_dvd
 103: opensuse_leap_15.5_images
 104: opensuse_leap_15.5_armv7_images
+105: alp-staging
 106: opensuse_leap_15.5_armv7
