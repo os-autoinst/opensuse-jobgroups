@@ -5,11 +5,9 @@
 #  Any changes via the openQA WebUI will get overwritten!  #
 #                                                          #
 #    https://github.com/os-autoinst/opensuse-jobgroups     #
-#      job_groups/opensuse_tumbleweed_legacyx86.yaml       #
+#      job_groups/opensuse_tumbleweed_legacy_x86.yaml      #
 ############################################################
-
 ---
-
 defaults:
   i586:
     machine: 32bit
@@ -20,19 +18,19 @@ defaults:
 products:
   opensuse-Tumbleweed-LegacyX86-DVD-i586:
     distri: opensuse
-    flavor: DVD
+    flavor: LegacyX86-DVD
     version: Tumbleweed
   opensuse-Tumbleweed-LegacyX86-DVD-x86_64:
     distri: opensuse
-    flavor: DVD
+    flavor: LegacyX86-DVD
     version: Tumbleweed
   opensuse-Tumbleweed-LegacyX86-NET-i586:
     distri: opensuse
-    flavor: NET
+    flavor: LegacyX86-NET
     version: Tumbleweed
   opensuse-Tumbleweed-LegacyX86-NET-x86_64:
     distri: opensuse
-    flavor: NET
+    flavor: LegacyX86-NET
     version: Tumbleweed
 scenarios:
   i586:
@@ -41,7 +39,7 @@ scenarios:
       - textmode:
           machine: pentium3
     opensuse-Tumbleweed-LegacyX86-NET-i586:
-      - install_only:
+      - install_only
       - install_only:
           machine: pentium3
   x86_64:
