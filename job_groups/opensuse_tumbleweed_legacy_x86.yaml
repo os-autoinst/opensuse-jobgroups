@@ -12,15 +12,8 @@ defaults:
   i586:
     machine: 32bit
     priority: 51
-  x86_64:
-    machine: 64bit
-    priority: 51
 products:
   opensuse-Tumbleweed-LegacyX86-DVD-i586:
-    distri: opensuse
-    flavor: LegacyX86-DVD
-    version: Tumbleweed
-  opensuse-Tumbleweed-LegacyX86-DVD-x86_64:
     distri: opensuse
     flavor: LegacyX86-DVD
     version: Tumbleweed
@@ -28,128 +21,30 @@ products:
     distri: opensuse
     flavor: LegacyX86-NET
     version: Tumbleweed
-  opensuse-Tumbleweed-LegacyX86-NET-x86_64:
-    distri: opensuse
-    flavor: LegacyX86-NET
-    version: Tumbleweed
 scenarios:
   i586:
     opensuse-Tumbleweed-LegacyX86-DVD-i586:
+      - minimalx
+      - xfce
+      - kde
+      - gnome
       - textmode
+      - mediacheck
+      - rescue_system
       - textmode:
           machine: pentium3
     opensuse-Tumbleweed-LegacyX86-NET-i586:
-      - install_only
-      - install_only:
-          machine: pentium3
-  x86_64:
-    opensuse-Tumbleweed-LegacyX86-DVD-x86_64:
-      - textmode
-      - kde
-      - uefi
-      - gnome
       - minimalx
       - xfce
-      - cryptlvm:
-          machine: uefi
-          settings:
-            YAML_SCHEDULE: schedule/yast/opensuse/encryption/cryptlvm.yaml
-      - cryptlvm:
-          settings:
-            YAML_SCHEDULE: schedule/yast/opensuse/encryption/cryptlvm.yaml
-      - install_only:
-          machine: smp_64
-      - lvm:
-          priority: 49
-      - uefi-os
+      - kde
+      - gnome
+      - install_only
       - mediacheck
       - rescue_system
-      - gpt
-      - xfs:
-          settings:
-            YAML_SCHEDULE: schedule/yast/opensuse/xfs/xfs.yaml
-            YAML_TEST_DATA: test_data/yast/opensuse/xfs/xfs_partition.yaml
-      - create_hdd_textmode
-      - create_hdd_gnome-wayland
-      - create_hdd_kde
-      - create_hdd_xfce
-      - extra_tests_on_kde
-      - extra_tests_on_xfce
-      - extra_tests_textmode
-      - gnome-gdm
-      - kde_dual_windows10:
-          machine: uefi_win
-      - kde_dual_windows10:
-          machine: 64bit_win
-      - gnome_dual_windows10:
-          machine: uefi_win
-      - gnome_dual_windows10:
-          machine: 64bit_win
-      - kde-sddm
-      - package-dependency
-      - extra_tests_filesystem
-      - extra_tests_misc
-      - desktopapps-message-gnome
-      - kde-wayland:
-          machine: 64bit_virtio
-          settings:
-            QEMUCPUS: '2'
-            QEMURAM: '2048'
-      - desktopapps-gnome
+      - toolchain_zypper
+      - security_pam
       - yast2_ncurses:
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/yast2_ncurses/yast2_ncurses.yaml
-      - toolchain_zypper
-      - install_offline
-      - apparmor
-      - upgrade_Leap_15.3_gnome:
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - upgrade_Leap_15.3_kde:
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - security_pam
-      - toolkits
-      - toolkits-kde
-      - create_hdd_textmode_uefi:
-          machine: uefi
-      - rootonly
-      - boot_linuxrc
-      - RAID0_gpt
-      - firewalld-policy-firewall:
-          settings:
-            START_AFTER_TEST: 'create_hdd_textmode'
-            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
-      - firewalld-policy-server:
-          settings:
-            START_AFTER_TEST: 'create_hdd_textmode'
-            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
-      - firewalld-policy-client:
-          settings:
-            START_AFTER_TEST: 'create_hdd_textmode'
-            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
-    opensuse-Tumbleweed-LegacyX86-NET-x86_64:
-      - textmode
-      - kde:
-          machine: USBboot_64
-      - kde
-      - uefi
-      - minimalx
-      - xfce
-      - RAID0_gpt
-      - RAID1_gpt
-      - cryptlvm
       - install_only:
-          machine: smp_64
-      - uefi-os
-      - zdup-Leap-15.3-kde:
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - zdup-Leap-15.3-gnome:
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - create_hdd_minimalx
-      - gnome-gdm
-      - kde_dual_windows10:
-          machine: uefi_win
-      - autoyast_gnome
+          machine: pentium3
