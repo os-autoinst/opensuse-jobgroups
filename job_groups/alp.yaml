@@ -37,6 +37,7 @@
 
 .networking: &networking
   YAML_SCHEDULE: 'schedule/alp/networking.yaml'
+  EXTRA: 'networking'
 
 .publish_hdd: &publish_hdd
   PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
