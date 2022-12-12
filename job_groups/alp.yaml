@@ -36,7 +36,6 @@
   CONTAINER_RUNTIME: podman
 
 .networking: &networking
-  YAML_SCHEDULE: 'schedule/alp/networking.yaml'
   EXTRA: 'networking'
 
 .publish_hdd: &publish_hdd

@@ -136,13 +136,11 @@ scenarios:
           settings:
             HDD_1: support_server_tumbleweed@64bit.qcow2
             SYSTEM_ROLE: microos
-            YAML_SCHEDULE: schedule/sle-micro/remote_ssh_controller.yaml
             DESKTOP: textmode
             EXTRABOOTPARAMS_BOOT_LOCAL: '3'
       - remote_ssh_target:
           settings:
             DESKTOP: textmode
-            YAML_SCHEDULE: schedule/sle-micro/remote_ssh_target.yaml
     microos-*-MicroOS-Image-ContainerHost-x86_64:
       - container-host:
           settings:
