@@ -24,27 +24,29 @@ products:
 scenarios:
   i586:
     opensuse-Tumbleweed-LegacyX86-DVD-i586:
-      - minimalx
-      - xfce
-      - kde
       - gnome
-      - textmode
+      - kde
       - mediacheck
+      - minimalx
       - rescue_system
+      - textmode
       - textmode:
           machine: pentium3
-    opensuse-Tumbleweed-LegacyX86-NET-i586:
-      - minimalx
       - xfce
-      - kde
+    opensuse-Tumbleweed-LegacyX86-NET-i586:
+      - create_hdd_gnome_libyui
+      - create_hdd_textmode
       - gnome
       - install_only
+      - install_only:
+          machine: pentium3
+      - kde
       - mediacheck
+      - minimalx
       - rescue_system
-      - toolchain_zypper
       - security_pam
+      - toolchain_zypper
+      - xfce
       - yast2_ncurses:
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/yast2_ncurses/yast2_ncurses.yaml
-      - install_only:
-          machine: pentium3
