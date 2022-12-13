@@ -138,9 +138,11 @@ scenarios:
             SYSTEM_ROLE: microos
             DESKTOP: textmode
             EXTRABOOTPARAMS_BOOT_LOCAL: '3'
+            +YAML_SCHEDULE: ''
       - remote_ssh_target:
           settings:
             DESKTOP: textmode
+            +YAML_SCHEDULE: ''
     microos-*-MicroOS-Image-ContainerHost-x86_64:
       - container-host:
           settings:
