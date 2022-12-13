@@ -39,8 +39,7 @@ scenarios:
           settings:
             CRASH_MEMORY: '320'
       - install_ltp+opensuse+DVD
-      - ltp_aio_stress_part1
-      - ltp_aio_stress_part2
+      - ltp_aio_stress
       - ltp_aiodio_part1
       - ltp_aiodio_part2
       - ltp_aiodio_part3
@@ -122,8 +121,7 @@ scenarios:
             CRASH_MEMORY: '640'
       - install_ltp+opensuse+DVD
       - kernel-live-patching
-      - ltp_aio_stress_part1
-      - ltp_aio_stress_part2
+      - ltp_aio_stress
       - ltp_aiodio_part1
       - ltp_aiodio_part2
       - ltp_aiodio_part3
@@ -203,8 +201,7 @@ scenarios:
       - kdump
       - install_ltp+opensuse+DVD
       - kernel-live-patching
-      - ltp_aio_stress_part1
-      - ltp_aio_stress_part2
+      - ltp_aio_stress
       - ltp_aiodio_part1
       - ltp_aiodio_part2
       - ltp_aiodio_part3
