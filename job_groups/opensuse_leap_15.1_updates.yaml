@@ -37,3 +37,5 @@ scenarios:
             QEMUVGA: cirrus
       - install_with_updates_kde:
           machine: uefi-2G
+      - install_with_random:
+          machine: something
