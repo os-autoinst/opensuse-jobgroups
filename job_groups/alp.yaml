@@ -45,15 +45,17 @@
   BOOT_HDD_IMAGE: '1'
   DESKTOP: 'textmode'
   GRUB_PARAM: 'debug_pagealloc=on;ima_policy=tcb'
-  +HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+  HDD_2: 'ignition.qcow2'
+  NUMDISKS: '2'
+  HDDSIZEGB_1: '30'
   INSTALL_LTP: 'from_repo'
   LTP_ENV: 'LVM_DIR=/var/tmp/'
   PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%FLAVOR%@%MACHINE%-with-ltp.qcow2'
   QEMUCPUS: '4'
   QEMURAM: '4096'
-  START_AFTER_TEST: 'alp_default'
   QA_HEAD_REPO: 'http://download.opensuse.org/repositories/benchmark:/ltp:/stable/ALP/'
   LTP_PKG: 'ltp-stable'
+  KERNEL_BASE: '1'
 
 .ltp: &ltp
   BOOT_HDD_IMAGE: '1'
@@ -62,6 +64,7 @@
   QEMUCPUS: '2'
   LTP_KNOWN_ISSUES: 'https://raw.githubusercontent.com/openSUSE/kernel-qe/main/ltp_known_issues.yaml'
   START_AFTER_TEST: 'install_ltp'
+  KERNEL_BASE: '1'
 
 .ltp_cve: &ltp_cve
   LTP_COMMAND_FILE: 'cve'
