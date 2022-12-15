@@ -15,6 +15,9 @@ defaults:
   ppc64le:
     machine: ppc64le
     priority: 60
+  s390x:
+    machine: s390x-zVM-vswitch-l2
+    priority: 60
   x86_64:
     machine: 64bit
     priority: 60
@@ -24,6 +27,10 @@ products:
     flavor: DVD
     version: Tumbleweed
   opensuse-Tumbleweed-DVD-ppc64le:
+    distri: opensuse
+    flavor: DVD
+    version: Tumbleweed
+  opensuse-Tumbleweed-DVD-s390x:
     distri: opensuse
     flavor: DVD
     version: Tumbleweed
@@ -195,6 +202,9 @@ scenarios:
       - nfs_pynfs_nfs41_all
       - create_hdd_xfstests
       - xfstests_btrfs-btrfs-001-050
+  s390x:
+    opensuse-Tumbleweed-DVD-s390x:
+      - install_ltp_s390x
   x86_64:
     opensuse-Tumbleweed-DVD-x86_64:
       - extra_tests_kernel
