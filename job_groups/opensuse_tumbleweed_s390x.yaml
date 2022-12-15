@@ -39,5 +39,3 @@ scenarios:
             EXTRABOOTPARAMS: hvc_iucv=8
             FILESYSTEM: xfs
             BSC1167736: yes
-      - install_ltp_s390x:
-          priority: 51
