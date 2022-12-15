@@ -204,7 +204,9 @@ scenarios:
       - xfstests_btrfs-btrfs-001-050
   s390x:
     opensuse-Tumbleweed-DVD-s390x:
-      - install_ltp_s390x
+      - ltp_cve_s390x
+      - ltp_crypto_pty_commands_s390x
+      - ltp_syscalls_s390x
   x86_64:
     opensuse-Tumbleweed-DVD-x86_64:
       - extra_tests_kernel
