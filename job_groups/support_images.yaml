@@ -1,0 +1,28 @@
+############################################################
+#                         WARNING                          #
+#                                                          #
+#               This file is managed in GIT!               #
+#  Any changes via the openQA WebUI will get overwritten!  #
+#                                                          #
+#    https://github.com/os-autoinst/opensuse-jobgroups     #
+#              job_groups/support_images.yaml              #
+############################################################
+---
+defaults:
+  x86_64:
+    machine: 64bit
+    priority: 60
+products:
+  opensuse-15.4-DVD-Updates-x86_64:
+    distri: opensuse
+    flavor: DVD-Updates
+    version: '15.4'
+scenarios:
+  x86_64:
+    opensuse-15.4-DVD-Updates-x86_64:
+      - create_hdd_leap_textmode_autoyast_dev:
+          testsuite: create_hdd_leap_textmode_autoyast
+          settings:
+            PUBLISH_HDD_1: opensuse-updated-%VERSION%-%ARCH%-%DESKTOP%-%BUILD%.qcow2
+            OS_TEST_ISSUES: ""
+            QA_HEAD_REPO: ""
