@@ -289,7 +289,6 @@ scenarios:
       - nfs_cthon04-nfs4
       - nfs_pynfs_nfs40_all
       - nfs_pynfs_nfs41_all
-      - udev-no-partlabel-links
       - create_hdd_xfstests
       - xfstests_btrfs-btrfs-001-050
       - xfstests_xfs-xfs-001-100
