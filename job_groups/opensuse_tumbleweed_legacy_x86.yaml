@@ -51,3 +51,5 @@ scenarios:
       - yast2_ncurses:
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/yast2_ncurses/yast2_ncurses.yaml
+            # yast2-rmt package not build on i586
+            EXCLUDE_MODULES: yast2_rmt
