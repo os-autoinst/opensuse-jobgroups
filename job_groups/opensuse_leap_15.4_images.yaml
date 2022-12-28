@@ -160,7 +160,7 @@ scenarios:
           testsuite: container-image
           description: 'Container image validation on CentOS 8.2'
           settings:
-            HDD_1: 'centOS-Stream-8-x86_64-20220128-minimal.qcow2'
+            HDD_1: 'centOS-Stream-8-x86_64-20221228-minimal.qcow2'
             KEEP_GRUB_TIMEOUT: '1'
             DESKTOP: 'textmode'
             VIDEOMODE: 'text'
