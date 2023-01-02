@@ -12,12 +12,22 @@ defaults:
   aarch64:
     machine: aarch64
     priority: 60
+  i586:
+    machine: 32bit
+    priority: 60
   ppc64le:
     machine: ppc64le
     priority: 60
   s390x:
     machine: s390x-zVM-vswitch-l2
     priority: 60
+    settings:
+      # required by bootloader_s390 (o3 does not support zkvm, only z/VM, thus
+      # installation must be done for each test suite
+      INSTALL_LTP: 'from_repo'
+      LTP_BAREMETAL: '1'
+      VIDEOMODE: 'text'
+      MAX_JOB_TIME: '14400'
   x86_64:
     machine: 64bit
     priority: 60
@@ -25,6 +35,10 @@ products:
   opensuse-Tumbleweed-DVD-aarch64:
     distri: opensuse
     flavor: DVD
+    version: Tumbleweed
+  opensuse-Tumbleweed-LegacyX86-NET-i586:
+    distri: opensuse
+    flavor: LegacyX86-NET
     version: Tumbleweed
   opensuse-Tumbleweed-DVD-ppc64le:
     distri: opensuse
@@ -120,6 +134,12 @@ scenarios:
       - nfs_pynfs_nfs41_all
       - create_hdd_xfstests
       - xfstests_btrfs-btrfs-001-050
+  i586:
+    opensuse-Tumbleweed-LegacyX86-NET-i586:
+      - install_ltp+opensuse+LegacyX86-NET
+      - ltp_cve
+      - ltp_crypto
+      - ltp_syscalls
   ppc64le:
     opensuse-Tumbleweed-DVD-ppc64le:
       - extra_tests_kernel
@@ -204,9 +224,12 @@ scenarios:
       - xfstests_btrfs-btrfs-001-050
   s390x:
     opensuse-Tumbleweed-DVD-s390x:
-      - ltp_cve_s390x
-      - ltp_crypto_pty_commands_s390x
-      - ltp_syscalls_s390x
+      - ltp_cve
+      - ltp_crypto_pty_commands
+      - ltp_syscalls
+      - kernel-live-patching:
+          settings:
+            INSTALL_LTP: ''
   x86_64:
     opensuse-Tumbleweed-DVD-x86_64:
       - extra_tests_kernel
