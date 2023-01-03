@@ -652,6 +652,7 @@ scenarios:
             START_AFTER_TEST: create_hdd_textmode
             UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
             VIDEOMODE: text
+            YAML_SCHEDULE: schedule/security/selinux.yaml
           testsuite: null
       - create_hdd_gnome-x11:
           priority: 46
