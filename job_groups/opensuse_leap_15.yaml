@@ -230,6 +230,8 @@ scenarios:
       - zdup-Leap-15.3-kde:
           settings:
             QEMU_VIRTIO_RNG: "0"
+      - zdup-Leap-15.4-gnome
+      - zdup-Leap-15.4-kde_to_Leap
       - upgrade_Leap_42.3_gnome:
           machine: 64bit
       - upgrade_Leap_42.3_kde:
@@ -294,6 +296,8 @@ scenarios:
       - upgrade_Leap_15.3_kde:
           settings:
             QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.4_gnome
+      - upgrade_Leap_15.4_kde
       - upgrade_Leap_15.2_cryptlvm:
           machine: uefi
           settings:
@@ -302,6 +306,8 @@ scenarios:
           machine: uefi
           settings:
             QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.4_cryptlvm:
+          machine: uefi
       - installer_extended
       - btrfs:
           settings:
@@ -432,10 +438,14 @@ scenarios:
       - upgrade_Leap_15.3_kde:
           settings:
             QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.4_gnome
+      - upgrade_Leap_15.4_kde
       - upgrade_Leap_15.3_cryptlvm:
           machine: uefi
           settings:
             QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.4_cryptlvm:
+          machine: uefi
       - zdup-Leap-15.2-gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
@@ -450,6 +460,8 @@ scenarios:
       - zdup-Leap-15.3-kde:
           settings:
             QEMU_VIRTIO_RNG: "0"
+      - zdup-Leap-15.4-gnome
+      - zdup-Leap-15.4-kde_to_Leap
   aarch64:
     opensuse-Leap-15.5-DVD-aarch64:
       - textmode:
