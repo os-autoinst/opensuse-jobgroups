@@ -24,6 +24,7 @@ defaults:
     settings:
       # required by bootloader_s390 (o3 does not support zkvm, only z/VM, thus
       # installation must be done for each test suite
+      HDD_1: ''
       INSTALL_LTP: 'from_repo'
       LTP_BAREMETAL: '1'
       VIDEOMODE: 'text'
