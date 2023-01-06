@@ -11,12 +11,6 @@
 ---
 
 defaults:
-  i586:
-    machine: 32bit
-    priority: 50
-  i686:
-    machine: 32bit
-    priority: 50
   x86_64:
     machine: 64bit
     priority: 50
@@ -25,17 +19,9 @@ products:
     distri: microos
     flavor: DVD
     version: '*'
-  opensuse-Tumbleweed-DVD-i586:
-    distri: opensuse
-    flavor: DVD
-    version: Tumbleweed
   opensuse-Tumbleweed-DVD-x86_64:
     distri: opensuse
     flavor: DVD
-    version: Tumbleweed
-  opensuse-Tumbleweed-GNOME-Live-i686:
-    distri: opensuse
-    flavor: GNOME-Live
     version: Tumbleweed
   opensuse-Tumbleweed-GNOME-Live-x86_64:
     distri: opensuse
@@ -57,25 +43,13 @@ products:
     distri: microos
     flavor: MicroOS-Image-k3s
     version: Tumbleweed
-  opensuse-Tumbleweed-KDE-Live-i686:
-    distri: opensuse
-    flavor: KDE-Live
-    version: Tumbleweed
   opensuse-Tumbleweed-KDE-Live-x86_64:
     distri: opensuse
     flavor: KDE-Live
     version: Tumbleweed
-  opensuse-Tumbleweed-NET-i586:
-    distri: opensuse
-    flavor: NET
-    version: Tumbleweed
   opensuse-Tumbleweed-NET-x86_64:
     distri: opensuse
     flavor: NET
-    version: Tumbleweed
-  opensuse-Tumbleweed-Rescue-CD-i686:
-    distri: opensuse
-    flavor: Rescue-CD
     version: Tumbleweed
   opensuse-Tumbleweed-Rescue-CD-x86_64:
     distri: opensuse
@@ -90,34 +64,6 @@ products:
     flavor: WSL
     version: Tumbleweed
 scenarios:
-  i586:
-    opensuse-Tumbleweed-DVD-i586:
-      - textmode:
-          priority: 40
-      - textmode:
-          machine: pentium3
-          priority: 40
-    opensuse-Tumbleweed-NET-i586:
-      - install_only:
-          priority: 40
-      - install_only:
-          machine: pentium3
-          priority: 40
-  i686:
-    opensuse-Tumbleweed-GNOME-Live-i686:
-      - gnome-live:
-          priority: 48
-          settings:
-            QEMURAM: '2048'
-    opensuse-Tumbleweed-KDE-Live-i686:
-      - kde-live
-      - kde-live_installation
-    opensuse-Tumbleweed-Rescue-CD-i686:
-      - rescue:
-          priority: 49
-      - rescue:
-          machine: pentium3
-          priority: 49
   x86_64:
     microos-*-DVD-x86_64:
       - rcshell:
