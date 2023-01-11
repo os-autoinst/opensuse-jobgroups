@@ -155,6 +155,13 @@ scenarios:
           machine: [64bit, uefi]
           settings:
             <<: [*image_settings, *k3s]
+      - selinux:
+          machine: [64bit, uefi]
+          settings:
+            <<: *image_settings
+            SECURITY_TEST: selinux
+            YAML_SCHEDULE: schedule/security/selinux.yaml
+          testsuite: null
     alp-0.1-kvm_encrypted-x86_64:
       - alp_encrypted:
           machine: [64bit, uefi]
@@ -198,6 +205,12 @@ scenarios:
           testsuite: null
           settings:
             <<: [*image_settings, *k3s]
+      - selinux:
+          settings:
+            <<: *image_settings
+            SECURITY_TEST: selinux
+            YAML_SCHEDULE: schedule/security/selinux.yaml
+          testsuite: null
     alp-0.1-kvm_encrypted-aarch64:
       - alp_encrypted:
           settings:
