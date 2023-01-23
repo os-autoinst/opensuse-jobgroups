@@ -527,6 +527,8 @@ scenarios:
           priority: 45
           settings:
             INFLUXDB_SERVER: '18.196.183.86'
+      - jeos:
+          machine: aarch64_cpu_max-HD20G
       - jeos-extra:
           machine: aarch64-HD20G
           priority: 45
