@@ -50,7 +50,7 @@ scenarios:
             QEMUCPU: 'host,kvm=off,vmx=on,hypervisor=off,hv_time,hv_relaxed,hv_vapic,hv_spinlocks=0x1fff,hv_frequencies,hv_reenlightenment,hv_vpindex,hv-synic,hv-stimer,hv-stimer-direct'
             QEMUMACHINE: 'q35,accel=whpx'
             QEMUCPUS: '2'
-            WORKER_CLASS: 'openqaworker7'
+            WORKER_CLASS: 'qemu_x86_64,wsl2'
       - wsl-install-MSStore-Leap15.4:
           testsuite: null
           description: |
