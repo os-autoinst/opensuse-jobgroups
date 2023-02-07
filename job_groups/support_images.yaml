@@ -20,9 +20,13 @@ products:
 scenarios:
   x86_64:
     opensuse-15.4-DVD-Updates-x86_64:
-      - create_hdd_leap_textmode_autoyast_dev:
-          testsuite: create_hdd_leap_textmode_autoyast
+      - create_hdd_leap_gnome_autoyast_updated:
+          testsuite: null
           settings:
-            PUBLISH_HDD_1: opensuse-updated-%VERSION%-%ARCH%-%DESKTOP%-%BUILD%.qcow2
+            DESKTOP: gnome
+            HDDSIZEGB: "30"
             OS_TEST_ISSUES: ""
-            QA_HEAD_REPO: ""
+            PUBLISH_HDD_1: opensuse-updated-%VERSION%-%ARCH%-%DESKTOP%-%BUILD%.qcow2
+            PUBLISH_PFLASH_VARS: "%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%_ay@%MACHINE%-uefi-vars.qcow2"
+            QEMURAM: "2048"
+            YAML_SCHEDULE: schedule/functional/autoyast_create_hdd/autoyast_create_hdd_leap_update.yaml
