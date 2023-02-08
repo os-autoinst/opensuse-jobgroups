@@ -138,8 +138,16 @@ scenarios:
   i586:
     opensuse-Tumbleweed-LegacyX86-NET-i586:
       - install_ltp+opensuse+LegacyX86-NET
-      - ltp_cve
+      - ltp_commands
       - ltp_crypto
+      - ltp_cve
+      - ltp_ipc
+      - ltp_net_ipv6_lib
+      - ltp_math
+      - ltp_mm
+      - ltp_net_tcp_cmds
+      - ltp_openposix:
+          priority: 50
       - ltp_syscalls
   ppc64le:
     opensuse-Tumbleweed-DVD-ppc64le:
