@@ -296,6 +296,9 @@ scenarios:
       - kde-sddm
       - gnome+import_ssh_keys:
           machine: 64bit_cirrus
+          settings:
+            HDD_1: opensuse-updated-%VERSION%-%ARCH%-%DESKTOP%-%BUILD%.qcow2
+            ORIGIN_SYSTEM_VERSION: '15.4'
       - gnome+do_not_import_ssh_keys:
           machine: 64bit_cirrus-2G
       - autoyast_y2_firstboot
