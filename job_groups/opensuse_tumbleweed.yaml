@@ -299,6 +299,7 @@ scenarios:
           settings:
             HDD_1: opensuse-updated-%VERSION%-%ARCH%-%DESKTOP%-%BUILD%.qcow2
             ORIGIN_SYSTEM_VERSION: '15.4'
+            START_AFTER_TEST: create_hdd_leap_gnome_autoyast_updated
       - gnome+do_not_import_ssh_keys:
           machine: 64bit_cirrus-2G
       - autoyast_y2_firstboot
