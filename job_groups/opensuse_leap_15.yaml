@@ -326,7 +326,8 @@ scenarios:
       - openscap:
           settings:
             QEMUCPU: 'host'
-            QEMURAM: '2048'
+            QEMUCPUS: '2'
+            QEMURAM: '4096'
       - autoyast_y2_firstboot:
           settings:
             AUTOYAST: autoyast_opensuse/autoyast_firstboot_leap.xml
