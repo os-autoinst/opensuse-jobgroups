@@ -1045,7 +1045,7 @@ scenarios:
             VIDEOMODE: text
             KEEP_GRUB_TIMEOUT: '1'
             BOOT_HDD_IMAGE: '1'
-            HDD_1: 'centOS-Stream-8-x86_64-20221228-minimal.qcow2'
+            HDD_1: 'centOS-Stream-8-x86_64-20230213-minimal.qcow2'
             CONTAINERS_UNTESTED_IMAGES: '1'
             CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed'
             CONTAINERS_NO_SUSE_OS: "1"
