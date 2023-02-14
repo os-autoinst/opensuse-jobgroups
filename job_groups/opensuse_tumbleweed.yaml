@@ -297,8 +297,7 @@ scenarios:
       - gnome+import_ssh_keys:
           machine: 64bit_cirrus
           settings:
-            HDD_1: opensuse-updated-15.4-%ARCH%-%DESKTOP%.qcow2
-            ORIGIN_SYSTEM_VERSION: '15.4'
+            HDD_1: opensuse-leap-updated-%ARCH%-%DESKTOP%.qcow2
       - gnome+do_not_import_ssh_keys:
           machine: 64bit_cirrus-2G
       - autoyast_y2_firstboot

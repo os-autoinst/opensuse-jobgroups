@@ -11,7 +11,7 @@
 defaults:
   x86_64:
     machine: 64bit
-    priority: 60
+    priority: 40
 products:
   opensuse-15.4-DVD-Updates-x86_64:
     distri: opensuse
@@ -26,7 +26,7 @@ scenarios:
             DESKTOP: gnome
             HDDSIZEGB: "30"
             OS_TEST_ISSUES: ""
-            PUBLISH_HDD_1: opensuse-updated-%VERSION%-%ARCH%-%DESKTOP%.qcow2
-            PUBLISH_PFLASH_VARS: "%DISTRI%-%VERSION%-%ARCH%-%DESKTOP%_ay@%MACHINE%-uefi-vars.qcow2"
+            PUBLISH_HDD_1: opensuse-leap-updated-%ARCH%-%DESKTOP%.qcow2
+            PUBLISH_PFLASH_VARS: "opensuse-leap-updated-%ARCH%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2"
             QEMURAM: "2048"
             YAML_SCHEDULE: schedule/functional/autoyast_create_hdd/autoyast_create_hdd_leap_update.yaml
