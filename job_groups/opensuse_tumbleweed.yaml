@@ -905,6 +905,10 @@ scenarios:
           machine: uefi
           settings:
             DESKTOP: textmode
+      - virt-guest-installation-kvm:
+          machine: 64bit-ipmi
+      - virt-guest-installation-xen:
+          machine: 64bit-ipmi
     opensuse-Tumbleweed-GNOME-Live-x86_64:
       - gnome-live:
           machine: uefi
