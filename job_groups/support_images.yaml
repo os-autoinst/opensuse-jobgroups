@@ -13,18 +13,20 @@ defaults:
     machine: 64bit
     priority: 40
 products:
-  opensuse-15.4-DVD-Updates-x86_64:
+  opensuse-15.4-DVD-x86_64:
     distri: opensuse
-    flavor: DVD-Updates
+    # Select DVD flavor while not DVD-Updates to less frequency for auto-generate support images.
+    flavor: DVD
     version: '15.4'
 scenarios:
   x86_64:
-    opensuse-15.4-DVD-Updates-x86_64:
+    opensuse-15.4-DVD-x86_64:
       - create_hdd_leap_gnome_autoyast_updated:
           testsuite: null
           settings:
             DESKTOP: gnome
             HDDSIZEGB: "30"
+            ISO: openSUSE-Leap-15.0-DVD-x86_64.iso
             OS_TEST_ISSUES: ""
             PUBLISH_HDD_1: opensuse-leap-updated-%ARCH%-%DESKTOP%.qcow2
             PUBLISH_PFLASH_VARS: "opensuse-leap-updated-%ARCH%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2"
