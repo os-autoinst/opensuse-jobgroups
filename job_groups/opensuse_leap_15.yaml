@@ -173,7 +173,6 @@ scenarios:
             CONTAINER_RUNTIME: 'docker'
             CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap:15.4'
             CONTAINER_IMAGE_VERSIONS: '15.4'
-      - extra_tests_ai_ml
       - upgrade_Leap_42.2_gnome:
           machine: 64bit
       - yast_no_self_update
@@ -539,7 +538,6 @@ scenarios:
       - extra_tests_in_textmode:
           settings:
             QEMU_VIRTIO_RNG: "0"
-      - extra_tests_ai_ml
       - autoyast_minimal:
           settings:
             AUTOYAST: autoyast_opensuse/opensuse_leap_minimal.xml
