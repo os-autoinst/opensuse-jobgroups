@@ -133,15 +133,15 @@ scenarios:
           machine: 64bit_virtio-2G
       - kde_live_upgrade_leap_42.3
       - kde_live_upgrade_leap_15.0:
-          machine: 64bit
+          machine: 64bit-2G
           settings:
             QEMU_VIRTIO_RNG: "0"
       - kde_live_upgrade_leap_15.2:
-          machine: uefi
+          machine: uefi-2G
           settings:
             QEMU_VIRTIO_RNG: "0"
       - kde_live_upgrade_leap_15.3:
-          machine: 64bit
+          machine: 64bit-2G
           settings:
             QEMU_VIRTIO_RNG: "0"
     opensuse-Leap15.4-Rescue-CD-x86_64:

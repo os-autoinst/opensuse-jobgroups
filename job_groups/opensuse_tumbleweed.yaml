@@ -962,31 +962,33 @@ scenarios:
           machine: uefi_virtio-2G
     opensuse-Tumbleweed-KDE-Live-x86_64:
       - kde-live:
-          machine: uefi-2G
+          machine: uefi-3G
           priority: 48
       - kde-live:
-          machine: uefi-usb
+          machine: uefi-usb-2G
           priority: 48
       - kde-live:
-          machine: 64bit
+          machine: 64bit-3G
           priority: 48
       - kde-live:
-          machine: USBboot_64
+          machine: USBboot_64-2G
           priority: 48
       - mediacheck:
           machine: 64bit
       - kde-live_installation:
-          machine: uefi-2G
+          machine: uefi-3G
       - kde-live_installation:
-          machine: 64bit
+          machine: 64bit-3G
       - kde-live-wayland:
           machine: 64bit_virtio-3G
       - kde_live_upgrade_leap_15.0:
+          machine: 64bit-3G
           settings:
             QEMU_VIRTIO_RNG: "0"
       - kde_live_upgrade_leap_15.2:
-          machine: uefi
+          machine: uefi-3G
       - kde_live_upgrade_leap_15.3:
+          machine: 64bit-3G
           settings:
             QEMU_VIRTIO_RNG: "0"
     opensuse-Tumbleweed-NET-x86_64:
