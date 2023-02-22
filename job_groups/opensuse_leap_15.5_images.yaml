@@ -133,16 +133,19 @@ scenarios:
           machine: 64bit_virtio-2G
       - kde_live_upgrade_leap_42.3
       - kde_live_upgrade_leap_15.0:
-          machine: 64bit-2G
+          machine: 64bit
           settings:
+            QEMURAM: "2048"
             QEMU_VIRTIO_RNG: "0"
       - kde_live_upgrade_leap_15.2:
-          machine: uefi-2G
+          machine: uefi
           settings:
+            QEMURAM: "2048"
             QEMU_VIRTIO_RNG: "0"
       - kde_live_upgrade_leap_15.3:
-          machine: 64bit-2G
+          machine: 64bit
           settings:
+            QEMURAM: "2048"
             QEMU_VIRTIO_RNG: "0"
     opensuse-Leap15.5-Rescue-CD-x86_64:
       - rescue

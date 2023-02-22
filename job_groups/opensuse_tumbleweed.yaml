@@ -982,14 +982,16 @@ scenarios:
       - kde-live-wayland:
           machine: 64bit_virtio-3G
       - kde_live_upgrade_leap_15.0:
-          machine: 64bit-3G
           settings:
+            QEMURAM: "3072"
             QEMU_VIRTIO_RNG: "0"
       - kde_live_upgrade_leap_15.2:
-          machine: uefi-3G
-      - kde_live_upgrade_leap_15.3:
-          machine: 64bit-3G
+          machine: uefi
           settings:
+            QEMURAM: "3072"
+      - kde_live_upgrade_leap_15.3:
+          settings:
+            QEMURAM: "3072"
             QEMU_VIRTIO_RNG: "0"
     opensuse-Tumbleweed-NET-x86_64:
       - textmode:
