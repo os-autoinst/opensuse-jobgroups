@@ -300,6 +300,8 @@ scenarios:
             HDD_1: opensuse-leap-updated-%ARCH%-%DESKTOP%.qcow2
       - gnome+do_not_import_ssh_keys:
           machine: 64bit_cirrus-2G
+          settings:
+            HDD_1: opensuse-leap-updated-%ARCH%-%DESKTOP%.qcow2
       - autoyast_y2_firstboot
       - autoyast_btrfs_quota
       - autoyast_gnome:
