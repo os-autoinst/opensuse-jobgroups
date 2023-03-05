@@ -129,6 +129,7 @@ scenarios:
       - microos_qemu:
           settings:
             EXCLUDE_MODULES: kvm
+      - microos_fips
     opensuse-Tumbleweed-DVD-aarch64:
       - security_tpm2_swtpm:
           testsuite: null
