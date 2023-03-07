@@ -112,6 +112,7 @@ scenarios:
       - microos_qemu:
           settings:
             QEMUCPU: 'host'
+      - microos_fips
     opensuse-Tumbleweed-DVD-x86_64:
       - textmode:
           machine: 64bit
