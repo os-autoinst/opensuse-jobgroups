@@ -325,7 +325,8 @@ scenarios:
       - openscap:
           settings:
             QEMUCPU: 'host'
-            QEMURAM: '2048'
+            QEMUCPUS: '2'
+            QEMURAM: '4096'
       - autoyast_y2_firstboot:
           settings:
             AUTOYAST: autoyast_opensuse/autoyast_firstboot_leap.xml
@@ -579,7 +580,11 @@ scenarios:
       - zdup-Leap-15.3-kde:
           settings:
             QEMU_VIRTIO_RNG: "0"
-      - openscap
+      - openscap:
+          settings:
+            QEMUCPU: 'host'
+            QEMUCPUS: '2'
+            QEMURAM: '4096'
       - upgrade_Leap_15.0_gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
