@@ -1,0 +1,219 @@
+############################################################
+#                         WARNING                          #
+#                                                          #
+#               This file is managed in GIT!               #
+#  Any changes via the openQA WebUI will get overwritten!  #
+#                                                          #
+#    https://github.com/os-autoinst/opensuse-jobgroups     #
+#               job_groups/alp_bedrock.yaml                #
+############################################################
+
+---
+.default_settings: &default_settings
+  DESKTOP: 'textmode'
+
+.image_settings: &image_settings
+  <<: *default_settings
+  BOOT_HDD_IMAGE: '1'
+  HDD_2: 'ignition.qcow2'
+  NUMDISKS: '2'
+  HDDSIZEGB_1: '30'
+  ENABLE_SELINUX: '1'
+
+.selfinstall_settings: &selfinstall_settings
+  <<: *default_settings
+  SELFINSTALL: '1'
+  NUMDISKS: '2'
+  HDD_2: 'ignition.qcow2'  # openQA will create a qcow2 on the fly
+  HDDSIZEGB_1: '30'
+
+.selfinstall_settings_x86_64: &selfinstall_settings_x86_64
+  <<: *selfinstall_settings
+  QEMU_VIRTIO_RNG: '1'
+  QEMUVGA: 'virtio'
+
+.containers_host_podman: &containers_host_podman
+  REGISTRY: '3.71.98.16:5000'
+  CONTAINER_RUNTIME: podman
+
+.networking: &networking
+  EXTRA: 'networking'
+
+.publish_hdd: &publish_hdd
+  PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+
+.install_ltp: &install_ltp
+  BOOT_HDD_IMAGE: '1'
+  DESKTOP: 'textmode'
+  GRUB_PARAM: 'debug_pagealloc=on;ima_policy=tcb'
+  HDD_2: 'ignition.qcow2'
+  NUMDISKS: '2'
+  HDDSIZEGB_1: '30'
+  INSTALL_LTP: 'from_repo'
+  LTP_ENV: 'LVM_DIR=/var/tmp/'
+  PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%FLAVOR%@%MACHINE%-with-ltp.qcow2'
+  QEMUCPUS: '4'
+  QEMURAM: '4096'
+  QA_HEAD_REPO: 'http://download.opensuse.org/repositories/benchmark:/ltp:/stable/ALP/'
+  LTP_PKG: 'ltp-stable'
+  KERNEL_BASE: '1'
+
+.ltp: &ltp
+  BOOT_HDD_IMAGE: '1'
+  DESKTOP: 'textmode'
+  +HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%FLAVOR%@%MACHINE%-with-ltp.qcow2'
+  QEMUCPUS: '2'
+  LTP_KNOWN_ISSUES: 'https://raw.githubusercontent.com/openSUSE/kernel-qe/main/ltp_known_issues.yaml'
+  START_AFTER_TEST: 'install_ltp'
+  KERNEL_BASE: '1'
+
+.ltp_cve: &ltp_cve
+  LTP_COMMAND_FILE: 'cve'
+
+.ltp_syscalls: &ltp_syscalls
+  LTP_COMMAND_FILE: 'syscalls'
+  LTP_COMMAND_EXCLUDE: '_16$|^(move_pages|msg(ctl|get|rcv|snd|stress)|sem(ctl|get|op|snd)|shm(at|ctl|dt|get))'
+
+.ltp_sched: &ltp_sched
+  LTP_COMMAND_FILE: 'sched'
+
+.ltp_containers: &ltp_containers
+  LTP_COMMAND_FILE: 'containers'
+
+.k3s: &k3s
+  CONTAINER_RUNTIME: 'k3s'
+
+defaults:
+  x86_64:
+    machine: 64bit
+    priority: 50
+  aarch64:
+    machine: aarch64
+    priority: 50
+
+products:
+  alp-bedrock-0.1-Default-x86_64:
+    distri: alp
+    flavor: Default
+    version: 'bedrock-0.1'
+  alp-bedrock-0.1-Default-qcow-x86_64:
+    distri: alp
+    flavor: Default-qcow
+    version: 'bedrock-0.1'
+  alp-bedrock-0.1-Default-SelfInstall-x86_64:
+    distri: alp
+    flavor: Default-SelfInstall
+    version: 'bedrock-0.1'
+  alp-bedrock-0.1-Default-aarch64:
+    distri: alp
+    flavor: Default
+    version: 'bedrock-0.1'
+
+scenarios:
+  x86_64:
+    alp-bedrock-0.1-Default-x86_64:
+      - alp_default:
+          machine: [64bit, uefi]
+          settings:
+            <<: [*image_settings, *publish_hdd]
+      - containers:
+          testsuite: null
+          machine: [64bit, uefi]
+          settings:
+            <<: [*image_settings, *containers_host_podman]
+      - networking:
+          testsuite: null
+          machine: [64bit, uefi]
+          settings:
+            <<: [*image_settings, *networking]
+      - install_ltp:
+          machine: [64bit]
+          settings:
+            <<: *install_ltp
+          testsuite: null
+      - ltp_cve:
+          machine: [64bit]
+          settings:
+            <<: [*ltp, *ltp_cve]
+          testsuite: null
+      - ltp_syscalls:
+          machine: [64bit]
+          settings:
+            <<: [*ltp, *ltp_syscalls]
+          testsuite: null
+      - ltp_sched:
+          machine: [64bit]
+          settings:
+            <<: [*ltp, *ltp_sched]
+          testsuite: null
+      - ltp_containers:
+          machine: [64bit]
+          settings:
+            <<: [*ltp, *ltp_containers]
+          testsuite: null
+      - k3s:
+          testsuite: null
+          machine: [64bit, uefi]
+          settings:
+            <<: [*image_settings, *k3s]
+      - selinux:
+          machine: [64bit, uefi]
+          settings:
+            <<: *image_settings
+            SECURITY_TEST: selinux
+            YAML_SCHEDULE: schedule/security/selinux.yaml
+          testsuite: null
+    alp-bedrock-0.1-Default-qcow-x86_64:
+      - alp_default:
+          machine: [64bit, uefi]
+          settings:
+            <<: [*image_settings, *publish_hdd]
+      - containers:
+          testsuite: null
+          machine: [64bit, uefi]
+          settings:
+            <<: [*image_settings, *containers_host_podman]
+
+  aarch64:
+    alp-bedrock-0.1-Default-aarch64:
+      - alp_default:
+          settings:
+            <<: [*image_settings, *publish_hdd]
+      - containers:
+          testsuite: null
+          settings:
+            <<: [*image_settings, *containers_host_podman]
+      - networking:
+          testsuite: null
+          settings:
+            <<: [*image_settings, *networking]
+      - install_ltp:
+          settings:
+            <<: *install_ltp
+          testsuite: null
+      - ltp_cve:
+          settings:
+            <<: [*ltp, *ltp_cve]
+          testsuite: null
+      - ltp_syscalls:
+          settings:
+            <<: [*ltp, *ltp_syscalls]
+          testsuite: null
+      - ltp_sched:
+          settings:
+            <<: [*ltp, *ltp_sched]
+          testsuite: null
+      - ltp_containers:
+          settings:
+            <<: [*ltp, *ltp_containers]
+          testsuite: null
+      - k3s:
+          testsuite: null
+          settings:
+            <<: [*image_settings, *k3s]
+      - selinux:
+          settings:
+            <<: *image_settings
+            SECURITY_TEST: selinux
+            YAML_SCHEDULE: schedule/security/selinux.yaml
+          testsuite: null
