@@ -515,6 +515,7 @@ scenarios:
       - yast2_gui:
           settings:
             QEMU_VIRTIO_RNG: "0"
+            KEEP_ONLINE_REPOS: "1"
       - extra_tests_on_gnome
       - create_hdd_xfce:
           settings:
