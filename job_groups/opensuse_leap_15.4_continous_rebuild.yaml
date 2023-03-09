@@ -223,7 +223,7 @@ scenarios:
           machine: 64bit
       - yast2_ncurses:
           settings:
-            YAML_SCHEDULE: schedule/yast/opensuse/yast2_ncurses/yast2_ncurses.yaml
+            YAML_SCHEDULE: schedule/yast/opensuse/yast2_ncurses/yast2_ncurses_leap.yaml
       - upgrade_Leap_42.3_cryptlvm:
           machine: uefi
       - toolchain_zypper
@@ -408,7 +408,7 @@ scenarios:
       - kde-wayland
       - yast2_ncurses:
           settings:
-            YAML_SCHEDULE: schedule/yast/opensuse/yast2_ncurses/yast2_ncurses.yaml
+            YAML_SCHEDULE: schedule/yast/opensuse/yast2_ncurses/yast2_ncurses_leap.yaml
       - virtualization:
           settings:
             YAML_SCHEDULE: schedule/virtualization/virtualization.yaml
@@ -511,7 +511,7 @@ scenarios:
             QEMU_VIRTIO_RNG: "0"
       - yast2_ncurses:
           settings:
-            YAML_SCHEDULE: schedule/yast/opensuse/yast2_ncurses/yast2_ncurses.yaml
+            YAML_SCHEDULE: schedule/yast/opensuse/yast2_ncurses/yast2_ncurses_leap.yaml
       - extra_tests_dracut
   s390x:
     opensuse-Leap-15.4-CR-DVD-s390x:
