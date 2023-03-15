@@ -46,6 +46,7 @@
 .image_qemu_settings: &image_qemu_settings
   <<: *image_settings
   QEMUCPU: 'host'
+  EXTRA: 'virtualization'
 
 defaults:
   x86_64:
