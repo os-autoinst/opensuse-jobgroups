@@ -13,12 +13,12 @@
 
 .image_settings: &image_settings
   <<: *default_settings
-  YAML_SCHEDULE: 'schedule/sle-micro/raw_image.yaml'
   BOOT_HDD_IMAGE: '1'
   HDD_2: 'ignition.qcow2'
   NUMDISKS: '2'
   HDDSIZEGB_1: '30'
   ENABLE_SELINUX: '1'
+  FIRST_BOOT_CONFIG: 'combustion+ignition'
 
 .image_container_settings: &image_container_settings
   <<: *image_settings
@@ -26,7 +26,6 @@
   REGISTRY: '3.71.98.16:5000'
   CONTAINER_RUNTIME: 'podman'
   CONTAINER_IMAGE_VERSIONS: '15.4,15.4'
-  YAML_SCHEDULE: ''
 
 .selfinstall_settings: &selfinstall_settings
   <<: *default_settings
@@ -35,19 +34,16 @@
   HDDSIZEGB_1: '30'
   QEMU_VIRTIO_RNG: '1'
   QEMUVGA: 'virtio'
-  YAML_SCHEDULE: 'schedule/sle-micro/selfinstall.yaml'
 
 .selfinstall_settings_aarch64: &selfinstall_settings_aarch64
   <<: *default_settings
   NUMDISKS: '2'
   HDD_2: 'ignition.qcow2'  # openQA will create a qcow2 on the fly
   HDDSIZEGB_1: '30'
-  YAML_SCHEDULE: 'schedule/sle-micro/selfinstall.yaml'
 
 .image_qemu_settings: &image_qemu_settings
   <<: *image_settings
   QEMUCPU: 'host'
-  YAML_SCHEDULE: 'schedule/sle-micro/virt.yaml'
 
 defaults:
   x86_64:
