@@ -18,7 +18,6 @@
   HDD_2: 'ignition.qcow2'
   NUMDISKS: '2'
   HDDSIZEGB_1: '30'
-  ENABLE_SELINUX: '1'
 
 .selfinstall_settings: &selfinstall_settings
   <<: *default_settings
@@ -82,6 +81,11 @@
 
 .k3s: &k3s
   CONTAINER_RUNTIME: 'k3s'
+
+.selinux_settings: &selinux_settings
+  ENABLE_SELINUX: '1'
+  EXTRA: 'selinux'
+
 
 defaults:
   x86_64:
@@ -159,9 +163,7 @@ scenarios:
       - selinux:
           machine: [64bit, uefi]
           settings:
-            <<: *image_settings
-            SECURITY_TEST: selinux
-            YAML_SCHEDULE: schedule/security/selinux.yaml
+            <<: [*image_settings, *selinux_settings]
           testsuite: null
     alp-micro-0.1-Default-qcow-x86_64:
       - alp_default:
@@ -213,7 +215,5 @@ scenarios:
             <<: [*image_settings, *k3s]
       - selinux:
           settings:
-            <<: *image_settings
-            SECURITY_TEST: selinux
-            YAML_SCHEDULE: schedule/security/selinux.yaml
+            <<: [*image_settings, *selinux_settings]
           testsuite: null
