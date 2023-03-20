@@ -930,7 +930,8 @@ scenarios:
           machine: 64bit_virtio
           priority: 48
           settings:
-            POSTGRES_IP: 'k2.qe.suse.de'
+            #POSTGRES_IP: 'k2.qe.suse.de'
+            POSTGRES_IP: '10.137.0.6'
             POSTGRES_PORT: '8080'
       - jeos:
           machine: uefi_virtio-2G
