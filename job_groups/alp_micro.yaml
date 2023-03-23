@@ -94,6 +94,8 @@ defaults:
   aarch64:
     machine: aarch64
     priority: 50
+    settings:
+      KEEP_GRUB_TIMEOUT: "1"
 
 products:
   alp-micro-0.1-Default-x86_64:
