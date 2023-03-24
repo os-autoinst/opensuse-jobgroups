@@ -83,6 +83,11 @@
 .k3s: &k3s
   CONTAINER_RUNTIME: 'k3s'
 
+.selinux_settings: &selinux_settings
+  ENABLE_SELINUX: '1'
+  EXTRA: 'selinux'
+
+
 defaults:
   x86_64:
     machine: 64bit
@@ -159,9 +164,7 @@ scenarios:
       - selinux:
           machine: [64bit, uefi]
           settings:
-            <<: *image_settings
-            SECURITY_TEST: selinux
-            YAML_SCHEDULE: schedule/security/selinux.yaml
+            <<: [*image_settings, *selinux_settings]
           testsuite: null
     alp-bedrock-0.1-Default-qcow-x86_64:
       - alp_default:
@@ -213,7 +216,5 @@ scenarios:
             <<: [*image_settings, *k3s]
       - selinux:
           settings:
-            <<: *image_settings
-            SECURITY_TEST: selinux
-            YAML_SCHEDULE: schedule/security/selinux.yaml
+            <<: [*image_settings, *selinux_settings]
           testsuite: null
