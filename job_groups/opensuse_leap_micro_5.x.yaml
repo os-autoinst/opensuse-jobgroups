@@ -5,11 +5,32 @@
 #  Any changes via the openQA WebUI will get overwritten!  #
 #                                                          #
 #    https://github.com/os-autoinst/opensuse-jobgroups     #
-#      job_groups/opensuse_leap_micro_5.x_image.yaml       #
+#         job_groups/opensuse_leap_micro_5.x.yaml          #
 ############################################################
 ---
 .default_settings: &default_settings
+  +BUILD: '%BUILD_ISO%_%BUILD_IMAGE%'  # To force having DVD and Images under the same group in openQA
   DESKTOP: 'textmode'
+
+.dvd_settings: &dvd_settings
+  <<: *default_settings
+  YAML_SCHEDULE: 'schedule/sle-micro/dvd.yaml'
+
+.dvd_autoyast_settings: &dvd_autoyast_settings
+  <<: *default_settings
+  YAML_SCHEDULE: 'schedule/sle-micro/autoyast.yaml'
+  AUTOYAST: 'autoyast_opensuse/autoyast_leap-micro.xml.ep'
+  AUTOYAST_PREPARE_PROFILE: '1'
+
+.dvd_selinux_settings: &dvd_selinux_settings
+  <<: *dvd_settings
+  ENABLE_SELINUX: '1'
+
+.dvd_qemu_settings: &dvd_qemu_settings
+  <<: *dvd_settings
+  QEMUCPU: 'host'
+  PATTERNS: 'default,kvm'
+  YAML_SCHEDULE: 'schedule/sle-micro/dvd_virt.yaml'
 
 .image_settings: &image_settings
   <<: *default_settings
@@ -59,6 +80,12 @@ defaults:
       QEMUCPUS: '2'
 
 products:
+  leap-micro-5.4-DVD-x86_64: &product_dvd
+    distri: leap-micro
+    flavor: DVD
+    version: '5.4'
+  leap-micro-5.4-DVD-aarch64:
+    *product_dvd
   leap-micro-5.4-MicroOS-Image-SelfInstall-x86_64:
     distri: leap-micro
     flavor: Default-SelfInstall
@@ -84,6 +111,32 @@ products:
 
 scenarios:
   x86_64:
+    leap-micro-5.4-DVD-x86_64:
+      - microos_installation_default:
+          machine: [64bit, uefi]
+          settings:
+            <<: *dvd_settings
+      - microos_installation_autoyast: &dvd_autoyast_test
+          settings:
+            <<: *dvd_autoyast_settings
+      - microos_installation_selinux: &dvd_selinux_test
+          settings:
+            <<: *dvd_selinux_settings
+      - microos_installation_virt:
+          settings:
+            <<: *dvd_qemu_settings
+      - microos_ssh_installation_controller:
+          settings:
+            <<: *default_settings
+            +BETA: ""
+            EXTRABOOTPARAMS_BOOT_LOCAL: '3'
+      - microos_ssh_installation_target:
+          settings:
+            <<: *default_settings
+            MIRROR_HTTP: http://download.opensuse.org/distribution/leap-micro/%VERSION%/product/repo/Leap-Micro-%VERSION%-%ARCH%-Media/
+            MIRROR_HTTPS: https://download.opensuse.org/distribution/leap-micro/%VERSION%/product/repo/Leap-Micro-%VERSION%-%ARCH%-Media/
+            MIRROR_PREFIX: http://download.opensuse.org/distribution/leap-micro/5.4/product/repo/
+            INSTALL_SOURCE: http
     leap-micro-5.4-MicroOS-Image-x86_64:
       - microos_image_default:
           machine: [64bit, uefi]
@@ -125,3 +178,14 @@ scenarios:
       - microos_virtualization:
           settings:
             <<: *image_qemu_settings
+    leap-micro-5.4-DVD-aarch64:
+      - microos_installation_default:
+          settings:
+            *dvd_settings
+      - microos_installation_autoyast:
+          *dvd_autoyast_test
+      - microos_installation_selinux:
+          *dvd_selinux_test
+      - microos_installation_virt:
+          settings:
+            <<: *dvd_qemu_settings

@@ -64,8 +64,7 @@
 98: opensuse_leap_15.4_updates
 99: opensuse_leap_15.4_backports
 100: alp
-101: opensuse_leap_micro_5.x_image
-102: opensuse_leap_micro_5.x_dvd
+101: opensuse_leap_micro_5.x
 103: opensuse_leap_15.5_images
 104: opensuse_leap_15.5_armv7_images
 105: alp-staging
