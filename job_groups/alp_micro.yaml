@@ -108,6 +108,10 @@ products:
     distri: alp
     flavor: Default-SelfInstall
     version: 'micro-0.1'
+  alp-micro-0.1-Default-encrypted-x86_64:
+    distri: alp
+    flavor: Default-encrypted
+    version: 'micro-0.1'
   alp-micro-0.1-Default-aarch64:
     distri: alp
     flavor: Default
@@ -175,6 +179,16 @@ scenarios:
           machine: [64bit, uefi]
           settings:
             <<: [*image_settings, *containers_host_podman]
+    alp-micro-0.1-Default-SelfInstall-x86_64:
+      - alp_default:
+          machine: [64bit, uefi]
+          settings:
+            <<: *selfinstall_settings
+    alp-micro-0.1-Default-encrypted-x86_64:
+      - alp_default:
+          machine: [64bit, uefi]
+          settings:
+            <<: *image_settings
 
   aarch64:
     alp-micro-0.1-Default-aarch64:
