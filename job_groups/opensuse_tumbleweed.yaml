@@ -715,21 +715,7 @@ scenarios:
       - gnome-x11-ibus
       - toolkits-kde
       - openldap_to_389ds
-      - apparmor_profile:
-          description: |-
-            Maintainer: llzhao@suse.de.
-            Test AppArmor profiles with an existing disk image.
-          settings:
-            ARCH: x86_64
-            BOOT_HDD_IMAGE: '1'
-            DESKTOP: gnome
-            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
-            MACHINE: 64bit
-            SECURITY_TEST: apparmor_profile
-            START_AFTER_TEST: create_hdd_gnome
-            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
-            VIDEOMODE: text
-          testsuite: null
+      - apparmor_profile
       - create_swtpm_hdd
       - create_hdd_textmode_uefi:
           machine: uefi
