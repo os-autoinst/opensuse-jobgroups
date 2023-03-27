@@ -90,7 +90,7 @@
 
 defaults:
   x86_64:
-    machine: 64bit
+    machine: uefi
     priority: 50
   aarch64:
     machine: aarch64
@@ -127,46 +127,37 @@ scenarios:
             <<: [*image_settings, *publish_hdd]
       - containers:
           testsuite: null
-          machine: [64bit, uefi]
           settings:
             <<: [*image_settings, *containers_host_podman]
       - networking:
           testsuite: null
-          machine: [64bit, uefi]
           settings:
             <<: [*image_settings, *networking]
       - install_ltp:
-          machine: [64bit]
           settings:
             <<: *install_ltp
           testsuite: null
       - ltp_cve:
-          machine: [64bit]
           settings:
             <<: [*ltp, *ltp_cve]
           testsuite: null
       - ltp_syscalls:
-          machine: [64bit]
           settings:
             <<: [*ltp, *ltp_syscalls]
           testsuite: null
       - ltp_sched:
-          machine: [64bit]
           settings:
             <<: [*ltp, *ltp_sched]
           testsuite: null
       - ltp_containers:
-          machine: [64bit]
           settings:
             <<: [*ltp, *ltp_containers]
           testsuite: null
       - k3s:
           testsuite: null
-          machine: [64bit, uefi]
           settings:
             <<: [*image_settings, *k3s]
       - selinux:
-          machine: [64bit, uefi]
           settings:
             <<: [*image_settings, *selinux_settings]
           testsuite: null
@@ -177,17 +168,14 @@ scenarios:
             <<: [*image_settings, *publish_hdd]
       - containers:
           testsuite: null
-          machine: [64bit, uefi]
           settings:
             <<: [*image_settings, *containers_host_podman]
     alp-bedrock-0.1-Default-SelfInstall-x86_64:
       - alp_default:
-          machine: uefi
           settings:
             <<: *selfinstall_settings
     alp-bedrock-0.1-Default-encrypted-x86_64:
       - alp_default:
-          machine: uefi
           settings:
             <<: *image_settings
 
