@@ -182,12 +182,12 @@ scenarios:
             <<: [*image_settings, *containers_host_podman]
     alp-bedrock-0.1-Default-SelfInstall-x86_64:
       - alp_default:
-          machine: [64bit, uefi]
+          machine: uefi
           settings:
             <<: *selfinstall_settings
     alp-bedrock-0.1-Default-encrypted-x86_64:
       - alp_default:
-          machine: [64bit, uefi]
+          machine: uefi
           settings:
             <<: *image_settings
 
