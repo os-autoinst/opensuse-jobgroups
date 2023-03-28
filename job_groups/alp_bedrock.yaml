@@ -80,9 +80,6 @@
 .ltp_containers: &ltp_containers
   LTP_COMMAND_FILE: 'containers'
 
-.k3s: &k3s
-  CONTAINER_RUNTIME: 'k3s'
-
 .selinux_settings: &selinux_settings
   ENABLE_SELINUX: '1'
   EXTRA: 'selinux'
@@ -153,10 +150,6 @@ scenarios:
           settings:
             <<: [*ltp, *ltp_containers]
           testsuite: null
-      - k3s:
-          testsuite: null
-          settings:
-            <<: [*image_settings, *k3s]
       - selinux:
           settings:
             <<: [*image_settings, *selinux_settings]
@@ -212,10 +205,6 @@ scenarios:
           settings:
             <<: [*ltp, *ltp_containers]
           testsuite: null
-      - k3s:
-          testsuite: null
-          settings:
-            <<: [*image_settings, *k3s]
       - selinux:
           settings:
             <<: [*image_settings, *selinux_settings]
