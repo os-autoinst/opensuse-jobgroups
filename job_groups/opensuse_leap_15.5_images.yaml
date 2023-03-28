@@ -227,7 +227,7 @@ scenarios:
           settings:
             DESKTOP: textmode
             EXTRABOOTPARAMS: quiet
-            REGISTRY: 3.71.98.16:5000
+            REGISTRY: registry.qe.suse.de:5000
             NUMDISKS: '2'
             CONTAINER_RUNTIME: "podman,docker"
             # Max size isn't that strict
@@ -237,7 +237,7 @@ scenarios:
           settings:
             DESKTOP: textmode
             EXTRABOOTPARAMS: quiet
-            REGISTRY: 3.71.98.16:5000
+            REGISTRY: registry.qe.suse.de:5000
             CONTAINER_RUNTIME: "podman,docker"
             CONTAINERS_UNTESTED_IMAGES: '1'
             CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap/15.5/images/totest/containers/opensuse/leap:15.5'
