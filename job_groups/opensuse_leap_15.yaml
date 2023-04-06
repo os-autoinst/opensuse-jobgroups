@@ -238,6 +238,9 @@ scenarios:
       - yast2_ncurses:
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/yast2_ncurses/yast2_ncurses_leap.yaml
+      - virtualization:
+          settings:
+            YAML_SCHEDULE: schedule/virtualization/virtualization.yaml
       - upgrade_Leap_42.3_cryptlvm:
           machine: uefi
       - toolchain_zypper
@@ -497,6 +500,8 @@ scenarios:
           priority: 30
       - rescue_system
       - xfs
+      - gpt
+      - minimalx_btrfs_snapper
       - create_hdd_textmode:
           priority: 40
           settings:
@@ -537,9 +542,22 @@ scenarios:
           settings:
             QEMU_VIRTIO_RNG: "0"
       - gnome-ext4
-      - extra_tests_in_textmode:
+      - extra_tests_textmode:
           settings:
             QEMU_VIRTIO_RNG: "0"
+      - extra_tests_webserver
+      - extra_tests_textmode_podman_containers:
+          testsuite: extra_tests_textmode_containers
+          settings:
+            CONTAINER_RUNTIME: 'podman'
+            CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap:15.4'
+            CONTAINER_IMAGE_VERSIONS: '15.4'
+      - extra_tests_textmode_docker_containers:
+          testsuite: extra_tests_textmode_containers
+          settings:
+            CONTAINER_RUNTIME: 'docker'
+            CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap:15.4'
+            CONTAINER_IMAGE_VERSIONS: '15.4'
       - autoyast_minimal:
           settings:
             AUTOYAST: autoyast_opensuse/opensuse_leap_minimal.xml
@@ -552,6 +570,9 @@ scenarios:
           settings:
             QEMU_VIRTIO_RNG: "0"
       - gnuhealth
+      - clone_system:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - wicked_basic_sut
       - kde-wayland
       - yast2_ncurses:
@@ -565,7 +586,13 @@ scenarios:
       - transactional_server:
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/transactional_server/transactional_server.yaml
+      - install_offline
       - system_performance
+      - lvm-encrypt-separate-boot
+      - lvm-full-encrypt
+      - lvm_thin_provisioning:
+          settings:
+            YAML_SCHEDULE: schedule/yast/opensuse/lvm/lvm_thin_provisioning.yaml
       - apparmor
       - zdup-Leap-15.2-gnome:
           settings:
@@ -595,6 +622,12 @@ scenarios:
       - upgrade_Leap_15.1_gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
+      - installer_extended
+      - btrfs:
+          settings:
+            HDDSIZEGB: '40'
+            YAML_SCHEDULE: schedule/yast/opensuse/btrfs/btrfs.yaml
+          testsuite: null
       - btrfs+warnings:
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/btrfs/btrfs+warnings.yaml
