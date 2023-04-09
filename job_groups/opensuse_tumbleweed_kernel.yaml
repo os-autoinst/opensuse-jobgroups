@@ -135,6 +135,12 @@ scenarios:
       - nfs_pynfs_nfs41_all
       - create_hdd_xfstests
       - xfstests_btrfs-btrfs-001-050
+      - xfstests_nfs4.1-generic
+      - xfstests_nfs4.1-nfs
+      - xfstests_nfs4.0-generic
+      - xfstests_nfs4.0-nfs
+      - xfstests_nfs3-generic
+      - xfstests_nfs3-nfs
   i586:
     opensuse-Tumbleweed-LegacyX86-NET-i586:
       - install_ltp+opensuse+LegacyX86-NET
@@ -231,6 +237,12 @@ scenarios:
       - nfs_pynfs_nfs41_all
       - create_hdd_xfstests
       - xfstests_btrfs-btrfs-001-050
+      - xfstests_nfs4.1-generic
+      - xfstests_nfs4.1-nfs
+      - xfstests_nfs4.0-generic
+      - xfstests_nfs4.0-nfs
+      - xfstests_nfs3-generic
+      - xfstests_nfs3-nfs
   s390x:
     opensuse-Tumbleweed-DVD-s390x:
       - ltp_cve
@@ -323,4 +335,10 @@ scenarios:
       - nfs_pynfs_nfs41_all
       - create_hdd_xfstests
       - xfstests_btrfs-btrfs-001-050
+      - xfstests_nfs4.1-generic
+      - xfstests_nfs4.1-nfs
+      - xfstests_nfs4.0-generic
+      - xfstests_nfs4.0-nfs
+      - xfstests_nfs3-generic
+      - xfstests_nfs3-nfs
       - xfstests_xfs-xfs-001-100
