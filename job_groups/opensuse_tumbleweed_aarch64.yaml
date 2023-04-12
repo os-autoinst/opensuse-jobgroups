@@ -215,6 +215,8 @@ scenarios:
             YAML_SCHEDULE: schedule/yast/opensuse/yast2_ncurses/yast2_ncurses.yaml
       - create_hdd_textmode:
           priority: 40
+      - create_hdd_textmode_autoyast:
+          priority: 40
       - create_hdd_textmode:
           machine: aarch64_lse_smp4
           priority: 40

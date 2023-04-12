@@ -209,6 +209,8 @@ scenarios:
       - minimalx_btrfs_snapper
       - create_hdd_textmode:
           priority: 45
+      - create_hdd_textmode_autoyast:
+          priority: 45
       - create_hdd_gnome:
           priority: 45
       - create_hdd_gnome_libyui
