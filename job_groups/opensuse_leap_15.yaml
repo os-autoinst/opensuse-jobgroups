@@ -588,11 +588,16 @@ scenarios:
             YAML_SCHEDULE: schedule/yast/opensuse/transactional_server/transactional_server.yaml
       - install_offline
       - system_performance
-      - lvm-encrypt-separate-boot
-      - lvm-full-encrypt
+      - lvm-encrypt-separate-boot:
+          settings:
+            YAML_TEST_DATA: test_data/yast/encryption/lvm_encrypt_separate_boot_uefi.yaml
+      - lvm-full-encrypt:
+          settings:
+            YAML_TEST_DATA: test_data/yast/encryption/lvm_encrypt_separate_boot_uefi.yaml
       - lvm_thin_provisioning:
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/lvm/lvm_thin_provisioning.yaml
+            YAML_TEST_DATA: test_data/yast/encryption/lvm_encrypt_separate_boot_uefi.yaml
       - apparmor
       - zdup-Leap-15.2-gnome:
           settings:
