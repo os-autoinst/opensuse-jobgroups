@@ -154,6 +154,11 @@ scenarios:
           settings:
             <<: [*image_settings, *selinux_settings]
           testsuite: null
+      - container_selinux:
+          settings:
+            <<: *image_settings
+            YAML_SCHEDULE: 'schedule/security/container_selinux.yaml'
+          testsuite: null
     alp-bedrock-0.1-Default-qcow-x86_64:
       - alp_default:
           machine: [64bit, uefi]
@@ -208,4 +213,9 @@ scenarios:
       - selinux:
           settings:
             <<: [*image_settings, *selinux_settings]
+          testsuite: null
+      - container_selinux:
+          settings:
+            <<: *image_settings
+            YAML_SCHEDULE: 'schedule/security/container_selinux.yaml'
           testsuite: null
