@@ -160,6 +160,10 @@ scenarios:
           settings:
             <<: [*image_settings, *selinux_settings]
           testsuite: null
+      - kea_dhcp4_container_server
+      - kea_dhcp4_container_client
+      - kea_dhcp6_container_server
+      - kea_dhcp6_container_client
     alp-micro-0.1-Default-qcow-x86_64:
       - alp_default:
           machine: [64bit, uefi]
