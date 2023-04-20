@@ -75,7 +75,7 @@ scenarios:
           machine: 64bit
       - microos_textmode
       - container-host:
-          machine: 64bit
+          machine: 64bit-4G-HD40G
           settings:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
       - remote_ssh_controller:
@@ -91,12 +91,15 @@ scenarios:
             +YAML_SCHEDULE: ''
     microos-*-MicroOS-Image-ContainerHost-x86_64:
       - container-host:
+          machine: 64bit-4G-HD40G
           settings:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
       - container-host2microosnext:
+          machine: 64bit-4G-HD40G
           settings:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
       - container-host-old2microosnext:
+          machine: 64bit-4G-HD40G
           settings:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
     microos-*-MicroOS-Image-x86_64:

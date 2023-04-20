@@ -105,13 +105,16 @@ scenarios:
             YAML_SCHEDULE: schedule/sle-micro/remote_ssh_target.yaml
     microos-*-MicroOS-Image-ContainerHost-aarch64:
       - container-host:
+          machine: 64bit-4G-HD40G
           settings:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/arm/totest/containers/opensuse/tumbleweed
       - container-host2microosnext:
+          machine: 64bit-4G-HD40G
           settings:
             HDD_1_URL: 'http://download.opensuse.org/ports/aarch64/tumbleweed/appliances/openSUSE-MicroOS.aarch64-ContainerHost-kvm-and-xen.qcow2?foo=%BUILD%'
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/arm/totest/containers/opensuse/tumbleweed
       - container-host-old2microosnext:
+          machine: 64bit-4G-HD40G
           settings:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/arm/totest/containers/opensuse/tumbleweed
     microos-*-MicroOS-Image-aarch64:
