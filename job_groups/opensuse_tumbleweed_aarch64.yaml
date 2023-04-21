@@ -543,6 +543,8 @@ scenarios:
           machine: aarch64-HD20G
       - jeos-container_image:
           machine: aarch64-HD20G
+          settings:
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/arm/totest/containers/opensuse/tumbleweed
       - jeos-filesystem:
           machine: aarch64-HD20G
       - jeos-fips:
@@ -573,6 +575,17 @@ scenarios:
           machine: RPi4
           settings:
             PASSWORD: linux
+      - jeos-container_host:
+          machine: RPi3
+          settings:
+            PASSWORD: linux
+            TIMEOUT_SCALE: '3'
+      - jeos-container_image:
+          machine: RPi3
+          settings:
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/arm/totest/containers/opensuse/tumbleweed
+            PASSWORD: linux
+            TIMEOUT_SCALE: '3'
       - jeos-containers:
           machine: RPi3
           settings:
