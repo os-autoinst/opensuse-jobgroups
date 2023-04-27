@@ -124,6 +124,7 @@ scenarios:
           machine: 64bit
           settings:
             QEMU_VIRTIO_RNG: "0"
+      - create_hdd_gnome_wicked
       - create_hdd_gnome:
           machine: uefi
       - create_hdd_kde:
@@ -186,8 +187,12 @@ scenarios:
           machine: 64bit-2G
       - gnome+import_ssh_keys:
           machine: 64bit_cirrus-2G
+          settings:
+            HDD_1: opensuse-15.3-%ARCH%-GM-%DESKTOP%@64bit.qcow2
       - gnome+do_not_import_ssh_keys:
           machine: 64bit_cirrus-2G
+          settings:
+            HDD_1: opensuse-15.3-%ARCH%-GM-%DESKTOP%@64bit.qcow2
       - autoyast_gnome:
           machine: 64bit
           settings:
@@ -452,11 +457,11 @@ scenarios:
       - zdup-Leap-15.2-gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
-            +HDD_1: "%DISTRI%-15.2-%ARCH%-GM-Updated-gnome@%MACHINE%.qcow2"
+            HDD_1: "%DISTRI%-15.2-%ARCH%-GM-gnome@%MACHINE%.qcow2"
       - zdup-Leap-15.2-kde:
           settings:
             QEMU_VIRTIO_RNG: "0"
-            +HDD_1: "%DISTRI%-15.2-%ARCH%-GM-Updated-kde@%MACHINE%.qcow2"
+            HDD_1: "%DISTRI%-15.2-%ARCH%-GM-kde@%MACHINE%.qcow2"
       - zdup-Leap-15.3-gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
@@ -704,6 +709,9 @@ scenarios:
           settings:
             QEMU_VIRTIO_RNG: "0"
       - create_hdd_gnome:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - create_hdd_gnome_libyui:
           settings:
             QEMU_VIRTIO_RNG: "0"
       - create_hdd_kde
