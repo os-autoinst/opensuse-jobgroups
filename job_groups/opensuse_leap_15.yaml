@@ -124,7 +124,9 @@ scenarios:
           machine: 64bit
           settings:
             QEMU_VIRTIO_RNG: "0"
-      - create_hdd_gnome_wicked
+      - create_hdd_gnome_wicked:
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - create_hdd_gnome:
           machine: uefi
       - create_hdd_kde:
@@ -246,6 +248,7 @@ scenarios:
       - virtualization:
           settings:
             YAML_SCHEDULE: schedule/virtualization/virtualization.yaml
+            QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_42.3_cryptlvm:
           machine: uefi
       - toolchain_zypper
@@ -457,11 +460,11 @@ scenarios:
       - zdup-Leap-15.2-gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
-            HDD_1: "%DISTRI%-15.2-%ARCH%-GM-gnome@%MACHINE%.qcow2"
+            +HDD_1: "%DISTRI%-15.2-%ARCH%-GM-Updated-gnome@%MACHINE%.qcow2"
       - zdup-Leap-15.2-kde:
           settings:
             QEMU_VIRTIO_RNG: "0"
-            HDD_1: "%DISTRI%-15.2-%ARCH%-GM-kde@%MACHINE%.qcow2"
+            +HDD_1: "%DISTRI%-15.2-%ARCH%-GM-Updated-kde@%MACHINE%.qcow2"
       - zdup-Leap-15.3-gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
@@ -607,11 +610,11 @@ scenarios:
       - zdup-Leap-15.2-gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
-            +HDD_1: "%DISTRI%-15.2-%ARCH%-GM-Updated-gnome@%MACHINE%.qcow2"
+            +HDD_1: "%DISTRI%-15.2-%ARCH%-GM-gnome@%MACHINE%.qcow2"
       - zdup-Leap-15.2-kde:
           settings:
             QEMU_VIRTIO_RNG: "0"
-            +HDD_1: "%DISTRI%-15.2-%ARCH%-GM-Updated-kde@%MACHINE%.qcow2"
+            +HDD_1: "%DISTRI%-15.2-%ARCH%-GM-kde@%MACHINE%.qcow2"
       - zdup-Leap-15.3-gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
