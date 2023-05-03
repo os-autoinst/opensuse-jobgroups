@@ -164,6 +164,12 @@ scenarios:
       - kea_dhcp4_container_client
       - kea_dhcp6_container_server
       - kea_dhcp6_container_client
+      - container_selinux:
+          settings:
+            <<: *image_settings
+            ENABLE_SELINUX: '1'
+            YAML_SCHEDULE: 'schedule/security/container_selinux.yaml'
+          testsuite: null
     alp-micro-0.1-Default-qcow-x86_64:
       - alp_default:
           machine: [64bit, uefi]
@@ -222,4 +228,10 @@ scenarios:
       - selinux:
           settings:
             <<: [*image_settings, *selinux_settings]
+          testsuite: null
+      - container_selinux:
+          settings:
+            <<: *image_settings
+            ENABLE_SELINUX: '1'
+            YAML_SCHEDULE: 'schedule/security/container_selinux.yaml'
           testsuite: null
