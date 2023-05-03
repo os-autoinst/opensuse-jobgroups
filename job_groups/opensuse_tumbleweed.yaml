@@ -1090,6 +1090,8 @@ scenarios:
       - zdup-Leap-15.3-gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
+      - zdup-Leap-15.4-gnome
+      - zdup-Leap-15.4-kde
       - create_hdd_minimalx
       - create_hdd_tumbleweed:
           # Workaround for boo#1200753
