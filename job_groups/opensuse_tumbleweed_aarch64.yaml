@@ -257,7 +257,7 @@ scenarios:
       - containers_host_containerd:
           testsuite: extra_tests_textmode_containers
           settings:
-            CONTAINER_RUNTIME: 'containerd_clictl,containerd_nerdctl'
+            CONTAINER_RUNTIME: 'containerd_crictl,containerd_nerdctl'
       - containers_hpc_apptainer:
           testsuite: extra_tests_textmode_containers
           settings:
