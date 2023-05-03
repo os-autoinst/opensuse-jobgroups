@@ -891,11 +891,13 @@ scenarios:
           machine: uefi
           settings:
             DESKTOP: gnome
+            AUTOYAST: 'autoyast_opensuse/create_hdd/create_hdd_gnome_x86_64_uefi.xml'
       - autoyast_create_hdd_textmode_uefi:
           testsuite: create_hdd_desktop_ay_uefi
           machine: uefi
           settings:
             DESKTOP: textmode
+            AUTOYAST: 'autoyast_opensuse/create_hdd/create_hdd_textmode_x86_64_uefi.xml'
     opensuse-Tumbleweed-GNOME-Live-x86_64:
       - gnome-live:
           machine: uefi
