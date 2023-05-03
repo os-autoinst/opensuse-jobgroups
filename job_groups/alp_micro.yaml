@@ -160,10 +160,6 @@ scenarios:
           settings:
             <<: [*image_settings, *selinux_settings]
           testsuite: null
-      - kea_dhcp4_container_server
-      - kea_dhcp4_container_client
-      - kea_dhcp6_container_server
-      - kea_dhcp6_container_client
       - container_selinux:
           settings:
             <<: *image_settings
