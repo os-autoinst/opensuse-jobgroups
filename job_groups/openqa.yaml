@@ -31,7 +31,6 @@ scenarios:
           settings:
             PUBLISH_HDD_1: 'opensuse-Tumbleweed-%ARCH%@%MACHINE%-%BUILD%.qcow2'
             PUBLISH_PFLASH_VARS: 'opensuse-Tumbleweed-%ARCH%@%MACHINE%-%BUILD%-uefi-vars.qcow2'
-            PYTHON: '1'
           description: >-
             Maintainer: okurz@suse.de Test for installation of openQA itself.
             To be used with "openqa" distri. Publishes an qcow2 image including the openQA installation
@@ -48,6 +47,7 @@ scenarios:
           settings:
             OPENQA_CONTAINERS: '1'
             OPENQA_FROM_GIT: '1'  # see: main.pm, avoid load_osautoinst_tests
+            LOAD_PYTHON_TEST_MODULES: '0'
           description: >-
             Maintainer: okurz@suse.de Test for running openQA itself from containers.
             To be used with "openqa" distri.
