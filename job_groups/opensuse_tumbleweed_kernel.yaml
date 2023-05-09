@@ -247,6 +247,7 @@ scenarios:
     opensuse-Tumbleweed-DVD-s390x:
       - ltp_cve
       - ltp_crypto_pty_commands
+      - ltp_net_nfs
       - ltp_syscalls
       - kernel-live-patching:
           settings:
