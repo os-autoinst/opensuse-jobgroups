@@ -213,6 +213,8 @@ scenarios:
           priority: 45
       - create_hdd_gnome:
           priority: 45
+      - create_hdd_gnome_autoyast_current
+      - zdup_tw_current_gnome
       - create_hdd_gnome_libyui
       - create_hdd_gnome_wicked
       - create_hdd_kde:
