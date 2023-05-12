@@ -84,6 +84,9 @@
   ENABLE_SELINUX: '1'
   EXTRA: 'selinux'
 
+.yast: &yast
+  DUMMY: ''
+
 
 defaults:
   x86_64:
@@ -163,6 +166,11 @@ scenarios:
             <<: *image_settings
             YAML_SCHEDULE: 'schedule/security/container_selinux.yaml'
           testsuite: null
+      - yast:
+          testsuite: null
+          settings:
+            <<: *yast
+
     alp-bedrock-0.1-Default-qcow-x86_64:
       - alp_default:
           machine: [64bit, uefi]
@@ -172,14 +180,26 @@ scenarios:
           testsuite: null
           settings:
             <<: [*image_settings, *containers_host_podman]
+      - yast:
+          testsuite: null
+          settings:
+            <<: *yast
     alp-bedrock-0.1-Default-SelfInstall-x86_64:
       - alp_default:
           settings:
             <<: *selfinstall_settings
+      - yast:
+          testsuite: null
+          settings:
+            <<: *yast
     alp-bedrock-0.1-Default-encrypted-x86_64:
       - alp_default:
           settings:
             <<: *image_settings
+      - yast:
+          testsuite: null
+          settings:
+            <<: *yast
 
   aarch64:
     alp-bedrock-0.1-Default-aarch64:
@@ -223,3 +243,7 @@ scenarios:
             <<: *image_settings
             YAML_SCHEDULE: 'schedule/security/container_selinux.yaml'
           testsuite: null
+      - yast:
+          testsuite: null
+          settings:
+            <<: *yast
