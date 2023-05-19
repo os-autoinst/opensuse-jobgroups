@@ -159,6 +159,7 @@ scenarios:
       - selinux:
           settings:
             <<: [*image_settings, *selinux_settings]
+            YAML_SCHEDULE: 'schedule/security/selinux.yaml'
           testsuite: null
       - container_selinux:
           settings:
@@ -224,6 +225,7 @@ scenarios:
       - selinux:
           settings:
             <<: [*image_settings, *selinux_settings]
+            YAML_SCHEDULE: 'schedule/security/selinux.yaml'
           testsuite: null
       - container_selinux:
           settings:
