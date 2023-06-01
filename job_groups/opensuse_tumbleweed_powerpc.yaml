@@ -9,24 +9,13 @@
 ############################################################
 ---
 defaults:
-  ppc64:
-    machine: ppc64
-    priority: 50
   ppc64le:
     machine: ppc64le
     priority: 50
 products:
-  opensuse-Tumbleweed-DVD-ppc64:
-    distri: opensuse
-    flavor: DVD
-    version: Tumbleweed
   opensuse-Tumbleweed-DVD-ppc64le:
     distri: opensuse
     flavor: DVD
-    version: Tumbleweed
-  opensuse-Tumbleweed-NET-ppc64:
-    distri: opensuse
-    flavor: NET
     version: Tumbleweed
   opensuse-Tumbleweed-NET-ppc64le:
     distri: opensuse
@@ -41,36 +30,6 @@ products:
     flavor: Kubic-DVD
     version: '*'
 scenarios:
-  ppc64:
-    opensuse-Tumbleweed-DVD-ppc64:
-      - textmode
-      - minimalx:
-          machine: ppc64
-      - RAID0:
-          settings:
-            YAML_SCHEDULE: schedule/yast/opensuse/raid/raid0_gpt.yaml
-            YAML_TEST_DATA: test_data/yast/raid/raid0_prep_boot.yaml
-      - RAID1:
-          settings:
-            YAML_SCHEDULE: schedule/yast/opensuse/raid/raid1_gpt.yaml
-            YAML_TEST_DATA: test_data/yast/raid/raid1_prep_boot.yaml
-      - RAID5:
-          settings:
-            YAML_SCHEDULE: schedule/yast/opensuse/raid/raid5_gpt.yaml
-            YAML_TEST_DATA: test_data/yast/raid/raid5_prep_boot.yaml
-      - lvm
-      - mediacheck
-      - rescue_system
-      - gpt
-      - create_hdd_textmode
-      - install_minimalx:
-          machine: ppc64-multipath
-      - boot_to_snapshot
-    opensuse-Tumbleweed-NET-ppc64:
-      - minimalx:
-          machine: ppc64
-      - install_minimalx:
-          machine: ppc64
   ppc64le:
     opensuse-Tumbleweed-DVD-ppc64le:
       - textmode
