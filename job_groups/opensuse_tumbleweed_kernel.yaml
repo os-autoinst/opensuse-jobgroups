@@ -343,3 +343,46 @@ scenarios:
       - xfstests_nfs3-generic
       - xfstests_nfs3-nfs
       - xfstests_xfs-xfs-001-100
+      - nfs_server:
+          testsuite: null
+          settings:
+            BOOT_HDD_IMAGE: "1"
+            DESKTOP: "textmode"
+            WORKER_CLASS: tap
+            NICTYPE: tap
+            HDD_1: "%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2"
+            UEFI_PFLASH_VARS: "%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2"
+            PARALLEL_WITH: nfs_support_server
+            ROLE: nfs_server
+            HOSTNAME: server-node00
+            USE_SUPPORT_SERVER: "1"
+            YAML_SCHEDULE: schedule/storage/nfs.yaml
+      - nfs_client:
+          testsuite: null
+          settings:
+            BOOT_HDD_IMAGE: "1"
+            DESKTOP: "textmode"
+            WORKER_CLASS: tap
+            NICTYPE: tap
+            HDD_1: "%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2"
+            UEFI_PFLASH_VARS: "%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2"
+            PARALLEL_WITH: nfs_support_server
+            ROLE: nfs_client
+            HOSTNAME: client-node00
+            USE_SUPPORT_SERVER: "1"
+            YAML_SCHEDULE: schedule/storage/nfs.yaml
+      - nfs_support_server:
+          testsuite: null
+          settings:
+            BOOT_HDD_IMAGE: "1"
+            EXTRABOOTPARAMS_BOOT_LOCAL: "3"
+            SUPPORT_SERVER: "1"
+            SUPPORT_SERVER_ROLES: dhcp,dns
+            NICTYPE: tap
+            VIDEOMODE: text
+            DESKTOP: "textmode"
+            WORKER_CLASS: tap
+            HDD_1: "support_server_tumbleweed@64bit.qcow2"
+            START_AFTER_TEST: create_hdd_textmode
+            YAML_SCHEDULE: schedule/storage/supportserver.yaml
+            MULTIMACHINE_NODES: "2"
