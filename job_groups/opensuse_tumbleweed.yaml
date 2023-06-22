@@ -614,11 +614,11 @@ scenarios:
           priority: 45
       - sway:
           testsuite: null
-          machine: 64bit_virtio
           settings:
             BOOT_HDD_IMAGE: "1"
             VIDEOMODE: text
             DESKTOP: textmode
+            QEMU_VIDEO_DEVICE: virtio-vga
             HDD_1: "%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2"
             UEFI_PFLASH_VARS: "%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2"
             START_AFTER_TEST: create_hdd_textmode
