@@ -775,6 +775,10 @@ scenarios:
             DESKTOP: textmode
       - security_grub_auth
       - openqa_bootstrap
+      - openqa_bootstrap_nginx:
+          testsuite: openqa_bootstrap
+          settings:
+            OPENQA_WEB_PROXY: 'nginx'
       - openqa_bootstrap_container
       - rootonly
       - qemu
