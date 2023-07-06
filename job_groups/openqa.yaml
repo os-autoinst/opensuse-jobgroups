@@ -35,13 +35,6 @@ scenarios:
             Maintainer: okurz@suse.de Test for installation of openQA itself.
             To be used with "openqa" distri. Publishes an qcow2 image including the openQA installation
             ready to run as an appliance.
-      - openqa_install_nginx:
-          testsuite: null
-          settings:
-            OPENQA_WEB_PROXY: 'nginx'
-          description: >-
-            Maintainer: okurz@suse.de Test for installation of openQA itself.
-            To be used with "openqa" distri. This uses nginx instead of apache2.
       - openqa_from_git:
           testsuite: null
           settings:
