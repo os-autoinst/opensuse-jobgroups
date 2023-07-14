@@ -84,6 +84,8 @@ scenarios:
           settings:
             START_AFTER_TEST: 'create_hdd_leap_textmode_autoyast'
             HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%_ay@%MACHINE%.qcow2'
+            # bsc#1213268
+            EXCLUDE_MODULES: 'zfs'
       - gnuhealth:
           settings:
             START_AFTER_TEST: 'create_hdd_leap_gnome_autoyast'
