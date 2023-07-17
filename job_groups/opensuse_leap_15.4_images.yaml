@@ -20,9 +20,6 @@ defaults:
   ppc64le:
     machine: ppc64le
     priority: 55
-  s390x:
-    machine: s390x-zVM-vswitch-l2
-    priority: 55
 products:
   opensuse-Leap15.4-JeOS-for-kvm-and-xen-x86_64:
     distri: opensuse
@@ -85,10 +82,6 @@ products:
     flavor: CR-DVD
     version: '15.4'
   opensuse-Leap-15.4-CR-DVD-ppc64le:
-    distri: opensuse
-    flavor: CR-DVD
-    version: '15.4'
-  opensuse-Leap-15.4-CR-DVD-s390x:
     distri: opensuse
     flavor: CR-DVD
     version: '15.4'
@@ -430,16 +423,3 @@ scenarios:
           settings:
             QEMU_VIRTIO_RNG: "0"
       - extra_tests_dracut
-  s390x:
-    opensuse-Leap-15.4-CR-DVD-s390x:
-      - textmode:
-          priority: 50
-          settings:
-            EXTRABOOTPARAMS: hvc_iucv=8
-      - textmode-server:
-          testsuite: null
-          settings:
-            DESKTOP: textmode
-            EXTRABOOTPARAMS: hvc_iucv=8
-            FILESYSTEM: xfs
-            BSC1167736: yes
