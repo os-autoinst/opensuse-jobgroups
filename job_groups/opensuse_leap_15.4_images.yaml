@@ -363,7 +363,8 @@ scenarios:
       - install_only:
           machine: aarch64
       - ext4
-      - lvm
+      - lvm:
+          machine: aarch64
       - xfs
       - create_hdd_textmode:
           priority: 40
@@ -373,12 +374,7 @@ scenarios:
           priority: 40
           settings:
             QEMU_VIRTIO_RNG: "0"
-      - create_hdd_gnome_wicked:
-          priority: 45
       - create_hdd_kde
-      - yast2_gui:
-          settings:
-            QEMU_VIRTIO_RNG: "0"
       - extra_tests_on_gnome
       - extra_tests_on_kde
       - extra_tests_in_textmode:
