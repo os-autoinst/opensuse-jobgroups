@@ -13,10 +13,9 @@ defaults:
     machine: 64bit-2G
     priority: 50
     settings:
-      INSTALL: '1'
+      MODE: 'install'
       INSTALL_ONLY: '1'
       QEMUCPU: host
-      UPDATE: '0'
 
 products:
   openqa-*-dev-x86_64:
