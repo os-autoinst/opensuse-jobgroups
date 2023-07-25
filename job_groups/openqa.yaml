@@ -13,8 +13,6 @@ defaults:
     machine: 64bit-2G
     priority: 50
     settings:
-      MODE: 'install'
-      INSTALL_ONLY: '1'
       QEMUCPU: host
 
 products:
