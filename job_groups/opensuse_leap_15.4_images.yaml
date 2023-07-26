@@ -404,6 +404,10 @@ scenarios:
       - gnome
       - minimalx:
           machine: ppc64le
+      - RAID0:
+          settings:
+            YAML_SCHEDULE: schedule/yast/opensuse/raid/raid0_gpt.yaml
+            YAML_TEST_DATA: test_data/yast/raid/raid0_prep_boot_opensuse15.4.yaml
       - gpt
       - create_hdd_textmode:
           settings:
