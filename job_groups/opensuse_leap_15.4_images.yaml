@@ -381,6 +381,7 @@ scenarios:
           settings:
             QEMU_VIRTIO_RNG: "0"
       - autoyast_minimal:
+          machine: aarch64
           settings:
             AUTOYAST: autoyast_opensuse/opensuse_leap_minimal.xml
       - package-dependency:
