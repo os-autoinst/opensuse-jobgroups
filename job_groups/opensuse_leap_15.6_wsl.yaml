@@ -5,7 +5,7 @@
 #  Any changes via the openQA WebUI will get overwritten!  #
 #                                                          #
 #    https://github.com/os-autoinst/opensuse-jobgroups     #
-#          job_groups/opensuse_leap_15.3_wsl.yaml          #
+#          job_groups/opensuse_leap_15.6_wsl.yaml          #
 ############################################################
 ---
 defaults:
@@ -13,13 +13,13 @@ defaults:
     machine: 64bit_win
     priority: 50
 products:
-  opensuse-15.3-WSL-x86_64:
+  opensuse-15.6-WSL-x86_64:
     distri: opensuse
     flavor: WSL
-    version: '15.3'
+    version: '15.6'
 scenarios:
   x86_64:
-    opensuse-15.3-WSL-x86_64:
+    opensuse-15.6-WSL-x86_64:
       - wsl-main:
           testsuite: null
           settings: &settings
@@ -51,7 +51,7 @@ scenarios:
             QEMUMACHINE: 'q35,accel=whpx'
             QEMUCPUS: '2'
             WORKER_CLASS: 'openqaworker7'
-      - wsl-install-MSStore-Leap15.3:
+      - wsl-install-MSStore-Leap15.6:
           testsuite: null
           description: |
             Basic WSL test Test scope:
@@ -60,7 +60,7 @@ scenarios:
                 3) Install WSL image from the MS Store via CLI
           settings:
             <<: *settings
-            WSL_VERSION: 'openSUSE Leap 15.3'
+            WSL_VERSION: 'openSUSE Leap 15.6'
             WSL_INSTALL_FROM: 'msstore'
             QEMURAM: '4096'
             QEMUCPUS: '2'
