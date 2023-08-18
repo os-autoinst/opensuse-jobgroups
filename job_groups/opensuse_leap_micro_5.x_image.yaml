@@ -25,7 +25,7 @@
   SKIP_DOCKER_IMAGE_TESTS: '1'
   REGISTRY: '3.71.98.16:5000'
   CONTAINER_RUNTIME: 'podman'
-  CONTAINER_IMAGE_VERSIONS: '15.4,15.4'
+  CONTAINER_IMAGE_VERSIONS: '15.5,15.5'
 
 .selfinstall_settings: &selfinstall_settings
   <<: *default_settings
@@ -59,32 +59,32 @@ defaults:
       QEMUCPUS: '2'
 
 products:
-  leap-micro-5.4-MicroOS-Image-SelfInstall-x86_64:
+  leap-micro-5.5-MicroOS-Image-SelfInstall-x86_64:
     distri: leap-micro
     flavor: Default-SelfInstall
-    version: '5.4'
-  leap-micro-5.4-MicroOS-Image-RT-SelfInstall-x86_64:
+    version: '5.5'
+  leap-micro-5.5-MicroOS-Image-RT-SelfInstall-x86_64:
     distri: leap-micro
     flavor: Default-RT-SelfInstall
-    version: '5.4'
-  leap-micro-5.4-MicroOS-Image-x86_64: &product_image
+    version: '5.5'
+  leap-micro-5.5-MicroOS-Image-x86_64: &product_image
     distri: leap-micro
     flavor: MicroOS-Image
-    version: '5.4'
-  leap-micro-5.4-MicroOS-Image-SelfInstall-aarch64:
+    version: '5.5'
+  leap-micro-5.5-MicroOS-Image-SelfInstall-aarch64:
     distri: leap-micro
     flavor: Default-SelfInstall
-    version: '5.4'
-  leap-micro-5.4-MicroOS-Image-aarch64:
+    version: '5.5'
+  leap-micro-5.5-MicroOS-Image-aarch64:
     *product_image
-  leap-micro-5.4-MicroOS-Image-RT-x86_64:
+  leap-micro-5.5-MicroOS-Image-RT-x86_64:
     distri: leap-micro
     flavor: MicroOS-Image-RT
-    version: '5.4'
+    version: '5.5'
 
 scenarios:
   x86_64:
-    leap-micro-5.4-MicroOS-Image-x86_64:
+    leap-micro-5.5-MicroOS-Image-x86_64:
       - microos_image_default:
           machine: [64bit, uefi]
           settings:
@@ -95,27 +95,27 @@ scenarios:
       - microos_virtualization:
           settings:
             <<: *image_qemu_settings
-    leap-micro-5.4-MicroOS-Image-RT-x86_64:
+    leap-micro-5.5-MicroOS-Image-RT-x86_64:
       - microos_image_default:
           settings:
             *image_settings
-    leap-micro-5.4-MicroOS-Image-SelfInstall-x86_64:
+    leap-micro-5.5-MicroOS-Image-SelfInstall-x86_64:
       - microos_installation_default:
           machine: 64bit
           settings:
             <<: *selfinstall_settings
-    leap-micro-5.4-MicroOS-Image-RT-SelfInstall-x86_64:
+    leap-micro-5.5-MicroOS-Image-RT-SelfInstall-x86_64:
       - microos_installation_default:
           machine: 64bit
           settings:
             <<: *selfinstall_settings
 
   aarch64:
-    leap-micro-5.4-MicroOS-Image-SelfInstall-aarch64:
+    leap-micro-5.5-MicroOS-Image-SelfInstall-aarch64:
       - microos_installation_default:
           settings:
             <<: *selfinstall_settings_aarch64
-    leap-micro-5.4-MicroOS-Image-aarch64:
+    leap-micro-5.5-MicroOS-Image-aarch64:
       - microos_image_default:
           settings:
             *image_settings
