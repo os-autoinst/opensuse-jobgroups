@@ -125,6 +125,8 @@ scenarios:
     opensuse-*-Staging-JeOS-for-kvm-and-xen-x86_64:
       - jeos:
           machine: uefi-staging-virtio-2G
+      - jeos-filesystem:
+          machine: uefi-staging-virtio-2G
     microos-*-Staging-MicroOS-Image-ContainerHost-x86_64:
       - microos:
           machine: 64bit
