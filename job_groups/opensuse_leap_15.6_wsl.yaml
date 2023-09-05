@@ -51,16 +51,17 @@ scenarios:
             QEMUMACHINE: 'q35,accel=whpx'
             QEMUCPUS: '2'
             WORKER_CLASS: 'openqaworker7'
-      - wsl-install-MSStore-Leap15.6:
-          testsuite: null
-          description: |
-            Basic WSL test Test scope:
-                1) Prepare WSL and other features in Windows
-                2) Download the winget utility and install it
-                3) Install WSL image from the MS Store via CLI
-          settings:
-            <<: *settings
-            WSL_VERSION: 'openSUSE Leap 15.6'
-            WSL_INSTALL_FROM: 'msstore'
-            QEMURAM: '4096'
-            QEMUCPUS: '2'
+    # to be re-enabled after GA, when 15.6 is available in the Store.
+    #  - wsl-install-MSStore-Leap15.6:
+    #      testsuite: null
+    #      description: |
+    #        Basic WSL test Test scope:
+    #            1) Prepare WSL and other features in Windows
+    #            2) Download the winget utility and install it
+    #            3) Install WSL image from the MS Store via CLI
+    #      settings:
+    #        <<: *settings
+    #        WSL_VERSION: 'openSUSE Leap 15.6'
+    #        WSL_INSTALL_FROM: 'msstore'
+    #        QEMURAM: '4096'
+    #        QEMUCPUS: '2'
