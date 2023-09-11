@@ -911,6 +911,10 @@ scenarios:
             DESKTOP: textmode
             AUTOYAST: 'autoyast_opensuse/create_hdd/create_hdd_textmode_x86_64_uefi.xml'
       - sys-param-check
+      - virt-guest-installation-kvm:
+          machine: 64bit-ipmi
+      - virt-guest-installation-xen:
+          machine: 64bit-ipmi
     opensuse-Tumbleweed-GNOME-Live-x86_64:
       - gnome-live:
           machine: uefi
@@ -933,7 +937,6 @@ scenarios:
           machine: 64bit_virtio
           priority: 48
           settings:
-            #POSTGRES_IP: 'k2.qe.suse.de'
             POSTGRES_IP: '10.137.0.6'
             POSTGRES_PORT: '8080'
       - jeos:
