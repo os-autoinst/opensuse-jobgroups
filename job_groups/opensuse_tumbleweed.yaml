@@ -945,6 +945,11 @@ scenarios:
           settings:
             POSTGRES_IP: '10.137.0.6'
             POSTGRES_PORT: '8080'
+      - jeos-combustion:
+          machine: 64bit_virtio
+          settings:
+            FIRST_BOOT_CONFIG: 'combustion'
+            HDD_2: 'extended_combustion.qcow2'
       - jeos:
           machine: uefi_virtio-2G
       - jeos-extra:
