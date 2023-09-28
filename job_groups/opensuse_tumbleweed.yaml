@@ -950,6 +950,7 @@ scenarios:
           settings:
             FIRST_BOOT_CONFIG: 'combustion'
             HDD_2: 'extended_combustion.qcow2'
+            NUMDISKS: '3'
       - jeos:
           machine: uefi_virtio-2G
       - jeos-extra:
