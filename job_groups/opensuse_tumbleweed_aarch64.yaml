@@ -586,11 +586,6 @@ scenarios:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/arm/totest/containers/opensuse/tumbleweed
             PASSWORD: linux
             TIMEOUT_SCALE: '3'
-      - jeos-containers:
-          machine: RPi3
-          settings:
-            PASSWORD: linux
-            TIMEOUT_SCALE: '3'
       - jeos:
           machine: RPi4
           settings:
