@@ -157,12 +157,16 @@ scenarios:
             CONTAINER_RUNTIME: 'podman'
             START_AFTER_TEST: 'create_hdd_leap_textmode_autoyast'
             HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%_ay@%MACHINE%.qcow2'
+            K3S_SYMLINK: 'skip'
+            K8S_CLIENT: 'kubernetes1.24-client'
       - extra_tests_textmode_kubectl_containers:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIME: 'kubectl'
             START_AFTER_TEST: 'create_hdd_leap_textmode_autoyast'
             HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%_ay@%MACHINE%.qcow2'
+            K3S_SYMLINK: 'skip'
+            K8S_CLIENT: 'kubernetes1.24-client'
       - extra_tests_textmode_docker_containers:
           testsuite: extra_tests_textmode_containers
           settings:

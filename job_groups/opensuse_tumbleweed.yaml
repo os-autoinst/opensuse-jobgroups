@@ -82,6 +82,7 @@ scenarios:
           machine: 64bit
           settings:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
+            K3S_INSTALL_UPSTREAM: '1'
       - remote_ssh_controller:
           settings:
             HDD_1: support_server_tumbleweed@64bit.qcow2
@@ -97,12 +98,15 @@ scenarios:
       - container-host:
           settings:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
+            K3S_INSTALL_UPSTREAM: '1'
       - container-host2microosnext:
           settings:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
+            K3S_INSTALL_UPSTREAM: '1'
       - container-host-old2microosnext:
           settings:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
+            K3S_INSTALL_UPSTREAM: '1'
     microos-*-MicroOS-Image-x86_64:
       - microos:
           settings:
@@ -265,6 +269,7 @@ scenarios:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIME: 'podman'
+            K3S_INSTALL_UPSTREAM: '1'
       - containers_host_containerd:
           testsuite: extra_tests_textmode_containers
           settings:
@@ -273,10 +278,12 @@ scenarios:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIME: 'helm'
+            K3S_INSTALL_UPSTREAM: '1'
       - containers_host_kubectl:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIME: 'kubectl'
+            K3S_INSTALL_UPSTREAM: '1'
       - containers_hpc_apptainer:
           testsuite: extra_tests_textmode_containers
           settings:
@@ -285,6 +292,7 @@ scenarios:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIME: 'docker,podman'
+            K3S_INSTALL_UPSTREAM: '1'
             CONTAINERS_UNTESTED_IMAGES: '1'
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
             # Temporarily disabled due to db instance being down
