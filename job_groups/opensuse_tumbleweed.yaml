@@ -154,9 +154,9 @@ scenarios:
       - gnome:
           machine: 64bit
           priority: 45
-      - gnome:
-          machine: 64bit_cirrus
-          priority: 45
+#      - gnome:
+#          machine: 64bit_cirrus
+#          priority: 45
       - minimalx:
           machine: 64bit
           priority: 45
