@@ -108,29 +108,29 @@ scenarios:
           machine: 64bit_virtio
     opensuse-Leap15.5-GNOME-Live-x86_64:
       - gnome-live:
-          machine: uefi-2G
+          machine: uefi-3G
       - gnome-live:
-          machine: 64bit-2G
+          machine: 64bit-3G
       - gnome-live:
-          machine: uefi-usb-2G
+          machine: uefi-usb-4G
       - gnome-live:
-          machine: USBboot_64-2G
+          machine: USBboot_64-3G
       - mediacheck:
           machine: 64bit
     opensuse-Leap15.5-KDE-Live-x86_64:
       - kde-live:
-          machine: uefi-usb-2G
+          machine: uefi-usb-4G
       - kde-live:
-          machine: 64bit-2G
+          machine: 64bit-3G
       - kde-live:
-          machine: USBboot_64-2G
+          machine: USBboot_64-3G
       - kde-live:
-          machine: uefi-2G
+          machine: uefi-3G
       - mediacheck:
           machine: 64bit
       - kde-live_installation
       - kde-live-wayland:
-          machine: 64bit_virtio-2G
+          machine: 64bit_virtio-3G
       - kde_live_upgrade_leap_42.3
       - kde_live_upgrade_leap_15.0:
           machine: 64bit
@@ -154,9 +154,10 @@ scenarios:
       - mediacheck:
           machine: 64bit
     opensuse-Leap15.5-XFCE-Live-x86_64:
-      - xfce-live
       - xfce-live:
-          machine: uefi-usb-2G
+          machine: 64bit-3G
+      - xfce-live:
+          machine: uefi-usb-4G
       - mediacheck
     opensuse-15.5-Container-Image-x86_64:
       - container_image_on_centos_host:

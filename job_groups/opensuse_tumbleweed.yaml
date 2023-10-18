@@ -996,13 +996,13 @@ scenarios:
           machine: uefi-3G
           priority: 48
       - kde-live:
-          machine: uefi-usb-2G
+          machine: uefi-usb-4G
           priority: 48
       - kde-live:
           machine: 64bit-3G
           priority: 48
       - kde-live:
-          machine: USBboot_64-2G
+          machine: USBboot_64-3G
           priority: 48
       - mediacheck:
           machine: 64bit
@@ -1169,10 +1169,9 @@ scenarios:
           machine: 64bit
     opensuse-Tumbleweed-XFCE-Live-x86_64:
       - xfce-live:
-          settings:
-            QEMURAM: '3072'
+          machine: 64bit-3G
       - xfce-live:
-          machine: uefi-usb
+          machine: uefi-usb-4G
           priority: 49
       - mediacheck:
           machine: 64bit
