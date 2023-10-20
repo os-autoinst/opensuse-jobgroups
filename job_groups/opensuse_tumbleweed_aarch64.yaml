@@ -135,18 +135,7 @@ scenarios:
             EXCLUDE_MODULES: kvm
       - microos_fips
     opensuse-Tumbleweed-DVD-aarch64:
-      - security_tpm2_swtpm:
-          testsuite: null
-          settings:
-            BOOT_HDD_IMAGE: '1'
-            START_AFTER_TEST: create_hdd_textmode
-            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
-            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
-            UEFI: '1'
-            YAML_SCHEDULE: schedule/security/tpm2.yaml
-            QEMUTPM: 'instance'
-            QEMUTPM_VER: '2.0'
-            DESKTOP: textmode
+      - security_tpm2
       - unlock_luks2_volume_with_tpm2:
           testsuite: null
           settings:
@@ -160,18 +149,6 @@ scenarios:
             QEMUTPM_VER: '2.0'
             UEFI_PFLASH_VARS: '/usr/share/qemu/aavmf-aarch64-vars.bin'
             GRUB_KERNEL_OPTION_APPEND: ''
-      - security_tpm2_keylime:
-          testsuite: null
-          settings:
-            BOOT_HDD_IMAGE: '1'
-            START_AFTER_TEST: create_hdd_textmode
-            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
-            UEFI_PFLASH_CODE: '/usr/share/qemu/aavmf-aarch64-code.bin'
-            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
-            YAML_SCHEDULE: schedule/security/keylime.yaml
-            QEMUTPM: 'instance'
-            QEMUTPM_VER: '2.0'
-            DESKTOP: textmode
       - textmode:
           machine: aarch64
       - kde:

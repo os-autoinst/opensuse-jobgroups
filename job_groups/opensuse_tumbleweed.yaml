@@ -519,55 +519,13 @@ scenarios:
             YAML_SCHEDULE: schedule/security/build_nested_hdd.yaml
             PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%_nested_l2.qcow2'
       - security_pam
-      - security_tpm2:
-          settings:
-            YAML_SCHEDULE: schedule/security/tpm2.yaml
-      - security_tpm2_swtpm:
-          testsuite: null
-          settings:
-            BOOT_HDD_IMAGE: '1'
-            START_AFTER_TEST: create_hdd_textmode
-            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
-            YAML_SCHEDULE: schedule/security/tpm2.yaml
-            QEMUTPM: 'instance'
-            QEMUTPM_VER: '2.0'
-            DESKTOP: textmode
-      - security_tpm2_swtpm_uefi:
-          testsuite: null
+      - security_tpm2
+      - security_tpm2_uefi:
+          testsuite: security_tpm2
           machine: uefi
           settings:
-            START_AFTER_TEST: create_hdd_textmode_uefi
-            BOOT_HDD_IMAGE: '1'
-            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+            UEFI: '1'
             UEFI_PFLASH_CODE: '/usr/share/qemu/ovmf-x86_64-ms-code.bin'
-            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
-            YAML_SCHEDULE: schedule/security/tpm2.yaml
-            QEMUTPM: 'instance'
-            QEMUTPM_VER: '2.0'
-            DESKTOP: textmode
-      - security_tpm2_keylime:
-          testsuite: null
-          settings:
-            BOOT_HDD_IMAGE: '1'
-            START_AFTER_TEST: create_hdd_textmode
-            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
-            YAML_SCHEDULE: schedule/security/keylime.yaml
-            QEMUTPM: 'instance'
-            QEMUTPM_VER: '2.0'
-            DESKTOP: textmode
-      - security_tpm2_keylime_uefi:
-          machine: uefi
-          testsuite: null
-          settings:
-            BOOT_HDD_IMAGE: '1'
-            START_AFTER_TEST: create_hdd_textmode_uefi
-            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
-            UEFI_PFLASH_CODE: '/usr/share/qemu/ovmf-x86_64-ms-code.bin'
-            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
-            YAML_SCHEDULE: schedule/security/keylime.yaml
-            QEMUTPM: 'instance'
-            QEMUTPM_VER: '2.0'
-            DESKTOP: textmode
       - unlock_luks2_volume_with_tpm2:
           testsuite: null
           settings:
@@ -579,16 +537,7 @@ scenarios:
             QEMURAM: '4096'
             QEMUTPM: 'instance'
             QEMUTPM_VER: '2.0'
-      - security_tpm_tools:
-          testsuite: null
-          settings:
-            BOOT_HDD_IMAGE: '1'
-            START_AFTER_TEST: create_hdd_textmode
-            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
-            YAML_SCHEDULE: schedule/security/tpm_selftest.yaml
-            QEMUTPM: 'instance'
-            QEMUTPM_VER: '1.2'
-            DESKTOP: textmode
+      - security_tpm_selftest
       - secureboot_kernel_lockdown:
           testsuite: null
           machine: uefi
