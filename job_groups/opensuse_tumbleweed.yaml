@@ -75,6 +75,8 @@ scenarios:
       - microos_10G-disk
       - microos:
           machine: uefi
+      - microos-sdboot:
+          machine: uefi
       - microos:
           machine: 64bit
       - microos_textmode
