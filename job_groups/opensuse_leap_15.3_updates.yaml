@@ -53,7 +53,6 @@ scenarios:
       - create_hdd_textmode
       - extra_tests_on_kde
       - gnuhealth
-      - toolkits
       - openqa_bootstrap
       # poo#107242
       # - openqa_bootstrap_container
