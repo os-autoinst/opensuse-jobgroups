@@ -90,10 +90,6 @@ scenarios:
           settings:
             START_AFTER_TEST: 'create_hdd_leap_gnome_autoyast'
             HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%_ay@%MACHINE%.qcow2'
-      - toolkits:
-          settings:
-            START_AFTER_TEST: 'create_hdd_leap_gnome_autoyast'
-            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%_ay@%MACHINE%.qcow2'
       - openqa_bootstrap:
           settings:
             START_AFTER_TEST: 'create_hdd_leap_gnome_autoyast'
