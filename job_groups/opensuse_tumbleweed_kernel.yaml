@@ -134,7 +134,6 @@ scenarios:
       - nfs_pynfs_nfs40_all
       - nfs_pynfs_nfs41_all
       - create_hdd_xfstests
-      - xfstests_btrfs-btrfs-001-050
       - xfstests_nfs4.1-generic
       - xfstests_nfs4.1-nfs
       - xfstests_nfs4.0-generic
@@ -279,7 +278,6 @@ scenarios:
       - nfs_pynfs_nfs40_all
       - nfs_pynfs_nfs41_all
       - create_hdd_xfstests
-      - xfstests_btrfs-btrfs-001-050
       - xfstests_nfs4.1-generic
       - xfstests_nfs4.1-nfs
       - xfstests_nfs4.0-generic
@@ -421,14 +419,23 @@ scenarios:
       - nfs_pynfs_nfs40_all
       - nfs_pynfs_nfs41_all
       - create_hdd_xfstests
-      - xfstests_btrfs-btrfs-001-050
+      - xfstests_btrfs-btrfs-001-100
+      - xfstests_btrfs-btrfs-101-200
+      - xfstests_btrfs-btrfs-201-999
+      - xfstests_btrfs-generic-001-100
+      - xfstests_xfs-generic-001-100
+      - xfstests_xfs-xfs-001-100
+      - xfstests_xfs-xfs-101-200
+      - xfstests_xfs-xfs-201-300
+      - xfstests_xfs-xfs-301-400
+      - xfstests_xfs-xfs-401-500
+      - xfstests_xfs-xfs-501-999
       - xfstests_nfs4.1-generic
       - xfstests_nfs4.1-nfs
       - xfstests_nfs4.0-generic
       - xfstests_nfs4.0-nfs
       - xfstests_nfs3-generic
       - xfstests_nfs3-nfs
-      - xfstests_xfs-xfs-001-100
       - nfs_server:
           testsuite: null
           settings:
