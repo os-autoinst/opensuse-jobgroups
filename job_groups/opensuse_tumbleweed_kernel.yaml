@@ -57,6 +57,8 @@ scenarios:
   aarch64:
     opensuse-Tumbleweed-DVD-aarch64:
       - extra_tests_kernel
+      - bpftools
+      - io_uring
       - kdump:
           settings:
             CRASH_MEMORY: '320'
@@ -201,6 +203,8 @@ scenarios:
   ppc64le:
     opensuse-Tumbleweed-DVD-ppc64le:
       - extra_tests_kernel
+      - bpftools
+      - io_uring
       - kdump:
           settings:
             CRASH_MEMORY: '640'
@@ -341,6 +345,8 @@ scenarios:
   x86_64:
     opensuse-Tumbleweed-DVD-x86_64:
       - extra_tests_kernel
+      - bpftools
+      - io_uring
       - kdump
       - install_ltp+opensuse+DVD
       - kernel-live-patching
