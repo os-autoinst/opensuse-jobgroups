@@ -526,7 +526,7 @@ scenarios:
           testsuite: security_tpm2
           machine: uefi
           settings:
-            UEFI: '1'
+            START_AFTER_TEST: create_hdd_textmode_uefi
             UEFI_PFLASH_CODE: '/usr/share/qemu/ovmf-x86_64-ms-code.bin'
       - unlock_luks2_volume_with_tpm2:
           testsuite: null
