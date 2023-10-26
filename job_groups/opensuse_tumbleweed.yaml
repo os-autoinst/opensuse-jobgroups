@@ -39,6 +39,10 @@ products:
     distri: microos
     flavor: MicroOS-Image
     version: Tumbleweed
+  microos-*-MicroOS-Image-sdboot-x86_64:
+    distri: microos
+    flavor: MicroOS-Image-sdboot
+    version: Tumbleweed
   microos-*-MicroOS-SelfInstall-x86_64:
     distri: microos
     flavor: MicroOS-SelfInstall
@@ -123,6 +127,11 @@ scenarios:
           settings:
             QEMUCPU: 'host'
       - microos_fips
+    microos-*-MicroOS-Image-sdboot-x86_64:
+      - microos-combustion:
+          machine: uefi
+      - microos-wizard:
+          machine: uefi
     microos-*-MicroOS-SelfInstall-x86_64:
       - microos
     opensuse-Tumbleweed-DVD-x86_64:
