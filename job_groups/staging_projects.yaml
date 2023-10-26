@@ -130,7 +130,6 @@ scenarios:
     microos-*-Staging-MicroOS-Image-ContainerHost-x86_64:
       - microos:
           machine: 64bit
-      - microos_textmode
       - container-host:
           machine: 64bit
           settings:
