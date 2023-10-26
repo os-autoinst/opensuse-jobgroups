@@ -70,6 +70,10 @@ products:
     distri: microos
     flavor: MicroOS-Image
     version: Tumbleweed
+  microos-*-MicroOS-Image-sdboot-aarch64:
+    distri: microos
+    flavor: MicroOS-Image-sdboot
+    version: Tumbleweed
   opensuse-Tumbleweed-NET-armv7hl:
     distri: opensuse
     flavor: NET
@@ -134,6 +138,9 @@ scenarios:
           settings:
             EXCLUDE_MODULES: kvm
       - microos_fips
+    microos-*-MicroOS-Image-sdboot-aarch64:
+      - microos-combustion
+      - microos-wizard
     opensuse-Tumbleweed-DVD-aarch64:
       - security_tpm2
       - unlock_luks2_volume_with_tpm2:
