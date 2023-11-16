@@ -168,7 +168,7 @@ scenarios:
             KEEP_GRUB_TIMEOUT: '1'
             DESKTOP: 'textmode'
             VIDEOMODE: 'text'
-            CONTAINER_RUNTIME: 'podman'
+            CONTAINER_RUNTIMES: 'podman'
             CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap/15.5/images/totest/containers/opensuse/leap:15.5'
       - container_image_on_ubuntu_host:
           testsuite: container-image
@@ -230,7 +230,7 @@ scenarios:
             EXTRABOOTPARAMS: quiet
             REGISTRY: 3.71.98.16:5000
             NUMDISKS: '2'
-            CONTAINER_RUNTIME: "podman,docker"
+            CONTAINER_RUNTIMES: "podman,docker"
             # Max size isn't that strict
             EXCLUDE_MODULES: "diskusage"
       - jeos-container_image:
@@ -239,7 +239,7 @@ scenarios:
             DESKTOP: textmode
             EXTRABOOTPARAMS: quiet
             REGISTRY: 3.71.98.16:5000
-            CONTAINER_RUNTIME: "podman,docker"
+            CONTAINER_RUNTIMES: "podman,docker"
             CONTAINERS_UNTESTED_IMAGES: '1'
             CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap/15.5/images/totest/containers/opensuse/leap:15.5'
             EXCLUDE_MODULES: "diskusage"

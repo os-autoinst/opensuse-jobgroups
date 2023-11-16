@@ -275,34 +275,34 @@ scenarios:
       - containers_host_docker:
           testsuite: extra_tests_textmode_containers
           settings:
-            CONTAINER_RUNTIME: 'docker'
+            CONTAINER_RUNTIMES: 'docker'
       - containers_host_podman:
           testsuite: extra_tests_textmode_containers
           settings:
-            CONTAINER_RUNTIME: 'podman'
+            CONTAINER_RUNTIMES: 'podman'
             K3S_INSTALL_UPSTREAM: '1'
       - containers_host_containerd:
           testsuite: extra_tests_textmode_containers
           settings:
-            CONTAINER_RUNTIME: 'containerd_crictl,containerd_nerdctl'
+            CONTAINER_RUNTIMES: 'containerd_crictl,containerd_nerdctl'
       - containers_host_helm:
           testsuite: extra_tests_textmode_containers
           settings:
-            CONTAINER_RUNTIME: 'helm'
+            CONTAINER_RUNTIMES: 'helm'
             K3S_INSTALL_UPSTREAM: '1'
       - containers_host_kubectl:
           testsuite: extra_tests_textmode_containers
           settings:
-            CONTAINER_RUNTIME: 'kubectl'
+            CONTAINER_RUNTIMES: 'kubectl'
             K3S_INSTALL_UPSTREAM: '1'
       - containers_hpc_apptainer:
           testsuite: extra_tests_textmode_containers
           settings:
-            CONTAINER_RUNTIME: 'apptainer'
+            CONTAINER_RUNTIMES: 'apptainer'
       - containers_image:
           testsuite: extra_tests_textmode_containers
           settings:
-            CONTAINER_RUNTIME: 'docker,podman'
+            CONTAINER_RUNTIMES: 'docker,podman'
             K3S_INSTALL_UPSTREAM: '1'
             CONTAINERS_UNTESTED_IMAGES: '1'
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
@@ -1043,7 +1043,7 @@ scenarios:
             CONTAINERS_UNTESTED_IMAGES: '1'
             CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed'
             CONTAINERS_NO_SUSE_OS: "1"
-            CONTAINER_RUNTIME: "podman"
+            CONTAINER_RUNTIMES: "podman"
             REGISTRY: '3.71.98.16:5000'
       - containers_tw_image_on_ubuntu_host:
           testsuite: null
@@ -1058,7 +1058,7 @@ scenarios:
             CONTAINERS_UNTESTED_IMAGES: '1'
             CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed'
             CONTAINERS_NO_SUSE_OS: "1"
-            CONTAINER_RUNTIME: "podman,docker"
+            CONTAINER_RUNTIMES: "podman,docker"
             REGISTRY: '3.71.98.16:5000'
       - cryptlvm:
           machine: 64bit

@@ -33,7 +33,7 @@
 
 .containers_host_podman: &containers_host_podman
   REGISTRY: '3.71.98.16:5000'
-  CONTAINER_RUNTIME: podman
+  CONTAINER_RUNTIMES: podman
 
 .networking: &networking
   EXTRA: 'networking'
@@ -80,7 +80,7 @@
   LTP_COMMAND_FILE: 'containers'
 
 .k3s: &k3s
-  CONTAINER_RUNTIME: 'k3s'
+  CONTAINER_RUNTIMES: 'k3s'
 
 .selinux_settings: &selinux_settings
   ENABLE_SELINUX: '1'
