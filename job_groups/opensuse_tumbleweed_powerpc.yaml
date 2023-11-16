@@ -70,11 +70,11 @@ scenarios:
       - containers_host_docker:
           testsuite: extra_tests_textmode_containers
           settings:
-            CONTAINER_RUNTIME: 'docker'
+            CONTAINER_RUNTIMES: 'docker'
       - containers_host_podman:
           testsuite: extra_tests_textmode_containers
           settings:
-            CONTAINER_RUNTIME: 'podman'
+            CONTAINER_RUNTIMES: 'podman'
       - extra_tests_filesystem
       - yast2_ncurses:
           settings:

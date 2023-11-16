@@ -150,13 +150,13 @@ scenarios:
       - extra_tests_textmode_podman_containers:
           testsuite: extra_tests_textmode_containers
           settings:
-            CONTAINER_RUNTIME: 'podman'
+            CONTAINER_RUNTIMES: 'podman'
             START_AFTER_TEST: 'create_hdd_leap_textmode_autoyast'
             HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%_ay@%MACHINE%.qcow2'
       - extra_tests_textmode_kubectl_containers:
           testsuite: extra_tests_textmode_containers
           settings:
-            CONTAINER_RUNTIME: 'kubectl'
+            CONTAINER_RUNTIMES: 'kubectl'
             START_AFTER_TEST: 'create_hdd_leap_textmode_autoyast'
             HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%_ay@%MACHINE%.qcow2'
             K3S_SYMLINK: 'skip'
@@ -164,7 +164,7 @@ scenarios:
       - extra_tests_textmode_docker_containers:
           testsuite: extra_tests_textmode_containers
           settings:
-            CONTAINER_RUNTIME: 'docker'
+            CONTAINER_RUNTIMES: 'docker'
             START_AFTER_TEST: 'create_hdd_leap_textmode_autoyast'
             HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%_ay@%MACHINE%.qcow2'
       - create_hdd_transactional_server:

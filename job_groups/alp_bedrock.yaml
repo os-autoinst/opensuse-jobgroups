@@ -34,7 +34,7 @@
 
 .containers_host_podman: &containers_host_podman
   REGISTRY: '3.71.98.16:5000'
-  CONTAINER_RUNTIME: podman
+  CONTAINER_RUNTIMES: podman
 
 .networking: &networking
   EXTRA: 'networking'
