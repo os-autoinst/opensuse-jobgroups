@@ -435,7 +435,9 @@ scenarios:
       - xfstests_xfs-xfs-201-300
       - xfstests_xfs-xfs-301-400
       - xfstests_xfs-xfs-401-500
-      - xfstests_xfs-xfs-501-999
+      - xfstests_xfs-xfs-501-600
+      - xfstests_xfs-xfs-601-700
+      - xfstests_xfs-xfs-701-999
       - xfstests_nfs4.1-generic
       - xfstests_nfs4.1-nfs
       - xfstests_nfs4.0-generic
