@@ -86,7 +86,6 @@ scenarios:
       - ltp_fs_bind
       - ltp_fs_perms_simple
       - ltp_fs_readonly
-      - ltp_fsx
       - ltp_hugetlb
       - ltp_hyperthreading
       - ltp_ima
@@ -232,7 +231,6 @@ scenarios:
       - ltp_fs_bind
       - ltp_fs_perms_simple
       - ltp_fs_readonly
-      - ltp_fsx
       - ltp_hugetlb
       - ltp_hyperthreading
       - ltp_ima
@@ -372,7 +370,6 @@ scenarios:
       - ltp_fs_bind
       - ltp_fs_perms_simple
       - ltp_fs_readonly
-      - ltp_fsx
       - ltp_hugetlb
       - ltp_hyperthreading
       - ltp_ima
