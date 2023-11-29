@@ -71,6 +71,11 @@ scenarios:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIMES: 'docker'
+      - containers_host_docker_cgroupv1:
+          testsuite: extra_tests_textmode_containers
+          settings:
+            CONTAINER_RUNTIMES: 'docker'
+            CONTAINERS_CGROUP_VERSION: '1'
       - containers_host_podman:
           testsuite: extra_tests_textmode_containers
           settings:
