@@ -452,9 +452,8 @@ scenarios:
             YAML_TEST_DATA: test_data/yast/opensuse/xfs/xfs_partition.yaml
           testsuite: null
       - apparmor
+      - security_misc_o3
       - scap_workbench
-      - libserf
-      - ecryptfs
       - lvm-encrypt-separate-boot:
           machine: 64bit
       - lvm-full-encrypt
@@ -518,10 +517,6 @@ scenarios:
             UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
           testsuite: null
       - desktopapps-gb18030
-      - usbguard:
-          settings:
-            YAML_SCHEDULE: schedule/security/usbguard.yaml
-      - security_check_kernel_config
       - security_audit:
           settings:
             YAML_SCHEDULE: schedule/security/audit.yaml
@@ -741,15 +736,6 @@ scenarios:
             HOSTNAME: 'client'
             SSS_USERNAME: 'wilber'
             YAML_SCHEDULE: schedule/security/389ds_sssd.yaml
-      - security_smartcard_update:
-          testsuite: null
-          settings:
-            BOOT_HDD_IMAGE: '1'
-            START_AFTER_TEST: create_hdd_textmode
-            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
-            YAML_SCHEDULE: schedule/security/smartcard.yaml
-            DESKTOP: textmode
-      - security_grub_auth
       - openqa_bootstrap
       - openqa_bootstrap_nginx:
           testsuite: openqa_bootstrap
