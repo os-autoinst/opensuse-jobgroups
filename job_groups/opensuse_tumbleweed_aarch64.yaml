@@ -310,16 +310,6 @@ scenarios:
             QEMUTPM: 'instance'
             QEMUTPM_VER: '1.2'
             DESKTOP: textmode
-      - security_smartcard_update:
-          testsuite: null
-          settings:
-            BOOT_HDD_IMAGE: '1'
-            START_AFTER_TEST: create_hdd_textmode
-            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
-            UEFI_PFLASH_CODE: '/usr/share/qemu/aavmf-aarch64-code.bin'
-            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
-            YAML_SCHEDULE: schedule/security/smartcard.yaml
-            DESKTOP: textmode
       - ima_measure_critical_data:
           testsuite: null
           machine: aarch64-secureboot-opensuse-key
@@ -358,10 +348,8 @@ scenarios:
       - system_performance
       - system_check
       - apparmor
+      - security_misc_o3
       - scap_workbench
-      - libserf
-      - ecryptfs
-      - security_grub_auth
       - zdup-Leap-15.2-gnome
       - openscap
       - upgrade_Leap_15.0_gnome
@@ -412,9 +400,6 @@ scenarios:
           machine: aarch64_lse_smp4
       - yast2_firstboot
       - yast2_firstboot_custom
-      - usbguard:
-          settings:
-            YAML_SCHEDULE: schedule/security/usbguard.yaml
       - wireguard_server:
           priority: 45
       - wireguard_client:
