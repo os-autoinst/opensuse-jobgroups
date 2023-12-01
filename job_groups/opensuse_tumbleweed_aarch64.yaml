@@ -250,6 +250,12 @@ scenarios:
           settings:
             CONTAINER_RUNTIMES: 'podman'
             K3S_INSTALL_UPSTREAM: '1'
+      - containers_host_podman_cgroupv1:
+          testsuite: extra_tests_textmode_containers
+          settings:
+            CONTAINER_RUNTIMES: 'podman'
+            K3S_INSTALL_UPSTREAM: '1'
+            CONTAINERS_CGROUP_VERSION: '1'
       - containers_host_containerd:
           testsuite: extra_tests_textmode_containers
           settings:

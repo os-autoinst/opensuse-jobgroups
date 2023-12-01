@@ -80,6 +80,11 @@ scenarios:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIMES: 'podman'
+      - containers_host_podman_cgroupv1:
+          testsuite: extra_tests_textmode_containers
+          settings:
+            CONTAINER_RUNTIMES: 'podman'
+            CONTAINERS_CGROUP_VERSION: '1'
       - extra_tests_filesystem
       - yast2_ncurses:
           settings:
