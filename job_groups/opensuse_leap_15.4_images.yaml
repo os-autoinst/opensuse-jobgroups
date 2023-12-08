@@ -221,6 +221,8 @@ scenarios:
             HDD_1: 'opensuse-15.2-ppc64le-GM-kde@ppc64le.qcow2'
             DESKTOP: 'kde'
             CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap/15.4/images/totest/containers/opensuse/leap:15.4'
+            # test schedule workaround https://progress.opensuse.org/issues/151246
+            CASEDIR: 'https://github.com/os-autoinst/os-autoinst-distri-opensuse.git#master'
       - container_image_on_leap15.3_host:
           testsuite: container-image
           machine: ppc64le
@@ -228,6 +230,8 @@ scenarios:
             +ARCH: 'ppc64le'
             HDD_1: 'opensuse-15.3-ppc64le-160.3-textmode@ppc64le.qcow2'
             CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap/15.4/images/totest/containers/opensuse/leap:15.4'
+            # test schedule workaround https://progress.opensuse.org/issues/151246
+            CASEDIR: 'https://github.com/os-autoinst/os-autoinst-distri-opensuse.git#master'
     opensuse-Leap-15.4-CR-DVD-x86_64:
       - textmode
       - kde:
