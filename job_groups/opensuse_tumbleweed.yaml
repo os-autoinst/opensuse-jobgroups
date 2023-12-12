@@ -127,6 +127,7 @@ scenarios:
           settings:
             QEMUCPU: 'host'
       - microos_fips
+      - microos_network_bonding
     microos-*-MicroOS-Image-sdboot-x86_64:
       - microos-combustion:
           machine: uefi
