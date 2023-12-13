@@ -341,6 +341,7 @@ scenarios:
       - autoyast_y2_firstboot:
           settings:
             AUTOYAST: autoyast_opensuse/autoyast_firstboot_leap.xml
+      - stack_tests_python
     opensuse-Leap-15.6-NET-x86_64:
       - textmode:
           machine: 64bit
@@ -664,6 +665,7 @@ scenarios:
       - yast2_nfs_v4_server
       - yast2_firstboot
       - security_tpm2
+      - stack_tests_python
     opensuse-Leap-15.6-NET-aarch64:
       - textmode:
           machine: aarch64
@@ -722,6 +724,7 @@ scenarios:
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/yast2_ncurses/yast2_ncurses_leap.yaml
       - extra_tests_dracut
+      - stack_tests_python
     opensuse-Leap-15.6-NET-ppc64le:
       - minimalx:
           machine: ppc64le
