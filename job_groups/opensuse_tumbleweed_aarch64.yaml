@@ -567,10 +567,6 @@ scenarios:
           machine: RPi4
           settings:
             PASSWORD: linux
-      - jeos_extra_tests_vagrant:
-          machine: RPi4
-          settings:
-            PASSWORD: linux
     opensuse-Tumbleweed-KDE-Live-aarch64:
       - kde-live:
           machine: USBboot_aarch64-3G
