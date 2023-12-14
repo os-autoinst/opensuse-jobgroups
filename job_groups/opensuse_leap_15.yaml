@@ -308,6 +308,8 @@ scenarios:
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.4_gnome
       - upgrade_Leap_15.4_kde
+      - upgrade_Leap_15.5_gnome
+      - upgrade_Leap_15.5_kde
       - upgrade_Leap_15.2_cryptlvm:
           machine: uefi
           settings:
