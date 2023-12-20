@@ -590,6 +590,7 @@ scenarios:
       - cryptlvm:
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/encryption/cryptlvm.yaml
+            GRUB_KERNEL_OPTION_APPEND: ''
       - install_only:
           machine: aarch64
       - install_only:

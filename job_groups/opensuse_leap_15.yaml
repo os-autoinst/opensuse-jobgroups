@@ -543,6 +543,7 @@ scenarios:
             PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-cryptlvm@%MACHINE%.qcow2'
             PUBLISH_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-cryptlvm@%MACHINE%-uefi-vars.qcow2'
             QEMU_COMPRESS_QCOW2: '1'
+            GRUB_KERNEL_OPTION_APPEND: ''
           description: ''
           testsuite: null
       - extra_tests_on_kde
@@ -601,11 +602,12 @@ scenarios:
             YAML_TEST_DATA: test_data/yast/encryption/lvm_encrypt_separate_boot_uefi.yaml
       - lvm-full-encrypt:
           settings:
-            YAML_TEST_DATA: test_data/yast/encryption/lvm_encrypt_separate_boot_uefi.yaml
+            YAML_TEST_DATA: test_data/yast/encryption/full_lvm_enc_uefi.yaml
+            GRUB_KERNEL_OPTION_APPEND: ''
       - lvm_thin_provisioning:
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/lvm/lvm_thin_provisioning.yaml
-            YAML_TEST_DATA: test_data/yast/encryption/lvm_encrypt_separate_boot_uefi.yaml
+            YAML_TEST_DATA: test_data/yast/lvm_thin_provisioning/lvm_thin_provisioning_uefi.yaml
       - apparmor
       - zdup-Leap-15.2-gnome:
           settings:
@@ -673,7 +675,9 @@ scenarios:
       - RAID1_gpt_uefi
       - RAID5_gpt_uefi
       - RAID10_gpt_uefi
-      - cryptlvm
+      - cryptlvm:
+          settings:
+            GRUB_KERNEL_OPTION_APPEND: ''
       - install_only:
           machine: aarch64
       - create_hdd_minimalx:
