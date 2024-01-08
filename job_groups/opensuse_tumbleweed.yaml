@@ -165,9 +165,9 @@ scenarios:
       - gnome:
           machine: 64bit
           priority: 45
-#      - gnome:
-#          machine: 64bit_cirrus
-#          priority: 45
+      # - gnome:
+      #   machine: 64bit_cirrus
+      #   priority: 45
       - minimalx:
           machine: 64bit
           priority: 45
@@ -871,10 +871,11 @@ scenarios:
             DESKTOP: textmode
             AUTOYAST: 'autoyast_opensuse/create_hdd/create_hdd_textmode_x86_64_uefi.xml'
       - sys-param-check
-#      - virt-guest-installation-kvm:
-#          machine: 64bit-ipmi
-#      - virt-guest-installation-xen:
-#          machine: 64bit-ipmi
+      - stack_tests_python
+      #  - virt-guest-installation-kvm:
+      #   machine: 64bit-ipmi
+      # - virt-guest-installation-xen:
+      #   machine: 64bit-ipmi
     opensuse-Tumbleweed-GNOME-Live-x86_64:
       - gnome-live:
           machine: uefi
