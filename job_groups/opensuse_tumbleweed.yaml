@@ -282,6 +282,11 @@ scenarios:
           settings:
             CONTAINER_RUNTIMES: 'podman'
             K3S_INSTALL_UPSTREAM: '1'
+      - containers_host_podman_bats:
+          testsuite: extra_tests_textmode_containers
+          settings:
+            CONTAINER_RUNTIMES: 'podman'
+            PODMAN_BATS_SKIP: '120-load 125-import 250-systemd 255-auto-update 520-checkpoint'
       - containers_host_containerd:
           testsuite: extra_tests_textmode_containers
           settings:
