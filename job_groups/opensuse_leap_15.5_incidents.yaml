@@ -21,7 +21,13 @@ products:
 scenarios:
   x86_64:
     opensuse-15.5-DVD-Incidents-x86_64:
-      - kde
-      - gnome
+      - kde:
+          settings:
+            YAML_SCHEDULE: schedule/functional/leap15_incidents/incident_update.yaml
+      - gnome:
+          settings:
+            YAML_SCHEDULE: schedule/functional/leap15_incidents/incident_update.yaml
       - cryptlvm:
           machine: uefi-2G
+          settings:
+            YAML_SCHEDULE: schedule/functional/leap15_incidents/incident_update.yaml
