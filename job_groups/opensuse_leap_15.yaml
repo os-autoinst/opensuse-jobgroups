@@ -155,10 +155,6 @@ scenarios:
             QEMU_VIRTIO_RNG: "0"
       - extra_tests_gnome
       - systemd-networkd
-      - upgrade_Leap_42.1_gnome:
-          machine: 64bit
-      - upgrade_Leap_42.1_kde:
-          machine: 64bit
       - extra_tests_on_kde
       - extra_tests_textmode:
           settings:
@@ -176,8 +172,6 @@ scenarios:
             CONTAINER_RUNTIMES: 'docker'
             CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap:15.4'
             CONTAINER_IMAGE_VERSIONS: '15.4'
-      - upgrade_Leap_42.2_gnome:
-          machine: 64bit
       - yast_no_self_update
       - gnome-gdm:
           machine: 64bit-2G
@@ -238,10 +232,6 @@ scenarios:
             QEMU_VIRTIO_RNG: "0"
       - zdup-Leap-15.4-gnome
       - zdup-Leap-15.4-kde_to_Leap
-      - upgrade_Leap_42.3_gnome:
-          machine: 64bit
-      - upgrade_Leap_42.3_kde:
-          machine: 64bit
       - yast2_ncurses:
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/yast2_ncurses/yast2_ncurses_leap.yaml
@@ -249,8 +239,6 @@ scenarios:
           settings:
             YAML_SCHEDULE: schedule/virtualization/virtualization.yaml
             QEMU_VIRTIO_RNG: "0"
-      - upgrade_Leap_42.3_cryptlvm:
-          machine: uefi
       - toolchain_zypper
       - crypt_no_lvm
       - gnome_dual_windows10:
@@ -387,10 +375,6 @@ scenarios:
           machine: 64bit
       - uefi-suse:
           machine: 64bit
-      - upgrade_Leap_42.1_gnome:
-          machine: 64bit
-      - upgrade_Leap_42.1_kde:
-          machine: 64bit
       - create_hdd_xfce:
           settings:
             QEMU_VIRTIO_RNG: "0"
@@ -403,21 +387,12 @@ scenarios:
       - otherDE_mate
       - otherDE_awesome
       - lxde
-      - upgrade_Leap_42.2_gnome:
-          machine: 64bit
       - kde_dual_windows10:
           machine: uefi_win
       - autoyast_gnome:
           machine: 64bit
           settings:
             AUTOYAST: autoyast_opensuse/opensuse_leap_gnome.xml
-      - upgrade_Leap_42.3_gnome:
-          machine: 64bit
-      - upgrade_Leap_42.3_kde:
-          machine: 64bit
-      - upgrade_Leap_42.3_cryptlvm:
-          machine: uefi
-      - upgrade_Leap_42.3_kde+system_performance
       - upgrade_Leap_15.0_gnome:
           machine: 64bit
           settings:
