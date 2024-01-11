@@ -131,8 +131,20 @@ scenarios:
     microos-*-MicroOS-Image-sdboot-x86_64:
       - microos-combustion:
           machine: uefi
+      - microos-wizard-tpm:
+          testsuite: microos-wizard
+          machine: uefi
+          settings:
+            # jeos-firstboot sets up FDE by default
+            ENCRYPT: '1'
+            # Test with TPM enrollment
+            QEMUTPM: 'instance'
       - microos-wizard:
           machine: uefi
+          settings:
+            # jeos-firstboot sets up FDE by default
+            ENCRYPT: '1'
+            # Test without TPM enrollment
     microos-*-MicroOS-SelfInstall-x86_64:
       - microos
     opensuse-Tumbleweed-DVD-x86_64:
