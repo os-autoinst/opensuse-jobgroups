@@ -40,7 +40,7 @@ jobs:
           git diff --diff-filter="ACMRTUXD" omaster job_groups/
           CHANGED_FILES=$(git diff --diff-filter="ACMRTUX" --name-only origin/master job_groups/ | tr '\n' ' ')
           echo $CHANGED_FILES
-          echo "::set-output name=files::${CHANGED_FILES}"
+          echo "files=${CHANGED_FILES}" >> $GITHUB_OUTPUT
 
       - name: Run yamllint for modified job group schedules
         run: |
