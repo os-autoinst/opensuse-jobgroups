@@ -819,45 +819,6 @@ scenarios:
           settings:
             START_AFTER_TEST: 'create_hdd_textmode'
             HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
-      - create_hdd_gnome_encrypt_separate_boot:
-          description: 'Maintainer: (Richard Fan) richard.fan@suse.com (Starry Wang) starry.wang@suse.com'
-          testsuite: null
-          settings:
-            DESKTOP: gnome
-            HDDSIZEGB: '20'
-            ENCRYPT: '1'
-            STORAGE_NG: '1'
-            QEMURAM: '2048'
-            YAML_SCHEDULE: schedule/security/autoyast_btrfs_luks1_separate_boot_tw.yaml
-            PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%_encrypt_separate_boot.qcow2'
-      - luks1_decrypt_ssh_client:
-          description: 'Maintainer: (Richard Fan) richard.fan@suse.com (Starry Wang) starry.wang@suse.com'
-          testsuite: null
-          settings:
-            DESKTOP: textmode
-            BOOT_HDD_IMAGE: '1'
-            WORKER_CLASS: tap
-            NICTYPE: tap
-            HOSTNAME: 'client'
-            PARALLEL_WITH: luks1_decrypt_ssh_server
-            START_AFTER_TEST: create_hdd_textmode
-            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
-            YAML_SCHEDULE: schedule/security/luks1_decrypt_ssh_client.yaml
-      - luks1_decrypt_ssh_server:
-          description: 'Maintainer: (Richard Fan) richard.fan@suse.com (Starry Wang) starry.wang@suse.com'
-          testsuite: null
-          settings:
-            DESKTOP: gnome
-            BOOT_HDD_IMAGE: '1'
-            ENCRYPT: '1'
-            STORAGE_NG: '1'
-            QEMURAM: '2048'
-            WORKER_CLASS: tap
-            NICTYPE: tap
-            HOSTNAME: 'server'
-            START_AFTER_TEST: create_hdd_gnome_encrypt_separate_boot
-            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%_encrypt_separate_boot.qcow2'
-            YAML_SCHEDULE: schedule/security/luks1_decrypt_ssh_server.yaml
       - autoyast_create_hdd_gnome_uefi:
           testsuite: create_hdd_desktop_ay_uefi
           machine: uefi
