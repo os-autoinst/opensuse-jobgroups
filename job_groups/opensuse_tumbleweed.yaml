@@ -404,6 +404,8 @@ scenarios:
       - wicked_basic_ref
       - wireguard_server
       - wireguard_client
+      - ping_server
+      - ping_client
       - ovs-server
       - ovs-client
       - salt-master

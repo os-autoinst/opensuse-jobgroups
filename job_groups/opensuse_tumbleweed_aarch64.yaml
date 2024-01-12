@@ -404,6 +404,10 @@ scenarios:
           priority: 45
       - wireguard_client:
           priority: 45
+      - ping_server:
+          priority: 45
+      - ping_client:
+          priority: 45
       - install_offline
       - yast_oneclick_install
       - nvme
