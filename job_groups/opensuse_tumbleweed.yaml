@@ -1124,10 +1124,12 @@ scenarios:
                 1) Prepare WSL and other features in Windows
                 2) Install WSL image from the MS Store via CLI
           settings:
+            YAML_SCHEDULE: 'schedule/wsl/wsl_main.yaml'
             WSL_VERSION: 'openSUSE Tumbleweed'
             WSL_INSTALL_FROM: 'msstore'
       - wsl2-systemd:
           <<: *wsl2_defaults
           description: 'Enable and test systemd in WSL'
           settings:
+            YAML_SCHEDULE: 'schedule/wsl/wsl_main.yaml'
             WSL_SYSTEMD: '1'

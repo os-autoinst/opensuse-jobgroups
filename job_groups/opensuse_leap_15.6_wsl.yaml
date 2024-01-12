@@ -61,4 +61,5 @@ scenarios:
           <<: *wsl2_defaults
           description: 'Enable and test systemd in WSL'
           settings:
+            YAML_SCHEDULE: 'schedule/wsl/wsl_main.yaml'
             WSL_SYSTEMD: '1'
