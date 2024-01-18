@@ -1120,10 +1120,10 @@ scenarios:
             YAML_SCHEDULE: 'schedule/wsl/wsl_main.yaml'
             WSL_INSTALL_FROM: 'build'
             QEMU_ENABLE_SMBD: '1'
-      - wsl2-main: &wsl2_defaults
+      - wsl2-main: &wsl2_test
           testsuite: null
           machine: [win10_64bit, win10_uefi, win11_uefi]
-          settings:
+          settings: &wsl2_settings
             YAML_SCHEDULE: 'schedule/wsl/wsl_main.yaml'
             WSL_INSTALL_FROM: 'build'
             QEMU_ENABLE_SMBD: '1'
@@ -1132,18 +1132,18 @@ scenarios:
             QEMUMACHINE: 'q35,accel=whpx'
             WORKER_CLASS: 'wsl2'
       - wsl2-install-msstore:
-          <<: *wsl2_defaults
+          <<: *wsl2_test
           description: |
             Basic WSL test Test scope:
                 1) Prepare WSL and other features in Windows
                 2) Install WSL image from the MS Store via CLI
           settings:
-            YAML_SCHEDULE: 'schedule/wsl/wsl_main.yaml'
+            <<: *wsl2_settings
             WSL_VERSION: 'openSUSE Tumbleweed'
             WSL_INSTALL_FROM: 'msstore'
       - wsl2-systemd:
-          <<: *wsl2_defaults
+          <<: *wsl2_test
           description: 'Enable and test systemd in WSL'
           settings:
-            YAML_SCHEDULE: 'schedule/wsl/wsl_main.yaml'
+            <<: *wsl2_settings
             WSL_SYSTEMD: '1'
