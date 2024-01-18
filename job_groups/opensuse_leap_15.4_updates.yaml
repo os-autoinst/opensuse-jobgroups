@@ -161,6 +161,7 @@ scenarios:
             HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%_ay@%MACHINE%.qcow2'
             K3S_SYMLINK: 'skip'
             K8S_CLIENT: 'kubernetes1.24-client'
+            K3S_ENABLE_COREDNS: '1'
       - extra_tests_textmode_docker_containers:
           testsuite: extra_tests_textmode_containers
           settings:
