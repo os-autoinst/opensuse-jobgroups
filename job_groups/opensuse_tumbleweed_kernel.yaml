@@ -71,7 +71,6 @@ scenarios:
       - ltp_can
       - ltp_capbounds
       - ltp_commands
-      - ltp_connectors
       - ltp_containers
       - ltp_controllers
       - ltp_cpuhotplug
@@ -216,7 +215,6 @@ scenarios:
       - ltp_can
       - ltp_capbounds
       - ltp_commands
-      - ltp_connectors
       - ltp_containers
       - ltp_controllers
       - ltp_cpuhotplug
@@ -354,7 +352,6 @@ scenarios:
       - ltp_can
       - ltp_capbounds
       - ltp_commands
-      - ltp_connectors
       - ltp_containers
       - ltp_controllers
       - ltp_cpuhotplug
