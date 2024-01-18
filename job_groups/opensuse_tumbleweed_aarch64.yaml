@@ -240,6 +240,7 @@ scenarios:
           settings:
             CONTAINER_RUNTIMES: 'kubectl'
             K3S_INSTALL_UPSTREAM: '1'
+            K3S_ENABLE_COREDNS: '1'
       - containers_host_podman:
           testsuite: extra_tests_textmode_containers
           settings:
