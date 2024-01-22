@@ -84,6 +84,8 @@ scenarios:
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/ext4/ext4_textmode.yaml
       - extra_tests_dracut
+      - wicked_basic_sut
+      - wicked_basic_ref
     opensuse-Tumbleweed-NET-ppc64le:
       - minimalx:
           machine: ppc64le
