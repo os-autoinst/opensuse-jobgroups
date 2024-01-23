@@ -140,7 +140,18 @@ scenarios:
       - microos_fips
     microos-*-MicroOS-Image-sdboot-aarch64:
       - microos-combustion
-      - microos-wizard
+      - microos-wizard-tpm:
+          testsuite: microos-wizard
+          settings:
+            # jeos-firstboot sets up FDE by default
+            ENCRYPT: '1'
+            # Test with TPM enrollment
+            QEMUTPM: 'instance'
+      - microos-wizard:
+          settings:
+            # jeos-firstboot sets up FDE by default
+            ENCRYPT: '1'
+            # Test without TPM enrollment
     opensuse-Tumbleweed-DVD-aarch64:
       - security_tpm2
       - unlock_luks2_volume_with_tpm2:
