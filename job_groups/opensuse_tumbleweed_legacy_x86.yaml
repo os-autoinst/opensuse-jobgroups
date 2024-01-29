@@ -39,8 +39,6 @@ scenarios:
       - create_hdd_textmode
       - gnome
       - install_only
-      - install_only:
-          machine: pentium3
       - kde
       - mediacheck
       - minimalx
