@@ -32,6 +32,8 @@ scenarios:
           machine: aarch64
       - gnome:
           priority: 45
+          settings:
+            QEMURAM: '4096'
       - minimalx:
           machine: aarch64
       - xfce
@@ -55,14 +57,19 @@ scenarios:
           priority: 40
       - create_hdd_gnome:
           priority: 40
+          settings:
+            QEMURAM: '4096'
       - create_hdd_kde
       - boot_to_snapshot
       - yast2_gui
-      - extra_tests_on_gnome
+      - extra_tests_on_gnome:
+          settings:
+            QEMURAM: '4096'
       - create_hdd_xfce
       - create_hdd_cryptlvm:
           settings:
             DESKTOP: gnome
+            QEMURAM: '4096'
             ENCRYPT: '1'
             HDDSIZEGB: '40'
             INSTALLONLY: '1'
@@ -74,7 +81,9 @@ scenarios:
           testsuite: null
       - extra_tests_on_kde
       - extra_tests_on_xfce
-      - gnome-ext4
+      - gnome-ext4:
+          settings:
+            QEMURAM: '4096'
       - extra_tests_in_textmode
       - extra_tests_textmode_containers:
           settings:
@@ -96,17 +105,29 @@ scenarios:
       - transactional_server
       - system_performance
       - apparmor
-      - zdup-Leap-15.0-gnome
+      - zdup-Leap-15.0-gnome:
+          settings:
+            QEMURAM: '4096'
       - openscap
-      - upgrade_Leap_15.0_gnome
+      - upgrade_Leap_15.0_gnome:
+          settings:
+            QEMURAM: '4096'
       - upgrade_Leap_15.0_kde
-      - upgrade_Leap_15.1_gnome
+      - upgrade_Leap_15.1_gnome:
+          settings:
+            QEMURAM: '4096'
       - btrfs+warnings
       - wicked_basic_ref
-      - create_hdd_gnome-x11
-      - create_hdd_gnome-wayland
+      - create_hdd_gnome-x11:
+          settings:
+            QEMURAM: '4096'
+      - create_hdd_gnome-wayland:
+          settings:
+            QEMURAM: '4096'
       - toolkits
-      - gnome-x11-ibus
+      - gnome-x11-ibus:
+          settings:
+            QEMURAM: '4096'
       - toolkits-kde
       - qemu
       - extra_tests_dracut

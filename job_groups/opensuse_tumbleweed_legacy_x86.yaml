@@ -24,7 +24,9 @@ products:
 scenarios:
   i586:
     opensuse-Tumbleweed-LegacyX86-DVD-i586:
-      - gnome
+      - gnome:
+          settings:
+            QEMURAM: '4096'
       - kde
       - mediacheck
       - minimalx
@@ -34,10 +36,16 @@ scenarios:
           machine: pentium3
       - xfce
     opensuse-Tumbleweed-LegacyX86-NET-i586:
-      - create_hdd_gnome
-      - create_hdd_gnome_libyui
+      - create_hdd_gnome:
+          settings:
+            QEMURAM: '4096'
+      - create_hdd_gnome_libyui:
+          settings:
+            QEMURAM: '4096'
       - create_hdd_textmode
-      - gnome
+      - gnome:
+          settings:
+            QEMURAM: '4096'
       - install_only
       - kde
       - mediacheck

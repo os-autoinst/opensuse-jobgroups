@@ -177,8 +177,12 @@ scenarios:
           machine: aarch64_lse_smp4
       - gnome:
           machine: aarch64_no_lse_smp4
+          settings:
+            QEMURAM: '4096'
       - gnome:
           machine: aarch64_lse_smp4
+          settings:
+            QEMURAM: '4096'
       - minimalx:
           machine: aarch64_no_lse
       - minimalx:
@@ -221,20 +225,30 @@ scenarios:
           priority: 40
       - create_hdd_gnome:
           priority: 40
-      - create_hdd_gnome_libyui
+          settings:
+            QEMURAM: '4096'
+      - create_hdd_gnome_libyui:
+          settings:
+            QEMURAM: '4096'
       - create_hdd_gnome_wicked:
           priority: 45
+          settings:
+            QEMURAM: '4096'
       - create_hdd_kde:
           priority: 40
       - boot_to_snapshot
       - yast2_gui:
           priority: 45
-      - extra_tests_gnome
+      - extra_tests_gnome:
+          settings:
+            QEMURAM: '4096'
       - create_hdd_xfce:
           priority: 45
       - extra_tests_on_kde
       - extra_tests_on_xfce
-      - gnome-ext4
+      - gnome-ext4:
+          settings:
+            QEMURAM: '4096'
       - extra_tests_textmode
       - extra_tests_misc
       - containers_host_docker:
@@ -337,7 +351,9 @@ scenarios:
             UEFI_PFLASH_CODE: '/usr/share/qemu/aavmf-aarch64-ms-code.bin'
             UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars_sb.qcow2'
             DESKTOP: textmode
-      - autoyast_gnome
+      - autoyast_gnome:
+          settings:
+            QEMURAM: '4096'
       - autoyast_minimal
       - package-dependency:
           settings:
@@ -354,7 +370,9 @@ scenarios:
           machine: aarch64_no_lse_smp4
       - kde-wayland:
           machine: aarch64_lse_smp4
-      - desktopapps-gnome
+      - desktopapps-gnome:
+          settings:
+            QEMURAM: '4096'
       - virtualization:
           settings:
             YAML_SCHEDULE: schedule/virtualization/virtualization.yaml
@@ -366,14 +384,24 @@ scenarios:
       - apparmor
       - security_misc_o3
       - scap_workbench
-      - zdup-Leap-15.2-gnome
+      - zdup-Leap-15.2-gnome:
+          settings:
+            QEMURAM: '4096'
       - openscap
-      - upgrade_Leap_15.0_gnome
+      - upgrade_Leap_15.0_gnome:
+          settings:
+            QEMURAM: '4096'
       - upgrade_Leap_15.0_kde
-      - upgrade_Leap_15.1_gnome
-      - upgrade_Leap_15.2_gnome
+      - upgrade_Leap_15.1_gnome:
+          settings:
+            QEMURAM: '4096'
+      - upgrade_Leap_15.2_gnome:
+          settings:
+            QEMURAM: '4096'
       - upgrade_Leap_15.2_kde
-      - upgrade_Leap_15.3_gnome
+      - upgrade_Leap_15.3_gnome:
+          settings:
+            QEMURAM: '4096'
       - upgrade_Leap_15.3_kde
       - btrfs+warnings:
           settings:
@@ -382,15 +410,25 @@ scenarios:
       - desktopapps-other-wayland
       - create_hdd_gnome-x11:
           priority: 40
+          settings:
+            QEMURAM: '4096'
       - create_hdd_gnome-wayland:
           priority: 45
+          settings:
+            QEMURAM: '4096'
       - desktopapps-other-x11
       - desktopapps-documentation-x11
       - desktopapps-documentation-wayland
-      - desktopapps-gnome-x11
-      - desktopapps-gnome-wayland
+      - desktopapps-gnome-x11:
+          settings:
+            QEMURAM: '4096'
+      - desktopapps-gnome-wayland:
+          settings:
+            QEMURAM: '4096'
       - toolkits
-      - gnome-x11-ibus
+      - gnome-x11-ibus:
+          settings:
+            QEMURAM: '4096'
       - toolkits-kde
       - openqa_bootstrap
       - qemu
@@ -458,6 +496,7 @@ scenarios:
           settings:
             BOOT_HDD_IMAGE: '1'
             DESKTOP: gnome
+            QEMURAM: '4096'
             HDD_1: support_server_tumbleweed@aarch64.qcow2
             UEFI_PFLASH_VARS: support_server_tumbleweed@aarch64-uefi-vars.qcow2
             NICTYPE: tap
@@ -473,6 +512,7 @@ scenarios:
           priority: 45
           settings:
             DESKTOP: gnome
+            QEMURAM: '4096'
             NICTYPE: tap
             OVS_DEBUG: '1'
             PARALLEL_WITH: remote_vnc_controller
@@ -490,7 +530,9 @@ scenarios:
       - rsync-server
       - rsync-client
       - tomcat
-      - desktopapps-message-gnome
+      - desktopapps-message-gnome:
+          settings:
+            QEMURAM: '4096'
       - security_389ds_server:
           description: 'Maintainer: rfan1'
           testsuite: null
@@ -524,6 +566,8 @@ scenarios:
     opensuse-Tumbleweed-GNOME-Live-aarch64:
       - gnome-live:
           machine: USBboot_aarch64
+          settings:
+            QEMURAM: '4096'
       - mediacheck:
           machine: USBboot_aarch64
           priority: 40
@@ -628,7 +672,9 @@ scenarios:
           priority: 40
       - create_hdd_tumbleweed:
           priority: 45
-      - zdup_tw2twnext_gnome
+      - zdup_tw2twnext_gnome:
+          settings:
+            QEMURAM: '4096'
       - create_hdd_tumbleweed_kde:
           priority: 45
       - zdup_tw2twnext_kde
@@ -638,7 +684,9 @@ scenarios:
       - otherDE_awesome
       - lxde
       - zdup-Leap-15.3-kde
-      - zdup-Leap-15.3-gnome
+      - zdup-Leap-15.3-gnome:
+          settings:
+            QEMURAM: '4096'
     opensuse-Tumbleweed-Rescue-CD-aarch64:
       - rescue:
           machine: USBboot_aarch64

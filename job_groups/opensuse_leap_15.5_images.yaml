@@ -108,15 +108,15 @@ scenarios:
           machine: 64bit_virtio
     opensuse-Leap15.5-GNOME-Live-x86_64:
       - gnome-live:
-          machine: uefi-3G
+          machine: uefi-4G
       - gnome-live:
-          machine: 64bit-3G
+          machine: 64bit-4G
       - gnome-live:
           machine: uefi-usb-4G
       - gnome-live:
-          machine: USBboot_64-3G
+          machine: USBboot_64-4G
       - mediacheck:
-          machine: 64bit
+          machine: 64bit-4G
     opensuse-Leap15.5-KDE-Live-x86_64:
       - kde-live:
           machine: uefi-usb-4G
@@ -273,8 +273,12 @@ scenarios:
           machine: aarch64
       - mediacheck
     opensuse-Leap15.5-GNOME-Live-aarch64:
-      - gnome-live
-      - mediacheck
+      - gnome-live:
+          settings:
+            QEMURAM: '4096'
+      - mediacheck:
+          settings:
+            QEMURAM: '4096'
     opensuse-Leap15.5-XFCE-Live-aarch64:
       - xfce-live
       - mediacheck

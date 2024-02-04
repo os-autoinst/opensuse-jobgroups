@@ -68,9 +68,13 @@ scenarios:
       - gnome:
           machine: 64bit
           priority: 45
+          settings:
+            QEMURAM: '4096'
       - create_hdd_gnome-staging:
           machine: 64bit
           priority: 45
+          settings:
+            QEMURAM: '4096'
       - yast2_users-staging:
           machine: 64bit
           priority: 45
@@ -109,6 +113,8 @@ scenarios:
       - gnome:
           machine: 64bit
           priority: 45
+          settings:
+            QEMURAM: '4096'
       - minimalx:
           machine: 64bit
       - cryptlvm:
