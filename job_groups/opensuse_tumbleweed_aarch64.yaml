@@ -596,6 +596,10 @@ scenarios:
           machine: RPi4
           settings:
             PASSWORD: linux
+      - qemu:
+          machine: RPi4
+          settings:
+            PASSWORD: linux
     opensuse-Tumbleweed-KDE-Live-aarch64:
       - kde-live:
           machine: USBboot_aarch64-3G
