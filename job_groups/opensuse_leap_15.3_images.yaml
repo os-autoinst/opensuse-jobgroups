@@ -173,9 +173,8 @@ scenarios:
           settings:
             HDD_1: 'opensuse-15.3-x86_64-20210906-4-textmode@64bit.qcow2'
             CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap/15.3/images/totest/containers/opensuse/leap:15.3'
-            # Temporarily disabled due to db instance being down
-            IMAGE_STORE_DATA: '0'
-            POSTGRES_IP: '18.196.183.86'
+            POSTGRES_IP: 'ko.dmz-prg2.suse.org'
+            POSTGRES_PORT: '5444'
       - container_image_on_leap15.2_host:
           testsuite: container-image
           description: 'Container image validation on Leap 15.2 GM'
@@ -262,6 +261,5 @@ scenarios:
             HDD_1: 'opensuse-15.3-aarch64-160.3-textmode@aarch64.qcow2'
             UEFI_PFLASH_VARS: 'opensuse-15.3-aarch64-160.3-textmode@aarch64-uefi-vars.qcow2'
             CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap/15.3/images/totest/containers/opensuse/leap:15.3'
-            # Temporarily disabled due to db instance being down
-            IMAGE_STORE_DATA: '0'
-            POSTGRES_IP: '18.196.183.86'
+            POSTGRES_IP: 'ko.dmz-prg2.suse.org'
+            POSTGRES_PORT: '5444'
