@@ -111,10 +111,8 @@ scenarios:
           machine: 64bit
           priority: 45
       - gnome:
-          machine: 64bit
+          machine: 64bit-4G
           priority: 45
-          settings:
-            QEMURAM: '4096'
       - minimalx:
           machine: 64bit
       - cryptlvm:
