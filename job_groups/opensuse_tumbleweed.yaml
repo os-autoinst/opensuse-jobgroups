@@ -294,7 +294,7 @@ scenarios:
           settings:
             CONTAINER_RUNTIMES: 'podman'
             K3S_INSTALL_UPSTREAM: '1'
-      - containers_host_podman_bats:
+      - containers_host_podman_testsuite:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIMES: 'podman'
