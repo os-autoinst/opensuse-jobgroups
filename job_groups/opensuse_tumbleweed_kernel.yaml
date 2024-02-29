@@ -23,10 +23,11 @@ defaults:
     priority: 60
     settings:
       # required by bootloader_s390 (o3 does not support zkvm, only z/VM, thus
-      # installation must be done for each test suite
-      HDD_1: ''
+      # installation must be done for each test suite)
+      HDD_1: null
       INSTALL_LTP: 'from_repo'
       LTP_BAREMETAL: '1'
+      START_AFTER_TEST: null
       VIDEOMODE: 'text'
       MAX_JOB_TIME: '14400'
   x86_64:
