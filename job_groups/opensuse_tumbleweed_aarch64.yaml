@@ -688,9 +688,15 @@ scenarios:
       - extra_tests_filesystem
       - systemd-networkd
       - toolchain_zypper
-      - wicked_basic_ref
-      - wicked_basic_sut
-      - yast2_nfs_v3_client
-      - yast2_nfs_v3_server
-      - yast2_nfs_v4_client
-      - yast2_nfs_v4_server
+      - wicked_basic_ref:
+          priority: 45
+      - wicked_basic_sut:
+          priority: 45
+      - yast2_nfs_v3_client:
+          priority: 45
+      - yast2_nfs_v3_server:
+          priority: 45
+      - yast2_nfs_v4_client:
+          priority: 45
+      - yast2_nfs_v4_server:
+          priority: 45
