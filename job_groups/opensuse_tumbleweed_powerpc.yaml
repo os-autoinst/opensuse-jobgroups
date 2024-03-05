@@ -33,7 +33,9 @@ scenarios:
   ppc64le:
     opensuse-Tumbleweed-DVD-ppc64le:
       - textmode
-      - gnome
+      - gnome:
+          settings:
+            QEMURAM: '4096'
       - minimalx:
           machine: ppc64le
       - RAID0:
@@ -58,13 +60,19 @@ scenarios:
       - rescue_system
       - gpt
       - create_hdd_textmode
-      - create_hdd_gnome
-      - create_hdd_gnome_libyui
+      - create_hdd_gnome:
+          settings:
+            QEMURAM: '4096'
+      - create_hdd_gnome_libyui:
+          settings:
+            QEMURAM: '4096'
       - create_hdd_kde
       - install_minimalx:
           machine: ppc64le-multipath
       - boot_to_snapshot
-      - extra_tests_gnome
+      - extra_tests_gnome:
+          settings:
+            QEMURAM: '4096'
       - extra_tests_on_kde
       - extra_tests_textmode
       - containers_host_docker:

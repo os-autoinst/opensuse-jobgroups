@@ -70,9 +70,9 @@ scenarios:
       - uefi:
           machine: USBboot_64
       - gnome:
-          machine: Laptop_64-2G
+          machine: Laptop_64-4G
       - gnome:
-          machine: 64bit-2G
+          machine: 64bit-4G
       - minimalx:
           machine: 64bit
       - RAID0_gpt:
@@ -124,11 +124,14 @@ scenarios:
           machine: 64bit
           settings:
             QEMU_VIRTIO_RNG: "0"
+            QEMURAM: "4096"
       - create_hdd_gnome_wicked:
           settings:
             QEMU_VIRTIO_RNG: "0"
       - create_hdd_gnome:
           machine: uefi
+          settings:
+            QEMURAM: "4096"
       - create_hdd_kde:
           machine: uefi
       - create_hdd_kde:
@@ -136,9 +139,11 @@ scenarios:
       - create_hdd_gnome_libyui:
           settings:
             QEMU_VIRTIO_RNG: "0"
+            QEMURAM: "4096"
       - create_hdd_cryptlvm:
           settings:
             DESKTOP: gnome
+            QEMURAM: "4096"
             ENCRYPT: '1'
             HDDSIZEGB: '40'
             INSTALLONLY: '1'
@@ -153,7 +158,9 @@ scenarios:
       - yast2_gui:
           settings:
             QEMU_VIRTIO_RNG: "0"
-      - extra_tests_gnome
+      - extra_tests_gnome:
+          settings:
+            QEMURAM: "4096"
       - systemd-networkd
       - extra_tests_on_kde
       - extra_tests_textmode:
@@ -174,7 +181,7 @@ scenarios:
             CONTAINER_IMAGE_VERSIONS: '15.4'
       - yast_no_self_update
       - gnome-gdm:
-          machine: 64bit-2G
+          machine: 64bit-4G
       - kde_dual_windows10:
           machine: uefi_win
       - kde_dual_windows10:
@@ -182,11 +189,11 @@ scenarios:
       - kde-sddm:
           machine: 64bit-2G
       - gnome+import_ssh_keys:
-          machine: 64bit_cirrus-2G
+          machine: 64bit_cirrus-4G
           settings:
             HDD_1: opensuse-15.3-%ARCH%-GM-%DESKTOP%@64bit.qcow2
       - gnome+do_not_import_ssh_keys:
-          machine: 64bit_cirrus-2G
+          machine: 64bit_cirrus-4G
           settings:
             HDD_1: opensuse-15.3-%ARCH%-GM-%DESKTOP%@64bit.qcow2
       - autoyast_gnome:
@@ -201,10 +208,12 @@ scenarios:
           machine: uefi
           settings:
             AUTOYAST: autoyast_opensuse/opensuse_leap_gnome.xml
+            QEMURAM: "4096"
       - autoyast_reinstall_gnome:
           settings:
             YAML_TEST_DATA: test_data/yast/opensuse/autoyast_reinstall/autoyast_reinstall_64bit.yaml
             QEMU_VIRTIO_RNG: "0"
+            QEMURAM: "4096"
       - package-dependency
       - extra_tests_filesystem:
           settings:
@@ -220,6 +229,7 @@ scenarios:
           settings:
             QEMU_VIRTIO_RNG: "0"
             +HDD_1: "%DISTRI%-15.2-%ARCH%-GM-Updated-gnome@%MACHINE%.qcow2"
+            QEMURAM: "4096"
       - zdup-Leap-15.2-kde:
           settings:
             QEMU_VIRTIO_RNG: "0"
@@ -227,10 +237,13 @@ scenarios:
       - zdup-Leap-15.3-gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
+            QEMURAM: "4096"
       - zdup-Leap-15.3-kde:
           settings:
             QEMU_VIRTIO_RNG: "0"
-      - zdup-Leap-15.4-gnome
+      - zdup-Leap-15.4-gnome:
+          settings:
+            QEMURAM: "4096"
       - zdup-Leap-15.4-kde_to_Leap
       - yast2_ncurses:
           settings:
@@ -245,6 +258,7 @@ scenarios:
           settings:
             CDMODEL: ide-cd
             DESKTOP: gnome
+            QEMURAM: "4096"
             DUALBOOT: '1'
             HDDVERSION: Windows 10
             HDD_1: windows-10-x86_64-1903@%MACHINE%.qcow2
@@ -267,6 +281,7 @@ scenarios:
       - upgrade_Leap_15.0_gnome:
           machine: 64bit
           settings:
+            QEMURAM: "4096"
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.0_cryptlvm:
           machine: uefi
@@ -278,25 +293,32 @@ scenarios:
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.1_gnome:
           settings:
+            QEMURAM: "4096"
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.1_kde:
           settings:
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.2_gnome:
           settings:
+            QEMURAM: "4096"
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.2_kde:
           settings:
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.3_gnome:
           settings:
+            QEMURAM: "4096"
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.3_kde:
           settings:
             QEMU_VIRTIO_RNG: "0"
-      - upgrade_Leap_15.4_gnome
+      - upgrade_Leap_15.4_gnome:
+          settings:
+            QEMURAM: "4096"
       - upgrade_Leap_15.4_kde
-      - upgrade_Leap_15.5_gnome
+      - upgrade_Leap_15.5_gnome:
+          settings:
+            QEMURAM: "4096"
       - upgrade_Leap_15.5_kde
       - upgrade_Leap_15.2_cryptlvm:
           machine: uefi
@@ -342,9 +364,9 @@ scenarios:
       - kde:
           machine: USBboot_64-2G
       - gnome:
-          machine: 64bit-2G
+          machine: 64bit-4G
       - gnome:
-          machine: Laptop_64
+          machine: Laptop_64-4G
       - minimalx:
           machine: 64bit
       - xfce:
@@ -392,10 +414,12 @@ scenarios:
       - autoyast_gnome:
           machine: 64bit
           settings:
+            QEMURAM: "4096"
             AUTOYAST: autoyast_opensuse/opensuse_leap_gnome.xml
       - upgrade_Leap_15.0_gnome:
           machine: 64bit
           settings:
+            QEMURAM: "4096"
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.0_cryptlvm:
           machine: uefi
@@ -407,12 +431,14 @@ scenarios:
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.1_gnome:
           settings:
+            QEMURAM: "4096"
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.1_kde:
           settings:
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.2_gnome:
           settings:
+            QEMURAM: "4096"
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.2_kde:
           settings:
@@ -423,11 +449,14 @@ scenarios:
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.3_gnome:
           settings:
+            QEMURAM: "4096"
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.3_kde:
           settings:
             QEMU_VIRTIO_RNG: "0"
-      - upgrade_Leap_15.4_gnome
+      - upgrade_Leap_15.4_gnome:
+          settings:
+            QEMURAM: "4096"
       - upgrade_Leap_15.4_kde
       - upgrade_Leap_15.3_cryptlvm:
           machine: uefi
@@ -437,6 +466,7 @@ scenarios:
           machine: uefi
       - zdup-Leap-15.2-gnome:
           settings:
+            QEMURAM: "4096"
             QEMU_VIRTIO_RNG: "0"
             +HDD_1: "%DISTRI%-15.2-%ARCH%-GM-Updated-gnome@%MACHINE%.qcow2"
       - zdup-Leap-15.2-kde:
@@ -445,11 +475,14 @@ scenarios:
             +HDD_1: "%DISTRI%-15.2-%ARCH%-GM-Updated-kde@%MACHINE%.qcow2"
       - zdup-Leap-15.3-gnome:
           settings:
+            QEMURAM: "4096"
             QEMU_VIRTIO_RNG: "0"
       - zdup-Leap-15.3-kde:
           settings:
             QEMU_VIRTIO_RNG: "0"
-      - zdup-Leap-15.4-gnome
+      - zdup-Leap-15.4-gnome:
+          settings:
+            QEMURAM: "4096"
       - zdup-Leap-15.4-kde_to_Leap
   aarch64:
     opensuse-Leap-15.6-DVD-aarch64:
@@ -463,8 +496,12 @@ scenarios:
           machine: aarch64_lse_smp4
       - gnome:
           priority: 45
+          settings:
+            QEMURAM: "4096"
       - gnome:
           machine: aarch64_lse_smp4
+          settings:
+            QEMURAM: "4096"
       - minimalx:
           machine: aarch64
       - xfce
@@ -495,25 +532,32 @@ scenarios:
       - create_hdd_gnome:
           priority: 40
           settings:
+            QEMURAM: "4096"
             QEMU_VIRTIO_RNG: "0"
       - create_hdd_gnome_libyui:
           settings:
+            QEMURAM: "4096"
             QEMU_VIRTIO_RNG: "0"
       - create_hdd_gnome_wicked:
           priority: 45
+          settings:
+            QEMURAM: "4096"
       - create_hdd_kde
       - boot_to_snapshot
       - yast2_gui:
           settings:
             QEMU_VIRTIO_RNG: "0"
             KEEP_ONLINE_REPOS: "1"
-      - extra_tests_on_gnome
+      - extra_tests_on_gnome:
+          settings:
+            QEMURAM: "4096"
       - create_hdd_xfce:
           settings:
             QEMU_VIRTIO_RNG: "0"
       - create_hdd_cryptlvm:
           settings:
             DESKTOP: gnome
+            QEMURAM: "4096"
             ENCRYPT: '1'
             HDDSIZEGB: '40'
             INSTALLONLY: '1'
@@ -528,7 +572,9 @@ scenarios:
       - extra_tests_on_xfce:
           settings:
             QEMU_VIRTIO_RNG: "0"
-      - gnome-ext4
+      - gnome-ext4:
+          settings:
+            QEMURAM: "4096"
       - extra_tests_textmode:
           settings:
             QEMU_VIRTIO_RNG: "0"
@@ -589,6 +635,7 @@ scenarios:
       - apparmor
       - zdup-Leap-15.2-gnome:
           settings:
+            QEMURAM: "4096"
             QEMU_VIRTIO_RNG: "0"
             +HDD_1: "%DISTRI%-15.2-%ARCH%-GM-gnome@%MACHINE%.qcow2"
       - zdup-Leap-15.2-kde:
@@ -597,6 +644,7 @@ scenarios:
             +HDD_1: "%DISTRI%-15.2-%ARCH%-GM-kde@%MACHINE%.qcow2"
       - zdup-Leap-15.3-gnome:
           settings:
+            QEMURAM: "4096"
             QEMU_VIRTIO_RNG: "0"
       - zdup-Leap-15.3-kde:
           settings:
@@ -608,12 +656,14 @@ scenarios:
             QEMURAM: '4096'
       - upgrade_Leap_15.0_gnome:
           settings:
+            QEMURAM: "4096"
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.0_kde:
           settings:
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.1_gnome:
           settings:
+            QEMURAM: "4096"
             QEMU_VIRTIO_RNG: "0"
       - installer_extended
       - btrfs:
@@ -626,10 +676,16 @@ scenarios:
             YAML_SCHEDULE: schedule/yast/opensuse/btrfs/btrfs+warnings.yaml
             YAML_TEST_DATA: test_data/yast/opensuse/btrfs/btrfs+warnings_aarch64.yaml
       - wicked_basic_ref
-      - create_hdd_gnome-x11
-      - create_hdd_gnome-wayland
+      - create_hdd_gnome-x11:
+          settings:
+            QEMURAM: "4096"
+      - create_hdd_gnome-wayland:
+          settings:
+            QEMURAM: "4096"
       - toolkits
-      - gnome-x11-ibus
+      - gnome-x11-ibus:
+          settings:
+            QEMURAM: "4096"
       - toolkits-kde
       - qemu
       - extra_tests_dracut
@@ -669,7 +725,9 @@ scenarios:
   ppc64le:
     opensuse-Leap-15.6-DVD-ppc64le:
       - textmode
-      - gnome
+      - gnome:
+          settings:
+            QEMURAM: "4096"
       - minimalx:
           machine: ppc64le
       - RAID0:
@@ -685,15 +743,19 @@ scenarios:
             QEMU_VIRTIO_RNG: "0"
       - create_hdd_gnome:
           settings:
+            QEMURAM: "4096"
             QEMU_VIRTIO_RNG: "0"
       - create_hdd_gnome_libyui:
           settings:
+            QEMURAM: "4096"
             QEMU_VIRTIO_RNG: "0"
       - create_hdd_kde
       - install_minimalx:
           machine: ppc64le-multipath
       - boot_to_snapshot
-      - extra_tests_on_gnome
+      - extra_tests_on_gnome:
+          settings:
+            QEMURAM: "4096"
       - extra_tests_on_kde
       - extra_tests_in_textmode:
           settings:

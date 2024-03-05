@@ -27,6 +27,7 @@ scenarios:
       - gnome:
           settings:
             YAML_SCHEDULE: schedule/functional/leap15_incidents/incident_update.yaml
+            QEMURAM: '4096'
       - cryptlvm:
           machine: uefi-2G
           settings:

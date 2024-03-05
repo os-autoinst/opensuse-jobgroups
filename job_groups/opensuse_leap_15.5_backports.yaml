@@ -27,8 +27,9 @@ scenarios:
           machine: uefi
           settings:
             QEMUVGA: cirrus
+            QEMURAM: '4096'
       - gnome:
-          machine: 64bit-2G
+          machine: 64bit-4G
           settings:
             QEMUVGA: cirrus
       - cryptlvm:
@@ -37,5 +38,6 @@ scenarios:
       - install_with_updates_gnome:
           settings:
             QEMUVGA: cirrus
+            QEMURAM: '4096'
       - install_with_updates_kde:
           machine: uefi-2G
