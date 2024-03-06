@@ -216,14 +216,6 @@ scenarios:
       - wicked_basic_sut
       - kde-wayland:
           machine: 64bit_virtio-2G
-      - zdup-Leap-15.2-gnome:
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-            +HDD_1: "%DISTRI%-15.2-%ARCH%-GM-Updated-gnome@%MACHINE%.qcow2"
-      - zdup-Leap-15.2-kde:
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-            +HDD_1: "%DISTRI%-15.2-%ARCH%-GM-Updated-kde@%MACHINE%.qcow2"
       - zdup-Leap-15.3-gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
@@ -282,12 +274,6 @@ scenarios:
       - upgrade_Leap_15.1_kde:
           settings:
             QEMU_VIRTIO_RNG: "0"
-      - upgrade_Leap_15.2_gnome:
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - upgrade_Leap_15.2_kde:
-          settings:
-            QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.3_gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
@@ -298,10 +284,6 @@ scenarios:
       - upgrade_Leap_15.4_kde
       - upgrade_Leap_15.5_gnome
       - upgrade_Leap_15.5_kde
-      - upgrade_Leap_15.2_cryptlvm:
-          machine: uefi
-          settings:
-            QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.3_cryptlvm:
           machine: uefi
           settings:
@@ -411,16 +393,6 @@ scenarios:
       - upgrade_Leap_15.1_kde:
           settings:
             QEMU_VIRTIO_RNG: "0"
-      - upgrade_Leap_15.2_gnome:
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - upgrade_Leap_15.2_kde:
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - upgrade_Leap_15.2_cryptlvm:
-          machine: uefi
-          settings:
-            QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.3_gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
@@ -435,14 +407,6 @@ scenarios:
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.4_cryptlvm:
           machine: uefi
-      - zdup-Leap-15.2-gnome:
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-            +HDD_1: "%DISTRI%-15.2-%ARCH%-GM-Updated-gnome@%MACHINE%.qcow2"
-      - zdup-Leap-15.2-kde:
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-            +HDD_1: "%DISTRI%-15.2-%ARCH%-GM-Updated-kde@%MACHINE%.qcow2"
       - zdup-Leap-15.3-gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
@@ -587,14 +551,6 @@ scenarios:
             YAML_SCHEDULE: schedule/yast/opensuse/lvm/lvm_thin_provisioning.yaml
             YAML_TEST_DATA: test_data/yast/lvm_thin_provisioning/lvm_thin_provisioning_uefi.yaml
       - apparmor
-      - zdup-Leap-15.2-gnome:
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-            +HDD_1: "%DISTRI%-15.2-%ARCH%-GM-gnome@%MACHINE%.qcow2"
-      - zdup-Leap-15.2-kde:
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-            +HDD_1: "%DISTRI%-15.2-%ARCH%-GM-kde@%MACHINE%.qcow2"
       - zdup-Leap-15.3-gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
