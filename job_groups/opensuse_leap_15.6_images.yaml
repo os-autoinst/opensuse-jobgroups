@@ -181,30 +181,12 @@ scenarios:
             CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap/15.6/images/totest/containers/opensuse/leap:15.6'
       - container_image_on_leap15.3_host:
           testsuite: container-image
-          description: 'Container image validation on Leap 15.2 GM'
+          description: 'Container image validation on Leap 15.3 GM'
           settings:
             HDD_1: 'opensuse-15.3-x86_64-20210906-4-textmode@64bit.qcow2'
             CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap/15.6/images/totest/containers/opensuse/leap:15.6'
             POSTGRES_IP: 'ko.dmz-prg2.suse.org'
             POSTGRES_PORT: '5444'
-      - container_image_on_leap15.2_host:
-          testsuite: container-image
-          description: 'Container image validation on Leap 15.2 GM'
-          settings:
-            HDD_1: 'opensuse-15.2-x86_64-695.1-textmode@64bit.qcow2'
-            CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap/15.6/images/totest/containers/opensuse/leap:15.6'
-            # Product bug:
-            # podman-20886.scope: Failed to add PIDs to scope's control group: Permission denied
-            # EXCLUDE_MODULES: rootless_podman #uncomment if needed
-      - container_image_on_leap15.2_host:
-          testsuite: container-image
-          machine: ppc64le
-          settings:
-            # we force the ppc64le machine and ARCH here because OBS sync doesn't trigger ppc64le jobs
-            +ARCH: 'ppc64le'
-            HDD_1: 'opensuse-15.2-ppc64le-GM-kde@ppc64le.qcow2'
-            DESKTOP: 'kde'
-            CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap/15.6/images/totest/containers/opensuse/leap:15.6'
       - container_image_on_leap15.3_host:
           testsuite: container-image
           machine: ppc64le
