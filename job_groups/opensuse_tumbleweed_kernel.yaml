@@ -301,6 +301,10 @@ scenarios:
       - io_uring
       - kdump
       - install_ltp+opensuse+DVD
+      - ipsec_3hosts_support_server
+      - ipsec_3hosts_left_node
+      - ipsec_3hosts_middle_node
+      - ipsec_3hosts_right_node
       - kernel-live-patching
       - ltp_aio_stress
       - ltp_aiodio_part1
