@@ -134,6 +134,9 @@ scenarios:
             CONTAINER_RUNTIMES: 'podman'
             START_AFTER_TEST: 'create_hdd_leap_textmode_autoyast'
             HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%_ay@%MACHINE%.qcow2'
+            # Added temporarily until the LEAP 15.6 container is released
+            CONTAINERS_UNTESTED_IMAGES: '1'
+            CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap/15.6/images/totest/containers/opensuse/leap:15.6'
       - extra_tests_textmode_kubectl_containers:
           testsuite: extra_tests_textmode_containers
           settings:
@@ -149,6 +152,9 @@ scenarios:
             CONTAINER_RUNTIMES: 'docker'
             START_AFTER_TEST: 'create_hdd_leap_textmode_autoyast'
             HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%_ay@%MACHINE%.qcow2'
+            # Added temporarily until the LEAP 15.6 container is released
+            CONTAINERS_UNTESTED_IMAGES: '1'
+            CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap/15.6/images/totest/containers/opensuse/leap:15.6'
       - create_hdd_transactional_server:
           settings:
             # use main.pm schedule over YAML as it is used among other create_hdd test suite in updates testing
