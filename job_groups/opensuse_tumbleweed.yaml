@@ -270,8 +270,6 @@ scenarios:
       - extra_tests_on_xfce
       - extra_tests_textmode
       - extra_tests_webserver
-      - create_hdd_transactional_server
-      - extra_tests_transactional_server
       - extra_tests_vagrant:
           description: 'Maintainer: dancermak. Test vagrant, vagrant plugins and the vagrant boxes'
           settings:
@@ -438,9 +436,6 @@ scenarios:
       - toolchain_zypper
       - crypt_no_lvm
       - systemd-networkd
-      - transactional_server:
-          settings:
-            YAML_SCHEDULE: schedule/yast/opensuse/transactional_server/transactional_server.yaml
       - install_offline
       - system_performance
       - select_disk:

@@ -359,7 +359,6 @@ scenarios:
             YAML_SCHEDULE: schedule/virtualization/virtualization.yaml
       - toolchain_zypper
       - systemd-networkd
-      - transactional_server
       - system_performance
       - system_check
       - apparmor
@@ -426,9 +425,6 @@ scenarios:
       - install_offline
       - yast_oneclick_install
       - nvme
-      - create_hdd_transactional_server:
-          priority: 40
-      - extra_tests_transactional_server
       - selinux:
           description: Maintainer (Lily Zhao) llzhao@suse.com
           settings:
