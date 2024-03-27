@@ -630,7 +630,7 @@ scenarios:
       - desktopapps-remote-desktop-xrdp-server1:
           settings:
             BOOTFROM: c
-            HDD_1: windows-10-x86_64-21H2@64bit_win.qcow2
+            HDD_1: windows-10-x86_64-22H2@windows_bios_boot.qcow2
             WIN_VERSION: '10'
             NETWORKS: fixed
             NICTYPE: tap
@@ -661,7 +661,7 @@ scenarios:
       - desktopapps-remote-desktop-xrdp-server2:
           settings:
             BOOTFROM: c
-            HDD_1: windows-10-x86_64-21H2@64bit_win.qcow2
+            HDD_1: windows-10-x86_64-22H2@windows_bios_boot.qcow2
             WIN_VERSION: '10'
             NETWORKS: fixed
             NICTYPE: tap
@@ -682,7 +682,7 @@ scenarios:
           settings:
             BOOTFROM: c
             DESKTOP: gnome
-            HDD_1: windows-10-x86_64-21H2@64bit_win.qcow2
+            HDD_1: windows-10-x86_64-22H2@windows_bios_boot.qcow2
             WIN_VERSION: '10'
             NETWORKS: fixed
             NICTYPE: tap
