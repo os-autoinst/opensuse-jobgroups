@@ -78,6 +78,10 @@ products:
     distri: opensuse
     flavor: NET
     version: Tumbleweed
+  opensuse-Tumbleweed-WSL-aarch64:
+    distri: opensuse
+    flavor: WSL
+    version: Tumbleweed
 scenarios:
   aarch64:
     microos-*-DVD-aarch64:
@@ -650,6 +654,23 @@ scenarios:
           priority: 40
       - xfce-live:
           machine: USBboot_aarch64
+    opensuse-Tumbleweed-WSL-aarch64:
+      - wsl-main:
+          testsuite: null
+          description: |
+            Basic WSL test Test scope:
+                1) Prepare WSL and other features in Windows
+                2) Download the image
+                3) Import embedded certificate from the image
+                4) Load image
+                5) Define users
+                6) Register SUT
+                7) Exit WSL
+          machine: win11_uefi_aarch64
+          settings:
+            YAML_SCHEDULE: 'schedule/wsl/wsl_main.yaml'
+            WSL_INSTALL_FROM: 'build'
+            QEMU_ENABLE_SMBD: '1'
   armv7hl:
     opensuse-Tumbleweed-JeOS-for-AArch64-armv7hl:
       - jeos:
