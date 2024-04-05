@@ -239,7 +239,7 @@ scenarios:
             DESKTOP: gnome
             DUALBOOT: '1'
             HDDVERSION: Windows 10
-            HDD_1: windows-10-x86_64-22H2@windows_bios_boot.qcow2
+            HDD_1: windows-10-x86_64-22H2@64bit_win.qcow2
             VNC_STALL_THRESHOLD: '100'
             EXCLUDE_MODULES: system_prepare
           description: ''
