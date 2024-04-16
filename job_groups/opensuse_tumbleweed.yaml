@@ -89,6 +89,12 @@ scenarios:
           settings:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
             K3S_INSTALL_UPSTREAM: '1'
+      - fips-container-host:
+          machine: 64bit
+          settings:
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
+            K3S_INSTALL_UPSTREAM: '1'
+            FIPS_ENABLED: '1'
       - remote_ssh_controller:
           settings:
             HDD_1: support_server_tumbleweed@64bit.qcow2
@@ -105,6 +111,11 @@ scenarios:
           settings:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
             K3S_INSTALL_UPSTREAM: '1'
+      - fips-container-host:
+          settings:
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
+            K3S_INSTALL_UPSTREAM: '1'
+            FIPS_ENABLED: '1'
       - container-host2microosnext:
           settings:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
@@ -894,6 +905,10 @@ scenarios:
           machine: 64bit_virtio-2G
       - jeos-container_host:
           machine: 64bit_virtio-2G
+      - jeos-fips-container_host:
+          machine: 64bit_virtio-2G
+          settings:
+            FIPS_ENABLED: '1'
       - jeos-container_image:
           machine: 64bit_virtio-2G
           settings:
