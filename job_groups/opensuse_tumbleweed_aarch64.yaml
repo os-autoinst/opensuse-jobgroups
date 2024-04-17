@@ -90,6 +90,8 @@ scenarios:
       - microos_10G-disk
       - microos:
           machine: aarch64-4G-HD40G
+      - microos-sdboot:
+          machine: aarch64-4G-HD40G
       - microos_textmode:
           machine: aarch64-4G-HD40G
       - container-host:
@@ -142,6 +144,7 @@ scenarios:
           settings:
             EXCLUDE_MODULES: kvm
       - microos_fips
+      - microos_network_bonding
     microos-*-MicroOS-Image-sdboot-aarch64:
       - microos-combustion
       - microos-wizard-tpm:
@@ -632,9 +635,13 @@ scenarios:
       - create_hdd_tumbleweed:
           priority: 45
       - zdup_tw2twnext_gnome
+      - zdup_in_x_tw2twnext_gnome
+      - update_tw2twnext_gnome
       - create_hdd_tumbleweed_kde:
           priority: 45
       - zdup_tw2twnext_kde
+      - zdup_in_x_tw2twnext_kde
+      - update_tw2twnext_kde
       - otherDE_enlightenment
       - otherDE_lxqt
       - otherDE_mate
