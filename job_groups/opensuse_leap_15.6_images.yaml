@@ -86,6 +86,10 @@ scenarios:
             EXCLUDE_MODULES: "rails"
       - jeos-container_host:
           machine: 64bit_virtio-2G
+      - jeos-fips-container_host:
+          machine: 64bit_virtio-2G
+          settings:
+            FIPS_ENABLE: '1'
       - jeos-container_image:
           machine: 64bit_virtio-2G
           settings:
