@@ -245,9 +245,6 @@ scenarios:
           description: ''
           testsuite: null
           machine: uefi_win
-      - transactional_server:
-          settings:
-            YAML_SCHEDULE: schedule/yast/opensuse/transactional_server/transactional_server.yaml
       - install_offline
       - system_performance:
           machine: 64bit-2G
@@ -534,9 +531,6 @@ scenarios:
             YAML_SCHEDULE: schedule/virtualization/virtualization.yaml
       - toolchain_zypper
       - systemd-networkd
-      - transactional_server:
-          settings:
-            YAML_SCHEDULE: schedule/yast/opensuse/transactional_server/transactional_server.yaml
       - install_offline
       - system_performance
       - lvm-encrypt-separate-boot:
