@@ -5,7 +5,7 @@
 #  Any changes via the openQA WebUI will get overwritten!  #
 #                                                          #
 #    https://github.com/os-autoinst/opensuse-jobgroups     #
-#       job_groups/opensuse_leap_micro_5.x_dvd.yaml        #
+#       job_groups/opensuse_leap_micro_6.x_dvd.yaml        #
 ############################################################
 ---
 .default_settings: &default_settings
@@ -40,16 +40,16 @@ defaults:
     priority: 50
 
 products:
-  leap-micro-5.5-DVD-x86_64: &product_dvd
+  leap-micro-6.0-DVD-x86_64: &product_dvd
     distri: leap-micro
     flavor: DVD
-    version: '5.5'
-  leap-micro-5.5-DVD-aarch64:
+    version: '6.0'
+  leap-micro-6.0-DVD-aarch64:
     *product_dvd
 
 scenarios:
   x86_64:
-    leap-micro-5.5-DVD-x86_64:
+    leap-micro-6.0-DVD-x86_64:
       - microos_installation_default:
           machine: [64bit, uefi]
           settings:
@@ -73,11 +73,11 @@ scenarios:
             <<: *default_settings
             MIRROR_HTTP: http://download.opensuse.org/distribution/leap-micro/%VERSION%/product/repo/Leap-Micro-%VERSION%-%ARCH%-Media/
             MIRROR_HTTPS: https://download.opensuse.org/distribution/leap-micro/%VERSION%/product/repo/Leap-Micro-%VERSION%-%ARCH%-Media/
-            MIRROR_PREFIX: http://download.opensuse.org/distribution/leap-micro/5.5/product/repo/
+            MIRROR_PREFIX: http://download.opensuse.org/distribution/leap-micro/6.0/product/repo/
             INSTALL_SOURCE: http
 
   aarch64:
-    leap-micro-5.5-DVD-aarch64:
+    leap-micro-6.0-DVD-aarch64:
       - microos_installation_default:
           settings:
             *dvd_settings
