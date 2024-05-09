@@ -70,6 +70,7 @@ scenarios:
       - ltp_aiodio_part3
       - ltp_aiodio_part4
       - ltp_can
+      - ltp_capability
       - ltp_capbounds
       - ltp_commands
       - ltp_containers
@@ -81,7 +82,6 @@ scenarios:
       - ltp_dio
       - ltp_dma_thread_diotest
       - ltp_fcntl_locktests
-      - ltp_filecaps
       - ltp_fs
       - ltp_fs_bind
       - ltp_fs_perms_simple
@@ -123,7 +123,6 @@ scenarios:
           priority: 50
       - ltp_pty
       - ltp_sched
-      - ltp_securebits
       - ltp_syscalls
       - ltp_syscalls_debug_pagealloc
       - ltp_syscalls_ipc
@@ -214,6 +213,7 @@ scenarios:
       - ltp_aiodio_part3
       - ltp_aiodio_part4
       - ltp_can
+      - ltp_capability
       - ltp_capbounds
       - ltp_commands
       - ltp_containers
@@ -225,7 +225,6 @@ scenarios:
       - ltp_dio
       - ltp_dma_thread_diotest
       - ltp_fcntl_locktests
-      - ltp_filecaps
       - ltp_fs
       - ltp_fs_bind
       - ltp_fs_perms_simple
@@ -267,7 +266,6 @@ scenarios:
           priority: 50
       - ltp_pty
       - ltp_sched
-      - ltp_securebits
       - ltp_syscalls
       - ltp_syscalls_debug_pagealloc
       - ltp_syscalls_ipc
@@ -318,6 +316,7 @@ scenarios:
       - ltp_aiodio_part3
       - ltp_aiodio_part4
       - ltp_can
+      - ltp_capability
       - ltp_capbounds
       - ltp_commands
       - ltp_containers
@@ -330,7 +329,6 @@ scenarios:
       - ltp_dio
       - ltp_dma_thread_diotest
       - ltp_fcntl_locktests
-      - ltp_filecaps
       - ltp_fs
       - ltp_fs_bind
       - ltp_fs_perms_simple
@@ -374,7 +372,6 @@ scenarios:
       - ltp_power_management_tests_exclusive
       - ltp_pty
       - ltp_sched
-      - ltp_securebits
       - ltp_syscalls
       - ltp_syscalls_debug_pagealloc
       - ltp_syscalls_ipc
