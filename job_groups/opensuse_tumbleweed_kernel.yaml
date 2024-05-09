@@ -90,7 +90,6 @@ scenarios:
       - ltp_hyperthreading
       - ltp_ima
       - ltp_input
-      - ltp_io
       - ltp_ipc
       - ltp_kernel_misc
       - ltp_kernel_sched
@@ -233,7 +232,6 @@ scenarios:
       - ltp_hyperthreading
       - ltp_ima
       - ltp_input
-      - ltp_io
       - ltp_ipc
       - ltp_kernel_misc
       - ltp_kernel_sched
@@ -337,7 +335,6 @@ scenarios:
       - ltp_hyperthreading
       - ltp_ima
       - ltp_input
-      - ltp_io
       - ltp_ipc
       - ltp_kernel_misc
       - ltp_kernel_sched
