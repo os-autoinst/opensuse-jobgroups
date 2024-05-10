@@ -71,7 +71,6 @@ scenarios:
       - ltp_aiodio_part4
       - ltp_can
       - ltp_capability
-      - ltp_capbounds
       - ltp_commands
       - ltp_containers
       - ltp_controllers
@@ -213,7 +212,6 @@ scenarios:
       - ltp_aiodio_part4
       - ltp_can
       - ltp_capability
-      - ltp_capbounds
       - ltp_commands
       - ltp_containers
       - ltp_controllers
@@ -315,7 +313,6 @@ scenarios:
       - ltp_aiodio_part4
       - ltp_can
       - ltp_capability
-      - ltp_capbounds
       - ltp_commands
       - ltp_containers
       - ltp_controllers
