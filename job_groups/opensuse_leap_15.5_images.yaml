@@ -131,6 +131,9 @@ scenarios:
       - kde-live_installation
       - kde-live-wayland:
           machine: 64bit_virtio-3G
+          settings:
+            # Mitigate boo#1189174
+            QEMUCPUS: "2"
       - kde_live_upgrade_leap_42.3
       - kde_live_upgrade_leap_15.0:
           machine: 64bit
