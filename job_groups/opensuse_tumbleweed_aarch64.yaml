@@ -119,6 +119,11 @@ scenarios:
           settings:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/arm/totest/containers/opensuse/tumbleweed
             K3S_INSTALL_UPSTREAM: '1'
+      - fips-container-host:
+          settings:
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/arm/totest/containers/opensuse/tumbleweed
+            K3S_INSTALL_UPSTREAM: '1'
+            FIPS_ENABLED: '1'
       - container-host2microosnext:
           settings:
             HDD_1_URL: 'http://download.opensuse.org/ports/aarch64/tumbleweed/appliances/openSUSE-MicroOS.aarch64-ContainerHost-kvm-and-xen.qcow2?foo=%BUILD%'
@@ -455,6 +460,11 @@ scenarios:
             VIDEOMODE: text
             YAML_SCHEDULE: schedule/security/selinux.yaml
           testsuite: null
+      - fips-container-host:
+          settings:
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/arm/totest/containers/opensuse/tumbleweed
+            K3S_INSTALL_UPSTREAM: '1'
+            FIPS_ENABLED: '1'
       - remote_ssh_controller:
           priority: 45
           settings:
@@ -554,6 +564,10 @@ scenarios:
           machine: aarch64-HD20G
       - jeos-container_host:
           machine: aarch64-HD20G
+      - jeos-fips-container_host:
+          machine: aarch64-HD20G
+          settings:
+            FIPS_ENABLED: '1'
       - jeos-container_image:
           machine: aarch64-HD20G
           settings:
