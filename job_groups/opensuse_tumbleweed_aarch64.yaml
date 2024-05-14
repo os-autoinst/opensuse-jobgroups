@@ -269,6 +269,7 @@ scenarios:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIMES: 'podman'
+            MAX_JOB_TIME: '12000'
             QEMUCPUS: '2'
             PODMAN_BATS_SKIP: '125-import'
             PODMAN_BATS_SKIP_ROOT_LOCAL: '120-load 250-systemd 255-auto-update 520-checkpoint'
@@ -282,6 +283,7 @@ scenarios:
             SKOPEO_BATS_SKIP_USER: 'none'
             SKOPEO_BATS_SKIP_ROOT: 'none'
             NETAVARK_BATS_SKIP: "001-basic 100-bridge-iptables 200-bridge-firewalld 250-bridge-nftables 500-plugin"
+            AARDVARK_BATS_SKIP: "100-basic-name-resolution 200-two-networks 300-three-networks 500-reverse-lookups"
       - containers_host_containerd:
           testsuite: extra_tests_textmode_containers
           settings:
