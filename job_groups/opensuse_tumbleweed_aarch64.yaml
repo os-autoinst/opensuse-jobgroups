@@ -145,6 +145,7 @@ scenarios:
             EXCLUDE_MODULES: kvm
       - microos_fips
       - microos_network_bonding
+      - microos_networkmanager
     microos-*-MicroOS-Image-sdboot-aarch64:
       - microos-combustion
       - microos-wizard-tpm:
