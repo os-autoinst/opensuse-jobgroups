@@ -328,8 +328,8 @@ scenarios:
           settings:
             CONTAINER_RUNTIMES: 'podman'
             BUILDAH_BATS_SKIP: "commit copy run"
-            BUILDAH_BATS_SKIP_USER: 'none'
-            BUILDAH_BATS_SKIP_ROOT: "add basic bud chroot overlay rmi sbom squash"
+            BUILDAH_BATS_SKIP_ROOT: 'none'
+            BUILDAH_BATS_SKIP_USER: "add basic bud chroot overlay rmi sbom squash"
       - containers_host_containerd:
           testsuite: extra_tests_textmode_containers
           settings:
