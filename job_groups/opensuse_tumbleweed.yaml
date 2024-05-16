@@ -499,7 +499,11 @@ scenarios:
       - scap_workbench
       - lvm-encrypt-separate-boot:
           machine: 64bit
-      - lvm-full-encrypt
+          settings:
+            YAML_TEST_DATA: test_data/yast/encryption/lvm_encrypt_separate_boot_luks2.yaml
+      - lvm-full-encrypt:
+          settings:
+            YAML_TEST_DATA: test_data/yast/encryption/full_lvm_enc_luks2.yaml
       - openscap
       - lvm_thin_provisioning:
           settings:
@@ -1125,6 +1129,8 @@ scenarios:
           machine: 64bit
       - lvm-encrypt-separate-boot:
           machine: 64bit
+          settings:
+            YAML_TEST_DATA: test_data/yast/encryption/lvm_encrypt_separate_boot_luks2.yaml
       - kde+selinux:
           machine: uefi
       - gnome+selinux:
