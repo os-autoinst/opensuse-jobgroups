@@ -5,7 +5,7 @@
 #  Any changes via the openQA WebUI will get overwritten!  #
 #                                                          #
 #    https://github.com/os-autoinst/opensuse-jobgroups     #
-#      job_groups/opensuse_leap_micro_5.x_image.yaml       #
+#      job_groups/opensuse_leap_micro_6.x_image.yaml       #
 ############################################################
 ---
 .default_settings: &default_settings
@@ -58,33 +58,68 @@ defaults:
     settings:
       QEMUCPUS: '2'
 
-products:
-  leap-micro-5.5-MicroOS-Image-SelfInstall-x86_64:
+products: # ---Default---
+  leap-micro-6.0-MicroOS-Default-SelfInstall-x86_64: &distriver
     distri: leap-micro
     flavor: Default-SelfInstall
-    version: '5.5'
-  leap-micro-5.5-MicroOS-Image-RT-SelfInstall-x86_64:
-    distri: leap-micro
+    version: '6.0'
+  leap-micro-6.0-MicroOS-Default-SelfInstall-aarch64:
+    <<: *distriver
+
+  leap-micro-6.0-MicroOS-Default-RT-SelfInstall-x86_64: &default_rt_selfinstall
+    <<: *distriver
     flavor: Default-RT-SelfInstall
-    version: '5.5'
-  leap-micro-5.5-MicroOS-Image-x86_64: &product_image
-    distri: leap-micro
-    flavor: MicroOS-Image
-    version: '5.5'
-  leap-micro-5.5-MicroOS-Image-SelfInstall-aarch64:
-    distri: leap-micro
-    flavor: Default-SelfInstall
-    version: '5.5'
-  leap-micro-5.5-MicroOS-Image-aarch64:
-    *product_image
-  leap-micro-5.5-MicroOS-Image-RT-x86_64:
-    distri: leap-micro
-    flavor: MicroOS-Image-RT
-    version: '5.5'
+  leap-micro-6.0-MicroOS-Default-RT-SelfInstall-aarch64:
+    <<: *default_rt_selfinstall
+
+  leap-micro-6.0-MicroOS-Default-x86_64: &default_medium
+    <<: *distriver
+    flavor: Default
+  leap-micro-6.0-MicroOS-Default-aarch64:
+    <<: *default_medium
+
+  leap-micro-6.0-MicroOS-Default-qcow-x86_64: &default_qcow
+    <<: *distriver
+    flavor: Default-qcow
+  leap-micro-6.0-MicroOS-Default-qcow-aarch64:
+    <<: *default_qcow
+
+  leap-micro-6.0-MicroOS-Default-encrypted-x86_64:
+    <<: *distriver
+    flavor: Default-encrypted
+  # ---end.Default---
+  # ---Base---
+  leap-micro-6.0-MicroOS-Base-SelfInstall-x86_64: &base_selfinstall
+    <<: *distriver
+    flavor: Base-SelfInstall
+  leap-micro-6.0-MicroOS-Base-SelfInstall-aarch64:
+    <<: *distriver
+
+  leap-micro-6.0-MicroOS-Base-RT-SelfInstall-x86_64: &default_rt_selfinstall
+    <<: *distriver
+    flavor: Base-RT-SelfInstall
+  leap-micro-6.0-MicroOS-Base-RT-SelfInstall-aarch64:
+    <<: *default_rt_selfinstall
+
+  leap-micro-6.0-MicroOS-Base-x86_64: &default_medium
+    <<: *distriver
+    flavor: Base
+  leap-micro-6.0-MicroOS-Base-aarch64:
+    <<: *default_medium
+
+  leap-micro-6.0-MicroOS-Base-qcow-x86_64: &default_qcow
+    <<: *distriver
+    flavor: Base-qcow
+  leap-micro-6.0-MicroOS-Base-qcow-aarch64:
+    <<: *default_qcow
+
+  leap-micro-6.0-MicroOS-Base-encrypted-x86_64:
+    <<: *distriver
+    flavor: Base-encrypted
 
 scenarios:
   x86_64:
-    leap-micro-5.5-MicroOS-Image-x86_64:
+    leap-micro-6.0-MicroOS-Default-x86_64:
       - microos_image_default:
           machine: [64bit, uefi]
           settings:
@@ -95,27 +130,28 @@ scenarios:
       - microos_virtualization:
           settings:
             <<: *image_qemu_settings
-    leap-micro-5.5-MicroOS-Image-RT-x86_64:
-      - microos_image_default:
-          settings:
-            *image_settings
-    leap-micro-5.5-MicroOS-Image-SelfInstall-x86_64:
+    # Still here?
+    # leap-micro-6.0-MicroOS-Default-RT-x86_64:
+    #   - microos_image_default:
+    #       settings:
+    #         *image_settings
+    leap-micro-6.0-MicroOS-Default-SelfInstall-x86_64:
       - microos_installation_default:
           machine: 64bit
           settings:
             <<: *selfinstall_settings
-    leap-micro-5.5-MicroOS-Image-RT-SelfInstall-x86_64:
+    leap-micro-6.0-MicroOS-Default-RT-SelfInstall-x86_64:
       - microos_installation_default:
           machine: 64bit
           settings:
             <<: *selfinstall_settings
 
   aarch64:
-    leap-micro-5.5-MicroOS-Image-SelfInstall-aarch64:
+    leap-micro-6.0-MicroOS-Default-SelfInstall-aarch64:
       - microos_installation_default:
           settings:
             <<: *selfinstall_settings_aarch64
-    leap-micro-5.5-MicroOS-Image-aarch64:
+    leap-micro-6.0-MicroOS-Default-aarch64:
       - microos_image_default:
           settings:
             *image_settings
