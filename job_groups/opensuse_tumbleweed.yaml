@@ -543,6 +543,10 @@ scenarios:
       - upgrade_Leap_15.3_kde:
           settings:
             QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.5_gnome
+      - upgrade_Leap_15.6_gnome
+      - upgrade_Leap_15.5_kde
+      - upgrade_Leap_15.6_kde
       - installer_extended
       - desktopapps-other:
           description: 'Maintainer: Yuan Ren (yuanren10). See https://progress.opensuse.org/issues/23906'
@@ -988,6 +992,14 @@ scenarios:
           settings:
             QEMURAM: "3072"
             QEMU_VIRTIO_RNG: "0"
+      - kde_live_upgrade_leap_15.5:
+          settings:
+            QEMURAM: "3072"
+            QEMU_VIRTIO_RNG: "0"
+      - kde_live_upgrade_leap_15.6:
+          settings:
+            QEMURAM: "3072"
+            QEMU_VIRTIO_RNG: "0"
     opensuse-Tumbleweed-NET-x86_64:
       - textmode:
           machine: 64bit
@@ -1091,7 +1103,11 @@ scenarios:
           settings:
             QEMU_VIRTIO_RNG: "0"
       - zdup-Leap-15.4-gnome
+      - zdup-Leap-15.5-gnome
+      - zdup-Leap-15.6-gnome
       - zdup-Leap-15.4-kde
+      - zdup-Leap-15.5-kde
+      - zdup-Leap-15.6-kde
       - create_hdd_minimalx
       - create_hdd_tumbleweed:
           # Workaround for boo#1200753
