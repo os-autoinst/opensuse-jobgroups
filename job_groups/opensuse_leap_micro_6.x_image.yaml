@@ -50,7 +50,7 @@
 
 defaults:
   x86_64:
-    machine: 64bit
+    machine: uefi
     priority: 50
   aarch64:
     machine: aarch64
@@ -59,69 +59,65 @@ defaults:
       QEMUCPUS: '2'
 
 products: # ---Default---
-  leap-micro-6.0-MicroOS-Default-SelfInstall-x86_64: &distriver
+  leap-micro-6.0-Default-SelfInstall-x86_64: &distriver
     distri: leap-micro
     flavor: Default-SelfInstall
     version: '6.0'
-  leap-micro-6.0-MicroOS-Default-SelfInstall-aarch64:
+  leap-micro-6.0-Default-SelfInstall-aarch64:
     <<: *distriver
 
-  leap-micro-6.0-MicroOS-Default-RT-SelfInstall-x86_64: &default_rt_selfinstall
-    <<: *distriver
-    flavor: Default-RT-SelfInstall
-  leap-micro-6.0-MicroOS-Default-RT-SelfInstall-aarch64:
-    <<: *default_rt_selfinstall
-
-  leap-micro-6.0-MicroOS-Default-x86_64: &default_medium
+  leap-micro-6.0-Default-x86_64: &default_medium
     <<: *distriver
     flavor: Default
-  leap-micro-6.0-MicroOS-Default-aarch64:
+  leap-micro-6.0-Default-aarch64:
     <<: *default_medium
 
-  leap-micro-6.0-MicroOS-Default-qcow-x86_64: &default_qcow
+  leap-micro-6.0-Default-qcow-x86_64: &default_qcow
     <<: *distriver
     flavor: Default-qcow
-  leap-micro-6.0-MicroOS-Default-qcow-aarch64:
+  leap-micro-6.0-Default-qcow-aarch64:
     <<: *default_qcow
 
-  leap-micro-6.0-MicroOS-Default-encrypted-x86_64:
+  leap-micro-6.0-Default-encrypted-x86_64:
     <<: *distriver
     flavor: Default-encrypted
   # ---end.Default---
   # ---Base---
-  leap-micro-6.0-MicroOS-Base-SelfInstall-x86_64: &base_selfinstall
+  leap-micro-6.0-Base-SelfInstall-x86_64: &base_selfinstall
     <<: *distriver
     flavor: Base-SelfInstall
-  leap-micro-6.0-MicroOS-Base-SelfInstall-aarch64:
-    <<: *distriver
+  leap-micro-6.0-Base-SelfInstall-aarch64:
+    <<: *base_selfinstall
 
-  leap-micro-6.0-MicroOS-Base-RT-SelfInstall-x86_64: &default_rt_selfinstall
+  leap-micro-6.0-Base-RT-x86_64:
     <<: *distriver
     flavor: Base-RT-SelfInstall
-  leap-micro-6.0-MicroOS-Base-RT-SelfInstall-aarch64:
-    <<: *default_rt_selfinstall
 
-  leap-micro-6.0-MicroOS-Base-x86_64: &default_medium
+  leap-micro-6.0-Base-RT-SelfInstall-x86_64:
+    <<: *distriver
+    flavor: Base-RT-SelfInstall
+
+  leap-micro-6.0-Base-x86_64:
     <<: *distriver
     flavor: Base
-  leap-micro-6.0-MicroOS-Base-aarch64:
+
+  leap-micro-6.0-Base-aarch64:
     <<: *default_medium
 
-  leap-micro-6.0-MicroOS-Base-qcow-x86_64: &default_qcow
+  leap-micro-6.0-Base-qcow-x86_64: &default_qcow
     <<: *distriver
     flavor: Base-qcow
-  leap-micro-6.0-MicroOS-Base-qcow-aarch64:
+  leap-micro-6.0-Base-qcow-aarch64:
     <<: *default_qcow
 
-  leap-micro-6.0-MicroOS-Base-encrypted-x86_64:
+  leap-micro-6.0-Base-encrypted-x86_64:
     <<: *distriver
     flavor: Base-encrypted
 
 scenarios:
   x86_64:
-    leap-micro-6.0-MicroOS-Default-x86_64:
+    leap-micro-6.0-Default-x86_64:
       - microos_image_default:
-          machine: [64bit, uefi]
           settings:
             <<: *image_settings
       - microos_containers:
@@ -130,28 +126,40 @@ scenarios:
       - microos_virtualization:
           settings:
             <<: *image_qemu_settings
-    # Still here?
-    # leap-micro-6.0-MicroOS-Default-RT-x86_64:
-    #   - microos_image_default:
-    #       settings:
-    #         *image_settings
-    leap-micro-6.0-MicroOS-Default-SelfInstall-x86_64:
+    leap-micro-6.0-Default-qcow-x86_64:
+      - microos_image_default:
+          settings:
+            <<: *image_settings
+      - microos_containers:
+          settings:
+            <<: *image_container_settings
+      - microos_virtualization:
+          settings:
+            <<: *image_qemu_settings
+    leap-micro-6.0-Default-encrypted-x86_64:
+      - microos_image_default:
+          settings:
+            <<: *image_settings
+      - microos_containers:
+          settings:
+            <<: *image_container_settings
+      - microos_virtualization:
+          settings:
+            <<: *image_qemu_settings
+    leap-micro-6.0-Default-SelfInstall-x86_64:
       - microos_installation_default:
-          machine: 64bit
           settings:
             <<: *selfinstall_settings
-    leap-micro-6.0-MicroOS-Default-RT-SelfInstall-x86_64:
-      - microos_installation_default:
-          machine: 64bit
+    leap-micro-6.0-Base-RT-x86_64:
+      - microos_image_default:
           settings:
-            <<: *selfinstall_settings
-
+            <<: *image_settings
+    leap-micro-6.0-Base-RT-SelfInstall-x86_64:
+      - microos_image_default:
+          settings:
+            <<: *image_settings
   aarch64:
-    leap-micro-6.0-MicroOS-Default-SelfInstall-aarch64:
-      - microos_installation_default:
-          settings:
-            <<: *selfinstall_settings_aarch64
-    leap-micro-6.0-MicroOS-Default-aarch64:
+    leap-micro-6.0-Default-aarch64:
       - microos_image_default:
           settings:
             *image_settings
@@ -161,3 +169,17 @@ scenarios:
       - microos_virtualization:
           settings:
             <<: *image_qemu_settings
+    leap-micro-6.0-Default-qcow-x86_64:
+      - microos_image_default:
+          settings:
+            <<: *image_settings
+      - microos_containers:
+          settings:
+            <<: *image_container_settings
+      - microos_virtualization:
+          settings:
+            <<: *image_qemu_settings
+    leap-micro-6.0-Default-SelfInstall-aarch64:
+      - microos_installation_default:
+          settings:
+            <<: *selfinstall_settings_aarch64
