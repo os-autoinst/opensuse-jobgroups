@@ -226,23 +226,11 @@ scenarios:
             # Rails is completely broken, no fix in sight (boo#1174315)
             EXCLUDE_MODULES: "rails,diskusage"
       - jeos-container_host:
-          testsuite: null
           settings:
-            DESKTOP: textmode
-            EXTRABOOTPARAMS: quiet
-            REGISTRY: 3.71.98.16:5000
-            NUMDISKS: '2'
-            CONTAINER_RUNTIMES: "podman,docker"
             # Max size isn't that strict
             EXCLUDE_MODULES: "diskusage"
       - jeos-container_image:
-          testsuite: null
           settings:
-            DESKTOP: textmode
-            EXTRABOOTPARAMS: quiet
-            REGISTRY: 3.71.98.16:5000
-            CONTAINER_RUNTIMES: "podman,docker"
-            CONTAINERS_UNTESTED_IMAGES: '1'
             CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap/15.5/images/totest/containers/opensuse/leap:15.5'
             EXCLUDE_MODULES: "diskusage"
       - jeos-filesystem:

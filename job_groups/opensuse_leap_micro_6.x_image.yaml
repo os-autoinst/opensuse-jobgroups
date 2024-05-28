@@ -23,7 +23,6 @@
 .image_container_settings: &image_container_settings
   <<: *image_settings
   SKIP_DOCKER_IMAGE_TESTS: '1'
-  REGISTRY: '3.71.98.16:5000'
   CONTAINER_RUNTIMES: 'podman'
   CONTAINER_IMAGE_VERSIONS: '15.4,15.5'
 
