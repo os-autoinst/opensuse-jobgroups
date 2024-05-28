@@ -232,7 +232,9 @@ scenarios:
             YAML_SCHEDULE: schedule/virtualization/virtualization.yaml
             QEMU_VIRTIO_RNG: "0"
       - toolchain_zypper
-      - crypt_no_lvm
+      - crypt_no_lvm:
+          settings:
+            +YAML_TEST_DATA: ''
       - gnome_dual_windows10:
           settings:
             CDMODEL: ide-cd
