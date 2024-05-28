@@ -213,6 +213,7 @@ scenarios:
           machine: 64bit
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/encryption/cryptlvm.yaml
+            YAML_TEST_DATA: test_data/yast/encryption/lvm_encrypt_separate_boot_luks2.yaml
       - install_only:
           machine: smp_64
           priority: 40

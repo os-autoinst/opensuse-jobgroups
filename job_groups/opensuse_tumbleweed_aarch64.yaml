@@ -653,6 +653,7 @@ scenarios:
       - cryptlvm:
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/encryption/cryptlvm.yaml
+            YAML_TEST_DATA: test_data/yast/encryption/lvm_encrypt_separate_boot_luks2.yaml
             GRUB_KERNEL_OPTION_APPEND: ''
       - install_only:
           machine: aarch64
