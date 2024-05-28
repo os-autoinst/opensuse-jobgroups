@@ -635,8 +635,10 @@ scenarios:
           machine: USBboot_aarch64
           priority: 40
       - kde-live_installation:
-          machine: USBboot_aarch64
-      - kde_live_upgrade_leap_15.0
+          machine: USBboot_aarch64-3G
+      - kde_live_upgrade_leap_15.0:
+          settings:
+            QEMURAM: "3072"
     opensuse-Tumbleweed-NET-aarch64:
       - textmode:
           machine: aarch64
