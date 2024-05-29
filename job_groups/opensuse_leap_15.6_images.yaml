@@ -146,12 +146,10 @@ scenarios:
           machine: uefi
           settings:
             QEMURAM: "2048"
-            QEMU_VIRTIO_RNG: "0"
       - kde_live_upgrade_leap_15.3:
           machine: 64bit
           settings:
             QEMURAM: "2048"
-            QEMU_VIRTIO_RNG: "0"
     opensuse-Leap15.6-Rescue-CD-x86_64:
       - rescue
       - rescue:
