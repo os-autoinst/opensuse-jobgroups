@@ -400,6 +400,10 @@ scenarios:
       - upgrade_Leap_15.2_kde
       - upgrade_Leap_15.3_gnome
       - upgrade_Leap_15.3_kde
+      - upgrade_Leap_15.5_gnome
+      - upgrade_Leap_15.5_kde
+      - upgrade_Leap_15.6_gnome
+      - upgrade_Leap_15.6_kde
       - btrfs+warnings:
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/btrfs/btrfs+warnings.yaml
@@ -635,6 +639,12 @@ scenarios:
       - kde_live_upgrade_leap_15.0:
           settings:
             QEMURAM: "3072"
+      - kde_live_upgrade_leap_15.5:
+          settings:
+            QEMURAM: "3072"
+      - kde_live_upgrade_leap_15.6:
+          settings:
+            QEMURAM: "3072"
     opensuse-Tumbleweed-NET-aarch64:
       - textmode:
           machine: aarch64
@@ -674,6 +684,10 @@ scenarios:
       - lxde
       - zdup-Leap-15.3-kde
       - zdup-Leap-15.3-gnome
+      - zdup-Leap-15.5-kde
+      - zdup-Leap-15.5-gnome
+      - zdup-Leap-15.6-kde
+      - zdup-Leap-15.6-gnome
     opensuse-Tumbleweed-Rescue-CD-aarch64:
       - rescue:
           machine: USBboot_aarch64
