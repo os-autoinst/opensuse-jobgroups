@@ -9,6 +9,24 @@
 ############################################################
 
 ---
+.bci: &bci
+  BOOT_HDD_IMAGE: "1"
+  DESKTOP: "textmode"
+  NOVIDEO: "1"
+  VIDEOMODE: "text"
+  MAX_JOB_TIME: '10800'
+  BCI_TESTS: "1"
+  BCI_PREPARE: "1"
+  BCI_TESTS_REPO: "https://github.com/SUSE/BCI-tests.git"
+  BCI_TIMEOUT: "5400"  # some tests take very long, specially in aarch64
+  QEMUCPUS: "2"
+  QEMURAM: "4096"
+  START_AFTER_TEST: "create_hdd_textmode"
+  CONTAINER_RUNTIMES: "podman"
+  BCI_TARGET: "factory-totest"
+  # match -> opensuse-Tumbleweed-x86_64-20240603-textmode@64bit.qcow2
+  HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+  +FLAVOR: 'BCI'
 
 defaults:
   x86_64:
@@ -358,6 +376,64 @@ scenarios:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
             POSTGRES_IP: 'ko.dmz-prg2.suse.org'
             POSTGRES_PORT: '5444'
+      - bci_init_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/bci-init:latest
+            BCI_IMAGE_MARKER: bci-init_latest
+            BCI_TEST_ENVS: init
+      - bci_minimal_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/bci-minimal:latest
+            BCI_IMAGE_MARKER: bci-minimal_latest
+            BCI_TEST_ENVS: minimal
+      - bci_micro_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/bci-micro:latest
+            BCI_IMAGE_MARKER: bci-micro_latest
+            BCI_TEST_ENVS: minimal
+      - bci_busybox_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/busybox:latest
+            BCI_IMAGE_MARKER: bci-busybox_latest
+            BCI_TEST_ENVS: busybox
+      ### lang containers
+      - bci_golang_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/golang:latest
+            BCI_IMAGE_MARKER: golang_stable
+            BCI_TEST_ENVS: go
+      - bci_rust_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/rust:stable
+            BCI_IMAGE_MARKER: rust
+            BCI_TEST_ENVS: rust
+      - bci_ruby_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/ruby:latest
+            BCI_IMAGE_MARKER: ruby_3.3
+            BCI_TEST_ENVS: ruby
+      ### application containers
+      - bci_postgres_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/postgres:14
+            BCI_IMAGE_MARKER: postgres
+            BCI_TEST_ENVS: postgres
       - extra_tests_ai_ml
       - yast_no_self_update
       - gnome-gdm:
