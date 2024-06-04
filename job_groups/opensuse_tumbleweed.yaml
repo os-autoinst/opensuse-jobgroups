@@ -929,6 +929,10 @@ scenarios:
           machine: 64bit_virtio-2G
       - jeos-apparmor:
           machine: 64bit_virtio-2G
+      - jeos-selinux:
+          machine: 64bit_virtio-2G
+          settings:
+            YAML_SCHEDULE: schedule/security/selinux_jeos.yaml
       - jeos-container_host:
           machine: 64bit_virtio-2G
       - jeos-fips-container_host:
