@@ -644,6 +644,8 @@ scenarios:
             UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
           testsuite: null
       - desktopapps-gb18030
+      - security_crypto_policies:
+          testsuite: crypto_policies
       - security_audit:
           settings:
             YAML_SCHEDULE: schedule/security/audit.yaml
