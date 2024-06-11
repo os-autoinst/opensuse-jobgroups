@@ -34,6 +34,10 @@ products:
     distri: opensuse
     flavor: JeOS-for-AArch64
     version: Tumbleweed
+  opensuse-Tumbleweed-JeOS-for-OpenStack-Cloud-aarch64:
+    distri: opensuse
+    flavor: JeOS-for-OpenStack-Cloud
+    version: Tumbleweed
   opensuse-Tumbleweed-JeOS-for-RPi-aarch64:
     distri: opensuse
     flavor: JeOS-for-RPi
@@ -558,6 +562,22 @@ scenarios:
       - mediacheck:
           machine: USBboot_aarch64
           priority: 40
+    opensuse-Tumbleweed-JeOS-for-OpenStack-Cloud-aarch64:
+      - jeos-no-cloud:
+          testsuite: null
+          machine: 64bit_virtio
+          priority: 48
+          settings:
+            NO_CLOUD: '1'
+            HDD_2: cidata.qcow2
+            CI_VERIFICATION: '1'
+            FIRST_BOOT_CONFIG: 'cloud-init'
+            NUMDISKS: '2'
+            HDDSIZEGB_1: '20'
+            ZYPPER_WHITELISTED_ORPHANS: live-langset-data,jeos-licenses,jeos-firstboot
+            BOOT_HDD_IMAGE: '1'
+            DESKTOP: textmode
+            FILESYSTEM: 'xfs'
     opensuse-Tumbleweed-JeOS-for-AArch64-aarch64:
       - jeos:
           machine: aarch64-HD20G

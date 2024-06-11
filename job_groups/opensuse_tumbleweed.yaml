@@ -49,6 +49,10 @@ products:
     distri: opensuse
     flavor: JeOS-for-kvm-and-xen
     version: Tumbleweed
+  opensuse-Tumbleweed-JeOS-for-OpenStack-Cloud-x86_64:
+    distri: opensuse
+    flavor: JeOS-for-OpenStack-Cloud
+    version: Tumbleweed
   microos-*-MicroOS-Image-ContainerHost-x86_64:
     distri: microos
     flavor: MicroOS-Image-ContainerHost
@@ -995,6 +999,22 @@ scenarios:
           priority: 48
       - mediacheck:
           machine: 64bit
+    opensuse-Tumbleweed-JeOS-for-OpenStack-Cloud-x86_64:
+      - jeos-no-cloud:
+          testsuite: null
+          machine: 64bit_virtio
+          priority: 48
+          settings:
+            NO_CLOUD: '1'
+            HDD_2: cidata.qcow2
+            CI_VERIFICATION: '1'
+            FIRST_BOOT_CONFIG: 'cloud-init'
+            NUMDISKS: '2'
+            HDDSIZEGB_1: '20'
+            ZYPPER_WHITELISTED_ORPHANS: live-langset-data,jeos-licenses,jeos-firstboot
+            BOOT_HDD_IMAGE: '1'
+            DESKTOP: textmode
+            FILESYSTEM: 'xfs'
     opensuse-Tumbleweed-JeOS-for-kvm-and-xen-x86_64:
       - jeos:
           machine: 64bit_virtio
