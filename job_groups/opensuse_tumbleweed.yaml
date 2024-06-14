@@ -323,6 +323,8 @@ scenarios:
             CONTAINER_RUNTIMES: 'podman'
             K3S_INSTALL_UPSTREAM: '1'
       - containers_host_podman_testsuite:
+          description: |-
+            Maintainer: qe-c@suse.de https://confluence.suse.com/display/qasle/podman+upstream+tests
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIMES: 'podman'
@@ -343,6 +345,8 @@ scenarios:
             AARDVARK_BATS_SKIP: "100-basic-name-resolution 200-two-networks 300-three-networks 500-reverse-lookups"
       - containers_host_buildah_testsuite:
           testsuite: extra_tests_textmode_containers
+          description: |-
+            Maintainer: qe-c@suse.de https://confluence.suse.com/display/qasle/podman+upstream+tests
           settings:
             CONTAINER_RUNTIMES: 'podman'
             BUILDAH_BATS_SKIP: "commit copy bud run sbom"
