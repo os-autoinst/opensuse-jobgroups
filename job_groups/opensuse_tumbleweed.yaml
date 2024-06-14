@@ -332,13 +332,13 @@ scenarios:
             PODMAN_BATS_SKIP_ROOT_LOCAL: '120-load 180-blkio 250-systemd 255-auto-update 280-update 520-checkpoint'
             PODMAN_BATS_SKIP_ROOT_REMOTE: '280-update 520-checkpoint'
             PODMAN_BATS_SKIP_USER_LOCAL: '250-systemd 255-auto-update'
-            PODMAN_BATS_SKIP_USER_REMOTE: 'none'
+            PODMAN_BATS_SKIP_USER_REMOTE: ''
             RUNC_BATS_SKIP: 'update'
-            RUNC_BATS_SKIP_USER: 'none'
+            RUNC_BATS_SKIP_USER: ''
             RUNC_BATS_SKIP_ROOT: 'cgroups'
-            SKOPEO_BATS_SKIP: 'none'
-            SKOPEO_BATS_SKIP_USER: 'none'
-            SKOPEO_BATS_SKIP_ROOT: 'none'
+            SKOPEO_BATS_SKIP: ''
+            SKOPEO_BATS_SKIP_USER: ''
+            SKOPEO_BATS_SKIP_ROOT: ''
             NETAVARK_BATS_SKIP: "001-basic 100-bridge-iptables 200-bridge-firewalld 250-bridge-nftables 500-plugin"
             AARDVARK_BATS_SKIP: "100-basic-name-resolution 200-two-networks 300-three-networks 500-reverse-lookups"
       - containers_host_buildah_testsuite:
@@ -346,7 +346,7 @@ scenarios:
           settings:
             CONTAINER_RUNTIMES: 'podman'
             BUILDAH_BATS_SKIP: "commit copy bud run sbom"
-            BUILDAH_BATS_SKIP_ROOT: 'none'
+            BUILDAH_BATS_SKIP_ROOT: ''
             BUILDAH_BATS_SKIP_USER: "add basic chroot overlay rmi squash"
       - containers_host_containerd:
           testsuite: extra_tests_textmode_containers
