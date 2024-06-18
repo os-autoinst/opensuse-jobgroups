@@ -349,9 +349,9 @@ scenarios:
             Maintainer: qe-c@suse.de https://confluence.suse.com/display/qasle/podman+upstream+tests
           settings:
             CONTAINER_RUNTIMES: 'podman'
-            BUILDAH_BATS_SKIP: "commit copy bud run sbom"
+            BUILDAH_BATS_SKIP: 'commit run'
             BUILDAH_BATS_SKIP_ROOT: 'none'
-            BUILDAH_BATS_SKIP_USER: "add basic chroot overlay rmi squash"
+            BUILDAH_BATS_SKIP_USER: 'add basic bud copy overlay rmi sbom squash'
       - containers_host_containerd:
           testsuite: extra_tests_textmode_containers
           settings:
