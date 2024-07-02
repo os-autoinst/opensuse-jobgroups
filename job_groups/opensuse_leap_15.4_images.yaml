@@ -177,7 +177,7 @@ scenarios:
     opensuse-15.4-Container-Image-x86_64:
       - container_image_on_centos_host:
           testsuite: container-image
-          description: 'Container image validation on CentOS 8.2'
+          description: 'Container image validation on CentOS 9'
           settings:
             HDD_1: 'centos-stream9.qcow2'
             KEEP_GRUB_TIMEOUT: '1'
