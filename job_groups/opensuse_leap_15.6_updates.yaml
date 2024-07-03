@@ -113,7 +113,6 @@ scenarios:
           settings:
             <<: *zdup
             QEMU_VIRTIO_RNG: "0"
-            HDD_1: '%DISTRI%-15.5-%ARCH%-GM-kde@%MACHINE%.qcow2'
       - upgrade_Leap_15.5_gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
