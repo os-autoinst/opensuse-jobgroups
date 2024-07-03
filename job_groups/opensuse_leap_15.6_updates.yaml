@@ -36,7 +36,6 @@ scenarios:
       - create_hdd_leap_gnome_autoyast
       - create_hdd_leap_kde_autoyast
       - create_hdd_leap_textmode_autoyast
-      - create_hdd_leap_transactional_server_autoyast
       - create_hdd_leap_gnome_uefi_autoyast:
           machine: 'uefi'
           testsuite: 'create_hdd_leap_gnome_autoyast'
@@ -154,19 +153,6 @@ scenarios:
             # Added temporarily until the LEAP 15.6 container is released
             CONTAINERS_UNTESTED_IMAGES: '1'
             CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap/15.6/images/totest/containers/opensuse/leap:15.6'
-      - create_hdd_transactional_server:
-          settings:
-            # use main.pm schedule over YAML as it is used among other create_hdd test suite in updates testing
-            # YAML schedule requires several changes to be used for updates testing
-            # *update/zypper_clear_repos* should be omitted
-            # *console/zypper_{ar,ref}* replaced by console/zypper_add_repos
-            # *transactional/install_updates* to apply updates on transactional system
-            +YAML_SCHEDULE: ''
-      - extra_tests_transactional_server:
-          testsuite: 'extra_tests_transactional_server'
-          settings:
-            START_AFTER_TEST: 'create_hdd_leap_transactional_server_autoyast'
-            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%_serverro_ay@%MACHINE%.qcow2'
       - security_audit:
           settings:
             YAML_SCHEDULE: schedule/security/audit.yaml
