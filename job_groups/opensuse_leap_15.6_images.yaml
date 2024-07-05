@@ -137,16 +137,23 @@ scenarios:
           settings:
             # Mitigate boo#1189174
             QEMUCPUS: "2"
+      # The machine type is part of HDD_1, don't change it.
       - kde_live_upgrade_leap_42.3:
-          machine: 64bit-3G
-      - kde_live_upgrade_leap_15.0:
-          machine: 64bit-3G
           settings:
+            QEMURAM: "3072"
+      - kde_live_upgrade_leap_15.0:
+          machine: 64bit
+          settings:
+            QEMURAM: "3072"
             QEMU_VIRTIO_RNG: "0"
       - kde_live_upgrade_leap_15.2:
-          machine: uefi-3G
+          machine: uefi
+          settings:
+            QEMURAM: "3072"
       - kde_live_upgrade_leap_15.3:
-          machine: 64bit-3G
+          machine: 64bit
+          settings:
+            QEMURAM: "3072"
     opensuse-Leap15.6-Rescue-CD-x86_64:
       - rescue
       - rescue:
