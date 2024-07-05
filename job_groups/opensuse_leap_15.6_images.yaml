@@ -130,26 +130,23 @@ scenarios:
           machine: uefi-3G
       - mediacheck:
           machine: 64bit
-      - kde-live_installation
+      - kde-live_installation:
+          machine: 64bit-3G
       - kde-live-wayland:
           machine: 64bit_virtio-3G
           settings:
             # Mitigate boo#1189174
             QEMUCPUS: "2"
-      - kde_live_upgrade_leap_42.3
+      - kde_live_upgrade_leap_42.3:
+          machine: 64bit-3G
       - kde_live_upgrade_leap_15.0:
-          machine: 64bit
+          machine: 64bit-3G
           settings:
-            QEMURAM: "2048"
             QEMU_VIRTIO_RNG: "0"
       - kde_live_upgrade_leap_15.2:
-          machine: uefi
-          settings:
-            QEMURAM: "2048"
+          machine: uefi-3G
       - kde_live_upgrade_leap_15.3:
-          machine: 64bit
-          settings:
-            QEMURAM: "2048"
+          machine: 64bit-3G
     opensuse-Leap15.6-Rescue-CD-x86_64:
       - rescue
       - rescue:
