@@ -57,6 +57,11 @@ products:
 scenarios:
   aarch64:
     opensuse-Tumbleweed-DVD-aarch64:
+      - install_ltp_kotd+opensuse+DVD:
+          settings:
+            KOTD_REPO: 'https://download.opensuse.org/repositories/Kernel:/HEAD/ARM/'
+      - ltp_cve_kotd
+      - ltp_syscalls_kotd
       - extra_tests_kernel
       - bpftools
       - io_uring
@@ -197,6 +202,11 @@ scenarios:
       - ltp_syscalls
   ppc64le:
     opensuse-Tumbleweed-DVD-ppc64le:
+      - install_ltp_kotd+opensuse+DVD:
+          settings:
+            KOTD_REPO: 'https://download.opensuse.org/repositories/Kernel:/HEAD/PPC/'
+      - ltp_cve_kotd
+      - ltp_syscalls_kotd
       - extra_tests_kernel
       - bpftools
       - io_uring
@@ -296,6 +306,9 @@ scenarios:
             INSTALL_LTP: ''
   x86_64:
     opensuse-Tumbleweed-DVD-x86_64:
+      - install_ltp_kotd+opensuse+DVD
+      - ltp_cve_kotd
+      - ltp_syscalls_kotd
       - extra_tests_kernel
       - bpftools
       - io_uring
