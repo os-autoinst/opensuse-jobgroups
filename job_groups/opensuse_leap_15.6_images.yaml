@@ -249,8 +249,12 @@ scenarios:
       - kde-live_installation
       - kde_live_upgrade_leap_15.0:
           machine: aarch64
+          settings:
+            QEMURAM: "3072"
       - kde_live_upgrade_leap_15.3:
           machine: aarch64
+          settings:
+            QEMURAM: "3072"
       - mediacheck
     opensuse-Leap15.6-GNOME-Live-aarch64:
       - gnome-live
