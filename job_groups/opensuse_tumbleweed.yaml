@@ -343,6 +343,7 @@ scenarios:
             SKOPEO_BATS_SKIP_ROOT: 'none'
             NETAVARK_BATS_SKIP: "001-basic 100-bridge-iptables 200-bridge-firewalld 250-bridge-nftables 500-plugin"
             AARDVARK_BATS_SKIP: 'none'
+            NCAT_VERSION: '7.95-2'
       - containers_host_buildah_testsuite:
           testsuite: extra_tests_textmode_containers
           description: |-
