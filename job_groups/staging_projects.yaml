@@ -40,6 +40,10 @@ products:
     distri: microos
     flavor: Staging-MicroOS-Image-ContainerHost
     version: '*'
+  microos-*-Staging-MicroOS-Image-sdboot-x86_64:
+    distri: microos
+    flavor: Staging-MicroOS-Image-sdboot
+    version: '*'
 scenarios:
   ppc64le:
     opensuse-Core-Staging-DVD-ppc64le:
@@ -138,3 +142,12 @@ scenarios:
           machine: uefi-staging
           settings:
             CONTAINERS_UNTESTED_IMAGES: '0'
+    microos-*-Staging-MicroOS-Image-sdboot-x86_64:
+      - microos-wizard-tpm:
+          testsuite: microos-wizard
+          machine: uefi
+          settings:
+            # jeos-firstboot sets up FDE by default
+            ENCRYPT: '1'
+            # Test with TPM enrollment
+            QEMUTPM: 'instance'
