@@ -98,7 +98,7 @@ scenarios:
       - microos:
           machine: uefi
       - microos-sdboot:
-          machine: uefi_virtio-2G
+          machine: uefi-2G
       - microos:
           machine: 64bit
       - microos_textmode
