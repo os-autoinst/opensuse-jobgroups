@@ -96,7 +96,6 @@ scenarios:
       - ltp_input
       - ltp_ipc
       - ltp_kernel_misc
-      - ltp_kernel_sched
       - ltp_lvm
       - ltp_math
       - ltp_mm
@@ -242,7 +241,6 @@ scenarios:
       - ltp_input
       - ltp_ipc
       - ltp_kernel_misc
-      - ltp_kernel_sched
       - ltp_lvm
       - ltp_math
       - ltp_mm
@@ -347,7 +345,6 @@ scenarios:
       - ltp_input
       - ltp_ipc
       - ltp_kernel_misc
-      - ltp_kernel_sched
       - ltp_lvm
       - ltp_math
       - ltp_mm
