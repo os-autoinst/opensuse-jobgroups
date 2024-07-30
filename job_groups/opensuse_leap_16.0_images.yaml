@@ -22,13 +22,13 @@ products:
 scenarios:
   x86_64:
     opensuse-agama-installer-openSUSE-x86_64:
-      - gnome-live:
+      - gnome-agama:
           machine: uefi-3G
-      - gnome-live:
+      - gnome-agama:
           machine: 64bit-3G
-      - gnome-live:
+      - gnome-agama:
           machine: uefi-usb-4G
-      - gnome-live:
+      - gnome-agama:
           machine: USBboot_64-3G
       - mediacheck:
           machine: 64bit
