@@ -1,0 +1,40 @@
+############################################################
+#                         WARNING                          #
+#                                                          #
+#               This file is managed in GIT!               #
+#  Any changes via the openQA WebUI will get overwritten!  #
+#                                                          #
+#    https://github.com/os-autoinst/opensuse-jobgroups     #
+#       job_groups/opensuse_tumbleweed_riscv64.yaml        #
+############################################################
+
+---
+
+defaults:
+  riscv64:
+    machine: riscv64_cpu_max
+    priority: 50
+products:
+  opensuse-Tumbleweed-JeOS-for-RISCV-riscv64:
+    distri: opensuse
+    flavor: JeOS-for-RISCV
+    version: Tumbleweed
+scenarios:
+  riscv64:
+    opensuse-Tumbleweed-JeOS-for-RISCV-riscv64:
+      - jeos:
+          settings:
+            EXCLUDE_MODULES: diskusage,libzypp_config
+      - jeos-ltp-commands:
+          settings:
+            EXCLUDE_MODULES: libzypp_config
+      - jeos-ltp-containers:
+          settings:
+            EXCLUDE_MODULES: libzypp_config
+      - jeos-ltp-cve:
+          settings:
+            EXCLUDE_MODULES: libzypp_config
+      - jeos-ltp-syscalls:
+          settings:
+            EXCLUDE_MODULES: libzypp_config
+            LTP_ENV: 'TMPDIR=/var/tmp,LTP_TIMEOUT_MUL=2,LTP_RUNTIME_MUL=2'
