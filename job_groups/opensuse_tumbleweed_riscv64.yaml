@@ -24,7 +24,7 @@ scenarios:
     opensuse-Tumbleweed-JeOS-for-RISCV-riscv64:
       - jeos:
           settings:
-            EXCLUDE_MODULES: diskusage,libzypp_config
+            EXCLUDE_MODULES: libzypp_config
       - jeos-ltp-commands:
           settings:
             EXCLUDE_MODULES: libzypp_config
