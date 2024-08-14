@@ -167,6 +167,7 @@ scenarios:
             ENCRYPT: '1'
             # Test with TPM enrollment
             QEMUTPM: 'instance'
+            QEMU_DISABLE_SNAPSHOTS: '1'
       - microos-wizard:
           machine: uefi
           settings:
@@ -682,6 +683,7 @@ scenarios:
             QEMURAM: '4096'
             QEMUTPM: 'instance'
             QEMUTPM_VER: '2.0'
+            QEMU_DISABLE_SNAPSHOTS: '1'
       - security_tpm_selftest
       - secureboot_kernel_lockdown:
           testsuite: null

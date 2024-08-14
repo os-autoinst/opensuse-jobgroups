@@ -164,6 +164,7 @@ scenarios:
             ENCRYPT: '1'
             # Test with TPM enrollment
             QEMUTPM: 'instance'
+            QEMU_DISABLE_SNAPSHOTS: '1'
       - microos-wizard:
           settings:
             # jeos-firstboot sets up FDE by default
@@ -182,6 +183,7 @@ scenarios:
             QEMURAM: '4096'
             QEMUTPM: 'instance'
             QEMUTPM_VER: '2.0'
+            QEMU_DISABLE_SNAPSHOTS: '1'
             UEFI_PFLASH_VARS: '/usr/share/qemu/aavmf-aarch64-vars.bin'
             GRUB_KERNEL_OPTION_APPEND: ''
       - textmode:
@@ -353,6 +355,7 @@ scenarios:
             YAML_SCHEDULE: schedule/security/tpm_selftest.yaml
             QEMUTPM: 'instance'
             QEMUTPM_VER: '1.2'
+            QEMU_DISABLE_SNAPSHOTS: '1'
             DESKTOP: textmode
       - ima_measure_critical_data:
           testsuite: null
