@@ -565,7 +565,7 @@ scenarios:
     opensuse-Tumbleweed-JeOS-for-OpenStack-Cloud-aarch64:
       - jeos-no-cloud:
           testsuite: null
-          machine: 64bit_virtio
+          machine: aarch64
           priority: 48
           settings:
             NO_CLOUD: '1'
