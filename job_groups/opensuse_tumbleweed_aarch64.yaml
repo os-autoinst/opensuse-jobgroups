@@ -289,7 +289,7 @@ scenarios:
             MAX_JOB_TIME: '12000'
             QEMUCPUS: '2'
             AARDVARK_BATS_SKIP: 'none'
-            NETAVARK_BATS_SKIP: 'all'
+            NETAVARK_BATS_SKIP: '001-basic 500-plugin'
             PODMAN_BATS_SKIP: '125-import'
             PODMAN_BATS_SKIP_ROOT_LOCAL: '010-images 030-run 120-load 255-auto-update'
             PODMAN_BATS_SKIP_ROOT_REMOTE: 'none'
