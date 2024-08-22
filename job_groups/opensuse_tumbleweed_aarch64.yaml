@@ -606,6 +606,8 @@ scenarios:
           machine: aarch64-HD20G
       - jeos-ltp-commands:
           machine: aarch64-HD20G
+          settings:
+            LTP_TAINT_EXPECTED: '0x13801'
       - jeos-ltp-containers:
           machine: aarch64-HD20G
       - jeos-ltp-cve:
@@ -616,6 +618,8 @@ scenarios:
           machine: aarch64-HD20G
       - jeos-ltp-syscalls:
           machine: aarch64-HD20G
+          settings:
+            LTP_TAINT_EXPECTED: '0x13801'
       - jeos-ltp-syscalls-ipc:
           machine: aarch64-HD20G
       - zdup_twjeos2twnext_aarch64:
