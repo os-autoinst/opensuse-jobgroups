@@ -61,7 +61,9 @@ scenarios:
           settings:
             KOTD_REPO: 'https://download.opensuse.org/repositories/Kernel:/HEAD/ARM/'
       - ltp_cve_kotd
-      - ltp_syscalls_kotd
+      - ltp_syscalls_kotd:
+          settings:
+            LTP_TAINT_EXPECTED: '0x13801'
       - extra_tests_kernel
       - bpftools
       - io_uring
@@ -76,7 +78,9 @@ scenarios:
       - ltp_aiodio_part4
       - ltp_can
       - ltp_capability
-      - ltp_commands
+      - ltp_commands:
+          settings:
+            LTP_TAINT_EXPECTED: '0x13801'
       - ltp_containers
       - ltp_controllers
       - ltp_cpuhotplug
@@ -95,7 +99,9 @@ scenarios:
       - ltp_ima
       - ltp_input
       - ltp_ipc
-      - ltp_kernel_misc
+      - ltp_kernel_misc:
+          settings:
+            LTP_TAINT_EXPECTED: '0x13801'
       - ltp_lvm
       - ltp_math
       - ltp_mm
@@ -125,8 +131,12 @@ scenarios:
           priority: 50
       - ltp_pty
       - ltp_sched
-      - ltp_syscalls
-      - ltp_syscalls_debug_pagealloc
+      - ltp_syscalls:
+          settings:
+            LTP_TAINT_EXPECTED: '0x13801'
+      - ltp_syscalls_debug_pagealloc:
+          settings:
+            LTP_TAINT_EXPECTED: '0x13801'
       - ltp_syscalls_ipc
       - ltp_tracing
       - ltp_uevent
@@ -188,7 +198,9 @@ scenarios:
   i586:
     opensuse-Tumbleweed-LegacyX86-NET-i586:
       - install_ltp+opensuse+LegacyX86-NET
-      - ltp_commands
+      - ltp_commands:
+          settings:
+            LTP_TAINT_EXPECTED: '0x13801'
       - ltp_crypto
       - ltp_cve
       - ltp_ipc
@@ -198,14 +210,18 @@ scenarios:
       - ltp_net_tcp_cmds
       - ltp_openposix:
           priority: 50
-      - ltp_syscalls
+      - ltp_syscalls:
+          settings:
+            LTP_TAINT_EXPECTED: '0x13801'
   ppc64le:
     opensuse-Tumbleweed-DVD-ppc64le:
       - install_ltp_kotd+opensuse+DVD:
           settings:
             KOTD_REPO: 'https://download.opensuse.org/repositories/Kernel:/HEAD/PPC/'
       - ltp_cve_kotd
-      - ltp_syscalls_kotd
+      - ltp_syscalls_kotd:
+          settings:
+            LTP_TAINT_EXPECTED: '0x13801'
       - extra_tests_kernel
       - bpftools
       - io_uring
@@ -221,7 +237,9 @@ scenarios:
       - ltp_aiodio_part4
       - ltp_can
       - ltp_capability
-      - ltp_commands
+      - ltp_commands:
+          settings:
+            LTP_TAINT_EXPECTED: '0x13801'
       - ltp_containers
       - ltp_controllers
       - ltp_cpuhotplug
@@ -240,7 +258,9 @@ scenarios:
       - ltp_ima
       - ltp_input
       - ltp_ipc
-      - ltp_kernel_misc
+      - ltp_kernel_misc:
+          settings:
+            LTP_TAINT_EXPECTED: '0x13801'
       - ltp_lvm
       - ltp_math
       - ltp_mm
@@ -270,8 +290,12 @@ scenarios:
           priority: 50
       - ltp_pty
       - ltp_sched
-      - ltp_syscalls
-      - ltp_syscalls_debug_pagealloc
+      - ltp_syscalls:
+          settings:
+            LTP_TAINT_EXPECTED: '0x13801'
+      - ltp_syscalls_debug_pagealloc:
+          settings:
+            LTP_TAINT_EXPECTED: '0x13801'
       - ltp_syscalls_ipc
       - ltp_tracing
       - ltp_uevent
@@ -291,14 +315,20 @@ scenarios:
     opensuse-Tumbleweed-DVD-s390x:
       - ltp_controllers
       - ltp_cve
-      - ltp_crypto_pty_commands
-      - ltp_kernel_misc
+      - ltp_crypto_pty_commands:
+          settings:
+            LTP_TAINT_EXPECTED: '0x13801'
+      - ltp_kernel_misc:
+          settings:
+            LTP_TAINT_EXPECTED: '0x13801'
       - ltp_lvm
       - ltp_net_features
       - ltp_net_nfs
       - ltp_net_stress_ipsec_icmp
       - ltp_net_stress_ipsec_tcp
-      - ltp_syscalls
+      - ltp_syscalls:
+          settings:
+            LTP_TAINT_EXPECTED: '0x13801'
       - kernel-live-patching:
           settings:
             INSTALL_LTP: ''
@@ -306,7 +336,9 @@ scenarios:
     opensuse-Tumbleweed-DVD-x86_64:
       - install_ltp_kotd+opensuse+DVD
       - ltp_cve_kotd
-      - ltp_syscalls_kotd
+      - ltp_syscalls_kotd:
+          settings:
+            LTP_TAINT_EXPECTED: '0x13801'
       - extra_tests_kernel
       - bpftools
       - io_uring
@@ -324,7 +356,9 @@ scenarios:
       - ltp_aiodio_part4
       - ltp_can
       - ltp_capability
-      - ltp_commands
+      - ltp_commands:
+          settings:
+            LTP_TAINT_EXPECTED: '0x13801'
       - ltp_containers
       - ltp_controllers
       - ltp_cpuhotplug
@@ -344,7 +378,9 @@ scenarios:
       - ltp_ima
       - ltp_input
       - ltp_ipc
-      - ltp_kernel_misc
+      - ltp_kernel_misc:
+          settings:
+            LTP_TAINT_EXPECTED: '0x13801'
       - ltp_lvm
       - ltp_math
       - ltp_mm
@@ -376,10 +412,16 @@ scenarios:
       - ltp_power_management_tests_exclusive
       - ltp_pty
       - ltp_sched
-      - ltp_syscalls
-      - ltp_syscalls_debug_pagealloc
+      - ltp_syscalls:
+          settings:
+            LTP_TAINT_EXPECTED: '0x13801'
+      - ltp_syscalls_debug_pagealloc:
+          settings:
+            LTP_TAINT_EXPECTED: '0x13801'
       - ltp_syscalls_ipc
-      - ltp_syscalls_m32
+      - ltp_syscalls_m32:
+          settings:
+            LTP_TAINT_EXPECTED: '0x13801'
       - ltp_tracing
       - ltp_uevent
       - ltp_watchqueue
