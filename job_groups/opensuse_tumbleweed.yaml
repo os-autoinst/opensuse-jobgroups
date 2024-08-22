@@ -1054,6 +1054,8 @@ scenarios:
           machine: 64bit_virtio
       - jeos-ltp-commands:
           machine: uefi_virtio-2G
+          settings:
+            LTP_TAINT_EXPECTED: '0x13801'
       - jeos-ltp-containers:
           machine: uefi_virtio-2G
       - jeos-ltp-cve:
@@ -1064,6 +1066,8 @@ scenarios:
           machine: uefi_virtio-2G
       - jeos-ltp-syscalls:
           machine: uefi_virtio-2G
+          settings:
+            LTP_TAINT_EXPECTED: '0x13801'
       - jeos-ltp-syscalls-ipc:
           machine: uefi_virtio-2G
     opensuse-Tumbleweed-KDE-Live-x86_64:

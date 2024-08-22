@@ -94,6 +94,8 @@ scenarios:
           machine: 64bit_virtio-2G
       - jeos-ltp-commands:
           machine: 64bit_virtio
+          settings:
+            LTP_TAINT_EXPECTED: '0x80013801'
       - jeos-ltp-containers:
           machine: 64bit_virtio
       - jeos-ltp-cve:
@@ -104,6 +106,8 @@ scenarios:
           machine: 64bit_virtio
       - jeos-ltp-syscalls:
           machine: 64bit_virtio
+          settings:
+            LTP_TAINT_EXPECTED: '0x80013801'
       - jeos-ltp-syscalls-ipc:
           machine: 64bit_virtio
     opensuse-Leap15.5-GNOME-Live-x86_64:
@@ -239,8 +243,12 @@ scenarios:
       - jeos-ltp-containers
       - jeos-ltp-cve
       - jeos-ltp-dio
-      - jeos-ltp-syscalls
-      - jeos-ltp-commands
+      - jeos-ltp-syscalls:
+          settings:
+            LTP_TAINT_EXPECTED: '0x80013801'
+      - jeos-ltp-commands:
+          settings:
+            LTP_TAINT_EXPECTED: '0x80013801'
       - jeos-ltp-syscalls-ipc
     opensuse-15.5-JeOS-for-RPi-aarch64:
       - jeos:
