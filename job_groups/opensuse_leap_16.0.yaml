@@ -1,0 +1,33 @@
+############################################################
+#                         WARNING                          #
+#                                                          #
+#               This file is managed in GIT!               #
+#  Any changes via the openQA WebUI will get overwritten!  #
+#                                                          #
+#    https://github.com/os-autoinst/opensuse-jobgroups     #
+#            job_groups/opensuse_leap_16.0.yaml            #
+############################################################
+---
+
+defaults:
+  x86_64:
+    machine: 64bit-2G
+    priority: 55
+products:
+  opensuse-agama-installer-x86_64:
+    distri: opensuse
+    flavor: agama-installer
+    version: '16.0'
+scenarios:
+  x86_64:
+    opensuse-agama-installer-x86_64:
+      - gnome-agama:
+          machine: uefi-3G
+      - gnome-agama:
+          machine: 64bit-3G
+      - gnome-agama:
+          machine: uefi-usb-4G
+      - gnome-agama:
+          machine: USBboot_64-3G
+      - mediacheck:
+          machine: 64bit
