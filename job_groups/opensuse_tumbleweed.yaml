@@ -386,6 +386,7 @@ scenarios:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
             POSTGRES_IP: 'ko.dmz-prg2.suse.org'
             POSTGRES_PORT: '5444'
+      ### BCI base images
       - bci_init_podman:
           testsuite: null
           settings:
@@ -422,6 +423,13 @@ scenarios:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/golang:latest
             BCI_IMAGE_MARKER: golang_stable
             BCI_TEST_ENVS: go
+      - bci_rust_oldstable_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: rust_oldstable
+            BCI_TEST_ENVS: rust
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/rust:oldstable
       - bci_rust_podman:
           testsuite: null
           settings:
@@ -436,14 +444,119 @@ scenarios:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/ruby:latest
             BCI_IMAGE_MARKER: ruby_3.3
             BCI_TEST_ENVS: ruby
+      - bci_gcc_13_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: gcc_13
+            BCI_TEST_ENVS: gcc
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/gcc:13
+      - bci_gcc_14_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: gcc_14
+            BCI_TEST_ENVS: gcc
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/gcc:14
+      - bci_python_3.10_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: python_3.10
+            BCI_TEST_ENVS: python
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/python:3.10
+      - bci_python_3.11_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: python_3.11
+            BCI_TEST_ENVS: python
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/python:3.11
+      - bci_python_3.12_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: python_3.12
+            BCI_TEST_ENVS: python
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/python:3.12
       ### application containers
-      - bci_postgres_podman:
+      - bci_postgres_14_podman:
           testsuite: null
           settings:
             <<: *bci
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/postgres:14
             BCI_IMAGE_MARKER: postgres
             BCI_TEST_ENVS: postgres
+      - bci_postgres_15_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: postgres_15
+            BCI_TEST_ENVS: postgres
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/postgres:15
+      - bci_postgres_16_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: postgres_16
+            BCI_TEST_ENVS: postgres
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/postgres:16
+      - bci_grafana_10_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: grafana_10
+            BCI_TEST_ENVS: grafana
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/grafana:10
+      - bci_helm_latest_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: helm_latest
+            BCI_TEST_ENVS: helm
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/helm
+      - bci_git_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: git_latest
+            BCI_TEST_ENVS: git
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/git
+      - bci_registry_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: registry
+            BCI_TEST_ENVS: distribution
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/distribution
+      - bci_nginx_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: nginx_latest
+            BCI_TEST_ENVS: nginx
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/nginx
+      - bci_pcp_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: pcp
+            BCI_TEST_ENVS: pcp
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/pcp
+      - bci_tomcat_9_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: tomcat_9
+            BCI_TEST_ENVS: tomcat
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/tomcat:9
+      - bci_tomcat_10_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: tomcat_10
+            BCI_TEST_ENVS: tomcat
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/tomcat:10
       - extra_tests_ai_ml
       - yast_no_self_update
       - gnome-gdm:
