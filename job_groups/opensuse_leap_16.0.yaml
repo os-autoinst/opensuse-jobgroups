@@ -14,13 +14,13 @@ defaults:
     machine: 64bit-2G
     priority: 55
 products:
-  opensuse-agama-installer-x86_64:
+  opensuse-agama-installer-Leap-x86_64:
     distri: opensuse
-    flavor: agama-installer
+    flavor: agama-installer-Leap
     version: '16.0'
 scenarios:
   x86_64:
-    opensuse-agama-installer-x86_64:
+    opensuse-agama-installer-Leap-x86_64:
       - gnome-agama:
           machine: uefi-3G
       - gnome-agama:
