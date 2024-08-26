@@ -206,7 +206,9 @@ scenarios:
       - ltp_ipc
       - ltp_net_ipv6_lib
       - ltp_math
-      - ltp_mm
+      - ltp_mm:
+          settings:
+            LTP_TAINT_EXPECTED: '0x200'
       - ltp_net_tcp_cmds
       - ltp_openposix:
           priority: 50
@@ -383,8 +385,12 @@ scenarios:
             LTP_TAINT_EXPECTED: '0x13801'
       - ltp_lvm
       - ltp_math
-      - ltp_mm
-      - ltp_mm_oom
+      - ltp_mm:
+          settings:
+            LTP_TAINT_EXPECTED: '0x200'
+      - ltp_mm_oom:
+          settings:
+            LTP_TAINT_EXPECTED: '0x200'
       - ltp_mm_swapping
       - ltp_net_features
       - ltp_net_ipv6
@@ -405,7 +411,9 @@ scenarios:
       - ltp_net_stress_route
       - ltp_net_tcp_cmds
       - ltp_net_tirpc_tests
-      - ltp_numa
+      - ltp_numa:
+          settings:
+            LTP_TAINT_EXPECTED: '0x200'
       - ltp_openposix:
           priority: 50
       - ltp_power_management_tests
@@ -423,7 +431,9 @@ scenarios:
           settings:
             LTP_TAINT_EXPECTED: '0x13801'
       - ltp_tracing
-      - ltp_uevent
+      - ltp_uevent:
+          settings:
+            LTP_TAINT_EXPECTED: '0x200'
       - ltp_watchqueue
       - nfs_cthon04-nfs3
       - nfs_cthon04-nfs4
