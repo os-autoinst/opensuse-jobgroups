@@ -288,6 +288,7 @@ scenarios:
             CONTAINER_RUNTIMES: 'podman'
             MAX_JOB_TIME: '12000'
             QEMUCPUS: '2'
+            QEMURAM: '2048'
             AARDVARK_BATS_SKIP: 'none'
             NETAVARK_BATS_SKIP: '001-basic 500-plugin'
             PODMAN_BATS_SKIP: '125-import'
