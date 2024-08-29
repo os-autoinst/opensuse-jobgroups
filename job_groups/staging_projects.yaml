@@ -145,7 +145,7 @@ scenarios:
     microos-*-Staging-MicroOS-Image-sdboot-x86_64:
       - microos-wizard-tpm:
           testsuite: microos-wizard
-          machine: uefi
+          machine: uefi-staging
           settings:
             # jeos-firstboot sets up FDE by default
             ENCRYPT: '1'
