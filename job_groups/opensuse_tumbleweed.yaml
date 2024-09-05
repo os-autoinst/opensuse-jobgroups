@@ -479,7 +479,98 @@ scenarios:
             BCI_IMAGE_MARKER: python_3.12
             BCI_TEST_ENVS: python
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/python:3.12
+      - bci_golang_oldstable_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: golang_oldstable
+            BCI_TEST_ENVS: all,metadata,go
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/golang:oldstable
+      - bci_nodejs_20_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: nodejs_20
+            BCI_TEST_ENVS: all,node,metadata
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/nodejs:20
+      - bci_nodejs_22_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: nodejs_22
+            BCI_TEST_ENVS: all,node,metadata
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/nodejs:22
+      - bci_openjdk_11_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: openjdk_11
+            BCI_TEST_ENVS: all,openjdk,metadata
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/openjdk:11
+      - bci_openjdk_21_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: openjdk_21
+            BCI_TEST_ENVS: all,openjdk,metadata
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/openjdk:21
+      - bci_openjdk_22_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: openjdk_22
+            BCI_TEST_ENVS: all,openjdk,metadata
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/openjdk:22
       ### application containers
+      - bci_prometheus_2_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: prometheus_2
+            BCI_TEST_ENVS: prometheus,metadata
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/prometheus:latest
+      - bci_spack_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: spack
+            BCI_TEST_ENVS: all,spack,metadata
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/spack:latest
+      - bci_alertmanager_0.27_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: alertmanager_0.27
+            BCI_TEST_ENVS: all,metadata
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/alertmanager:latest
+      - bci_mariadb-client_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: mariadb-client_11.4
+            BCI_TEST_ENVS: all,mariadb,metadata
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/mariadb-client:latest
+      - bci_389-ds_3.1_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: 389-ds_3.1
+            BCI_TEST_ENVS: all,389ds,metadata
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/389-ds:3.1
+      - bci_blackbox_exporter_0.24_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: blackbox_exporter_0.24
+            BCI_TEST_ENVS: all,metadata
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/blackbox_exporter:latest
+      - bci_kiwi_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: kiwi_10.1
+            BCI_TEST_ENVS: all,kiwi,metadata
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/kiwi:latest
       - bci_postgres_14_podman:
           testsuite: null
           settings:
