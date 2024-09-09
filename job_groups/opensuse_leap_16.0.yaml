@@ -37,3 +37,5 @@ scenarios:
           machine: uefi-usb-4G
       - kde-agama:
           machine: USBboot_64-3G
+      - zdup-Leap-15.6-gnome
+      - zdup-Leap-15.6-kde
