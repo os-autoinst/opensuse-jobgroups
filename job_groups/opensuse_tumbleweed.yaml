@@ -1070,6 +1070,15 @@ scenarios:
             LTP_TAINT_EXPECTED: '0x13801'
       - jeos-ltp-syscalls-ipc:
           machine: uefi_virtio-2G
+      - jeos-ssh-enroll-server:
+          settings:
+            +HDD_1: 'support_server_tumbleweed@64bit.qcow2'
+            SSH_ENROLL_PAIR: '1'
+            YAML_SCHEDULE: schedule/jeos/supportserver.yaml
+      - jeos-ssh-enroll-wizard:
+          settings:
+            PARALLEL_WITH: jeos-ssh-enroll-server
+            YAML_SCHEDULE: schedule/jeos/ssh-enroll.yaml
     opensuse-Tumbleweed-KDE-Live-x86_64:
       - kde-live:
           machine: uefi-3G
