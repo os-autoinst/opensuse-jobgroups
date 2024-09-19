@@ -13,8 +13,29 @@ defaults:
   x86_64:
     machine: 64bit-2G
     priority: 55
+  aarch64:
+    machine: USBboot_aarch64
+    priority: 55
+  ppc64le:
+    machine: ppc64le
+    priority: 55
+  s390x:
+    machine: s390x-zVM-vswitch-l2
+    priority: 55
 products:
   opensuse-agama-installer-Leap-x86_64:
+    distri: opensuse
+    flavor: agama-installer-Leap
+    version: '16.0'
+  opensuse-agama-installer-Leap-aarch64:
+    distri: opensuse
+    flavor: agama-installer-Leap
+    version: '16.0'
+  opensuse-agama-installer-Leap-ppc64le:
+    distri: opensuse
+    flavor: agama-installer-Leap
+    version: '16.0'
+  opensuse-agama-installer-Leap-s390x:
     distri: opensuse
     flavor: agama-installer-Leap
     version: '16.0'
@@ -27,15 +48,35 @@ scenarios:
           machine: 64bit-3G
       - gnome-agama:
           machine: uefi-usb-4G
-      - gnome-agama:
-          machine: USBboot_64-3G
       - kde-agama:
           machine: uefi-3G
       - kde-agama:
           machine: 64bit-3G
       - kde-agama:
           machine: uefi-usb-4G
+      - zdup-Leap-15.6-gnome
+      - zdup-Leap-15.6-kde
+  aarch64:
+    opensuse-agama-installer-Leap-aarch64:
+      - gnome-agama:
+          machine: USBboot_aarch64
       - kde-agama:
-          machine: USBboot_64-3G
+          machine: USBboot_aarch64
+      - zdup-Leap-15.6-gnome
+      - zdup-Leap-15.6-kde
+  ppc64le:
+    opensuse-agama-installer-Leap-ppc64le:
+      - gnome-agama:
+          machine: ppc64le
+      - kde-agama:
+          machine: ppc64le
+      - zdup-Leap-15.6-gnome
+      - zdup-Leap-15.6-kde
+  s390x:
+    opensuse-agama-installer-Leap-s390x:
+      - gnome-agama:
+          machine: s390x-zVM-vswitch-l2
+      - kde-agama:
+          machine: s390x-zVM-vswitch-l2
       - zdup-Leap-15.6-gnome
       - zdup-Leap-15.6-kde
