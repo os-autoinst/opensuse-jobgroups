@@ -629,35 +629,23 @@ scenarios:
     opensuse-Tumbleweed-JeOS-for-RPi-aarch64:
       - jeos:
           machine: RPi3
-          settings:
-            PASSWORD: linux
       - jeos_extra_tests_ai_ml:
           machine: RPi4
-          settings:
-            PASSWORD: linux
       - jeos-container_host:
           machine: RPi3
           settings:
-            PASSWORD: linux
             TIMEOUT_SCALE: '3'
       - jeos-container_image:
           machine: RPi3
           settings:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/arm/totest/containers/opensuse/tumbleweed
-            PASSWORD: linux
             TIMEOUT_SCALE: '3'
       - jeos:
           machine: RPi4
-          settings:
-            PASSWORD: linux
       - jeos-ltp-cve:
           machine: RPi4
-          settings:
-            PASSWORD: linux
       - qemu:
           machine: RPi4
-          settings:
-            PASSWORD: linux
     opensuse-Tumbleweed-KDE-Live-aarch64:
       - kde-live:
           machine: USBboot_aarch64-3G
@@ -759,8 +747,6 @@ scenarios:
     opensuse-Tumbleweed-JeOS-for-RPi-armv7hl:
       - jeos:
           machine: RPi2B
-          settings:
-            PASSWORD: linux
     opensuse-Tumbleweed-NET-armv7hl:
       - textmode
       - install_only
