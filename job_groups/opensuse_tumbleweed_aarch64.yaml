@@ -220,6 +220,8 @@ scenarios:
       - install_only:
           machine: aarch64-secureboot-opensuse-key
       - install_only:
+          machine: aarch64-secureboot-ms-key
+      - install_only:
           machine: aarch64_cpu_max
           priority: 40
       - ext4:
