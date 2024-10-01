@@ -597,42 +597,61 @@ scenarios:
       - upgrade_Leap_15.0_gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
+            SELINUX: "0"
       - upgrade_Leap_15.0_cryptlvm:
           machine: uefi
           settings:
             QEMU_VIRTIO_RNG: "0"
+            SELINUX: "0"
       - upgrade_Leap_15.0_kde:
           settings:
             QEMU_VIRTIO_RNG: "0"
+            SELINUX: "0"
       - upgrade_Leap_15.1_kde:
           settings:
             QEMU_VIRTIO_RNG: "0"
+            SELINUX: "0"
       - upgrade_Leap_15.2_gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
+            SELINUX: "0"
       - upgrade_Leap_15.2_with_service_check:
           settings:
             QEMU_VIRTIO_RNG: "0"
+            SELINUX: "0"
       - upgrade_Leap_15.2_with_service_check_nested_vm_down:
           settings:
             QEMU_VIRTIO_RNG: "0"
+            SELINUX: "0"
       - upgrade_Leap_15.2_kde:
           settings:
             QEMU_VIRTIO_RNG: "0"
+            SELINUX: "0"
       - upgrade_Leap_15.2_cryptlvm:
           machine: uefi
           settings:
             QEMU_VIRTIO_RNG: "0"
+            SELINUX: "0"
       - upgrade_Leap_15.3_gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
+            SELINUX: "0"
       - upgrade_Leap_15.3_kde:
           settings:
             QEMU_VIRTIO_RNG: "0"
-      - upgrade_Leap_15.5_gnome
-      - upgrade_Leap_15.6_gnome
-      - upgrade_Leap_15.5_kde
-      - upgrade_Leap_15.6_kde
+            SELINUX: "0"
+      - upgrade_Leap_15.5_gnome:
+          settings:
+            SELINUX: "0"
+      - upgrade_Leap_15.6_gnome:
+          settings:
+            SELINUX: "0"
+      - upgrade_Leap_15.5_kde:
+          settings:
+            SELINUX: "0"
+      - upgrade_Leap_15.6_kde:
+          settings:
+            SELINUX: "0"
       - installer_extended
       - desktopapps-other:
           description: 'Maintainer: Yuan Ren (yuanren10). See https://progress.opensuse.org/issues/23906'
@@ -887,9 +906,11 @@ scenarios:
       - upgrade_Leap_15.1_gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
+            SELINUX: "0"
       - upgrade_boot-into_snapshot_rollback_Leap_15.1_gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
+            SELINUX: "0"
       - extra_tests_dracut
       - boot_linuxrc
       - RAID0_gpt
@@ -1104,22 +1125,27 @@ scenarios:
           settings:
             QEMURAM: "3072"
             QEMU_VIRTIO_RNG: "0"
+            SELINUX: "0"
       - kde_live_upgrade_leap_15.2:
           machine: uefi
           settings:
             QEMURAM: "3072"
+            SELINUX: "0"
       - kde_live_upgrade_leap_15.3:
           settings:
             QEMURAM: "3072"
             QEMU_VIRTIO_RNG: "0"
+            SELINUX: "0"
       - kde_live_upgrade_leap_15.5:
           settings:
             QEMURAM: "3072"
             QEMU_VIRTIO_RNG: "0"
+            SELINUX: "0"
       - kde_live_upgrade_leap_15.6:
           settings:
             QEMURAM: "3072"
             QEMU_VIRTIO_RNG: "0"
+            SELINUX: "0"
     opensuse-Tumbleweed-NET-x86_64:
       - textmode:
           machine: 64bit
@@ -1207,27 +1233,45 @@ scenarios:
       - upgrade_Leap_15.0_gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
+            SELINUX: "0"
       - upgrade_Leap_15.0_kde:
           settings:
             QEMU_VIRTIO_RNG: "0"
+            SELINUX: "0"
       - zdup-Leap-15.2-kde:
           settings:
             QEMU_VIRTIO_RNG: "0"
+            SELINUX: "0"
       - zdup-Leap-15.2-gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
+            SELINUX: "0"
       - zdup-Leap-15.3-kde:
           settings:
             QEMU_VIRTIO_RNG: "0"
+            SELINUX: "0"
       - zdup-Leap-15.3-gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
-      - zdup-Leap-15.4-gnome
-      - zdup-Leap-15.5-gnome
-      - zdup-Leap-15.6-gnome
-      - zdup-Leap-15.4-kde
-      - zdup-Leap-15.5-kde
-      - zdup-Leap-15.6-kde
+            SELINUX: "0"
+      - zdup-Leap-15.4-gnome:
+          settings:
+            SELINUX: "0"
+      - zdup-Leap-15.5-gnome:
+          settings:
+            SELINUX: "0"
+      - zdup-Leap-15.6-gnome:
+          settings:
+            SELINUX: "0"
+      - zdup-Leap-15.4-kde:
+          settings:
+            SELINUX: "0"
+      - zdup-Leap-15.5-kde:
+          settings:
+            SELINUX: "0"
+      - zdup-Leap-15.6-kde:
+          settings:
+            SELINUX: "0"
       - create_hdd_minimalx
       - create_hdd_tumbleweed:
           # Workaround for boo#1200753
