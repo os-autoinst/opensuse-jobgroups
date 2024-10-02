@@ -547,7 +547,7 @@ scenarios:
           testsuite: null
           settings:
             <<: *bci
-            BCI_IMAGE_MARKER: mariadb-client_11.4
+            BCI_IMAGE_MARKER: mariadb-client_11.5
             BCI_TEST_ENVS: all,mariadb,metadata
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/mariadb-client:latest
       - bci_389-ds_3.1_podman:
