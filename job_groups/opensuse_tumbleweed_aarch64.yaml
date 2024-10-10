@@ -157,7 +157,12 @@ scenarios:
           settings:
             EXCLUDE_MODULES: kvm
       - microos_fips
-      - microos_network_bonding
+      - microos_bonding_target:
+          settings:
+            NICVLAN: '3001'
+      - microos_bonding_ping:
+          settings:
+            NICVLAN: '3001,3001'
       - microos_networkmanager
     microos-*-MicroOS-Image-sdboot-aarch64:
       - microos-combustion
@@ -501,6 +506,12 @@ scenarios:
           testsuite: null
       - ovs-server
       - ovs-client
+      - network_bonding_target:
+          settings:
+            NICVLAN: '4001'
+      - network_bonding_ping:
+          settings:
+            NICVLAN: '4001,4001'
       - salt-master
       - salt-minion
       - rsync-server
