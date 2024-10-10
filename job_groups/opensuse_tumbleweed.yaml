@@ -347,7 +347,6 @@ scenarios:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIMES: 'podman'
-            QEMUCPUS: '2'
             QEMURAM: '4096'
             AARDVARK_BATS_SKIP: 'none'
             NETAVARK_BATS_SKIP: '001-basic 250-bridge-nftables 500-plugin'
