@@ -158,7 +158,12 @@ scenarios:
           settings:
             QEMUCPU: 'host'
       - microos_fips
-      - microos_network_bonding
+      - microos_bonding_target:
+          settings:
+            NICVLAN: '3000'
+      - microos_bonding_ping:
+          settings:
+            NICVLAN: '3000,3000'
       - microos_networkmanager
     microos-*-MicroOS-Image-sdboot-x86_64:
       - microos-combustion:
@@ -736,6 +741,12 @@ scenarios:
       - ping_client
       - ovs-server
       - ovs-client
+      - network_bonding_target:
+          settings:
+            NICVLAN: '4000'
+      - network_bonding_ping:
+          settings:
+            NICVLAN: '4000,4000'
       - salt-master
       - salt-minion
       - autofs_server
