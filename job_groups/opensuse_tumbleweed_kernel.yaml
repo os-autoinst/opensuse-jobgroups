@@ -433,6 +433,7 @@ scenarios:
       - xfstests_btrfs-btrfs-001-100
       - xfstests_btrfs-btrfs-101-200
       - xfstests_btrfs-btrfs-201-999
+      - xfstests_btrfs-btrfs-big_size
       - xfstests_btrfs-generic-001-100
       - xfstests_xfs-generic-001-100
       - xfstests_xfs-xfs-001-100
