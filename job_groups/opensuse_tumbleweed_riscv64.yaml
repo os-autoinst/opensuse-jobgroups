@@ -25,6 +25,10 @@ scenarios:
       - jeos:
           settings:
             EXCLUDE_MODULES: libzypp_config
+      - jeos-containers:
+          settings:
+            # Currently only podman is working
+            CONTAINER_RUNTIMES: podman
       - jeos-ltp-commands:
           settings:
             EXCLUDE_MODULES: libzypp_config
