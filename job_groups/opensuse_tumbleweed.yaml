@@ -526,13 +526,6 @@ scenarios:
             BCI_IMAGE_MARKER: openjdk_21
             BCI_TEST_ENVS: all,openjdk,metadata
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/openjdk:21
-      - bci_openjdk_22_podman:
-          testsuite: null
-          settings:
-            <<: *bci
-            BCI_IMAGE_MARKER: openjdk_22
-            BCI_TEST_ENVS: all,openjdk,metadata
-            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/openjdk:22
       ### application containers
       - bci_prometheus_2_podman:
           testsuite: null
