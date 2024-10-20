@@ -23,7 +23,7 @@
   QEMURAM: "4096"
   START_AFTER_TEST: "create_hdd_textmode"
   CONTAINER_RUNTIMES: "podman"
-  BCI_TARGET: "factory-totest"
+  BCI_TARGET: "factory-arm-totest"
   # match -> opensuse-Tumbleweed-x86_64-20240603-textmode@64bit.qcow2
   HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
   +FLAVOR: 'BCI'
