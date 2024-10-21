@@ -353,8 +353,6 @@ scenarios:
           settings:
             CONTAINER_RUNTIMES: 'podman'
             QEMURAM: '4096'
-            AARDVARK_BATS_SKIP: '200-two-networks 300-three-networks'
-            NETAVARK_BATS_SKIP: '001-basic 250-bridge-nftables 500-plugin'
             RUNC_BATS_SKIP: 'none'
             RUNC_BATS_SKIP_ROOT: 'none'
             RUNC_BATS_SKIP_USER: 'update'
