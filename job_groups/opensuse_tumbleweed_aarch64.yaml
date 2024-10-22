@@ -917,7 +917,7 @@ scenarios:
       - jeos-ltp-commands:
           machine: RPi4
           settings:
-            LTP_TAINT_EXPECTED: '0x13c01'
+            LTP_TAINT_EXPECTED: '0x3400'
             PASSWORD: linux
       - jeos-ltp-containers:
           machine: RPi4
@@ -928,11 +928,11 @@ scenarios:
           machine: RPi4
           settings:
             PASSWORD: linux
-            LTP_TAINT_EXPECTED: '0x13c01'
+            LTP_TAINT_EXPECTED: '0x400'
       - jeos-ltp-syscalls:
           machine: RPi4
           settings:
-            LTP_TAINT_EXPECTED: '0x13c01'
+            LTP_TAINT_EXPECTED: '0x3400'
             PASSWORD: linux
       - qemu:
           machine: RPi4
