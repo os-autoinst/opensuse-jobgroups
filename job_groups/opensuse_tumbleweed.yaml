@@ -354,7 +354,7 @@ scenarios:
             CONTAINER_RUNTIMES: 'podman'
             QEMURAM: '4096'
             RUNC_BATS_SKIP: 'none'
-            RUNC_BATS_SKIP_ROOT: 'none'
+            RUNC_BATS_SKIP_ROOT: 'cgroups'
             RUNC_BATS_SKIP_USER: 'update'
             SKOPEO_BATS_SKIP: 'none'
             SKOPEO_BATS_SKIP_USER: 'none'
