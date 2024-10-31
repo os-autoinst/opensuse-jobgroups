@@ -102,6 +102,7 @@ scenarios:
       - ltp_kernel_misc:
           settings:
             LTP_TAINT_EXPECTED: '0x13801'
+      - ltp_kernel_warn_tests
       - ltp_lvm
       - ltp_math
       - ltp_mm
@@ -261,6 +262,7 @@ scenarios:
       - ltp_kernel_misc:
           settings:
             LTP_TAINT_EXPECTED: '0x13801'
+      - ltp_kernel_warn_tests
       - ltp_lvm
       - ltp_math
       - ltp_mm
@@ -321,6 +323,7 @@ scenarios:
       - ltp_kernel_misc:
           settings:
             LTP_TAINT_EXPECTED: '0x13801'
+      - ltp_kernel_warn_tests
       - ltp_lvm
       - ltp_net_features
       - ltp_net_nfs
@@ -381,6 +384,7 @@ scenarios:
       - ltp_kernel_misc:
           settings:
             LTP_TAINT_EXPECTED: '0x13801'
+      - ltp_kernel_warn_tests
       - ltp_lvm
       - ltp_math
       - ltp_mm
