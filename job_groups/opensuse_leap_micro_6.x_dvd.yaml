@@ -1,0 +1,182 @@
+############################################################
+#                         WARNING                          #
+#                                                          #
+#               This file is managed in GIT!               #
+#  Any changes via the openQA WebUI will get overwritten!  #
+#                                                          #
+#    https://github.com/os-autoinst/opensuse-jobgroups     #
+#       job_groups/opensuse_leap_micro_6.x_dvd.yaml        #
+############################################################
+---
+.default_settings: &default_settings
+  DESKTOP: 'textmode'
+
+.image_settings: &image_settings
+  <<: *default_settings
+  BOOT_HDD_IMAGE: '1'
+  HDD_2: 'ignition.qcow2'
+  NUMDISKS: '2'
+  HDDSIZEGB_1: '30'
+  ENABLE_SELINUX: '1'
+  FIRST_BOOT_CONFIG: 'combustion+ignition'
+
+.image_container_settings: &image_container_settings
+  <<: *image_settings
+  SKIP_DOCKER_IMAGE_TESTS: '1'
+  CONTAINER_RUNTIMES: 'podman'
+  CONTAINER_IMAGE_VERSIONS: '15.4,15.5'
+
+.selfinstall_settings: &selfinstall_settings
+  <<: *default_settings
+  NUMDISKS: '2'
+  HDD_2: 'ignition.qcow2'  # openQA will create a qcow2 on the fly
+  HDDSIZEGB_1: '30'
+  SELFINSTALL: '1'
+
+.selfinstall_settings_aarch64: &selfinstall_settings_aarch64
+  <<: *default_settings
+  NUMDISKS: '2'
+  HDD_2: 'ignition.qcow2'  # openQA will create a qcow2 on the fly
+  HDDSIZEGB_1: '30'
+  SELFINSTALL: '1'
+
+.image_qemu_settings: &image_qemu_settings
+  <<: *image_settings
+  QEMUCPU: 'host'
+  EXTRA: 'virtualization'
+
+defaults:
+  x86_64:
+    machine: uefi
+    priority: 50
+  aarch64:
+    machine: aarch64
+    priority: 50
+    settings:
+      QEMUCPUS: '2'
+
+products: # ---Default---
+  leap-micro-6.1-Default-SelfInstall-x86_64: &distriver
+    distri: leap-micro
+    flavor: Default-SelfInstall
+    version: '6.1'
+  leap-micro-6.1-Default-SelfInstall-aarch64:
+    <<: *distriver
+
+  leap-micro-6.1-Default-x86_64: &default_medium
+    <<: *distriver
+    flavor: Default
+  leap-micro-6.1-Default-aarch64:
+    <<: *default_medium
+
+  leap-micro-6.1-Default-qcow-x86_64: &default_qcow
+    <<: *distriver
+    flavor: Default-qcow
+  leap-micro-6.1-Default-qcow-aarch64:
+    <<: *default_qcow
+
+  leap-micro-6.1-Default-encrypted-x86_64:
+    <<: *distriver
+    flavor: Default-encrypted
+  # ---end.Default---
+  # ---Base---
+  leap-micro-6.1-Base-SelfInstall-x86_64: &base_selfinstall
+    <<: *distriver
+    flavor: Base-SelfInstall
+  leap-micro-6.1-Base-SelfInstall-aarch64:
+    <<: *base_selfinstall
+
+  leap-micro-6.1-Base-RT-x86_64:
+    <<: *distriver
+    flavor: Base-RT-SelfInstall
+
+  leap-micro-6.1-Base-RT-SelfInstall-x86_64:
+    <<: *distriver
+    flavor: Base-RT-SelfInstall
+
+  leap-micro-6.1-Base-x86_64:
+    <<: *distriver
+    flavor: Base
+
+  leap-micro-6.1-Base-aarch64:
+    <<: *default_medium
+
+  leap-micro-6.1-Base-qcow-x86_64: &default_qcow
+    <<: *distriver
+    flavor: Base-qcow
+  leap-micro-6.1-Base-qcow-aarch64:
+    <<: *default_qcow
+
+  leap-micro-6.1-Base-encrypted-x86_64:
+    <<: *distriver
+    flavor: Base-encrypted
+
+scenarios:
+  x86_64:
+    leap-micro-6.1-Default-x86_64:
+      - microos_image_default:
+          settings:
+            <<: *image_settings
+      - microos_containers:
+          settings:
+            <<: *image_container_settings
+      - microos_virtualization:
+          settings:
+            <<: *image_qemu_settings
+    leap-micro-6.1-Default-qcow-x86_64:
+      - microos_image_default:
+          settings:
+            <<: *image_settings
+      - microos_containers:
+          settings:
+            <<: *image_container_settings
+      - microos_virtualization:
+          settings:
+            <<: *image_qemu_settings
+    leap-micro-6.1-Default-encrypted-x86_64:
+      - microos_image_default:
+          settings:
+            <<: *image_settings
+      - microos_containers:
+          settings:
+            <<: *image_container_settings
+      - microos_virtualization:
+          settings:
+            <<: *image_qemu_settings
+    leap-micro-6.1-Default-SelfInstall-x86_64:
+      - microos_installation_default:
+          settings:
+            <<: *selfinstall_settings
+    leap-micro-6.1-Base-RT-x86_64:
+      - microos_image_default:
+          settings:
+            <<: *image_settings
+    leap-micro-6.1-Base-RT-SelfInstall-x86_64:
+      - microos_image_default:
+          settings:
+            <<: *image_settings
+  aarch64:
+    leap-micro-6.1-Default-aarch64:
+      - microos_image_default:
+          settings:
+            *image_settings
+      - microos_containers:
+          settings:
+            <<: *image_container_settings
+      - microos_virtualization:
+          settings:
+            <<: *image_qemu_settings
+    leap-micro-6.1-Default-qcow-x86_64:
+      - microos_image_default:
+          settings:
+            <<: *image_settings
+      - microos_containers:
+          settings:
+            <<: *image_container_settings
+      - microos_virtualization:
+          settings:
+            <<: *image_qemu_settings
+    leap-micro-6.1-Default-SelfInstall-aarch64:
+      - microos_installation_default:
+          settings:
+            <<: *selfinstall_settings_aarch64
