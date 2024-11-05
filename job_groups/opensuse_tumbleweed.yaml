@@ -1472,6 +1472,7 @@ scenarios:
       - otherDE_lxqt
       - otherDE_mate
       - otherDE_awesome
+      - otherDE_sway
       - gnome-gdm:
           machine: 64bit
       - kde_dual_windows10:
