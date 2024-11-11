@@ -422,13 +422,6 @@ scenarios:
             BCI_IMAGE_MARKER: golang_oldstable
             BCI_TEST_ENVS: all,metadata,go
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/arm/totest/containers/opensuse/bci/golang:oldstable
-      - bci_nodejs_20_podman:
-          testsuite: null
-          settings:
-            <<: *bci
-            BCI_IMAGE_MARKER: nodejs_20
-            BCI_TEST_ENVS: all,node,metadata
-            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/arm/totest/containers/opensuse/bci/nodejs:20
       - bci_nodejs_22_podman:
           testsuite: null
           settings:
