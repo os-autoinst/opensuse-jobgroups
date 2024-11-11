@@ -106,12 +106,12 @@ scenarios:
       - microos:
           machine: 64bit
       - microos_textmode
-      - container-host:
+      - container_host:
           machine: 64bit
           settings:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
             K3S_INSTALL_UPSTREAM: '1'
-      - fips-container-host:
+      - fips-container_host:
           machine: 64bit
           settings:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
@@ -128,19 +128,19 @@ scenarios:
             DESKTOP: textmode
             +YAML_SCHEDULE: ''
     microos-*-MicroOS-Image-ContainerHost-x86_64:
-      - container-host:
+      - container_host:
           settings:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
             K3S_INSTALL_UPSTREAM: '1'
-      - fips-container-host:
+      - fips-container_host:
           settings:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
             K3S_INSTALL_UPSTREAM: '1'
-      - container-host2microosnext:
+      - container_host2microosnext:
           settings:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
             K3S_INSTALL_UPSTREAM: '1'
-      - container-host-old2microosnext:
+      - container_host-old2microosnext:
           settings:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
             K3S_INSTALL_UPSTREAM: '1'
@@ -310,11 +310,11 @@ scenarios:
       - extra_tests_on_xfce
       - extra_tests_textmode
       - extra_tests_webserver
-      - containers_host_docker:
+      - container_host_docker:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIMES: 'docker'
-      - containers_host_podman:
+      - container_host_podman:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIMES: 'podman'
@@ -325,7 +325,7 @@ scenarios:
             CONTAINER_RUNTIMES: 'podman'
             K3S_INSTALL_UPSTREAM: '1'
             OCI_RUNTIME: 'runc'
-      - containers_host_podman_testsuite:
+      - container_host_podman_testsuite:
           description: |-
             Maintainer: qe-c@suse.de https://confluence.suse.com/display/qasle/podman+upstream+tests
           testsuite: extra_tests_textmode_containers
@@ -339,7 +339,7 @@ scenarios:
             PODMAN_BATS_SKIP_ROOT_REMOTE: '180-blkio 520-checkpoint'
             PODMAN_BATS_SKIP_USER_LOCAL: '505-networking-pasta'
             PODMAN_BATS_SKIP_USER_REMOTE: '505-networking-pasta'
-      - containers_host_bats_testsuite:
+      - container_host_bats_testsuite:
           description: |-
             Maintainer: qe-c@suse.de https://confluence.suse.com/display/qasle/podman+upstream+tests
           testsuite: extra_tests_textmode_containers
@@ -352,7 +352,7 @@ scenarios:
             SKOPEO_BATS_SKIP: 'none'
             SKOPEO_BATS_SKIP_USER: 'none'
             SKOPEO_BATS_SKIP_ROOT: 'none'
-      - containers_host_buildah_testsuite:
+      - container_host_buildah_testsuite:
           testsuite: extra_tests_textmode_containers
           description: |-
             Maintainer: qe-c@suse.de https://confluence.suse.com/display/qasle/podman+upstream+tests
@@ -363,16 +363,16 @@ scenarios:
             BUILDAH_BATS_SKIP: 'commit run'
             BUILDAH_BATS_SKIP_ROOT: 'none'
             BUILDAH_BATS_SKIP_USER: 'add basic bud copy overlay rmi sbom squash'
-      - containers_host_containerd:
+      - container_host_containerd:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIMES: 'containerd_crictl,containerd_nerdctl'
-      - containers_host_helm:
+      - container_host_helm:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIMES: 'helm'
             K3S_INSTALL_UPSTREAM: '1'
-      - containers_host_kubectl:
+      - container_host_kubectl:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIMES: 'kubectl'

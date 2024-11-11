@@ -67,11 +67,11 @@ scenarios:
       - extra_tests_gnome
       - extra_tests_on_kde
       - extra_tests_textmode
-      - containers_host_docker:
+      - container_host_docker:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIMES: 'docker'
-      - containers_host_podman:
+      - container_host_podman:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIMES: 'podman'
