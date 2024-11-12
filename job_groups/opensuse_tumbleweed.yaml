@@ -1287,6 +1287,8 @@ scenarios:
           settings:
             PARALLEL_WITH: jeos-ssh-enroll-server
             YAML_SCHEDULE: schedule/jeos/ssh-enroll.yaml
+      - jeos-nosb:
+          machine: uefi_virtio-2G
     opensuse-Tumbleweed-KDE-Live-x86_64:
       - kde-live:
           machine: uefi-3G

@@ -112,6 +112,8 @@ scenarios:
             LTP_TAINT_EXPECTED: '0x80013801'
       - jeos-ltp-syscalls-ipc:
           machine: 64bit_virtio
+      - jeos-nosb:
+          machine: uefi_virtio-2G
     opensuse-Leap15.6-GNOME-Live-x86_64:
       - gnome-live:
           machine: uefi-3G
@@ -240,6 +242,7 @@ scenarios:
           settings:
             LTP_TAINT_EXPECTED: '0x80013801'
       - jeos-ltp-syscalls-ipc
+      - jeos-nosb
     opensuse-15.6-JeOS-for-RPi-aarch64:
       - jeos:
           machine: RPi3
