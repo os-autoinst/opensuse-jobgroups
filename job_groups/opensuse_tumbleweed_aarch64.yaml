@@ -883,8 +883,6 @@ scenarios:
       - zdup_twjeos2twnext_aarch64:
           machine: aarch64-HD20G
           priority: 45
-      - jeos-nosb:
-          machine: aarch64-HD20G
     opensuse-Tumbleweed-JeOS-for-RPi-aarch64:
       - jeos:
           machine: RPi3
