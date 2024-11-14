@@ -25,6 +25,10 @@ scenarios:
       - jeos:
           settings:
             EXCLUDE_MODULES: libzypp_config
+      - jeos-container_host:
+          settings:
+            # Note: docker still has some issues in validate_btrfs
+            CONTAINER_RUNTIMES: 'podman'
       - jeos-ltp-commands:
           settings:
             EXCLUDE_MODULES: libzypp_config
