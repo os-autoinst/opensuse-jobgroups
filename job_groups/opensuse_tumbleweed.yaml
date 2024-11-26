@@ -332,6 +332,12 @@ scenarios:
           settings:
             CONTAINER_RUNTIMES: 'podman'
             K3S_INSTALL_UPSTREAM: '1'
+      - containers_host_podman_runc:
+          testsuite: extra_tests_textmode_containers
+          settings:
+            CONTAINER_RUNTIMES: 'podman'
+            K3S_INSTALL_UPSTREAM: '1'
+            OCI_RUNTIME: 'runc'
       - containers_host_podman_testsuite:
           description: |-
             Maintainer: qe-c@suse.de https://confluence.suse.com/display/qasle/podman+upstream+tests
