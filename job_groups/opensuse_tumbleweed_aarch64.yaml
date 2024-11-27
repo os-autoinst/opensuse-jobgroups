@@ -940,6 +940,8 @@ scenarios:
     opensuse-Tumbleweed-KDE-Live-aarch64:
       - kde-live:
           machine: USBboot_aarch64-3G
+      - kde-live-wayland:
+          machine: USBboot_aarch64-3G
       - mediacheck:
           machine: USBboot_aarch64
           priority: 40
