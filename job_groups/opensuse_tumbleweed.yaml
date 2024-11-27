@@ -310,19 +310,6 @@ scenarios:
       - extra_tests_on_xfce
       - extra_tests_textmode
       - extra_tests_webserver
-      - extra_tests_vagrant:
-          description: 'Maintainer: dancermak. Test vagrant, vagrant plugins and the vagrant boxes'
-          settings:
-            BOOT_HDD_IMAGE: '1'
-            DESKTOP: textmode
-            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
-            QEMUCPU: host
-            QEMUCPUS: '4'
-            QEMURAM: '4096'
-            START_AFTER_TEST: create_hdd_textmode
-            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
-            YAML_SCHEDULE: schedule/vagrant.yaml
-          testsuite: null
       - containers_host_docker:
           testsuite: extra_tests_textmode_containers
           settings:
