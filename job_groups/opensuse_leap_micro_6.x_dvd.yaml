@@ -137,6 +137,7 @@ scenarios:
       - microos_image_default:
           settings:
             <<: *image_settings
+            QEMURAM: '2048'
       - microos_containers:
           settings:
             <<: *image_container_settings
