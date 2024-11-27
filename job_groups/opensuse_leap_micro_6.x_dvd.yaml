@@ -16,7 +16,10 @@
   BOOT_HDD_IMAGE: '1'
   HDD_2: 'ignition.qcow2'
   NUMDISKS: '2'
-  HDDSIZEGB_1: '30'
+  HDDSIZEGB_1: '40'
+  QEMUCPUS: '2'
+  QEMUCPU: 'host'
+  QEMURAM: '2048'
   ENABLE_SELINUX: '1'
   FIRST_BOOT_CONFIG: 'combustion+ignition'
 
@@ -137,7 +140,6 @@ scenarios:
       - microos_image_default:
           settings:
             <<: *image_settings
-            QEMURAM: '2048'
       - microos_containers:
           settings:
             <<: *image_container_settings
