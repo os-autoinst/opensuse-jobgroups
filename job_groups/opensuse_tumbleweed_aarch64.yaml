@@ -999,6 +999,11 @@ scenarios:
       - zdup-Leap-15.5-gnome
       - zdup-Leap-15.6-kde
       - zdup-Leap-15.6-gnome
+      - gnome-gdm
+      - autoyast_gnome
+      - kde+selinux
+      - gnome+selinux
+      - textmode+selinux
     opensuse-Tumbleweed-Rescue-CD-aarch64:
       - rescue:
           machine: USBboot_aarch64
