@@ -583,13 +583,13 @@ scenarios:
             BCI_IMAGE_MARKER: postgres_16
             BCI_TEST_ENVS: postgres
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/postgres:16
-      - bci_grafana_10_podman:
+      - bci_grafana_11_podman:
           testsuite: null
           settings:
             <<: *bci
-            BCI_IMAGE_MARKER: grafana_10
+            BCI_IMAGE_MARKER: grafana_11
             BCI_TEST_ENVS: grafana
-            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/grafana:10
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/grafana:11
       - bci_helm_latest_podman:
           testsuite: null
           settings:
