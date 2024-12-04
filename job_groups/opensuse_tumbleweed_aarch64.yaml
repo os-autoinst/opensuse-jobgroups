@@ -475,7 +475,7 @@ scenarios:
           testsuite: null
           settings:
             <<: *bci
-            BCI_IMAGE_MARKER: mariadb-client_11.5
+            BCI_IMAGE_MARKER: mariadb-client_11.6
             BCI_TEST_ENVS: all,mariadb,metadata
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/arm/totest/containers/opensuse/mariadb-client:latest
       - bci_389-ds_3.1_podman:
@@ -520,13 +520,13 @@ scenarios:
             BCI_IMAGE_MARKER: postgres_16
             BCI_TEST_ENVS: postgres
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/arm/totest/containers/opensuse/bci/postgres:16
-      - bci_grafana_10_podman:
+      - bci_grafana_11_podman:
           testsuite: null
           settings:
             <<: *bci
-            BCI_IMAGE_MARKER: grafana_10
+            BCI_IMAGE_MARKER: grafana_11
             BCI_TEST_ENVS: grafana
-            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/arm/totest/containers/opensuse/bci/grafana:10
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/arm/totest/containers/opensuse/bci/grafana:11
       - bci_helm_latest_podman:
           testsuite: null
           settings:
