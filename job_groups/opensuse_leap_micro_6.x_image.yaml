@@ -153,7 +153,7 @@ scenarios:
           settings:
             <<: *image_settings
     leap-micro-6.0-Base-RT-SelfInstall-x86_64:
-      - microos_image_default:
+      - microos_installation_default:
           settings:
             <<: *image_settings
   aarch64:
