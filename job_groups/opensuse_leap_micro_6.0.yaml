@@ -5,7 +5,7 @@
 #  Any changes via the openQA WebUI will get overwritten!  #
 #                                                          #
 #    https://github.com/os-autoinst/opensuse-jobgroups     #
-#      job_groups/opensuse_leap_micro_6.x_image.yaml       #
+#         job_groups/opensuse_leap_micro_6.0.yaml          #
 ############################################################
 ---
 .default_settings: &default_settings
