@@ -515,11 +515,11 @@ scenarios:
             BCI_TEST_ENVS: all,openjdk,metadata
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/openjdk:21
       ### application containers
-      - bci_prometheus_2_podman:
+      - bci_prometheus_3_podman:
           testsuite: null
           settings:
             <<: *bci
-            BCI_IMAGE_MARKER: prometheus_2
+            BCI_IMAGE_MARKER: prometheus_3
             BCI_TEST_ENVS: prometheus,metadata
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/prometheus:latest
       - bci_spack_podman:
