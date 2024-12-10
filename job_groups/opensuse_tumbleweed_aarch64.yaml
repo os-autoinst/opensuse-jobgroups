@@ -498,7 +498,7 @@ scenarios:
           testsuite: null
           settings:
             <<: *bci
-            BCI_IMAGE_MARKER: kiwi_10.1
+            BCI_IMAGE_MARKER: kiwi_latest
             BCI_TEST_ENVS: all,kiwi,metadata
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/arm/totest/containers/opensuse/bci/kiwi:latest
       - bci_postgres_14_podman:
