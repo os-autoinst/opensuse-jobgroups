@@ -1035,6 +1035,14 @@ scenarios:
             YAML_SCHEDULE: 'schedule/wsl/wsl_main.yaml'
             WSL_INSTALL_FROM: 'build'
             QEMU_ENABLE_SMBD: '1'
+      - wsl2-main:
+          testsuite: null
+          machine: win11_uefi_aarch64_wsl2
+          settings:
+            YAML_SCHEDULE: 'schedule/wsl/wsl_main.yaml'
+            WSL_INSTALL_FROM: 'build'
+            QEMU_ENABLE_SMBD: '1'
+            WSL2: '1'
   armv7hl:
     opensuse-Tumbleweed-JeOS-for-AArch64-armv7hl:
       - jeos:
