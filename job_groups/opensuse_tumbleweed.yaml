@@ -51,6 +51,10 @@ products:
     distri: opensuse
     flavor: JeOS-for-kvm-and-xen
     version: Tumbleweed
+  opensuse-Tumbleweed-JeOS-for-kvm-and-xen-sdboot-x86_64:
+    distri: opensuse
+    flavor: JeOS-for-kvm-and-xen-sdboot
+    version: Tumbleweed
   opensuse-Tumbleweed-JeOS-for-OpenStack-Cloud-x86_64:
     distri: opensuse
     flavor: JeOS-for-OpenStack-Cloud
@@ -1218,6 +1222,9 @@ scenarios:
             BOOT_HDD_IMAGE: '1'
             DESKTOP: textmode
             FILESYSTEM: 'xfs'
+    opensuse-Tumbleweed-JeOS-for-kvm-and-xen-sdboot-x86_64:
+      - jeos:
+          machine: uefi_virtio-2G
     opensuse-Tumbleweed-JeOS-for-kvm-and-xen-x86_64:
       - jeos:
           machine: 64bit_virtio
