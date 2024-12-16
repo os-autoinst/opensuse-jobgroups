@@ -316,21 +316,42 @@ scenarios:
       - extra_tests_on_xfce
       - extra_tests_textmode
       - extra_tests_webserver
-      - container_host_docker:
+      - container_host_docker_apparmor:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIMES: 'docker'
-      - container_host_podman:
+            SECURITY_MAC: 'apparmor'
+      - container_host_docker_selinux:
+          testsuite: extra_tests_textmode_containers
+          settings:
+            CONTAINER_RUNTIMES: 'docker'
+            SECURITY_MAC: 'selinux'
+      - container_host_podman_apparmor:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIMES: 'podman'
             K3S_INSTALL_UPSTREAM: '1'
-      - containers_host_podman_runc:
+            SECURITY_MAC: 'apparmor'
+      - containers_host_podman_runc_apparmor:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIMES: 'podman'
             K3S_INSTALL_UPSTREAM: '1'
             OCI_RUNTIME: 'runc'
+            SECURITY_MAC: 'apparmor'
+      - container_host_podman_selinux:
+          testsuite: extra_tests_textmode_containers
+          settings:
+            CONTAINER_RUNTIMES: 'podman'
+            K3S_INSTALL_UPSTREAM: '1'
+            SECURITY_MAC: 'selinux'
+      - containers_host_podman_runc_selinux:
+          testsuite: extra_tests_textmode_containers
+          settings:
+            CONTAINER_RUNTIMES: 'podman'
+            K3S_INSTALL_UPSTREAM: '1'
+            OCI_RUNTIME: 'runc'
+            SECURITY_MAC: 'selinux'
       - container_host_podman_testsuite:
           description: |-
             Maintainer: qe-c@suse.de https://confluence.suse.com/display/qasle/podman+upstream+tests
