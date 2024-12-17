@@ -25,11 +25,15 @@ scenarios:
       - jeos:
           settings:
             EXCLUDE_MODULES: libzypp_config
-      - jeos-container_host:
+      - jeos-container_host_podman:
           settings:
             BOOT_HDD_IMAGE: '1'
-            # Note: docker still has some issues in validate_btrfs
             CONTAINER_RUNTIMES: 'podman'
+      - jeos-container_host_docker:
+          settings:
+            BOOT_HDD_IMAGE: '1'
+            CONTAINER_RUNTIMES: 'docker'
+            EXCLUDE_MODULES: 'rootless_docker,validate_btrfs'
       - jeos-ltp-commands:
           settings:
             EXCLUDE_MODULES: libzypp_config
