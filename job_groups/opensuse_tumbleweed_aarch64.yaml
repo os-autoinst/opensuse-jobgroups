@@ -345,7 +345,7 @@ scenarios:
       - containers_image:
           testsuite: extra_tests_textmode_containers
           settings:
-            CONTAINER_RUNTIMES: 'docker,podman'
+            CONTAINER_RUNTIMES: 'podman,docker'
             CONTAINERS_UNTESTED_IMAGES: '1'
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/arm/totest/containers/opensuse/tumbleweed
             K3S_INSTALL_UPSTREAM: '1'
