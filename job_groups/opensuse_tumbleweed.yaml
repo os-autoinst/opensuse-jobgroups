@@ -810,7 +810,6 @@ scenarios:
           testsuite: null
       - apparmor
       - security_misc_o3
-      - scap_workbench
       - lvm-encrypt-separate-boot:
           machine: 64bit
           settings:
