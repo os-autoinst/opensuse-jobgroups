@@ -490,13 +490,6 @@ scenarios:
             BCI_IMAGE_MARKER: gcc_14
             BCI_TEST_ENVS: gcc
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/gcc:14
-      - bci_python_3.10_podman:
-          testsuite: null
-          settings:
-            <<: *bci
-            BCI_IMAGE_MARKER: python_3.10
-            BCI_TEST_ENVS: python
-            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/python:3.10
       - bci_python_3.11_podman:
           testsuite: null
           settings:
