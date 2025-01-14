@@ -474,7 +474,7 @@ scenarios:
           settings:
             <<: *bci
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/ruby:latest
-            BCI_IMAGE_MARKER: ruby_3.4
+            BCI_IMAGE_MARKER: ruby_latest
             BCI_TEST_ENVS: ruby
       - bci_gcc_13_podman:
           testsuite: null
