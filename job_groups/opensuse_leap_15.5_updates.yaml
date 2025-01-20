@@ -109,6 +109,7 @@ scenarios:
           settings:
             <<: *zdup
             QEMU_VIRTIO_RNG: "0"
+            QEMURAM: "4096"
       - zdup-Leap-15.4-kde:
           settings:
             <<: *zdup
