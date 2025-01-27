@@ -1541,7 +1541,7 @@ scenarios:
             WSL2: '1'
             QEMUCPU: 'host,kvm=off,vmx=on,hypervisor=off,hv_time,hv_relaxed,hv_vapic,hv_spinlocks=0x1fff,hv_frequencies,hv_reenlightenment,hv_vpindex,hv-synic,hv-stimer,hv-stimer-direct'
             QEMUMACHINE: 'q35,accel=whpx'
-            WORKER_CLASS: 'wsl2'
+            WORKER_CLASS: 'wsl2, platform_intel'  # force platform_intel, temporary fix bsc#1234635'
       - wsl2-install-msstore:
           <<: *wsl2_test
           description: |
