@@ -242,7 +242,6 @@ scenarios:
           settings:
             LTP_TAINT_EXPECTED: '0x80013801'
       - jeos-ltp-syscalls-ipc
-      - jeos-nosb
     opensuse-15.6-JeOS-for-RPi-aarch64:
       - jeos:
           machine: RPi3
