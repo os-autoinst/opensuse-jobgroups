@@ -316,6 +316,10 @@ scenarios:
       - extra_tests_on_xfce
       - extra_tests_textmode
       - extra_tests_webserver
+      - container_host_multi_runtime:
+          testsuite: extra_tests_textmode_containers
+          settings:
+            CONTAINER_RUNTIMES: 'multi_runtime'
       - container_host_docker_apparmor:
           testsuite: extra_tests_textmode_containers
           settings:
