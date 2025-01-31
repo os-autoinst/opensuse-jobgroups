@@ -551,11 +551,11 @@ scenarios:
             BCI_IMAGE_MARKER: spack
             BCI_TEST_ENVS: all,spack,metadata
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/spack:latest
-      - bci_alertmanager_0.27_podman:
+      - bci_alertmanager_latest_podman:
           testsuite: null
           settings:
             <<: *bci
-            BCI_IMAGE_MARKER: alertmanager_0.27
+            BCI_IMAGE_MARKER: alertmanager_latest
             BCI_TEST_ENVS: all,metadata
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/alertmanager:latest
       - bci_mariadb-client_podman:
