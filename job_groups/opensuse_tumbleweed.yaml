@@ -551,7 +551,7 @@ scenarios:
             BCI_IMAGE_MARKER: spack
             BCI_TEST_ENVS: all,spack,metadata
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/spack:latest
-      - bci_alertmanager_latest_podman:
+      - bci_alertmanager_podman:
           testsuite: null
           settings:
             <<: *bci
