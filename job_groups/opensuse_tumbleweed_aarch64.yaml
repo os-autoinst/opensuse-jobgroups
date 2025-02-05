@@ -1019,6 +1019,18 @@ scenarios:
       - kde+selinux
       - gnome+selinux
       - textmode+selinux
+      - kde+apparmor:
+          testsuite: kde
+          settings:
+            SELINUX: '0'
+      - gnome+apparmor:
+          testsuite: gnome
+          settings:
+            SELINUX: '0'
+      - textmode+apparmor:
+          testsuite: textmode
+          settings:
+            SELINUX: '0'
     opensuse-Tumbleweed-Rescue-CD-aarch64:
       - rescue:
           machine: USBboot_aarch64
