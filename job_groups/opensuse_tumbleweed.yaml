@@ -1502,6 +1502,21 @@ scenarios:
           machine: uefi
       - textmode+selinux:
           machine: uefi
+      - kde+apparmor:
+          testsuite: kde
+          machine: uefi
+          settings:
+            SELINUX: '0'
+      - gnome+apparmor:
+          testsuite: gnome
+          machine: uefi
+          settings:
+            SELINUX: '0'
+      - textmode+apparmor:
+          testsuite: textmode
+          machine: uefi
+          settings:
+            SELINUX: '0'
     opensuse-Tumbleweed-Rescue-CD-x86_64:
       - rescue:
           priority: 49
