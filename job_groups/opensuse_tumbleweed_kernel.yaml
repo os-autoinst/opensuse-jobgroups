@@ -97,6 +97,9 @@ scenarios:
       - ltp_hugetlb
       - ltp_hyperthreading
       - ltp_ima
+      - ltp_ima_load_policy:
+          settings:
+            LTP_COMMAND_EXCLUDE: ima_selinux
       - ltp_input
       - ltp_ipc
       - ltp_kernel_misc:
@@ -257,6 +260,9 @@ scenarios:
       - ltp_hugetlb
       - ltp_hyperthreading
       - ltp_ima
+      - ltp_ima_load_policy:
+          settings:
+            LTP_COMMAND_EXCLUDE: ima_selinux
       - ltp_input
       - ltp_ipc
       - ltp_kernel_misc:
@@ -379,6 +385,9 @@ scenarios:
       - ltp_hugetlb
       - ltp_hyperthreading
       - ltp_ima
+      - ltp_ima_load_policy:
+          settings:
+            LTP_COMMAND_EXCLUDE: ima_selinux
       - ltp_input
       - ltp_ipc
       - ltp_kernel_misc:
