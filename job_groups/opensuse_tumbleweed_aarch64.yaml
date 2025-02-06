@@ -264,6 +264,12 @@ scenarios:
             YAML_SCHEDULE: schedule/yast/opensuse/yast2_ncurses/yast2_ncurses.yaml
       - create_hdd_textmode:
           priority: 40
+      - create_hdd_textmode_apparmor:
+          priority: 45
+          testsuite: 'create_hdd_textmode'
+          settings:
+            SELINUX: '0'
+            PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-apparmor@%MACHINE%.qcow2'
       - create_hdd_textmode_autoyast:
           priority: 40
       - create_hdd_textmode:
@@ -671,7 +677,10 @@ scenarios:
       - systemd-networkd
       - system_performance
       - system_check
-      - apparmor
+      - apparmor:
+          settings:
+            START_AFTER_TEST: 'create_hdd_textmode_apparmor'
+            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-apparmor@%MACHINE%.qcow2'
       - security_misc_o3
       - zdup-Leap-15.2-gnome
       - openscap
