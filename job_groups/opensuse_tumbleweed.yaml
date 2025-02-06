@@ -289,10 +289,22 @@ scenarios:
       - minimalx_btrfs_snapper
       - create_hdd_textmode:
           priority: 45
+      - create_hdd_textmode_apparmor:
+          priority: 45
+          testsuite: 'create_hdd_textmode'
+          settings:
+            SELINUX: '0'
+            PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-apparmor@%MACHINE%.qcow2'
       - create_hdd_textmode_autoyast:
           priority: 45
       - create_hdd_gnome:
           priority: 45
+      - create_hdd_gnome_apparmor:
+          priority: 45
+          testsuite: 'create_hdd_gnome'
+          settings:
+            SELINUX: '0'
+            PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-apparmor@%MACHINE%.qcow2'
       - create_hdd_gnome_libyui
       - create_hdd_gnome_wicked
       - create_hdd_kde:
@@ -308,7 +320,10 @@ scenarios:
       - yast2_nfs_v4_client
       - yast2_ui_devel
       - yast2_users
-      - yast2_apparmor
+      - yast2_apparmor:
+          settings:
+            START_AFTER_TEST: 'create_hdd_gnome_apparmor'
+            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-apparmor@%MACHINE%.qcow2'
       - extra_tests_gnome
       - create_hdd_xfce:
           priority: 46
@@ -805,7 +820,10 @@ scenarios:
             YAML_SCHEDULE: schedule/yast/opensuse/xfs/xfs_textmode.yaml
             YAML_TEST_DATA: test_data/yast/opensuse/xfs/xfs_partition.yaml
           testsuite: null
-      - apparmor
+      - apparmor:
+          settings:
+            START_AFTER_TEST: 'create_hdd_textmode_apparmor'
+            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-apparmor@%MACHINE%.qcow2'
       - security_misc_o3
       - lvm-encrypt-separate-boot:
           machine: 64bit
@@ -1063,7 +1081,10 @@ scenarios:
       - gnome-x11-ibus
       - toolkits-kde
       - openldap_to_389ds
-      - apparmor_profile
+      - apparmor_profile:
+          settings:
+            START_AFTER_TEST: 'create_hdd_gnome_apparmor'
+            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-apparmor@%MACHINE%.qcow2'
       - create_swtpm_hdd
       - create_hdd_textmode_uefi:
           machine: uefi
