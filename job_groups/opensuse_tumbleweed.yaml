@@ -900,6 +900,8 @@ scenarios:
           testsuite: crypto_policies
       - security_audit:
           settings:
+            START_AFTER_TEST: 'create_hdd_textmode_apparmor'
+            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-apparmor@%MACHINE%.qcow2'
             YAML_SCHEDULE: schedule/security/audit.yaml
       - security_build_nested_hdd:
           testsuite: null
