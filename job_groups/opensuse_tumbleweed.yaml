@@ -1303,7 +1303,7 @@ scenarios:
       - jeos:
           machine: uefi_virtio-2G
       - jeos-extra:
-          machine: 64bit_virtio-2G
+          machine: 64bit_virtio-4G
       - jeos-apparmor:
           machine: 64bit_virtio-2G
       - jeos-selinux:

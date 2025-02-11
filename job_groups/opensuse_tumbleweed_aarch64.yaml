@@ -878,6 +878,8 @@ scenarios:
       - jeos-extra:
           machine: aarch64-HD20G
           priority: 45
+          settings:
+            QEMURAM: '4096'
       - jeos-apparmor:
           machine: aarch64-HD20G
       - jeos-container_host:
