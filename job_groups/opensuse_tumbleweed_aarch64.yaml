@@ -29,6 +29,7 @@
   # %DISTRI% is opensuse but we need openSUSE
   BCI_DEVEL_REPO: 'http://openqa.opensuse.org/assets/repo/openSUSE-%VERSION%-oss-%ARCH%-Snapshot%BUILD%'
   +FLAVOR: 'BCI'
+  _SKIP_POST_FAIL_HOOKS: '1'
 
 defaults:
   aarch64:
