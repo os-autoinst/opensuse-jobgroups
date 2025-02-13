@@ -416,9 +416,9 @@ scenarios:
             CONTAINER_RUNTIMES: 'podman'
             QEMUCPU: 'host'
             MAX_JOB_TIME: '12000'
-            BUILDAH_BATS_SKIP: 'commit run'
+            BUILDAH_BATS_SKIP: 'chroot sbom'
             BUILDAH_BATS_SKIP_ROOT: 'none'
-            BUILDAH_BATS_SKIP_USER: 'add basic bud copy overlay rmi sbom squash'
+            BUILDAH_BATS_SKIP_USER: 'add basic bud commit copy overlay rmi run squash'
       - container_host_containerd:
           testsuite: extra_tests_textmode_containers
           settings:
