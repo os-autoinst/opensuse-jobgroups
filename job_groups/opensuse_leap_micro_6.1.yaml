@@ -140,6 +140,9 @@ scenarios:
       - microos_image_default:
           settings:
             <<: *image_settings
+            +FIRST_BOOT_CONFIG: 'wizard'
+            +NUMDISKS: '1'
+            +HDD_2: ''
       - microos_containers:
           settings:
             <<: *image_container_settings
