@@ -144,9 +144,6 @@ scenarios:
             # Mitigate boo#1189174
             QEMUCPUS: "2"
       # The machine type is part of HDD_1, don't change it.
-      - kde_live_upgrade_leap_42.3:
-          settings:
-            QEMURAM: "3072"
       - kde_live_upgrade_leap_15.0:
           machine: 64bit
           settings:
