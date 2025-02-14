@@ -415,6 +415,7 @@ scenarios:
           settings:
             CONTAINER_RUNTIMES: 'podman'
             QEMUCPU: 'host'
+            QEMUCPUS: '2'
             MAX_JOB_TIME: '12000'
             BUILDAH_BATS_SKIP: 'chroot sbom'
             BUILDAH_BATS_SKIP_ROOT: 'none'
