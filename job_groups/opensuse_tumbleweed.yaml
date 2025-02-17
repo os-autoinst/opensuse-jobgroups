@@ -1290,6 +1290,8 @@ scenarios:
     opensuse-Tumbleweed-JeOS-for-kvm-and-xen-sdboot-x86_64:
       - jeos:
           machine: uefi_virtio-2G
+          settings:
+            ENCRYPT: '1'
       - jeos-fde:
           machine: uefi
           settings:
@@ -1306,6 +1308,8 @@ scenarios:
     opensuse-Tumbleweed-JeOS-for-kvm-and-xen-grub-bls-x86_64:
       - jeos:
           machine: uefi_virtio-2G
+          settings:
+            ENCRYPT: '1'
     opensuse-Tumbleweed-JeOS-for-kvm-and-xen-x86_64:
       - jeos:
           machine: 64bit_virtio
