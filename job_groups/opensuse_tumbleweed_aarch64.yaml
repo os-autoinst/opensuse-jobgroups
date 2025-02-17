@@ -724,10 +724,6 @@ scenarios:
           priority: 45
       - RAID5_gpt_uefi
       - RAID10_gpt_uefi
-      - yast2_nfs_v3_client:
-          priority: 45
-      - yast2_nfs_v3_server:
-          priority: 45
       - yast2_nfs_v4_client:
           priority: 45
       - yast2_nfs_v4_server:
@@ -1117,10 +1113,6 @@ scenarios:
       - wicked_basic_ref:
           priority: 45
       - wicked_basic_sut:
-          priority: 45
-      - yast2_nfs_v3_client:
-          priority: 45
-      - yast2_nfs_v3_server:
           priority: 45
       - yast2_nfs_v4_client:
           priority: 45

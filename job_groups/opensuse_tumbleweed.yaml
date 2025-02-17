@@ -328,8 +328,6 @@ scenarios:
       - yast2_firstboot
       - yast2_firstboot_custom
       - yast2_gui
-      - yast2_nfs_v3_server
-      - yast2_nfs_v3_client
       - yast2_nfs_v4_server
       - yast2_nfs_v4_client
       - yast2_ui_devel
