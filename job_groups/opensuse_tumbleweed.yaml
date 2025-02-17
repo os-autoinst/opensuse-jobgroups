@@ -56,6 +56,10 @@ products:
     distri: opensuse
     flavor: JeOS-for-kvm-and-xen-sdboot
     version: Tumbleweed
+  opensuse-Tumbleweed-JeOS-for-kvm-and-xen-grub-bls-x86_64:
+    distri: opensuse
+    flavor: JeOS-for-kvm-and-xen-grub-bls
+    version: Tumbleweed
   opensuse-Tumbleweed-JeOS-for-OpenStack-Cloud-x86_64:
     distri: opensuse
     flavor: JeOS-for-OpenStack-Cloud
@@ -1289,6 +1293,9 @@ scenarios:
             FIRST_BOOT_CONFIG: 'combustion'
             HDD_2: 'extended_combustion.qcow2'
             NUMDISKS: '3'
+    opensuse-Tumbleweed-JeOS-for-kvm-and-xen-grub-bls-x86_64:
+      - jeos:
+          machine: uefi_virtio-2G
     opensuse-Tumbleweed-JeOS-for-kvm-and-xen-x86_64:
       - jeos:
           machine: 64bit_virtio
