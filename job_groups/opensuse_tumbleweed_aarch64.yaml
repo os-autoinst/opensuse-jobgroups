@@ -296,14 +296,24 @@ scenarios:
       - extra_tests_misc
       - container_host_docker_apparmor:
           testsuite: extra_tests_textmode_containers
-          settings:
+          settings: &docker-apparmor
             CONTAINER_RUNTIMES: 'docker'
             SECURITY_MAC: 'apparmor'
       - container_host_docker_selinux:
           testsuite: extra_tests_textmode_containers
-          settings:
+          settings: &docker-selinux
             CONTAINER_RUNTIMES: 'docker'
             SECURITY_MAC: 'selinux'
+      - container_host_docker_stable_apparmor:
+          testsuite: extra_tests_textmode_containers
+          settings:
+            <<: *docker-apparmor
+            CONTAINERS_DOCKER_FLAVOUR: 'stable'
+      - container_host_docker_stable_selinux:
+          testsuite: extra_tests_textmode_containers
+          settings:
+            <<: *docker-selinux
+            CONTAINERS_DOCKER_FLAVOUR: 'stable'
       - container_host_helm:
           testsuite: extra_tests_textmode_containers
           settings:
