@@ -76,6 +76,10 @@ products:
     distri: microos
     flavor: MicroOS-Image-sdboot
     version: Tumbleweed
+  microos-*-MicroOS-Image-grub-bls-x86_64:
+    distri: microos
+    flavor: MicroOS-Image-grub-bls
+    version: Tumbleweed
   microos-*-MicroOS-SelfInstall-x86_64:
     distri: microos
     flavor: MicroOS-SelfInstall
@@ -197,6 +201,13 @@ scenarios:
             # Test with TPM enrollment
             QEMUTPM: 'instance'
             QEMU_DISABLE_SNAPSHOTS: '1'
+      - microos-wizard:
+          machine: uefi
+          settings:
+            # jeos-firstboot sets up FDE by default
+            ENCRYPT: '1'
+            # Test without TPM enrollment
+    microos-*-MicroOS-Image-grub-bls-x86_64:
       - microos-wizard:
           machine: uefi
           settings:
