@@ -1127,7 +1127,8 @@ scenarios:
       - create_swtpm_hdd_uefi:
           machine: uefi
       - security_swtpm
-      - security_swtpm_uefi
+      - security_swtpm_uefi:
+          machine: uefi
       - security_389ds_server:
           description: 'Maintainer: rfan1'
           testsuite: null
