@@ -858,7 +858,7 @@ scenarios:
           machine: USBboot_aarch64
           priority: 40
     opensuse-Tumbleweed-JeOS-for-OpenStack-Cloud-aarch64:
-      - jeos-no-cloud:
+      - jeos-cloud-init:
           testsuite: null
           machine: aarch64
           priority: 48
@@ -868,6 +868,18 @@ scenarios:
             CI_VERIFICATION: '1'
             FIRST_BOOT_CONFIG: 'cloud-init'
             NUMDISKS: '2'
+            HDDSIZEGB_1: '20'
+            ZYPPER_WHITELISTED_ORPHANS: live-langset-data,jeos-licenses,jeos-firstboot
+            BOOT_HDD_IMAGE: '1'
+            DESKTOP: textmode
+            FILESYSTEM: 'xfs'
+      - jeos-wizard:
+          testsuite: null
+          machine: aarch64
+          priority: 48
+          settings:
+            NO_CLOUD: '1'
+            FIRST_BOOT_CONFIG: 'wizard'
             HDDSIZEGB_1: '20'
             ZYPPER_WHITELISTED_ORPHANS: live-langset-data,jeos-licenses,jeos-firstboot
             BOOT_HDD_IMAGE: '1'
