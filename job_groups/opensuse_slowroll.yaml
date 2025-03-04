@@ -1,0 +1,35 @@
+############################################################
+#                         WARNING                          #
+#                                                          #
+#               This file is managed in GIT!               #
+#  Any changes via the openQA WebUI will get overwritten!  #
+#                                                          #
+#    https://github.com/os-autoinst/opensuse-jobgroups     #
+#            job_groups/opensuse_slowroll.yaml             #
+############################################################
+---
+defaults:
+  x86_64:
+    machine: 64bit
+    priority: 50
+products:
+  opensuse-Slowroll-DVD-x86_64:
+    distri: opensuse
+    flavor: DVD
+    version: Slowroll
+scenarios:
+  x86_64:
+    opensuse-Slowroll-DVD-x86_64:
+      - textmode:
+          machine: 64bit
+          priority: 40
+      - kde:
+          machine: 64bit
+          priority: 40
+      - uefi:
+          machine: 64bit
+          priority: 45
+      - gnome:
+          machine: 64bit
+          priority: 45
+      - mediacheck
