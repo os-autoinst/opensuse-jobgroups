@@ -14,7 +14,7 @@ defaults:
     machine: 64bit-2G
     priority: 55
   aarch64:
-    machine: USBboot_aarch64
+    machine: aarch64
     priority: 55
   ppc64le:
     machine: ppc64le
