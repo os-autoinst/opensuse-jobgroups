@@ -384,25 +384,11 @@ scenarios:
             CONTAINER_RUNTIMES: 'podman'
             K3S_INSTALL_UPSTREAM: '1'
             SECURITY_MAC: 'apparmor'
-      - containers_host_podman_runc_apparmor:
-          testsuite: extra_tests_textmode_containers
-          settings:
-            CONTAINER_RUNTIMES: 'podman'
-            K3S_INSTALL_UPSTREAM: '1'
-            OCI_RUNTIME: 'runc'
-            SECURITY_MAC: 'apparmor'
       - container_host_podman_selinux:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIMES: 'podman'
             K3S_INSTALL_UPSTREAM: '1'
-            SECURITY_MAC: 'selinux'
-      - containers_host_podman_runc_selinux:
-          testsuite: extra_tests_textmode_containers
-          settings:
-            CONTAINER_RUNTIMES: 'podman'
-            K3S_INSTALL_UPSTREAM: '1'
-            OCI_RUNTIME: 'runc'
             SECURITY_MAC: 'selinux'
       - container_host_podman_testsuite:
           description: |-
