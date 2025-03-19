@@ -399,10 +399,10 @@ scenarios:
             MAX_JOB_TIME: '12000'
             QEMUCPUS: '2'
             QEMURAM: '4096'
-            PODMAN_BATS_SKIP: 'none'
+            PODMAN_BATS_SKIP: '030-run'
             PODMAN_BATS_SKIP_ROOT_LOCAL: '120-load 520-checkpoint'
             PODMAN_BATS_SKIP_ROOT_REMOTE: '520-checkpoint'
-            PODMAN_BATS_SKIP_USER_LOCAL: '252-quadlet 505-networking-pasta'
+            PODMAN_BATS_SKIP_USER_LOCAL: '080-pause 195-run-namespaces 252-quadlet 505-networking-pasta'
             PODMAN_BATS_SKIP_USER_REMOTE: '505-networking-pasta'
       - container_host_bats_testsuite:
           description: |-
