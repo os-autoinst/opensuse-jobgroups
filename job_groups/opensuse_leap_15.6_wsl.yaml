@@ -47,17 +47,16 @@ scenarios:
             QEMUCPU: 'host,kvm=off,vmx=on,hypervisor=off,hv_time,hv_relaxed,hv_vapic,hv_spinlocks=0x1fff,hv_frequencies,hv_reenlightenment,hv_vpindex,hv-synic,hv-stimer,hv-stimer-direct'
             QEMUMACHINE: 'q35,accel=whpx'
             WORKER_CLASS: 'wsl2'
-      # to be re-enabled after GA, when 15.6 is available in the Store.
-      # - wsl2-install-msstore:
-      #     <<: *wsl2_test
-      #     description: |
-      #       Basic WSL test Test scope:
-      #           1) Prepare WSL and other features in Windows
-      #           2) Install WSL image from the MS Store via CLI
-      #     settings:
-      #       <<: *wsl2_settings
-      #       WSL_VERSION: 'openSUSE Leap 15.6'
-      #       WSL_INSTALL_FROM: 'msstore'
+      - wsl2-install-msstore:
+          <<: *wsl2_test
+          description: |
+            Basic WSL test Test scope:
+                1) Prepare WSL and other features in Windows
+                2) Install WSL image from the MS Store via CLI
+          settings:
+            <<: *wsl2_settings
+            WSL_VERSION: 'openSUSE Leap 15.6'
+            WSL_INSTALL_FROM: 'msstore'
       - wsl2-systemd:
           <<: *wsl2_test
           description: 'Enable and test systemd in WSL'
