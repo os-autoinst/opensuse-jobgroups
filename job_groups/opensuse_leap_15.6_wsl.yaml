@@ -31,14 +31,14 @@ scenarios:
                 5) Define users
                 6) Register SUT
                 7) Exit WSL
-          machine: [win10_64bit, win10_uefi, win11_uefi]
+          machine: [win10_uefi, win11_uefi]
           settings:
             YAML_SCHEDULE: 'schedule/wsl/wsl_main.yaml'
             WSL_INSTALL_FROM: 'build'
             QEMU_ENABLE_SMBD: '1'
       - wsl2-main: &wsl2_test
           testsuite: null
-          machine: [win10_64bit, win10_uefi, win11_uefi]
+          machine: [win10_uefi, win11_uefi]
           settings: &wsl2_settings
             YAML_SCHEDULE: 'schedule/wsl/wsl_main.yaml'
             WSL_INSTALL_FROM: 'build'
