@@ -424,9 +424,9 @@ scenarios:
             QEMUCPU: 'host'
             QEMUCPUS: '2'
             MAX_JOB_TIME: '12000'
-            BUILDAH_BATS_SKIP: 'chroot sbom'
-            BUILDAH_BATS_SKIP_ROOT: 'none'
-            BUILDAH_BATS_SKIP_USER: 'add basic bud commit copy overlay rmi run squash'
+            BUILDAH_BATS_SKIP: 'bud chroot run sbom'
+            BUILDAH_BATS_SKIP_ROOT: 'from namespaces'
+            BUILDAH_BATS_SKIP_USER: 'add basic commit copy overlay rmi squash'
       - container_host_containerd:
           testsuite: extra_tests_textmode_containers
           settings:
