@@ -789,7 +789,10 @@ scenarios:
       - autofs_client
       - rsync-server
       - rsync-client
-      - extra_tests_misc
+      - extra_tests_misc:
+          settings:
+            +QEMUMACHINE: 'q35,accel=kvm,kernel_irqchip=split'
+            QEMU_APPEND: '-device intel-iommu,intremap=on,caching-mode=on'
       - tomcat
       - desktopapps-message-gnome
       - kde-wayland:
