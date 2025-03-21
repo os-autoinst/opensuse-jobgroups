@@ -214,6 +214,15 @@ scenarios:
             # jeos-firstboot sets up FDE by default
             ENCRYPT: '1'
             # Test without TPM enrollment
+      - microos-wizard-tpm:
+          testsuite: microos-wizard
+          machine: uefi
+          settings:
+            # jeos-firstboot sets up FDE by default
+            ENCRYPT: '1'
+            # Test with TPM enrollment
+            QEMUTPM: 'instance'
+            QEMU_DISABLE_SNAPSHOTS: '1'
     microos-*-MicroOS-SelfInstall-x86_64:
       - microos
     opensuse-Tumbleweed-DVD-x86_64:
@@ -1319,6 +1328,11 @@ scenarios:
           machine: uefi_virtio-2G
           settings:
             ENCRYPT: '1'
+      - jeos-fde:
+          machine: uefi
+          settings:
+            QEMUCPU: 'host'
+            QEMUTPM: 'instance'
     opensuse-Tumbleweed-JeOS-for-kvm-and-xen-x86_64:
       - jeos:
           machine: 64bit_virtio
