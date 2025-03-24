@@ -387,6 +387,11 @@ scenarios:
             CONTAINER_RUNTIMES: 'podman'
             K3S_INSTALL_UPSTREAM: '1'
             SECURITY_MAC: 'selinux'
+      - container_host_podman_tumbleweed:
+          testsuite: extra_tests_textmode_containers
+          settings:
+            CONTAINER_RUNTIMES: 'podman'
+            CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed:latest'
       - container_host_podman_testsuite:
           description: |-
             Maintainer: qe-c@suse.de https://confluence.suse.com/display/qasle/podman+upstream+tests
