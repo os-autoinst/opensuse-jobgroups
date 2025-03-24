@@ -419,7 +419,7 @@ scenarios:
             SKOPEO_BATS_SKIP: 'none'
             SKOPEO_BATS_SKIP_ROOT: 'none'
             SKOPEO_BATS_SKIP_USER: 'none'
-            NETAVARK_BATS_SKIP: '001-basic'
+            NETAVARK_BATS_SKIP: 'none'
       - container_host_buildah_testsuite:
           testsuite: extra_tests_textmode_containers
           description: |-
