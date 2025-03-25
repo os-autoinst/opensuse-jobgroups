@@ -132,6 +132,7 @@ scenarios:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
             K3S_INSTALL_UPSTREAM: '1'
       - remote_ssh_controller:
+          machine: 64bit-2G
           settings:
             HDD_1: support_server_tumbleweed@64bit.qcow2
             SYSTEM_ROLE: microos
@@ -139,6 +140,7 @@ scenarios:
             EXTRABOOTPARAMS_BOOT_LOCAL: '3'
             +YAML_SCHEDULE: ''
       - remote_ssh_target:
+          machine: 64bit-2G
           settings:
             DESKTOP: textmode
             +YAML_SCHEDULE: ''
