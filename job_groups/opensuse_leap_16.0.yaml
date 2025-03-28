@@ -62,7 +62,7 @@ scenarios:
           settings:
             AGAMA_PRODUCT_ID: 'Leap_16.0'
             +QEMUCPU: host
-            AGAMA_AUTO: agama_auto/leap_default.jsonnet
+            INST_AUTO: agama_auto/leap_default.jsonnet
             DESKTOP: textmode
             HDDSIZEGB: '30'
             QEMUCPUS: '4'
@@ -84,7 +84,7 @@ scenarios:
             AGAMA_PRODUCT_ID: 'Leap_16.0'
             +QEMUCPU: host
             AGAMA: '1'
-            AGAMA_AUTO: agama_auto/leap_default.jsonnet
+            INST_AUTO: agama_auto/leap_default.jsonnet
             DESKTOP: textmode
             HDDSIZEGB: '30'
             QEMUCPUS: '4'
