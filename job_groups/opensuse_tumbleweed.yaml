@@ -403,6 +403,7 @@ scenarios:
             MAX_JOB_TIME: '12000'
             QEMUCPUS: '2'
             QEMURAM: '4096'
+            RETRY: '1'
             PODMAN_BATS_SKIP: '030-run'
             PODMAN_BATS_SKIP_ROOT_LOCAL: '120-load 520-checkpoint'
             PODMAN_BATS_SKIP_ROOT_REMOTE: '520-checkpoint'
@@ -415,6 +416,7 @@ scenarios:
           settings:
             CONTAINER_RUNTIMES: 'podman'
             QEMURAM: '4096'
+            RETRY: '1'
             RUNC_BATS_SKIP: 'none'
             RUNC_BATS_SKIP_ROOT: 'cgroups'
             RUNC_BATS_SKIP_USER: 'none'
@@ -431,6 +433,7 @@ scenarios:
             QEMUCPU: 'host'
             QEMUCPUS: '2'
             MAX_JOB_TIME: '12000'
+            RETRY: '1'
             BUILDAH_BATS_SKIP: 'bud chroot run sbom'
             BUILDAH_BATS_SKIP_ROOT: 'from namespaces'
             BUILDAH_BATS_SKIP_USER: 'add basic commit copy overlay rmi squash'
