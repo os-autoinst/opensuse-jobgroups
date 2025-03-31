@@ -416,6 +416,7 @@ scenarios:
           settings:
             CONTAINER_RUNTIMES: 'podman'
             QEMURAM: '4096'
+            QEMUCPUS: '2'
             RETRY: '1'
             RUNC_BATS_SKIP: 'none'
             RUNC_BATS_SKIP_ROOT: 'cgroups'
