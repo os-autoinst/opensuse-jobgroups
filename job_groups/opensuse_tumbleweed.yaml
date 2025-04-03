@@ -419,7 +419,7 @@ scenarios:
             QEMUCPUS: '2'
             RETRY: '1'
             RUNC_BATS_SKIP: 'none'
-            RUNC_BATS_SKIP_ROOT: 'cgroups'
+            RUNC_BATS_SKIP_ROOT: 'cgroups checkpoint'
             RUNC_BATS_SKIP_USER: 'none'
             SKOPEO_BATS_SKIP: 'none'
             SKOPEO_BATS_SKIP_ROOT: 'none'
