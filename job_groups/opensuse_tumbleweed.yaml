@@ -221,7 +221,7 @@ scenarios:
           machine: uefi
           settings:
             # jeos-firstboot sets up FDE by default
-            ENCRYPT: '0'
+            ENCRYPT: '1'
             # Test with TPM enrollment
             QEMUTPM: 'instance'
             QEMU_DISABLE_SNAPSHOTS: '1'
