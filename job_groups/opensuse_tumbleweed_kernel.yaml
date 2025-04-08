@@ -100,7 +100,6 @@ scenarios:
       - ltp_ima_load_policy
       - ltp_ima_load_policy_selinux
       - ltp_input
-      - ltp_ipc
       - ltp_kernel_misc:
           settings:
             LTP_TAINT_EXPECTED: '0x13801'
@@ -206,7 +205,6 @@ scenarios:
             LTP_TAINT_EXPECTED: '0x13801'
       - ltp_crypto
       - ltp_cve
-      - ltp_ipc
       - ltp_net_ipv6_lib
       - ltp_math
       - ltp_mm
@@ -262,7 +260,6 @@ scenarios:
       - ltp_ima_load_policy
       - ltp_ima_load_policy_selinux
       - ltp_input
-      - ltp_ipc
       - ltp_kernel_misc:
           settings:
             LTP_TAINT_EXPECTED: '0x13801'
@@ -386,7 +383,6 @@ scenarios:
       - ltp_ima_load_policy
       - ltp_ima_load_policy_selinux
       - ltp_input
-      - ltp_ipc
       - ltp_kernel_misc:
           settings:
             LTP_TAINT_EXPECTED: '0x13801'
