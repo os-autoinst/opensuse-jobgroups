@@ -8,6 +8,11 @@
 #            job_groups/opensuse_slowroll.yaml             #
 ############################################################
 ---
+.oss_repo: &oss_repo
+  MIRROR_PREFIX: 'http://download.opensuse.org'
+  REPO_OSS: 'slowroll/next/repo/oss/'
+  SUSEMIRROR: 'http://download.opensuse.org/slowroll/repo/oss/'
+
 defaults:
   x86_64:
     machine: 64bit
@@ -22,14 +27,18 @@ scenarios:
     opensuse-Slowroll-DVD-x86_64:
       - textmode:
           machine: 64bit
-          priority: 40
+          settings:
+            <<: *oss_repo
       - kde:
           machine: 64bit
-          priority: 40
+          settings:
+            <<: *oss_repo
       - uefi:
           machine: 64bit
-          priority: 45
+          settings:
+            <<: *oss_repo
       - gnome:
           machine: 64bit
-          priority: 45
+          settings:
+            <<: *oss_repo
       - mediacheck
