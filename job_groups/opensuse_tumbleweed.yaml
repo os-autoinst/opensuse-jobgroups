@@ -844,6 +844,8 @@ scenarios:
       - autofs_client
       - rsync-server
       - rsync-client
+      - kea-server
+      - kea-client
       - extra_tests_misc:
           settings:
             +QEMUMACHINE: 'q35,accel=kvm,kernel_irqchip=split'
