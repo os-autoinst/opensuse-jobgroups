@@ -478,7 +478,7 @@ scenarios:
             QEMUCPUS: '2'
             MAX_JOB_TIME: '12000'
             RETRY: '1'
-            BATS_PACKAGE: 'podman'
+            BATS_PACKAGE: 'buildah'
             BATS_SKIP: 'bud chroot run sbom'
             BATS_SKIP_ROOT: 'from namespaces'
             BATS_SKIP_USER: 'add basic commit copy overlay rmi squash'
