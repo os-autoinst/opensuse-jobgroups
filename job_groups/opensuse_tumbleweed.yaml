@@ -430,7 +430,7 @@ scenarios:
             RETRY: '1'
             BATS_PACKAGE: 'aardvark'
             BATS_SKIP: '100-basic-name-resolution 200-two-networks 300-three-networks'
-            BATS_URL: 'BATS_URL	https://github.com/containers/aardvark-dns/archive/refs/heads/main.tar.gz'
+            BATS_URL: 'https://github.com/containers/aardvark-dns/archive/refs/heads/main.tar.gz'
       - container_host_netavark_testsuite:
           description: |-
             Maintainer: qe-c@suse.de https://github.com/os-autoinst/os-autoinst-distri-opensuse/tree/master/tests/containers/bats
