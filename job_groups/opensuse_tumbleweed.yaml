@@ -751,6 +751,13 @@ scenarios:
             BCI_IMAGE_MARKER: tomcat_10
             BCI_TEST_ENVS: tomcat
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/tomcat:10
+      - bci_cosign_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: cosign
+            BCI_TEST_ENVS: cosign
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/cosign
       - extra_tests_ai_ml
       - yast_no_self_update
       - gnome-gdm:
