@@ -828,6 +828,15 @@ scenarios:
       - wicked_basic_ref
       - wireguard_server
       - wireguard_client
+      - wireguard_client_nm:
+          testsuite: 'wireguard_client'
+          settings:
+            YAML_SCHEDULE: schedule/functional/wireguard_nm.yaml
+            PARALLEL_WITH: 'wireguard_server_nm'
+      - wireguard_server_nm:
+          testsuite: 'wireguard_server'
+          settings:
+            YAML_SCHEDULE: schedule/functional/wireguard_nm.yaml
       - ping_server
       - ping_client
       - ovs-server
