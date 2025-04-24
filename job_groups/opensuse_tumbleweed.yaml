@@ -414,10 +414,12 @@ scenarios:
             QEMURAM: '4096'
             RETRY: '1'
             BATS_PACKAGE: 'podman'
+            # https://github.com/containers/podman/pull/25918 is needed for 195-run-namespaces
+            BATS_PATCHES: '25918'
             BATS_SKIP: 'none'
-            BATS_SKIP_ROOT_LOCAL: '120-load'
+            BATS_SKIP_ROOT_LOCAL: ''
             BATS_SKIP_ROOT_REMOTE: 'none'
-            BATS_SKIP_USER_LOCAL: '080-pause 195-run-namespaces 252-quadlet 505-networking-pasta'
+            BATS_SKIP_USER_LOCAL: '080-pause 252-quadlet 505-networking-pasta'
             BATS_SKIP_USER_REMOTE: '505-networking-pasta'
       - container_host_aardvark_testsuite:
           description: |-
