@@ -408,13 +408,13 @@ scenarios:
             Maintainer: qe-c@suse.de https://github.com/os-autoinst/os-autoinst-distri-opensuse/tree/master/tests/containers/bats
           testsuite: extra_tests_textmode_containers
           settings:
+            # https://github.com/containers/podman/pull/25918 is needed for 195-run-namespaces
             CONTAINER_RUNTIMES: 'podman'
             MAX_JOB_TIME: '12000'
             QEMUCPUS: '2'
             QEMURAM: '4096'
             RETRY: '1'
             BATS_PACKAGE: 'podman'
-            # https://github.com/containers/podman/pull/25918 is needed for 195-run-namespaces
             BATS_PATCHES: '25918'
             BATS_SKIP: 'none'
             BATS_SKIP_ROOT_LOCAL: ''
