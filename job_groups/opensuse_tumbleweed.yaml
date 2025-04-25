@@ -120,7 +120,8 @@ scenarios:
           machine: uefi-2G
       - microos:
           machine: 64bit
-      - microos_textmode
+      - microos_textmode:
+          machine: 64bit-2G
       - container_host:
           machine: 64bit-2G
           settings:
