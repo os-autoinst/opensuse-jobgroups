@@ -410,13 +410,14 @@ scenarios:
           testsuite: extra_tests_textmode_containers
           settings:
             # https://github.com/containers/podman/pull/25918 is needed for 195-run-namespaces
+            # https://github.com/containers/podman/pull/26017 is needed for 030-run
             CONTAINER_RUNTIMES: 'podman'
             MAX_JOB_TIME: '12000'
             QEMUCPUS: '2'
             QEMURAM: '4096'
             RETRY: '1'
             BATS_PACKAGE: 'podman'
-            BATS_PATCHES: '25918'
+            BATS_PATCHES: '25918 26017'
             BATS_SKIP: ''
             BATS_SKIP_ROOT_LOCAL: '200-pod'
             BATS_SKIP_ROOT_REMOTE: ''
