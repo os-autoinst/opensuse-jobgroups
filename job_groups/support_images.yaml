@@ -13,13 +13,13 @@ defaults:
     machine: 64bit
     priority: 40
 products:
-  opensuse-15.4-DVD-Updates-x86_64:
+  opensuse-15.6-DVD-Updates-x86_64:
     distri: opensuse
     flavor: DVD-Updates
-    version: '15.4'
+    version: '15.6'
 scenarios:
   x86_64:
-    opensuse-15.4-DVD-Updates-x86_64:
+    opensuse-15.6-DVD-Updates-x86_64:
       - create_hdd_leap_gnome_autoyast_updated:
           testsuite: null
           settings:
