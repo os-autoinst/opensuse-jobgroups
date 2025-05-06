@@ -39,6 +39,22 @@ products:
     distri: opensuse
     flavor: agama-installer-Leap
     version: '16.0'
+  opensuse-offline-installer-x86_64:
+    distri: opensuse
+    flavor: offline-installer
+    version: '16.0'
+  opensuse-offline-installer-aarch64:
+    distri: opensuse
+    flavor: offline-installer
+    version: '16.0'
+  opensuse-offline-installer-ppc64le:
+    distri: opensuse
+    flavor: offline-installer
+    version: '16.0'
+  opensuse-offline-installer-s390x:
+    distri: opensuse
+    flavor: offline-installer
+    version: '16.0'
 scenarios:
   x86_64:
     opensuse-agama-installer-Leap-x86_64:
@@ -70,6 +86,19 @@ scenarios:
             EXTRABOOTPARAMS: 'live.password=nots3cr3t kernel.softlockup_panic=1'
             PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
             YAML_SCHEDULE: 'schedule/functional/leap16/agama_create_hdd_textmode_leap.yaml'
+    opensuse-offline-installer-x86_64:
+      - gnome-agama:
+          machine: uefi-3G
+      - gnome-agama:
+          machine: 64bit-3G
+      - gnome-agama:
+          machine: uefi-usb-4G
+      - kde-agama:
+          machine: uefi-3G
+      - kde-agama:
+          machine: 64bit-3G
+      - kde-agama:
+          machine: uefi-usb-4G
   aarch64:
     opensuse-agama-installer-Leap-aarch64:
       - gnome-agama:
@@ -92,6 +121,11 @@ scenarios:
             EXTRABOOTPARAMS: 'live.password=nots3cr3t kernel.softlockup_panic=1'
             PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
             YAML_SCHEDULE: 'schedule/functional/leap16/agama_create_hdd_textmode_leap.yaml'
+    opensuse-offline-installer-aarch64:
+      - gnome-agama:
+          machine: USBboot_aarch64
+      - kde-agama:
+          machine: USBboot_aarch64
   ppc64le:
     opensuse-agama-installer-Leap-ppc64le:
       - gnome-agama:
@@ -100,6 +134,11 @@ scenarios:
           machine: ppc64le
       - zdup-Leap-15.6-gnome
       - zdup-Leap-15.6-kde
+    opensuse-offline-installer-ppc64le:
+      - gnome-agama:
+          machine: ppc64le
+      - kde-agama:
+          machine: ppc64le
   s390x:
     opensuse-agama-installer-Leap-s390x:
       - gnome-agama:
@@ -108,3 +147,8 @@ scenarios:
           machine: s390x-zVM-vswitch-l2
       - zdup-Leap-15.6-gnome
       - zdup-Leap-15.6-kde
+    opensuse-offline-installer-s390x:
+      - gnome-agama:
+          machine: s390x-zVM-vswitch-l2
+      - kde-agama:
+          machine: s390x-zVM-vswitch-l2
