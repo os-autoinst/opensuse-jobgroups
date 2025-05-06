@@ -39,6 +39,22 @@ products:
     distri: opensuse
     flavor: agama-installer-Leap
     version: '16.0'
+  opensuse-offline-installer-x86_64:
+    distri: opensuse
+    flavor: offline-installer
+    version: '16.0'
+  opensuse-offline-installer-aarch64:
+    distri: opensuse
+    flavor: offline-installer
+    version: '16.0'
+  opensuse-offline-installer-ppc64le:
+    distri: opensuse
+    flavor: offline-installer
+    version: '16.0'
+  opensuse-offline-installer-s390x:
+    distri: opensuse
+    flavor: offline-installer
+    version: '16.0'
 scenarios:
   x86_64:
     opensuse-agama-installer-Leap-x86_64:
