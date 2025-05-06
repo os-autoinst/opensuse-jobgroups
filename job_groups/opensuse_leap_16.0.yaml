@@ -86,6 +86,20 @@ scenarios:
             EXTRABOOTPARAMS: 'live.password=nots3cr3t kernel.softlockup_panic=1'
             PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
             YAML_SCHEDULE: 'schedule/functional/leap16/agama_create_hdd_textmode_leap.yaml'
+      - create_hdd_leap_gnome_agama_auto:
+          machine: 64bit
+          testsuite: null
+          settings:
+            AGAMA_PRODUCT_ID: 'Leap_16.0'
+            +QEMUCPU: host
+            INST_AUTO: agama_auto/leap_gnome.jsonnet
+            DESKTOP: gnome
+            HDDSIZEGB: '30'
+            QEMUCPUS: '4'
+            QEMURAM: '4096'
+            EXTRABOOTPARAMS: 'live.password=nots3cr3t kernel.softlockup_panic=1'
+            PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+            YAML_SCHEDULE: 'schedule/functional/leap16/agama_create_hdd_gnome_leap.yaml'
     opensuse-offline-installer-x86_64:
       - gnome-agama:
           machine: uefi-3G
@@ -121,6 +135,20 @@ scenarios:
             EXTRABOOTPARAMS: 'live.password=nots3cr3t kernel.softlockup_panic=1'
             PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
             YAML_SCHEDULE: 'schedule/functional/leap16/agama_create_hdd_textmode_leap.yaml'
+      - create_hdd_leap_gnome_agama_auto:
+          testsuite: null
+          settings:
+            AGAMA_PRODUCT_ID: 'Leap_16.0'
+            +QEMUCPU: host
+            AGAMA: '1'
+            INST_AUTO: agama_auto/leap_gnome.jsonnet
+            DESKTOP: gnome
+            HDDSIZEGB: '30'
+            QEMUCPUS: '4'
+            QEMURAM: '4096'
+            EXTRABOOTPARAMS: 'live.password=nots3cr3t kernel.softlockup_panic=1'
+            PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+            YAML_SCHEDULE: 'schedule/functional/leap16/agama_create_hdd_gnome_leap.yaml'
     opensuse-offline-installer-aarch64:
       - gnome-agama:
           machine: USBboot_aarch64
