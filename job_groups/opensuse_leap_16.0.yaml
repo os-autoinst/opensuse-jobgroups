@@ -83,6 +83,7 @@ scenarios:
             HDDSIZEGB: '30'
             EXTRABOOTPARAMS: 'live.password=nots3cr3t kernel.softlockup_panic=1'
             PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+            PUBLISH_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
             YAML_SCHEDULE: 'schedule/functional/leap16/agama_create_hdd_textmode_leap.yaml'
       - create_hdd_gnome:
           machine: uefi-3G
@@ -95,6 +96,7 @@ scenarios:
             HDDSIZEGB: '30'
             EXTRABOOTPARAMS: 'live.password=nots3cr3t kernel.softlockup_panic=1'
             PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+            PUBLISH_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
             YAML_SCHEDULE: 'schedule/functional/leap16/agama_create_hdd_gnome_leap.yaml'
     opensuse-offline-installer-x86_64:
       - gnome-agama:
@@ -128,6 +130,7 @@ scenarios:
             HDDSIZEGB: '30'
             EXTRABOOTPARAMS: 'live.password=nots3cr3t kernel.softlockup_panic=1'
             PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+            PUBLISH_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
             YAML_SCHEDULE: 'schedule/functional/leap16/agama_create_hdd_textmode_leap.yaml'
       - create_hdd_gnome:
           testsuite: null
@@ -140,6 +143,7 @@ scenarios:
             HDDSIZEGB: '30'
             EXTRABOOTPARAMS: 'live.password=nots3cr3t kernel.softlockup_panic=1'
             PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+            PUBLISH_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
             YAML_SCHEDULE: 'schedule/functional/leap16/agama_create_hdd_gnome_leap.yaml'
     opensuse-offline-installer-aarch64:
       - gnome-agama:
