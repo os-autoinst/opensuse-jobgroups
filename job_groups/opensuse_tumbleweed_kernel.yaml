@@ -316,6 +316,9 @@ scenarios:
       - xfstests_nfs3-nfs
   s390x:
     opensuse-Tumbleweed-DVD-s390x:
+      - kdump:
+          settings:
+            KDUMP: '1'
       - ltp_controllers
       - ltp_cve
       - ltp_crypto_pty_commands:
