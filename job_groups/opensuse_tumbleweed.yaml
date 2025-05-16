@@ -424,7 +424,7 @@ scenarios:
             QEMURAM: '4096'
             QEMUCPUS: '2'
             RETRY: '1'
-            BATS_PACKAGE: 'aardvark'
+            BATS_PACKAGE: 'aardvark-dns'
       - container_host_netavark_testsuite:
           description: |-
             Maintainer: qe-c@suse.de https://github.com/os-autoinst/os-autoinst-distri-opensuse/tree/master/tests/containers/bats
