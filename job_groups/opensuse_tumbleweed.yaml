@@ -114,7 +114,7 @@ scenarios:
       - rcshell:
           machine: 64bit-2G
       - microos_10G-disk:
-          machine: uefi-2G
+          machine: 64bit-2G
       - microos:
           machine: uefi
       - microos-sdboot:
