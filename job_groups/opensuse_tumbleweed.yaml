@@ -112,7 +112,7 @@ scenarios:
   x86_64:
     microos-*-DVD-x86_64:
       - rcshell:
-          machine: 64bit
+          machine: 64bit-2G
       - microos_10G-disk:
           machine: uefi-2G
       - microos:
