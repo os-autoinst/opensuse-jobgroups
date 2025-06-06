@@ -69,6 +69,11 @@ scenarios:
           testsuite: kde
           machine: USBboot_64
           priority: 45
+      - kde-wayland:
+          machine: 64bit_virtio
+          settings:
+            QEMUCPUS: '2'
+            QEMURAM: '2048'
       - gnome:
           machine: 64bit
           priority: 45
