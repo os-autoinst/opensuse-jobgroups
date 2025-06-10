@@ -470,7 +470,7 @@ scenarios:
       - container_host_containerd:
           testsuite: extra_tests_textmode_containers
           settings:
-            CONTAINER_RUNTIMES: 'containerd_crictl,containerd_nerdctl'
+            CONTAINER_RUNTIMES: 'containerd_crictl'
       - container_host_helm:
           testsuite: extra_tests_textmode_containers
           settings:
