@@ -645,11 +645,11 @@ scenarios:
             BCI_IMAGE_MARKER: 389-ds_3.1
             BCI_TEST_ENVS: all,389ds,metadata
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/389-ds:3.1
-      - bci_blackbox_exporter_0.24_podman:
+      - bci_blackbox_exporter_podman:
           testsuite: null
           settings:
             <<: *bci
-            BCI_IMAGE_MARKER: blackbox_exporter_0.24
+            BCI_IMAGE_MARKER: blackbox_exporter_latest
             BCI_TEST_ENVS: all,metadata
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/blackbox_exporter:latest
       - bci_kiwi_podman:
