@@ -400,6 +400,12 @@ scenarios:
             CONTAINER_RUNTIMES: 'podman'
             K3S_INSTALL_UPSTREAM: '1'
             SECURITY_MAC: 'selinux'
+      - container_host_podman_crun:
+          testsuite: extra_tests_textmode_containers
+          settings:
+            CONTAINER_RUNTIMES: 'podman'
+            K3S_INSTALL_UPSTREAM: '1'
+            OCI_RUNTIME: 'crun'
       - container_host_podman_tumbleweed:
           testsuite: extra_tests_textmode_containers
           settings:
