@@ -479,12 +479,24 @@ scenarios:
           description: |-
             Maintainer: qe-c@suse.de https://github.com/os-autoinst/os-autoinst-distri-opensuse/tree/master/tests/containers/bats
           settings:
+            BATS_PACKAGE: 'buildah'
             CONTAINER_RUNTIMES: 'podman'
             QEMUCPU: 'host'
             QEMUCPUS: '2'
             MAX_JOB_TIME: '12000'
             RETRY: '1'
+      - container_host_buildah_testsuite_crun:
+          testsuite: extra_tests_textmode_containers
+          description: |-
+            Maintainer: qe-c@suse.de https://github.com/os-autoinst/os-autoinst-distri-opensuse/tree/master/tests/containers/bats
+          settings:
             BATS_PACKAGE: 'buildah'
+            CONTAINER_RUNTIMES: 'podman'
+            QEMUCPU: 'host'
+            QEMUCPUS: '2'
+            MAX_JOB_TIME: '12000'
+            OCI_RUNTIME: 'crun'
+            RETRY: '1'
       - container_host_containerd:
           testsuite: extra_tests_textmode_containers
           settings:
