@@ -40,3 +40,10 @@ scenarios:
             EXTRABOOTPARAMS: hvc_iucv=8
             FILESYSTEM: xfs
             BSC1167736: yes
+      - textmode-extra:
+          testsuite: textmode
+          settings:
+            EXTRABOOTPARAMS: hvc_iucv=8
+            EXTRATEST: prepare,console
+            # command_not_found: Not available, *_ipv6: poo#184040, lshw: poo#184138
+            EXCLUDE_MODULES: command_not_found,curl_ipv6,wget_ipv6,lshw
