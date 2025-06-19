@@ -55,6 +55,18 @@ products:
     distri: opensuse
     flavor: JeOS-for-AArch64
     version: Tumbleweed
+  opensuse-Tumbleweed-JeOS-for-kvm-and-xen-aarch64:
+    distri: opensuse
+    flavor: JeOS-for-kvm-and-xen
+    version: Tumbleweed
+  opensuse-Tumbleweed-JeOS-for-kvm-and-xen-sdboot-aarch64:
+    distri: opensuse
+    flavor: JeOS-for-kvm-and-xen-sdboot
+    version: Tumbleweed
+  opensuse-Tumbleweed-JeOS-for-kvm-and-xen-grub-bls-aarch64:
+    distri: opensuse
+    flavor: JeOS-for-kvm-and-xen-grub-bls
+    version: Tumbleweed
   opensuse-Tumbleweed-JeOS-for-OpenStack-Cloud-aarch64:
     distri: opensuse
     flavor: JeOS-for-OpenStack-Cloud
@@ -98,6 +110,14 @@ products:
   microos-*-MicroOS-Image-sdboot-aarch64:
     distri: microos
     flavor: MicroOS-Image-sdboot
+    version: Tumbleweed
+  microos-*-MicroOS-Image-grub-bls-aarch64:
+    distri: microos
+    flavor: MicroOS-Image-grub-bls
+    version: Tumbleweed
+  microos-*-MicroOS-SelfInstall-aarch64:
+    distri: microos
+    flavor: MicroOS-SelfInstall
     version: Tumbleweed
   opensuse-Tumbleweed-NET-armv7hl:
     distri: opensuse
@@ -187,6 +207,14 @@ scenarios:
       - microos_networkmanager
     microos-*-MicroOS-Image-sdboot-aarch64:
       - microos-combustion
+      - microos-combustion-fde:
+          settings:
+            QEMUCPU: 'host'
+            QEMUTPM: 'instance'
+            FIRST_BOOT_CONFIG: 'combustion'
+            HDD_2: 'extended_combustion.qcow2'
+            NUMDISKS: '3'
+            QEMU_DISABLE_SNAPSHOTS: '1'
       - microos-wizard-tpm:
           testsuite: microos-wizard
           settings:
@@ -200,6 +228,22 @@ scenarios:
             # jeos-firstboot sets up FDE by default
             ENCRYPT: '1'
             # Test without TPM enrollment
+    microos-*-MicroOS-Image-grub-bls-aarch64:
+      - microos-wizard:
+          settings:
+            # jeos-firstboot sets up FDE by default
+            ENCRYPT: '1'
+            # Test without TPM enrollment
+      - microos-wizard-tpm:
+          testsuite: microos-wizard
+          settings:
+            # jeos-firstboot sets up FDE by default
+            ENCRYPT: '1'
+            # Test with TPM enrollment
+            QEMUTPM: 'instance'
+            QEMU_DISABLE_SNAPSHOTS: '1'
+    microos-*-MicroOS-SelfInstall-aarch64:
+      - microos
     opensuse-Tumbleweed-DVD-aarch64:
       - security_tpm2
       - unlock_luks2_volume_with_tpm2:
@@ -884,6 +928,29 @@ scenarios:
             BOOT_HDD_IMAGE: '1'
             DESKTOP: textmode
             FILESYSTEM: 'xfs'
+    opensuse-Tumbleweed-JeOS-for-kvm-and-xen-sdboot-aarch64:
+      - jeos:
+          settings:
+            ENCRYPT: '1'
+      - jeos-fde:
+          settings:
+            QEMUCPU: 'host'
+            QEMUTPM: 'instance'
+      - jeos-combustion-fde:
+          settings:
+            QEMUCPU: 'host'
+            QEMUTPM: 'instance'
+            FIRST_BOOT_CONFIG: 'combustion'
+            HDD_2: 'extended_combustion.qcow2'
+            NUMDISKS: '3'
+    opensuse-Tumbleweed-JeOS-for-kvm-and-xen-grub-bls-aarch64:
+      - jeos:
+          settings:
+            ENCRYPT: '1'
+      - jeos-fde:
+          settings:
+            QEMUCPU: 'host'
+            QEMUTPM: 'instance'
     opensuse-Tumbleweed-JeOS-for-AArch64-aarch64:
       - jeos:
           machine: aarch64-HD20G
