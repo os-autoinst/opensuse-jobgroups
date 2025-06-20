@@ -324,6 +324,8 @@ scenarios:
       - minimalx_btrfs_snapper
       - create_hdd_textmode:
           priority: 45
+          settings:
+            HDDSIZEGB: '100'
       - create_hdd_textmode_apparmor:
           priority: 45
           testsuite: 'create_hdd_textmode'
