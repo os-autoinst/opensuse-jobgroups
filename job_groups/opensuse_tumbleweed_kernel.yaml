@@ -168,6 +168,7 @@ scenarios:
             ROLE: nfs_server
             HOSTNAME: server-node00
             USE_SUPPORT_SERVER: "1"
+            KDUMP_OVER_NFS: "1"
             YAML_SCHEDULE: schedule/storage/nfs.yaml
       - nfs_client:
           testsuite: null
@@ -182,6 +183,8 @@ scenarios:
             ROLE: nfs_client
             HOSTNAME: client-node00
             USE_SUPPORT_SERVER: "1"
+            KDUMP_OVER_NFS: "1"
+            KDUMP_SAVEDIR: "nfs://server-node00/nfs/shared_nfs3"
             YAML_SCHEDULE: schedule/storage/nfs.yaml
       - nfs_support_server:
           testsuite: null
