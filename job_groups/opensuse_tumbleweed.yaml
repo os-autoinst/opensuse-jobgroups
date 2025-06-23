@@ -324,6 +324,11 @@ scenarios:
       - minimalx_btrfs_snapper
       - create_hdd_textmode:
           priority: 45
+      - create_hdd_textmode_100G:
+          testsuite: create_hdd_textmode
+          settings:
+            +HDDSIZEGB: '100'
+            PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-100G@%MACHINE%.qcow2'
       - create_hdd_textmode_apparmor:
           priority: 45
           testsuite: 'create_hdd_textmode'
