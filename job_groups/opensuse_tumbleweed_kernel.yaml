@@ -202,6 +202,7 @@ scenarios:
             START_AFTER_TEST: create_hdd_textmode
             YAML_SCHEDULE: schedule/storage/supportserver.yaml
             MULTIMACHINE_NODES: "2"
+            KDUMP_OVER_NFS: "1"
   i586:
     opensuse-Tumbleweed-LegacyX86-NET-i586:
       - install_ltp+opensuse+LegacyX86-NET
@@ -514,3 +515,4 @@ scenarios:
             START_AFTER_TEST: create_hdd_textmode
             YAML_SCHEDULE: schedule/storage/supportserver.yaml
             MULTIMACHINE_NODES: "2"
+            KDUMP_OVER_NFS: "1"
