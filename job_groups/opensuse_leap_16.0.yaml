@@ -23,21 +23,21 @@ defaults:
     machine: s390x-zVM-vswitch-l2
     priority: 55
 products:
-  opensuse-agama-installer-Leap-x86_64:
+  opensuse-online-installer-x86_64:
     distri: opensuse
-    flavor: agama-installer-Leap
+    flavor: online-installer
     version: '16.0'
-  opensuse-agama-installer-Leap-aarch64:
+  opensuse-online-installer-aarch64:
     distri: opensuse
-    flavor: agama-installer-Leap
+    flavor: online-installer
     version: '16.0'
-  opensuse-agama-installer-Leap-ppc64le:
+  opensuse-online-installer-ppc64le:
     distri: opensuse
-    flavor: agama-installer-Leap
+    flavor: online-installer
     version: '16.0'
-  opensuse-agama-installer-Leap-s390x:
+  opensuse-online-installer-s390x:
     distri: opensuse
-    flavor: agama-installer-Leap
+    flavor: online-installer
     version: '16.0'
   opensuse-offline-installer-x86_64:
     distri: opensuse
@@ -57,7 +57,7 @@ products:
     version: '16.0'
 scenarios:
   x86_64:
-    opensuse-agama-installer-Leap-x86_64:
+    opensuse-online-installer-x86_64:
       - gnome-agama:
           machine: uefi-3G
       - gnome-agama:
@@ -112,7 +112,7 @@ scenarios:
       - kde-agama:
           machine: uefi-usb-4G
   aarch64:
-    opensuse-agama-installer-Leap-aarch64:
+    opensuse-online-installer-aarch64:
       - gnome-agama:
           machine: USBboot_aarch64
       - kde-agama:
@@ -151,7 +151,7 @@ scenarios:
       - kde-agama:
           machine: USBboot_aarch64
   ppc64le:
-    opensuse-agama-installer-Leap-ppc64le:
+    opensuse-online-installer-ppc64le:
       - gnome-agama:
           machine: ppc64le
       - kde-agama:
@@ -164,7 +164,7 @@ scenarios:
       - kde-agama:
           machine: ppc64le
   s390x:
-    opensuse-agama-installer-Leap-s390x:
+    opensuse-online-installer-s390x:
       - gnome-agama:
           machine: s390x-zVM-vswitch-l2
       - kde-agama:
