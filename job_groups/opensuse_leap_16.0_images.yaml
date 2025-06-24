@@ -7,28 +7,198 @@
 #    https://github.com/os-autoinst/opensuse-jobgroups     #
 #        job_groups/opensuse_leap_16.0_images.yaml         #
 ############################################################
-
 ---
+# test group: 126
+
+# 'MinimalVM' image testing preparation for Leap16: poo#176547
+.generic_settings: &generic_settings
+  BOOT_HDD_IMAGE: "1"
+  DESKTOP: textmode
+  VIDEOMODE: text
+  EXCLUDE_MODULES: validate_packages_and_patterns
+  JOURNAL_LOG_LEVEL: warning
+  HDDSIZEGB: "25"
+
+.x86_64_settings: &x86_64_settings
+  WORKER_CLASS: cpu-x86_64-v2
+  QEMUCPU: host
+
+.container_settings: &container_settings
+  <<: *generic_settings
+  CONTAINER_IMAGE_VERSIONS: "16.0"
+  REGISTRY: '3.126.238.126:5000'
+  NUMDISKS: "2"
+  MAX_JOB_TIME: "10800"
 
 defaults:
   x86_64:
-    machine: 64bit-2G
-    priority: 55
+    machine: uefi_virtio-vga
+    priority: 50
+  aarch64:
+    machine: aarch64
+    priority: 50
+
 products:
-  opensuse-agama-installer-openSUSE-x86_64:
+
+  # Minimal-VM
+  opensuse-16.0-Minimal-VM-for-kvm-and-xen-x86_64:
     distri: opensuse
-    flavor: agama-installer-openSUSE
+    flavor: Minimal-VM-for-kvm-and-xen
     version: '16.0'
+  opensuse-16.0-Minimal-VM-for-kvm-and-xen-encrypt-x86_64:
+    distri: opensuse
+    flavor: Minimal-VM-for-kvm-and-xen-encrypt
+    version: '16.0'
+  opensuse-16.0-Minimal-VM-Cloud-x86_64:
+    distri: opensuse
+    flavor: Minimal-VM-Cloud
+    version: '16.0'
+  opensuse-16.0-Minimal-VM-for-kvm-and-xen-aarch64:
+    distri: opensuse
+    flavor: Minimal-VM-for-kvm-and-xen
+    version: '16.0'
+  opensuse-16.0-Minimal-VM-for-kvm-and-xen-encrypt-aarch64:
+    distri: opensuse
+    flavor: Minimal-VM-for-kvm-and-xen-encrypt
+    version: '16.0'
+  opensuse-16.0-Minimal-VM-Cloud-aarch64:
+    distri: opensuse
+    flavor: Minimal-VM-Cloud
+    version: '16.0'
+
 scenarios:
   x86_64:
-    opensuse-agama-installer-openSUSE-x86_64:
-      - gnome-agama:
-          machine: uefi-3G
-      - gnome-agama:
-          machine: 64bit-3G
-      - gnome-agama:
-          machine: uefi-usb-4G
-      - gnome-agama:
-          machine: USBboot_64-3G
-      - mediacheck:
-          machine: 64bit
+    # Minimal-VM
+    opensuse-16.0-Minimal-VM-for-kvm-and-xen-x86_64:
+      - minimalvm-main:
+          settings:
+            <<: [*generic_settings, *x86_64_settings]
+            FIRST_BOOT_CONFIG: 'wizard'
+            QEMU_VIRTIO_RNG: "1"
+            ZYPPER_WHITELISTED_ORPHANS: 'xen-libs,xen-tools-domU'
+          machine: [64bit_virtio-vga, uefi_virtio-vga]
+      - minimalvm-main-combustion:
+          settings:
+            <<: [*generic_settings, *x86_64_settings]
+            FIRST_BOOT_CONFIG: 'combustion'
+            QEMU_VIRTIO_RNG: "1"
+            HDD_2: "combustiononly.qcow2"
+            NUMDISKS: "3"
+            ZYPPER_WHITELISTED_ORPHANS: 'xen-libs,xen-tools-domU'
+          machine: [64bit_virtio-vga, uefi_virtio-vga]
+      - minimalvm-extratest:
+          settings:
+            <<: [*generic_settings, *x86_64_settings]
+          machine: [64bit_virtio-vga, uefi_virtio-vga]
+      - minimalvm-containers-podman:
+          testsuite: null
+          settings:
+            CONTAINER_RUNTIMES: "podman"
+            <<: [*generic_settings, *x86_64_settings, *container_settings]
+          machine: [uefi_virtio-vga]
+      - minimalvm-containers-docker:
+          testsuite: null
+          settings:
+            CONTAINER_RUNTIMES: "docker"
+            <<: [*generic_settings, *x86_64_settings, *container_settings]
+          machine: [uefi_virtio-vga]
+
+    opensuse-16.0-Minimal-VM-for-kvm-and-xen-encrypt-x86_64:
+      - minimalvm-main:
+          settings:
+            <<: [*generic_settings, *x86_64_settings]
+            FIRST_BOOT_CONFIG: 'wizard'
+            QEMU_VIRTIO_RNG: "1"
+            QEMUCPU: "host"
+            QEMURAM: "2048"
+            QEMUTPM: "instance"
+            QEMUTPM_VER: "2.0"
+          machine: uefi_virtio-vga
+
+    opensuse-16.0-Minimal-VM-Cloud-x86_64:
+      - minimalvm-cloud-init:
+          testsuite: null
+          settings:
+            <<: [*generic_settings, *x86_64_settings]
+            NO_CLOUD: '1'
+            HDD_2: "cidata.qcow2"
+            CI_VERIFICATION: '1'
+            FIRST_BOOT_CONFIG: 'cloud-init'
+            NUMDISKS: '2'
+            HDDSIZEGB_1: '30'
+            ZYPPER_WHITELISTED_ORPHANS: 'xen-libs,xen-tools-domU'
+            FILESYSTEM: 'xfs'
+      - minimalvm-wizard:
+          testsuite: null
+          settings:
+            <<: [*generic_settings, *x86_64_settings]
+            NO_CLOUD: '1'
+            FIRST_BOOT_CONFIG: 'wizard'
+            HDDSIZEGB_1: '30'
+            ZYPPER_WHITELISTED_ORPHANS: ''
+            FILESYSTEM: 'xfs'
+
+  aarch64:
+    # Minimal-VM
+    opensuse-16.0-Minimal-VM-for-kvm-and-xen-aarch64:
+      - minimalvm-extratest:
+          settings:
+            <<: *generic_settings
+      - minimalvm-main:
+          settings:
+            <<: [*generic_settings]
+            FIRST_BOOT_CONFIG: 'wizard'
+            QEMU_VIRTIO_RNG: "1"
+      - minimalvm-main-combustion:
+          settings:
+            <<: *generic_settings
+            FIRST_BOOT_CONFIG: 'combustion'
+            QEMU_VIRTIO_RNG: "1"
+            HDD_2: "combustiononly.qcow2"
+            NUMDISKS: "3"
+      - minimalvm-containers-podman:
+          testsuite: null
+          settings:
+            <<: [*generic_settings, *container_settings]
+            CONTAINER_RUNTIMES: "podman"
+      - minimalvm-containers-docker:
+          testsuite: null
+          settings:
+            CONTAINER_RUNTIMES: "docker"
+            <<: [*generic_settings, *container_settings]
+
+    opensuse-16.0-Minimal-VM-for-kvm-and-xen-encrypt-aarch64:
+      - minimalvm-main:
+          settings:
+            <<: [*generic_settings]
+            FIRST_BOOT_CONFIG: 'wizard'
+            QEMU_VIRTIO_RNG: "1"
+            QEMUCPU: "host"
+            QEMURAM: "2048"
+            QEMUTPM: "instance"
+            QEMUTPM_VER: "2.0"
+
+    opensuse-16.0-Minimal-VM-Cloud-aarch64:
+      - minimalvm-cloud-init:
+          testsuite: null
+          machine: aarch64
+          settings:
+            <<: *generic_settings
+            NO_CLOUD: '1'
+            HDD_2: "cidata.qcow2"
+            CI_VERIFICATION: '1'
+            FIRST_BOOT_CONFIG: 'cloud-init'
+            NUMDISKS: '2'
+            HDDSIZEGB_1: '20'
+            ZYPPER_WHITELISTED_ORPHANS: ''
+            FILESYSTEM: 'xfs'
+      - minimalvm-wizard:
+          testsuite: null
+          machine: aarch64
+          settings:
+            <<: [*generic_settings, *x86_64_settings]
+            NO_CLOUD: '1'
+            FIRST_BOOT_CONFIG: 'wizard'
+            HDDSIZEGB_1: '30'
+            ZYPPER_WHITELISTED_ORPHANS: ''
+            FILESYSTEM: 'xfs'
