@@ -58,6 +58,12 @@ scenarios:
       - rescue_system
       - gpt
       - create_hdd_textmode
+      - create_hdd_textmode_100G:
+          testsuite: create_hdd_textmode
+          settings:
+            +HDDSIZEGB: '100'
+            PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-100G@%MACHINE%.qcow2'
+            PUBLISH_PFLASH_VARS: ''
       - create_hdd_gnome
       - create_hdd_gnome_libyui
       - create_hdd_kde
