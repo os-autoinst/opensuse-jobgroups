@@ -123,8 +123,15 @@ scenarios:
           machine: 64bit
       - microos_textmode:
           machine: 64bit-2G
+      - microos_textmode:
+          machine: uefi-2G
       - container_host:
           machine: 64bit-2G
+          settings:
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
+            K3S_INSTALL_UPSTREAM: '1'
+      - fips-container_host:
+          machine: uefi-2G
           settings:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
             K3S_INSTALL_UPSTREAM: '1'
