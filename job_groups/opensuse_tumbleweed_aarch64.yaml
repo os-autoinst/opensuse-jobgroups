@@ -150,20 +150,18 @@ scenarios:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/arm/totest/containers/opensuse/tumbleweed
             K3S_INSTALL_UPSTREAM: '1'
       - remote_ssh_controller:
-          priority: 45
           settings:
             HDD_1: support_server_tumbleweed@aarch64.qcow2
             UEFI_PFLASH_VARS: support_server_tumbleweed@aarch64-uefi-vars.qcow2
             SYSTEM_ROLE: microos
-            YAML_SCHEDULE: schedule/sle-micro/remote_ssh_controller.yaml
+            +YAML_SCHEDULE: ''
             DESKTOP: textmode
             EXTRABOOTPARAMS_BOOT_LOCAL: '3'
       - remote_ssh_target:
-          priority: 45
           settings:
             TIMEOUT_SCALE: '2'
             DESKTOP: textmode
-            YAML_SCHEDULE: schedule/sle-micro/remote_ssh_target.yaml
+            +YAML_SCHEDULE: ''
     microos-*-MicroOS-Image-ContainerHost-aarch64:
       - container-host:
           settings:
