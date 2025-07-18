@@ -1733,6 +1733,7 @@ scenarios:
             YAML_SCHEDULE: 'schedule/wsl/wsl_main.yaml'
             WSL_INSTALL_FROM: 'build'
             QEMU_ENABLE_SMBD: '1'
+            WSL_FIRSTBOOT: 'yast'
       - wsl2-main: &wsl2_test
           testsuite: null
           machine: [win10_uefi, win11_uefi]
@@ -1750,10 +1751,17 @@ scenarios:
             Basic WSL test Test scope:
                 1) Prepare WSL and other features in Windows
                 2) Install WSL image from the MS Store via CLI
-          settings:
+          settings: &msstore_settings
             <<: *wsl2_settings
             WSL_VERSION: 'openSUSE Tumbleweed'
             WSL_INSTALL_FROM: 'msstore'
+            WSL_FIRSTBOOT: 'jeos'
+      # Add MSStore Legacy Scenario
+      - wsl2-install-msstore_legacy:
+          <<: *wsl2_test
+          settings:
+            <<: [*msstore_settings, *wsl2_settings]
+            WSL_FIRSTBOOT: 'yast'
       - wsl2-systemd:
           <<: *wsl2_test
           description: 'Enable and test systemd in WSL'
