@@ -956,6 +956,7 @@ scenarios:
             YAML_TEST_DATA: test_data/yast/encryption/full_lvm_enc_luks2.yaml
       - openscap
       - lvm_thin_provisioning:
+          machine: 64bit
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/lvm/lvm_thin_provisioning.yaml
       - upgrade_Leap_15.0_gnome:
