@@ -1012,6 +1012,7 @@ scenarios:
       - desktopapps-documentation:
           description: Maintainer Yaun Ren
           settings:
+            BOOT_HDD_IMAGE: '1'
             DESKTOP: gnome
             HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
             REGRESSION: documentation
