@@ -1070,6 +1070,7 @@ scenarios:
             DESKTOP: textmode
       - system_check
       - btrfs+warnings:
+          machine: 64bit
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/btrfs/btrfs+warnings.yaml
       - selinux:
