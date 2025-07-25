@@ -956,6 +956,7 @@ scenarios:
             YAML_TEST_DATA: test_data/yast/encryption/full_lvm_enc_luks2.yaml
       - openscap
       - lvm_thin_provisioning:
+          machine: 64bit
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/lvm/lvm_thin_provisioning.yaml
       - upgrade_Leap_15.0_gnome:
@@ -1011,6 +1012,7 @@ scenarios:
       - desktopapps-documentation:
           description: Maintainer Yaun Ren
           settings:
+            BOOT_HDD_IMAGE: '1'
             DESKTOP: gnome
             HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
             REGRESSION: documentation
@@ -1068,6 +1070,7 @@ scenarios:
             DESKTOP: textmode
       - system_check
       - btrfs+warnings:
+          machine: 64bit
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/btrfs/btrfs+warnings.yaml
       - selinux:
@@ -1262,24 +1265,20 @@ scenarios:
             QEMU_VIRTIO_RNG: "0"
       - extra_tests_dracut
       - boot_linuxrc
-      - RAID0_gpt
-      - RAID1_gpt
-      - RAID5_gpt:
-          description: ''
+      - RAID0_gpt_uefi:
+          machine: uefi
+          priority: 45
+      - RAID1_gpt_uefi:
+          machine: uefi
+          priority: 45
+      - RAID5_gpt_uefi:
+          machine: uefi
           settings:
             DESKTOP: kde
-            START_AFTER_TEST: RAID0_gpt
-            WORKER_CLASS: heavyload
-            YAML_SCHEDULE: schedule/yast/opensuse/raid/raid5_gpt.yaml
-          testsuite: null
-      - RAID10_gpt:
-          description: ''
+      - RAID10_gpt_uefi:
+          machine: uefi
           settings:
             DESKTOP: kde
-            START_AFTER_TEST: RAID1_gpt
-            WORKER_CLASS: heavyload
-            YAML_SCHEDULE: schedule/yast/opensuse/raid/raid10_gpt.yaml
-          testsuite: null
       - modify_existing_partition:
           description: Suite that modifies/resizes a partition on a previsously formatted disk. Depends on create_hdd_gnome.
           settings:
@@ -1560,24 +1559,20 @@ scenarios:
       - xfce:
           machine: 64bit
           priority: 49
-      - RAID0_gpt
-      - RAID1_gpt
-      - RAID5_gpt:
-          description: ''
+      - RAID0_gpt_uefi:
+          machine: uefi
+          priority: 45
+      - RAID1_gpt_uefi:
+          machine: uefi
+          priority: 45
+      - RAID5_gpt_uefi:
+          machine: uefi
           settings:
             DESKTOP: kde
-            START_AFTER_TEST: RAID0_gpt
-            WORKER_CLASS: heavyload
-            YAML_SCHEDULE: schedule/yast/opensuse/raid/raid5_gpt.yaml
-          testsuite: null
-      - RAID10_gpt:
-          description: ''
+      - RAID10_gpt_uefi:
+          machine: uefi
           settings:
             DESKTOP: kde
-            START_AFTER_TEST: RAID1_gpt
-            WORKER_CLASS: heavyload
-            YAML_SCHEDULE: schedule/yast/opensuse/raid/raid10_gpt.yaml
-          testsuite: null
       - containers_tw_image_on_centos_host:
           testsuite: null
           description: 'Runs image container test on Centos using podman'
