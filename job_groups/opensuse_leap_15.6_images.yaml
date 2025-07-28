@@ -222,10 +222,12 @@ scenarios:
           settings:
             # Max size isn't that strict
             EXCLUDE_MODULES: "diskusage"
+            QEMUCPUS: '2'
       - jeos-container_image:
           settings:
             CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/leap/15.6/images/totest/containers/opensuse/leap:15.6'
             EXCLUDE_MODULES: "diskusage"
+            QEMUCPUS: '2'
       - jeos-filesystem:
           settings:
             EXCLUDE_MODULES: "diskusage"
