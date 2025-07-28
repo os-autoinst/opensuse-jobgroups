@@ -381,37 +381,44 @@ scenarios:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIMES: 'multi_runtime'
+            QEMUCPUS: '2'
       - container_host_docker_apparmor:
           testsuite: extra_tests_textmode_containers
           settings: &docker-apparmor
             CONTAINER_RUNTIMES: 'docker'
+            QEMUCPUS: '2'
             SECURITY_MAC: 'apparmor'
       - container_host_docker_selinux:
           testsuite: extra_tests_textmode_containers
           settings: &docker-selinux
             CONTAINER_RUNTIMES: 'docker'
+            QEMUCPUS: '2'
             SECURITY_MAC: 'selinux'
       - container_host_docker_stable_apparmor:
           testsuite: extra_tests_textmode_containers
           settings:
             <<: *docker-apparmor
             CONTAINERS_DOCKER_FLAVOUR: 'stable'
+            QEMUCPUS: '2'
       - container_host_docker_stable_selinux:
           testsuite: extra_tests_textmode_containers
           settings:
             <<: *docker-selinux
             CONTAINERS_DOCKER_FLAVOUR: 'stable'
+            QEMUCPUS: '2'
       - container_host_podman_apparmor:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIMES: 'podman'
             K3S_INSTALL_UPSTREAM: '1'
+            QEMUCPUS: '2'
             SECURITY_MAC: 'apparmor'
       - container_host_podman_selinux:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIMES: 'podman'
             K3S_INSTALL_UPSTREAM: '1'
+            QEMUCPUS: '2'
             SECURITY_MAC: 'selinux'
       - container_host_podman_crun:
           testsuite: extra_tests_textmode_containers
@@ -419,11 +426,13 @@ scenarios:
             CONTAINER_RUNTIMES: 'podman'
             K3S_INSTALL_UPSTREAM: '1'
             OCI_RUNTIME: 'crun'
+            QEMUCPUS: '2'
       - container_host_podman_tumbleweed:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIMES: 'podman'
             CONTAINER_IMAGE_TO_TEST: 'registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed:latest'
+            QEMUCPUS: '2'
       - container_host_podman_testsuite:
           description: |-
             Maintainer: qe-c@suse.de https://github.com/os-autoinst/os-autoinst-distri-opensuse/tree/master/tests/containers/bats
