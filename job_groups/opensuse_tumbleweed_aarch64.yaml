@@ -346,22 +346,26 @@ scenarios:
           testsuite: extra_tests_textmode_containers
           settings: &docker-apparmor
             CONTAINER_RUNTIMES: 'docker'
+            QEMUCPUS: '2'
             SECURITY_MAC: 'apparmor'
       - container_host_docker_selinux:
           testsuite: extra_tests_textmode_containers
           settings: &docker-selinux
             CONTAINER_RUNTIMES: 'docker'
+            QEMUCPUS: '2'
             SECURITY_MAC: 'selinux'
       - container_host_docker_stable_apparmor:
           testsuite: extra_tests_textmode_containers
           settings:
             <<: *docker-apparmor
             CONTAINERS_DOCKER_FLAVOUR: 'stable'
+            QEMUCPUS: '2'
       - container_host_docker_stable_selinux:
           testsuite: extra_tests_textmode_containers
           settings:
             <<: *docker-selinux
             CONTAINERS_DOCKER_FLAVOUR: 'stable'
+            QEMUCPUS: '2'
       - container_host_helm:
           testsuite: extra_tests_textmode_containers
           settings:
@@ -378,18 +382,21 @@ scenarios:
           settings:
             CONTAINER_RUNTIMES: 'podman'
             K3S_INSTALL_UPSTREAM: '1'
+            QEMUCPUS: '2'
             SECURITY_MAC: 'apparmor'
       - container_host_podman_selinux:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIMES: 'podman'
             K3S_INSTALL_UPSTREAM: '1'
+            QEMUCPUS: '2'
             SECURITY_MAC: 'selinux'
       - container_host_podman_crun:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIMES: 'podman'
             K3S_INSTALL_UPSTREAM: '1'
+            QEMUCPUS: '2'
             OCI_RUNTIME: 'crun'
       - container_host_containerd:
           testsuite: extra_tests_textmode_containers
@@ -471,6 +478,7 @@ scenarios:
             K3S_INSTALL_UPSTREAM: '1'
             POSTGRES_IP: 'ko.dmz-prg2.suse.org'
             POSTGRES_PORT: '5444'
+            QEMUCPUS: '2'
       ### BCI base images
       - bci_init_podman:
           testsuite: null
