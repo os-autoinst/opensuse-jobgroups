@@ -66,7 +66,9 @@ scenarios:
             LTP_TAINT_EXPECTED: '0x13801'
       - extra_tests_kernel
       - bpftools
-      - io_uring
+      - io_uring:
+          settings:
+            QEMUCPUS: '2'
       - kdump:
           settings:
             CRASH_MEMORY: '320'
@@ -231,7 +233,9 @@ scenarios:
             LTP_TAINT_EXPECTED: '0x13801'
       - extra_tests_kernel
       - bpftools
-      - io_uring
+      - io_uring:
+          settings:
+            QEMUCPUS: '2'
       - kdump:
           settings:
             CRASH_MEMORY: '640'
@@ -355,7 +359,9 @@ scenarios:
             LTP_TAINT_EXPECTED: '0x13801'
       - extra_tests_kernel
       - bpftools
-      - io_uring
+      - io_uring:
+          settings:
+            QEMUCPUS: '2'
       - kdump:
           settings:
             YAML_SCHEDULE: schedule/kernel/kdump.yaml
