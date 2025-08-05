@@ -81,6 +81,26 @@ scenarios:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIMES: 'podman'
+      - container_host_runc_testsuite:
+          description: |-
+            Maintainer: qe-c@suse.de https://github.com/os-autoinst/os-autoinst-distri-opensuse/tree/master/tests/containers/bats
+          testsuite: extra_tests_textmode_containers
+          settings:
+            BATS_PACKAGE: 'runc'
+            CONTAINER_RUNTIMES: 'podman'
+            QEMUCPUS: '2'
+            QEMURAM: '4096'
+            RETRY: '1'
+      - container_host_skopeo_testsuite:
+          description: |-
+            Maintainer: qe-c@suse.de https://github.com/os-autoinst/os-autoinst-distri-opensuse/tree/master/tests/containers/bats
+          testsuite: extra_tests_textmode_containers
+          settings:
+            BATS_PACKAGE: 'skopeo'
+            CONTAINER_RUNTIMES: 'podman'
+            QEMUCPUS: '2'
+            QEMURAM: '4096'
+            RETRY: '1'
       - extra_tests_filesystem
       - yast2_ncurses:
           settings:
