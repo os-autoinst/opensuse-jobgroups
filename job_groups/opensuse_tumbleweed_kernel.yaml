@@ -356,6 +356,10 @@ scenarios:
       - create_hdd_xfstests
       - extra_tests_kernel
       - install_ltp+opensuse+DVD
+      - install_ltp+opensuse+DVD:
+          machine: uefi
+          settings:
+            START_AFTER_TEST: create_hdd_textmode_uefi
       - install_ltp_kotd+opensuse+DVD
       - io_uring:
           settings:
@@ -384,6 +388,8 @@ scenarios:
       - ltp_crashme
       - ltp_crypto
       - ltp_cve
+      - ltp_cve:
+          machine: uefi
       - ltp_cve_m32
       - ltp_cve_kotd
       - ltp_dio
@@ -396,8 +402,14 @@ scenarios:
       - ltp_hugetlb
       - ltp_hyperthreading
       - ltp_ima
+      - ltp_ima:
+          machine: uefi
       - ltp_ima_load_policy
+      - ltp_ima_load_policy:
+          machine: uefi
       - ltp_ima_load_policy_selinux
+      - ltp_ima_load_policy_selinux:
+          machine: uefi
       - ltp_input
       - ltp_kernel_misc:
           settings:
@@ -435,6 +447,10 @@ scenarios:
       - ltp_pty
       - ltp_sched
       - ltp_syscalls:
+          settings:
+            LTP_TAINT_EXPECTED: '0x13801'
+      - ltp_syscalls:
+          machine: uefi
           settings:
             LTP_TAINT_EXPECTED: '0x13801'
       - ltp_syscalls_debug_pagealloc:
