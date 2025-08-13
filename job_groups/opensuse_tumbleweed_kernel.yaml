@@ -57,15 +57,12 @@ products:
 scenarios:
   aarch64:
     opensuse-Tumbleweed-DVD-aarch64:
+      - bpftools
+      - extra_tests_kernel
+      - install_ltp+opensuse+DVD
       - install_ltp_kotd+opensuse+DVD:
           settings:
             KOTD_REPO: 'https://download.opensuse.org/repositories/Kernel:/HEAD/ARM/'
-      - ltp_cve_kotd
-      - ltp_syscalls_kotd:
-          settings:
-            LTP_TAINT_EXPECTED: '0x13801'
-      - extra_tests_kernel
-      - bpftools
       - io_uring:
           settings:
             QEMUCPUS: '2'
@@ -73,7 +70,6 @@ scenarios:
           settings:
             CRASH_MEMORY: '320'
             YAML_SCHEDULE: schedule/kernel/kdump.yaml
-      - install_ltp+opensuse+DVD
       - ltp_aio_stress
       - ltp_aiodio_part1
       - ltp_aiodio_part2
@@ -90,6 +86,7 @@ scenarios:
       - ltp_crashme
       - ltp_crypto
       - ltp_cve
+      - ltp_cve_kotd
       - ltp_dio
       - ltp_dma_thread_diotest
       - ltp_fcntl_locktests
@@ -143,6 +140,9 @@ scenarios:
           settings:
             LTP_TAINT_EXPECTED: '0x13801'
       - ltp_syscalls_ipc
+      - ltp_syscalls_kotd:
+          settings:
+            LTP_TAINT_EXPECTED: '0x13801'
       - ltp_tracing
       - ltp_uevent
       - ltp_watchqueue
@@ -224,15 +224,12 @@ scenarios:
             LTP_TAINT_EXPECTED: '0x13801'
   ppc64le:
     opensuse-Tumbleweed-DVD-ppc64le:
+      - bpftools
+      - extra_tests_kernel
+      - install_ltp+opensuse+DVD
       - install_ltp_kotd+opensuse+DVD:
           settings:
             KOTD_REPO: 'https://download.opensuse.org/repositories/Kernel:/HEAD/PPC/'
-      - ltp_cve_kotd
-      - ltp_syscalls_kotd:
-          settings:
-            LTP_TAINT_EXPECTED: '0x13801'
-      - extra_tests_kernel
-      - bpftools
       - io_uring:
           settings:
             QEMUCPUS: '2'
@@ -240,7 +237,6 @@ scenarios:
           settings:
             CRASH_MEMORY: '640'
             YAML_SCHEDULE: schedule/kernel/kdump.yaml
-      - install_ltp+opensuse+DVD
       - kernel-live-patching
       - ltp_aio_stress
       - ltp_aiodio_part1
@@ -258,6 +254,7 @@ scenarios:
       - ltp_crashme
       - ltp_crypto
       - ltp_cve
+      - ltp_cve_kotd
       - ltp_dio
       - ltp_dma_thread_diotest
       - ltp_fcntl_locktests
@@ -311,6 +308,9 @@ scenarios:
           settings:
             LTP_TAINT_EXPECTED: '0x13801'
       - ltp_syscalls_ipc
+      - ltp_syscalls_kotd:
+          settings:
+            LTP_TAINT_EXPECTED: '0x13801'
       - ltp_tracing
       - ltp_uevent
       - ltp_watchqueue
@@ -352,24 +352,21 @@ scenarios:
             INSTALL_LTP: ''
   x86_64:
     opensuse-Tumbleweed-DVD-x86_64:
-      - install_ltp_kotd+opensuse+DVD
-      - ltp_cve_kotd
-      - ltp_syscalls_kotd:
-          settings:
-            LTP_TAINT_EXPECTED: '0x13801'
-      - extra_tests_kernel
       - bpftools
+      - create_hdd_xfstests
+      - extra_tests_kernel
+      - install_ltp+opensuse+DVD
+      - install_ltp_kotd+opensuse+DVD
       - io_uring:
           settings:
             QEMUCPUS: '2'
-      - kdump:
-          settings:
-            YAML_SCHEDULE: schedule/kernel/kdump.yaml
-      - install_ltp+opensuse+DVD
       - ipsec_3hosts_support_server
       - ipsec_3hosts_left_node
       - ipsec_3hosts_middle_node
       - ipsec_3hosts_right_node
+      - kdump:
+          settings:
+            YAML_SCHEDULE: schedule/kernel/kdump.yaml
       - kernel-live-patching
       - ltp_aio_stress
       - ltp_aiodio_part1
@@ -388,6 +385,7 @@ scenarios:
       - ltp_crypto
       - ltp_cve
       - ltp_cve_m32
+      - ltp_cve_kotd
       - ltp_dio
       - ltp_dma_thread_diotest
       - ltp_fcntl_locktests
@@ -443,6 +441,9 @@ scenarios:
           settings:
             LTP_TAINT_EXPECTED: '0x13801'
       - ltp_syscalls_ipc
+      - ltp_syscalls_kotd:
+          settings:
+            LTP_TAINT_EXPECTED: '0x13801'
       - ltp_syscalls_m32:
           settings:
             LTP_TAINT_EXPECTED: '0x13801'
@@ -453,7 +454,6 @@ scenarios:
       - nfs_cthon04-nfs4
       - nfs_pynfs_nfs40_all
       - nfs_pynfs_nfs41_all
-      - create_hdd_xfstests
       - xfstests_btrfs-btrfs-001-100
       - xfstests_btrfs-btrfs-101-200
       - xfstests_btrfs-btrfs-201-999
