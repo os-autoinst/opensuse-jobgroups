@@ -101,6 +101,29 @@ scenarios:
             QEMURAM: '4096'
             QEMUCPUS: '2'
             RETRY: '1'
+      - container_host_podman_testsuite:
+          description: |-
+            Maintainer: qe-c@suse.de https://github.com/os-autoinst/os-autoinst-distri-opensuse/tree/master/tests/containers/bats
+          testsuite: extra_tests_textmode_containers
+          settings:
+            BATS_PACKAGE: 'podman'
+            CONTAINER_RUNTIMES: 'podman'
+            MAX_JOB_TIME: '12000'
+            QEMURAM: '4096'
+            QEMUCPUS: '2'
+            RETRY: '1'
+      - container_host_podman_testsuite_crun:
+          description: |-
+            Maintainer: qe-c@suse.de https://github.com/os-autoinst/os-autoinst-distri-opensuse/tree/master/tests/containers/bats
+          testsuite: extra_tests_textmode_containers
+          settings:
+            BATS_PACKAGE: 'podman'
+            CONTAINER_RUNTIMES: 'podman'
+            MAX_JOB_TIME: '12000'
+            OCI_RUNTIME: 'crun'
+            QEMURAM: '4096'
+            QEMUCPUS: '2'
+            RETRY: '1'
       - container_host_runc_testsuite:
           description: |-
             Maintainer: qe-c@suse.de https://github.com/os-autoinst/os-autoinst-distri-opensuse/tree/master/tests/containers/bats
