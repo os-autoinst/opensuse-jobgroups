@@ -25,6 +25,10 @@ products:
     distri: microos
     flavor: DVD
     version: '*'
+  microos-Tumbleweed-MicroOS-Image-ppc64le:
+    distri: microos
+    flavor: MicroOS-Image
+    version: Tumbleweed
 scenarios:
   ppc64le:
     opensuse-Tumbleweed-DVD-ppc64le:
@@ -159,3 +163,9 @@ scenarios:
     microos-*-DVD-ppc64le:
       - rcshell
       - microos_10G-disk
+    microos-Tumbleweed-MicroOS-Image-ppc64le:
+      - microos:
+          settings:
+            HDD_2: 'ignition.qcow2'
+            NUMDISKS: '2'
+      - microos-wizard
