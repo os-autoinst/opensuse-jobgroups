@@ -25,10 +25,6 @@ products:
     distri: microos
     flavor: DVD
     version: '*'
-  microos-*-Kubic-DVD-ppc64le:
-    distri: microos
-    flavor: Kubic-DVD
-    version: '*'
 scenarios:
   ppc64le:
     opensuse-Tumbleweed-DVD-ppc64le:
@@ -163,7 +159,3 @@ scenarios:
     microos-*-DVD-ppc64le:
       - rcshell
       - microos_10G-disk
-    microos-*-Kubic-DVD-ppc64le:
-      - rcshell
-      - kubeadm:
-          machine: ppc64le-4G-HD40G
