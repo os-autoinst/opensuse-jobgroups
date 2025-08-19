@@ -21,10 +21,6 @@ products:
     distri: microos
     flavor: DVD
     version: '*'
-  microos-*-Kubic-DVD-s390x:
-    distri: microos
-    flavor: Kubic-DVD
-    version: '*'
 scenarios:
   s390x:
     opensuse-Tumbleweed-DVD-s390x:
