@@ -824,7 +824,8 @@ scenarios:
           settings:
             HDD_1: opensuse-leap-updated-%ARCH%-%DESKTOP%.qcow2
       - autoyast_y2_firstboot
-      - autoyast_btrfs_quota
+      - autoyast_btrfs_quota:
+          machine: 64bit
       - autoyast_gnome:
           machine: 64bit
       - autoyast_minimal
