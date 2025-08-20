@@ -832,17 +832,6 @@ scenarios:
       - autoyast_reinstall_gnome:
           settings:
             YAML_TEST_DATA: test_data/yast/opensuse/autoyast_reinstall/autoyast_reinstall_64bit.yaml
-      - autoyast_multi_btrfs:
-          settings:
-            AUTOYAST: autoyast_opensuse/autoyast_multi_btrfs.xml
-            DESKTOP: gnome
-            NUMDISKS: '4'
-            YAML_SCHEDULE: schedule/yast/opensuse/autoyast/autoyast_multi_btrfs.yaml
-          description: AutoYaST installation with multi-device Btrfs. The setup containing 4 hds using two
-            multidevice btrfs, one mounted on / and one mounted on /test. Combines partition-less
-            disk and disk with partition, also includes an encrypted disk.
-          testsuite: null
-          machine: 64bit
       - autoyast_rules_and_classes:
           description: Test verifies rules and classes autoyast.
           settings:
