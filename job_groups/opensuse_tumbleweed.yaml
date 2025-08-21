@@ -382,6 +382,15 @@ scenarios:
       - extra_tests_on_kde
       - extra_tests_on_xfce
       - extra_tests_textmode
+      - extra_tests_systemd-bsc_1241079:
+          testsuite: null
+          settings:
+            BOOT_HDD_IMAGE: '1'
+            DESKTOP: textmode
+            START_AFTER_TEST: create_hdd_textmode
+            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+            QEMURAM: '2048'
+            YAML_SCHEDULE: schedule/qam/common/mau-systemd-bsc_1241079.yaml
       - extra_tests_webserver
       - container_host_multi_runtime:
           testsuite: extra_tests_textmode_containers
