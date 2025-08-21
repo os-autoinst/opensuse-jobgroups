@@ -40,6 +40,6 @@ scenarios:
           testsuite: textmode
           settings:
             EXTRABOOTPARAMS: hvc_iucv=8
-            EXTRATEST: prepare,console
+            EXTRATEST: prepare,zypper,console
             # *_ipv6: poo#184040
             EXCLUDE_MODULES: curl_ipv6,wget_ipv6
