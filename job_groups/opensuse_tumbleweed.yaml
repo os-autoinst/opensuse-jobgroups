@@ -969,6 +969,7 @@ scenarios:
             YAML_SCHEDULE: schedule/yast/opensuse/lvm/lvm_thin_provisioning.yaml
       - openscap
       - upgrade_Leap_15.0_gnome:
+          machine: 64bit
           settings:
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.0_cryptlvm:
@@ -976,21 +977,31 @@ scenarios:
           settings:
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.0_kde:
+          machine: 64bit
           settings:
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.1_kde:
+          machine: 64bit
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.1_gnome:
+          machine: 64bit
           settings:
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.2_gnome:
+          machine: 64bit
           settings:
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.2_with_service_check:
+          machine: 64bit
           settings:
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.2_with_service_check_nested_vm_down:
+          machine: 64bit
           settings:
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.2_kde:
+          machine: 64bit
           settings:
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.2_cryptlvm:
@@ -998,15 +1009,25 @@ scenarios:
           settings:
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.3_gnome:
+          machine: 64bit
           settings:
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.3_kde:
+          machine: 64bit
           settings:
             QEMU_VIRTIO_RNG: "0"
-      - upgrade_Leap_15.5_gnome
-      - upgrade_Leap_15.6_gnome
-      - upgrade_Leap_15.5_kde
-      - upgrade_Leap_15.6_kde
+      - upgrade_Leap_15.5_gnome:
+          machine: 64bit
+      - upgrade_Leap_15.6_gnome:
+          machine: 64bit
+      - upgrade_Leap_15.5_kde:
+          machine: 64bit
+      - upgrade_Leap_15.6_kde:
+          machine: 64bit
+      - upgrade_boot-into_snapshot_rollback_Leap_15.1_gnome:
+          machine: 64bit
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - installer_extended
       - desktopapps-other:
           description: 'Maintainer: Yuan Ren (yuanren10). See https://progress.opensuse.org/issues/23906'
@@ -1268,12 +1289,6 @@ scenarios:
       - openqa_bootstrap_container
       - rootonly
       - qemu
-      - upgrade_Leap_15.1_gnome:
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - upgrade_boot-into_snapshot_rollback_Leap_15.1_gnome:
-          settings:
-            QEMU_VIRTIO_RNG: "0"
       - extra_tests_dracut
       - boot_linuxrc
       - RAID0_gpt_uefi:
@@ -1626,29 +1641,41 @@ scenarios:
           machine: 64bit
           priority: 45
       - upgrade_Leap_15.0_gnome:
+          machine: 64bit
           settings:
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.0_kde:
+          machine: 64bit
           settings:
             QEMU_VIRTIO_RNG: "0"
       - zdup-Leap-15.2-kde:
+          machine: 64bit
           settings:
             QEMU_VIRTIO_RNG: "0"
       - zdup-Leap-15.2-gnome:
+          machine: 64bit
           settings:
             QEMU_VIRTIO_RNG: "0"
       - zdup-Leap-15.3-kde:
+          machine: 64bit
           settings:
             QEMU_VIRTIO_RNG: "0"
       - zdup-Leap-15.3-gnome:
+          machine: 64bit
           settings:
             QEMU_VIRTIO_RNG: "0"
-      - zdup-Leap-15.4-gnome
-      - zdup-Leap-15.5-gnome
-      - zdup-Leap-15.6-gnome
-      - zdup-Leap-15.4-kde
-      - zdup-Leap-15.5-kde
-      - zdup-Leap-15.6-kde
+      - zdup-Leap-15.4-gnome:
+          machine: 64bit
+      - zdup-Leap-15.5-gnome:
+          machine: 64bit
+      - zdup-Leap-15.6-gnome:
+          machine: 64bit
+      - zdup-Leap-15.4-kde:
+          machine: 64bit
+      - zdup-Leap-15.5-kde:
+          machine: 64bit
+      - zdup-Leap-15.6-kde:
+          machine: 64bit
       - create_hdd_minimalx
       - create_hdd_tumbleweed:
           # Workaround for boo#1200753
