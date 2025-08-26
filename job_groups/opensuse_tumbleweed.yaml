@@ -357,7 +357,6 @@ scenarios:
       - create_hdd_gnome_wicked
       - create_hdd_kde:
           priority: 45
-      - lvm+RAID1
       - boot_to_snapshot
       - yast2_firstboot
       - yast2_firstboot_custom
@@ -953,18 +952,21 @@ scenarios:
             START_AFTER_TEST: 'create_hdd_textmode_apparmor'
             HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-apparmor@%MACHINE%.qcow2'
       - security_misc_o3
+      - lvm+RAID1:
+          machine: 64bit
       - lvm-encrypt-separate-boot:
           machine: 64bit
           settings:
             YAML_TEST_DATA: test_data/yast/encryption/lvm_encrypt_separate_boot_luks2.yaml
       - lvm-full-encrypt:
+          machine: 64bit
           settings:
             YAML_TEST_DATA: test_data/yast/encryption/full_lvm_enc_luks2.yaml
-      - openscap
       - lvm_thin_provisioning:
           machine: 64bit
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/lvm/lvm_thin_provisioning.yaml
+      - openscap
       - upgrade_Leap_15.0_gnome:
           settings:
             QEMU_VIRTIO_RNG: "0"
