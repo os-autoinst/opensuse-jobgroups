@@ -331,6 +331,9 @@ scenarios:
       - minimalx_btrfs_snapper
       - create_hdd_textmode:
           priority: 45
+      - create_hdd_textmode:
+          priority: 45
+          machine: 64bit
       - create_hdd_textmode_100G:
           machine: 64bit
           testsuite: create_hdd_textmode
@@ -348,6 +351,9 @@ scenarios:
           priority: 45
       - create_hdd_gnome:
           priority: 45
+      - create_hdd_gnome:
+          priority: 45
+          machine: 64bit
       - create_hdd_gnome_apparmor:
           priority: 45
           testsuite: 'create_hdd_gnome'
