@@ -1541,6 +1541,7 @@ scenarios:
       - kde-live-wayland:
           machine: 64bit_virtio-3G
       - kde_live_upgrade_leap_15.0:
+          machine: 64bit
           settings:
             QEMURAM: "3072"
             QEMU_VIRTIO_RNG: "0"
@@ -1549,14 +1550,17 @@ scenarios:
           settings:
             QEMURAM: "3072"
       - kde_live_upgrade_leap_15.3:
+          machine: 64bit
           settings:
             QEMURAM: "3072"
             QEMU_VIRTIO_RNG: "0"
       - kde_live_upgrade_leap_15.5:
+          machine: 64bit
           settings:
             QEMURAM: "3072"
             QEMU_VIRTIO_RNG: "0"
       - kde_live_upgrade_leap_15.6:
+          machine: 64bit
           settings:
             QEMURAM: "3072"
             QEMU_VIRTIO_RNG: "0"
