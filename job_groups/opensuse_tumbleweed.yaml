@@ -1178,9 +1178,11 @@ scenarios:
           testsuite: null
           machine: 64bit_virtio
       - remote_ssh_controller:
+          machine: 64bit
           settings:
             HDD_1: support_server_tumbleweed@64bit.qcow2
-      - remote_ssh_target
+      - remote_ssh_target:
+          machine: 64bit
       - remote-desktop-client4:
           description: ''
           settings:
@@ -1298,6 +1300,7 @@ scenarios:
             YAML_SCHEDULE: schedule/yast/opensuse/modify_existing_partition.yaml
           testsuite: null
       - remote_vnc_controller:
+          machine: 64bit
           settings:
             BOOT_HDD_IMAGE: '1'
             DESKTOP: gnome
@@ -1314,6 +1317,7 @@ scenarios:
           description: Controller performs remote installation via vnc to the target
           testsuite: null
       - remote_vnc_target:
+          machine: 64bit
           settings:
             DESKTOP: gnome
             INSTALLONLY: '1'
