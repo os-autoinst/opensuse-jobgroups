@@ -858,7 +858,8 @@ scenarios:
             YAML_SCHEDULE_FLOWS: server,guided
             YAML_SCHEDULE: schedule/yast/tumbleweed/guided_btrfs.yaml
           testsuite: null
-      - package-dependency
+      - package-dependency:
+          machine: 64bit
       - nvme:
           machine: uefi
       - extra_tests_filesystem
