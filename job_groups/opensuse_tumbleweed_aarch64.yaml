@@ -1077,6 +1077,8 @@ scenarios:
             LTP_TAINT_EXPECTED: '0x13801'
       - jeos-ltp-syscalls-ipc:
           machine: aarch64-HD20G
+      - jeos-selinux:
+          machine: aarch64-HD20G
       - zdup_twjeos2twnext_aarch64:
           machine: aarch64-HD20G
           priority: 45
