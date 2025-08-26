@@ -1644,28 +1644,28 @@ scenarios:
       - create_hdd_minimalx
       - create_hdd_tumbleweed:
           # Workaround for boo#1200753
-          machine: 64bit-3G
+          machine: uefi-3G
       - zdup_tw2twnext_gnome:
           # Workaround for boo#1200753
-          machine: 64bit-3G
+          machine: uefi-3G
       - zdup_in_x_tw2twnext_gnome:
           # Workaround for boo#1200753
-          machine: 64bit-3G
+          machine: uefi-3G
       - update_tw2twnext_gnome:
           # Workaround for boo#1200753
-          machine: 64bit-3G
+          machine: uefi-3G
       - create_hdd_tumbleweed_kde:
           # Workaround for boo#1200753
-          machine: 64bit-3G
+          machine: uefi-3G
       - zdup_tw2twnext_kde:
           # Workaround for boo#1200753
-          machine: 64bit-3G
+          machine: uefi-3G
       - zdup_in_x_tw2twnext_kde:
           # Workaround for boo#1200753
-          machine: 64bit-3G
+          machine: uefi-3G
       - update_tw2twnext_kde:
           # Workaround for boo#1200753
-          machine: 64bit-3G
+          machine: uefi-3G
       - otherDE_enlightenment
       - otherDE_lxqt
       - otherDE_mate
