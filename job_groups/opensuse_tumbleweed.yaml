@@ -1289,6 +1289,7 @@ scenarios:
             DESKTOP: kde
       - modify_existing_partition:
           description: Suite that modifies/resizes a partition on a previsously formatted disk. Depends on create_hdd_gnome.
+          machine: 64bit
           settings:
             DESKTOP: textmode
             HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-gnome@%MACHINE%.qcow2'
