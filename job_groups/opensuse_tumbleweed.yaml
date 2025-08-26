@@ -1603,6 +1603,7 @@ scenarios:
           settings:
             DESKTOP: kde
       - containers_tw_image_on_centos_host:
+          machine: 64bit
           testsuite: null
           description: 'Runs image container test on Centos using podman'
           settings:
@@ -1617,6 +1618,7 @@ scenarios:
             CONTAINERS_NO_SUSE_OS: "1"
             CONTAINER_RUNTIMES: "podman"
       - containers_tw_image_on_ubuntu_host:
+          machine: 64bit
           testsuite: null
           description: 'Runs image container test on Ubuntu using docker and podman'
           settings:
