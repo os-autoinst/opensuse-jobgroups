@@ -253,9 +253,6 @@ scenarios:
           machine: 64bit
           priority: 40
       - kde:
-          machine: 64bit_cirrus-2G
-          priority: 40
-      - kde:
           machine: Laptop_64
           priority: 40
       - uefi:
@@ -270,9 +267,6 @@ scenarios:
       - gnome:
           machine: 64bit
           priority: 45
-      # - gnome:
-      #   machine: 64bit_cirrus
-      #   priority: 45
       - minimalx:
           machine: 64bit
           priority: 45
@@ -824,11 +818,9 @@ scenarios:
           machine: 64bit_win
       - kde-sddm
       - gnome+import_ssh_keys:
-          machine: 64bit_cirrus
           settings:
             HDD_1: opensuse-leap-updated-%ARCH%-%DESKTOP%.qcow2
       - gnome+do_not_import_ssh_keys:
-          machine: 64bit_cirrus-2G
           settings:
             HDD_1: opensuse-leap-updated-%ARCH%-%DESKTOP%.qcow2
       - autoyast_y2_firstboot
