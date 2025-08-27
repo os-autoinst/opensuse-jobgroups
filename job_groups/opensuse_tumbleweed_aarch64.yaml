@@ -1041,7 +1041,7 @@ scenarios:
           machine: aarch64_cpu_max-HD20G
           priority: 45
       - jeos-extra:
-          machine: aarch64-HD20G
+          machine: aarch64-HD24G
           priority: 45
           settings:
             QEMURAM: '4096'
