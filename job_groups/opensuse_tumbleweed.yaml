@@ -33,7 +33,7 @@
 
 defaults:
   x86_64:
-    machine: 64bit
+    machine: uefi
     priority: 50
 products:
   microos-*-DVD-x86_64:
