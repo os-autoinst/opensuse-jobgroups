@@ -332,6 +332,7 @@ scenarios:
       - create_hdd_textmode:
           priority: 45
       - create_hdd_textmode_100G:
+          machine: 64bit
           testsuite: create_hdd_textmode
           settings:
             +HDDSIZEGB: '100'
