@@ -818,9 +818,11 @@ scenarios:
           machine: 64bit_win
       - kde-sddm
       - gnome+import_ssh_keys:
+          machine: 64bit
           settings:
             HDD_1: opensuse-leap-updated-%ARCH%-%DESKTOP%.qcow2
       - gnome+do_not_import_ssh_keys:
+          machine: 64bit
           settings:
             HDD_1: opensuse-leap-updated-%ARCH%-%DESKTOP%.qcow2
       - autoyast_y2_firstboot
