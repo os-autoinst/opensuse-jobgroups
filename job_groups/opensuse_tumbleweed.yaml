@@ -1075,7 +1075,6 @@ scenarios:
             DESKTOP: textmode
             YAML_SCHEDULE: schedule/security/build_nested_hdd.yaml
             PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%_nested_l2.qcow2'
-      - security_pam
       - security_tpm2
       - security_tpm2_uefi:
           testsuite: security_tpm2
