@@ -33,7 +33,7 @@
 
 defaults:
   x86_64:
-    machine: 64bit
+    machine: uefi
     priority: 50
 products:
   microos-*-DVD-x86_64:
@@ -331,7 +331,11 @@ scenarios:
       - minimalx_btrfs_snapper
       - create_hdd_textmode:
           priority: 45
+      - create_hdd_textmode:
+          priority: 45
+          machine: 64bit
       - create_hdd_textmode_100G:
+          machine: 64bit
           testsuite: create_hdd_textmode
           settings:
             +HDDSIZEGB: '100'
@@ -347,6 +351,9 @@ scenarios:
           priority: 45
       - create_hdd_gnome:
           priority: 45
+      - create_hdd_gnome:
+          priority: 45
+          machine: 64bit
       - create_hdd_gnome_apparmor:
           priority: 45
           testsuite: 'create_hdd_gnome'
@@ -357,7 +364,6 @@ scenarios:
       - create_hdd_gnome_wicked
       - create_hdd_kde:
           priority: 45
-      - lvm+RAID1
       - boot_to_snapshot
       - yast2_firstboot
       - yast2_firstboot_custom
@@ -818,30 +824,22 @@ scenarios:
           machine: 64bit_win
       - kde-sddm
       - gnome+import_ssh_keys:
+          machine: 64bit
           settings:
             HDD_1: opensuse-leap-updated-%ARCH%-%DESKTOP%.qcow2
       - gnome+do_not_import_ssh_keys:
+          machine: 64bit
           settings:
             HDD_1: opensuse-leap-updated-%ARCH%-%DESKTOP%.qcow2
       - autoyast_y2_firstboot
-      - autoyast_btrfs_quota
+      - autoyast_btrfs_quota:
+          machine: 64bit
       - autoyast_gnome:
           machine: 64bit
       - autoyast_minimal
       - autoyast_reinstall_gnome:
           settings:
             YAML_TEST_DATA: test_data/yast/opensuse/autoyast_reinstall/autoyast_reinstall_64bit.yaml
-      - autoyast_multi_btrfs:
-          settings:
-            AUTOYAST: autoyast_opensuse/autoyast_multi_btrfs.xml
-            DESKTOP: gnome
-            NUMDISKS: '4'
-            YAML_SCHEDULE: schedule/yast/opensuse/autoyast/autoyast_multi_btrfs.yaml
-          description: AutoYaST installation with multi-device Btrfs. The setup containing 4 hds using two
-            multidevice btrfs, one mounted on / and one mounted on /test. Combines partition-less
-            disk and disk with partition, also includes an encrypted disk.
-          testsuite: null
-          machine: 64bit
       - autoyast_rules_and_classes:
           description: Test verifies rules and classes autoyast.
           settings:
@@ -869,7 +867,8 @@ scenarios:
             YAML_SCHEDULE_FLOWS: server,guided
             YAML_SCHEDULE: schedule/yast/tumbleweed/guided_btrfs.yaml
           testsuite: null
-      - package-dependency
+      - package-dependency:
+          machine: 64bit
       - nvme:
           machine: uefi
       - extra_tests_filesystem
@@ -963,19 +962,23 @@ scenarios:
             START_AFTER_TEST: 'create_hdd_textmode_apparmor'
             HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-apparmor@%MACHINE%.qcow2'
       - security_misc_o3
+      - lvm+RAID1:
+          machine: 64bit
       - lvm-encrypt-separate-boot:
           machine: 64bit
           settings:
             YAML_TEST_DATA: test_data/yast/encryption/lvm_encrypt_separate_boot_luks2.yaml
       - lvm-full-encrypt:
+          machine: 64bit
           settings:
             YAML_TEST_DATA: test_data/yast/encryption/full_lvm_enc_luks2.yaml
-      - openscap
       - lvm_thin_provisioning:
           machine: 64bit
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/lvm/lvm_thin_provisioning.yaml
+      - openscap
       - upgrade_Leap_15.0_gnome:
+          machine: 64bit
           settings:
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.0_cryptlvm:
@@ -983,21 +986,31 @@ scenarios:
           settings:
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.0_kde:
+          machine: 64bit
           settings:
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.1_kde:
+          machine: 64bit
+          settings:
+            QEMU_VIRTIO_RNG: "0"
+      - upgrade_Leap_15.1_gnome:
+          machine: 64bit
           settings:
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.2_gnome:
+          machine: 64bit
           settings:
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.2_with_service_check:
+          machine: 64bit
           settings:
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.2_with_service_check_nested_vm_down:
+          machine: 64bit
           settings:
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.2_kde:
+          machine: 64bit
           settings:
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.2_cryptlvm:
@@ -1005,15 +1018,25 @@ scenarios:
           settings:
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.3_gnome:
+          machine: 64bit
           settings:
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.3_kde:
+          machine: 64bit
           settings:
             QEMU_VIRTIO_RNG: "0"
-      - upgrade_Leap_15.5_gnome
-      - upgrade_Leap_15.6_gnome
-      - upgrade_Leap_15.5_kde
-      - upgrade_Leap_15.6_kde
+      - upgrade_Leap_15.5_gnome:
+          machine: 64bit
+      - upgrade_Leap_15.6_gnome:
+          machine: 64bit
+      - upgrade_Leap_15.5_kde:
+          machine: 64bit
+      - upgrade_Leap_15.6_kde:
+          machine: 64bit
+      - upgrade_boot-into_snapshot_rollback_Leap_15.1_gnome:
+          machine: 64bit
+          settings:
+            QEMU_VIRTIO_RNG: "0"
       - installer_extended
       - desktopapps-other:
           description: 'Maintainer: Yuan Ren (yuanren10). See https://progress.opensuse.org/issues/23906'
@@ -1052,7 +1075,6 @@ scenarios:
             DESKTOP: textmode
             YAML_SCHEDULE: schedule/security/build_nested_hdd.yaml
             PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%_nested_l2.qcow2'
-      - security_pam
       - security_tpm2
       - security_tpm2_uefi:
           testsuite: security_tpm2
@@ -1185,9 +1207,11 @@ scenarios:
           testsuite: null
           machine: 64bit_virtio
       - remote_ssh_controller:
+          machine: 64bit
           settings:
             HDD_1: support_server_tumbleweed@64bit.qcow2
-      - remote_ssh_target
+      - remote_ssh_target:
+          machine: 64bit
       - remote-desktop-client4:
           description: ''
           settings:
@@ -1273,12 +1297,6 @@ scenarios:
       - openqa_bootstrap_container
       - rootonly
       - qemu
-      - upgrade_Leap_15.1_gnome:
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - upgrade_boot-into_snapshot_rollback_Leap_15.1_gnome:
-          settings:
-            QEMU_VIRTIO_RNG: "0"
       - extra_tests_dracut
       - boot_linuxrc
       - RAID0_gpt_uefi:
@@ -1297,6 +1315,7 @@ scenarios:
             DESKTOP: kde
       - modify_existing_partition:
           description: Suite that modifies/resizes a partition on a previsously formatted disk. Depends on create_hdd_gnome.
+          machine: 64bit
           settings:
             DESKTOP: textmode
             HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-gnome@%MACHINE%.qcow2'
@@ -1304,6 +1323,7 @@ scenarios:
             YAML_SCHEDULE: schedule/yast/opensuse/modify_existing_partition.yaml
           testsuite: null
       - remote_vnc_controller:
+          machine: 64bit
           settings:
             BOOT_HDD_IMAGE: '1'
             DESKTOP: gnome
@@ -1320,6 +1340,7 @@ scenarios:
           description: Controller performs remote installation via vnc to the target
           testsuite: null
       - remote_vnc_target:
+          machine: 64bit
           settings:
             DESKTOP: gnome
             INSTALLONLY: '1'
@@ -1528,6 +1549,7 @@ scenarios:
       - kde-live-wayland:
           machine: 64bit_virtio-3G
       - kde_live_upgrade_leap_15.0:
+          machine: 64bit
           settings:
             QEMURAM: "3072"
             QEMU_VIRTIO_RNG: "0"
@@ -1536,14 +1558,17 @@ scenarios:
           settings:
             QEMURAM: "3072"
       - kde_live_upgrade_leap_15.3:
+          machine: 64bit
           settings:
             QEMURAM: "3072"
             QEMU_VIRTIO_RNG: "0"
       - kde_live_upgrade_leap_15.5:
+          machine: 64bit
           settings:
             QEMURAM: "3072"
             QEMU_VIRTIO_RNG: "0"
       - kde_live_upgrade_leap_15.6:
+          machine: 64bit
           settings:
             QEMURAM: "3072"
             QEMU_VIRTIO_RNG: "0"
@@ -1590,6 +1615,7 @@ scenarios:
           settings:
             DESKTOP: kde
       - containers_tw_image_on_centos_host:
+          machine: 64bit
           testsuite: null
           description: 'Runs image container test on Centos using podman'
           settings:
@@ -1604,6 +1630,7 @@ scenarios:
             CONTAINERS_NO_SUSE_OS: "1"
             CONTAINER_RUNTIMES: "podman"
       - containers_tw_image_on_ubuntu_host:
+          machine: 64bit
           testsuite: null
           description: 'Runs image container test on Ubuntu using docker and podman'
           settings:
@@ -1628,54 +1655,66 @@ scenarios:
           machine: 64bit
           priority: 45
       - upgrade_Leap_15.0_gnome:
+          machine: 64bit
           settings:
             QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.0_kde:
+          machine: 64bit
           settings:
             QEMU_VIRTIO_RNG: "0"
       - zdup-Leap-15.2-kde:
+          machine: 64bit
           settings:
             QEMU_VIRTIO_RNG: "0"
       - zdup-Leap-15.2-gnome:
+          machine: 64bit
           settings:
             QEMU_VIRTIO_RNG: "0"
       - zdup-Leap-15.3-kde:
+          machine: 64bit
           settings:
             QEMU_VIRTIO_RNG: "0"
       - zdup-Leap-15.3-gnome:
+          machine: 64bit
           settings:
             QEMU_VIRTIO_RNG: "0"
-      - zdup-Leap-15.4-gnome
-      - zdup-Leap-15.5-gnome
-      - zdup-Leap-15.6-gnome
-      - zdup-Leap-15.4-kde
-      - zdup-Leap-15.5-kde
-      - zdup-Leap-15.6-kde
+      - zdup-Leap-15.4-gnome:
+          machine: 64bit
+      - zdup-Leap-15.5-gnome:
+          machine: 64bit
+      - zdup-Leap-15.6-gnome:
+          machine: 64bit
+      - zdup-Leap-15.4-kde:
+          machine: 64bit
+      - zdup-Leap-15.5-kde:
+          machine: 64bit
+      - zdup-Leap-15.6-kde:
+          machine: 64bit
       - create_hdd_minimalx
       - create_hdd_tumbleweed:
           # Workaround for boo#1200753
-          machine: 64bit-3G
+          machine: uefi-3G
       - zdup_tw2twnext_gnome:
           # Workaround for boo#1200753
-          machine: 64bit-3G
+          machine: uefi-3G
       - zdup_in_x_tw2twnext_gnome:
           # Workaround for boo#1200753
-          machine: 64bit-3G
+          machine: uefi-3G
       - update_tw2twnext_gnome:
           # Workaround for boo#1200753
-          machine: 64bit-3G
+          machine: uefi-3G
       - create_hdd_tumbleweed_kde:
           # Workaround for boo#1200753
-          machine: 64bit-3G
+          machine: uefi-3G
       - zdup_tw2twnext_kde:
           # Workaround for boo#1200753
-          machine: 64bit-3G
+          machine: uefi-3G
       - zdup_in_x_tw2twnext_kde:
           # Workaround for boo#1200753
-          machine: 64bit-3G
+          machine: uefi-3G
       - update_tw2twnext_kde:
           # Workaround for boo#1200753
-          machine: 64bit-3G
+          machine: uefi-3G
       - otherDE_enlightenment
       - otherDE_lxqt
       - otherDE_mate
