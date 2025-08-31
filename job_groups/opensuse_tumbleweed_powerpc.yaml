@@ -91,6 +91,16 @@ scenarios:
             QEMURAM: '4096'
             QEMUCPUS: '2'
             RETRY: '1'
+      - container_host_conmon_testsuite:
+          description: |-
+            Maintainer: qe-c@suse.de https://github.com/os-autoinst/os-autoinst-distri-opensuse/tree/master/tests/containers/bats
+          testsuite: extra_tests_textmode_containers
+          settings:
+            BATS_PACKAGE: 'conmon'
+            CONTAINER_RUNTIMES: 'podman'
+            QEMURAM: '4096'
+            QEMUCPUS: '2'
+            RETRY: '1'
       - container_host_netavark_testsuite:
           description: |-
             Maintainer: qe-c@suse.de https://github.com/os-autoinst/os-autoinst-distri-opensuse/tree/master/tests/containers/bats
