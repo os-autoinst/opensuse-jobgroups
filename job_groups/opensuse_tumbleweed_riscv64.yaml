@@ -15,12 +15,25 @@ defaults:
     machine: riscv64_cpu_max
     priority: 50
 products:
+  opensuse-Tumbleweed-DVD-riscv64:
+    distri: opensuse
+    flavor: DVD
+    version: Tumbleweed
+  opensuse-Tumbleweed-NET-riscv64:
+    distri: opensuse
+    flavor: NET
+    version: Tumbleweed
   opensuse-Tumbleweed-JeOS-for-RISCV-riscv64:
     distri: opensuse
     flavor: JeOS-for-RISCV
     version: Tumbleweed
 scenarios:
   riscv64:
+    opensuse-Tumbleweed-DVD-riscv64:
+      - textmode
+    opensuse-Tumbleweed-NET-riscv64:
+      - create_hdd_textmode
+      - extra_tests_filesystem
     opensuse-Tumbleweed-JeOS-for-RISCV-riscv64:
       - jeos:
           settings:
