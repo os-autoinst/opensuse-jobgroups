@@ -1223,6 +1223,7 @@ scenarios:
       - remote_ssh_target:
           machine: 64bit
       - remote-desktop-client4:
+          machine: 64bit
           description: ''
           settings:
             BOOTFROM: c
@@ -1238,6 +1239,7 @@ scenarios:
             WORKER_CLASS: tap
           testsuite: null
       - remote-desktop-supportserver4:
+          machine: 64bit
           description: ''
           settings:
             BOOTFROM: c
