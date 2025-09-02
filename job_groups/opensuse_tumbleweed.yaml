@@ -1529,11 +1529,13 @@ scenarios:
       - jeos-ltp-syscalls-ipc:
           machine: uefi_virtio-2G
       - jeos-ssh-enroll-server:
+          machine: 64bit
           settings:
             +HDD_1: 'support_server_tumbleweed@64bit.qcow2'
             SSH_ENROLL_PAIR: '1'
             YAML_SCHEDULE: schedule/jeos/supportserver.yaml
       - jeos-ssh-enroll-wizard:
+          machine: 64bit
           settings:
             PARALLEL_WITH: jeos-ssh-enroll-server
             YAML_SCHEDULE: schedule/jeos/ssh-enroll.yaml
