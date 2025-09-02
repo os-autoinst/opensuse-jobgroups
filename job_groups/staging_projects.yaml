@@ -13,7 +13,7 @@ defaults:
     machine: ppc64le
     priority: 50
   x86_64:
-    machine: 64bit
+    machine: uefi-staging
     priority: 50
 products:
   microos-*-Staging-DVD-x86_64:
@@ -60,8 +60,7 @@ scenarios:
             CONTAINER_RUNTIMES: podman
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
     opensuse-*-Staging-DVD-x86_64:
-      - textmode:
-          machine: 64bit
+      - textmode
       - kde:
           machine: 64bit
           priority: 45
@@ -75,7 +74,6 @@ scenarios:
             QEMUCPUS: '2'
             QEMURAM: '2048'
       - gnome:
-          machine: 64bit
           priority: 45
       - create_hdd_gnome-staging:
           machine: 64bit
@@ -87,17 +85,16 @@ scenarios:
           machine: 64bit
           priority: 45
       - minimalx:
-          machine: uefi-staging
           priority: 45
       - cryptlvm:
           machine: 64bit
-      - cryptlvm:
-          machine: uefi-staging
+      - cryptlvm
       - rescue_system:
           machine: 64bit
       - upgrade_staging:
           machine: 64bit
       - autoyast_mini:
+          machine: 64bit
           description: |
             Autoyast installation test using minimal profile, hence relying on default values.
             Configured parameters are set not to ignore any messages and create users
@@ -108,7 +105,8 @@ scenarios:
             DESKTOP: textmode
             INSTALLONLY: '1'
           testsuite: null
-      - RAID0_gpt
+      - RAID0_gpt:
+          machine: 64bit
       - RAID1_gpt:
           machine: 64bit
     opensuse-Core-Staging-DVD-x86_64:
