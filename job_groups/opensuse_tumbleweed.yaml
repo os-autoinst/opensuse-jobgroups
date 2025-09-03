@@ -1137,6 +1137,8 @@ scenarios:
           testsuite: null
       - create_hdd_gnome-x11:
           priority: 46
+      - create_hdd_gnome-x11:
+          machine: 64bit
       - create_hdd_gnome-wayland:
           machine: 64bit_virtio
           priority: 45
