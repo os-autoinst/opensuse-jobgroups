@@ -421,6 +421,13 @@ scenarios:
             <<: *docker-selinux
             CONTAINERS_DOCKER_FLAVOUR: 'stable'
             QEMUCPUS: '2'
+      - container_host_docker_testsuite:
+          testsuite: extra_tests_textmode_containers
+          settings:
+            CONTAINER_RUNTIMES: 'docker'
+            CONTAINER_TESTS: 'docker_compose'
+            QEMUCPUS: '2'
+            QEMURAM: '4096'
       - container_host_podman_apparmor:
           testsuite: extra_tests_textmode_containers
           settings:
