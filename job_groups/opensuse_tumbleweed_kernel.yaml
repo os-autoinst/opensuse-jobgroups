@@ -347,6 +347,9 @@ scenarios:
       - ltp_syscalls:
           settings:
             LTP_TAINT_EXPECTED: '0x13801'
+      - ltp_syscalls_kotd:
+          settings:
+            LTP_TAINT_EXPECTED: '0x13801'
       - kernel-live-patching:
           settings:
             INSTALL_LTP: ''
