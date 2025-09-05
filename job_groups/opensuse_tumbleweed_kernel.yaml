@@ -327,9 +327,6 @@ scenarios:
       - xfstests_nfs3-nfs
   s390x:
     opensuse-Tumbleweed-DVD-s390x:
-      - install_ltp_kotd+opensuse+DVD:
-          settings:
-            KOTD_REPO: 'https://download.opensuse.org/repositories/Kernel:/HEAD/S390/'
       - kdump:
           settings:
             KDUMP: '1'
@@ -354,6 +351,7 @@ scenarios:
             LTP_TAINT_EXPECTED: '0x13801'
       - ltp_syscalls_kotd:
           settings:
+            KOTD_REPO: 'https://download.opensuse.org/repositories/Kernel:/HEAD/S390/'
             LTP_TAINT_EXPECTED: '0x13801'
       - kernel-live-patching:
           settings:
