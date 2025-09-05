@@ -87,8 +87,9 @@ scenarios:
       - minimalx:
           priority: 45
       - cryptlvm:
-          machine: 64bit
-      - cryptlvm
+          machine: 64bit-2G
+      - cryptlvm:
+          machine: uefi-staging-2G
       - rescue_system:
           machine: 64bit
       - upgrade_staging:
