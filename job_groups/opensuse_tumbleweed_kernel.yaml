@@ -351,6 +351,7 @@ scenarios:
             LTP_TAINT_EXPECTED: '0x13801'
       - ltp_syscalls_kotd:
           settings:
+            INSTALL_KOTD: '1'
             KOTD_REPO: 'https://download.opensuse.org/repositories/Kernel:/HEAD/S390/'
             LTP_TAINT_EXPECTED: '0x13801'
       - kernel-live-patching:
