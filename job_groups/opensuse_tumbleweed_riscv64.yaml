@@ -12,7 +12,7 @@
 
 defaults:
   riscv64:
-    machine: riscv64_cpu_max
+    machine: riscv64
     priority: 50
 products:
   opensuse-Tumbleweed-DVD-riscv64:
