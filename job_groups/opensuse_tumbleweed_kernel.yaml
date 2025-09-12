@@ -380,6 +380,7 @@ scenarios:
       - kernel-live-patching
       - kselftests-livepatch
       - kselftests-bpf
+      - kselftests-bpf-progs
       - ltp_aio_stress
       - ltp_aiodio_part1
       - ltp_aiodio_part2
