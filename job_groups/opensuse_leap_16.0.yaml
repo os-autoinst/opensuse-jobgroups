@@ -17,7 +17,7 @@ defaults:
     machine: aarch64
     priority: 55
   ppc64le:
-    machine: ppc64le
+    machine: ppc64le-p10
     priority: 55
   s390x:
     machine: s390x-zVM-vswitch-l2
@@ -152,17 +152,13 @@ scenarios:
           machine: USBboot_aarch64
   ppc64le:
     opensuse-online-installer-ppc64le:
-      - gnome-agama:
-          machine: ppc64le
-      - kde-agama:
-          machine: ppc64le
+      - gnome-agama
+      - kde-agama
       - zdup-Leap-15.6-gnome
       - zdup-Leap-15.6-kde
     opensuse-offline-installer-ppc64le:
-      - gnome-agama:
-          machine: ppc64le
-      - kde-agama:
-          machine: ppc64le
+      - gnome-agama
+      - kde-agama
   s390x:
     opensuse-online-installer-s390x:
       - gnome-agama:
