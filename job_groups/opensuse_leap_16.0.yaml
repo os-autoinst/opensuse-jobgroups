@@ -76,7 +76,7 @@ scenarios:
           machine: uefi-3G
           testsuite: null
           settings:
-            AGAMA_PRODUCT_ID: 'Leap_16.0'
+            AGAMA_PRODUCT_ID: 'openSUSE_Leap'
             +QEMUCPU: host
             INST_AUTO: agama_auto/leap_default.jsonnet
             DESKTOP: textmode
@@ -89,7 +89,7 @@ scenarios:
           machine: uefi-3G
           testsuite: null
           settings:
-            AGAMA_PRODUCT_ID: 'Leap_16.0'
+            AGAMA_PRODUCT_ID: 'openSUSE_Leap'
             +QEMUCPU: host
             INST_AUTO: agama_auto/leap_gnome.jsonnet
             DESKTOP: gnome
@@ -122,7 +122,7 @@ scenarios:
       - create_hdd_textmode:
           testsuite: null
           settings:
-            AGAMA_PRODUCT_ID: 'Leap_16.0'
+            AGAMA_PRODUCT_ID: 'openSUSE_Leap'
             +QEMUCPU: host
             AGAMA: '1'
             INST_AUTO: agama_auto/leap_default.jsonnet
@@ -135,7 +135,7 @@ scenarios:
       - create_hdd_gnome:
           testsuite: null
           settings:
-            AGAMA_PRODUCT_ID: 'Leap_16.0'
+            AGAMA_PRODUCT_ID: 'openSUSE_Leap'
             +QEMUCPU: host
             AGAMA: '1'
             INST_AUTO: agama_auto/leap_gnome.jsonnet
