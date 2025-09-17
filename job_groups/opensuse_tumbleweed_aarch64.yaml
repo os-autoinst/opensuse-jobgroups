@@ -1183,14 +1183,22 @@ scenarios:
           priority: 40
       - create_hdd_tumbleweed:
           priority: 45
-      - zdup_tw2twnext_gnome
-      - zdup_in_x_tw2twnext_gnome
-      - update_tw2twnext_gnome
+          machine: aarch64-3G
+      - zdup_tw2twnext_gnome:
+          machine: aarch64-3G
+      - zdup_in_x_tw2twnext_gnome:
+          machine: aarch64-3G
+      - update_tw2twnext_gnome:
+          machine: aarch64-3G
       - create_hdd_tumbleweed_kde:
           priority: 45
-      - zdup_tw2twnext_kde
-      - zdup_in_x_tw2twnext_kde
-      - update_tw2twnext_kde
+          machine: aarch64-3G
+      - zdup_tw2twnext_kde:
+          machine: aarch64-3G
+      - zdup_in_x_tw2twnext_kde:
+          machine: aarch64-3G
+      - update_tw2twnext_kde:
+          machine: aarch64-3G
       - otherDE_enlightenment
       - otherDE_lxqt
       - otherDE_mate
