@@ -874,6 +874,12 @@ scenarios:
       - extra_tests_ai_ml
       - extra_tests_ai_ml:
           machine: aarch64_lse_smp4
+      - extra_tests_himmelblau:
+          testsuite: null
+          settings:
+            EXTRATEST: himmelblau
+            HIMMELBLAU_ALLOWED_USERS: ''
+            HIMMELBLAU_ALLOWED_GROUPS: ''
       - yast2_firstboot
       - yast2_firstboot_custom
       - wireguard_server:
