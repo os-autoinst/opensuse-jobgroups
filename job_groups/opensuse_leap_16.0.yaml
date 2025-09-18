@@ -21,6 +21,8 @@ defaults:
     priority: 55
   s390x:
     machine: s390x-zVM-vswitch-l2
+    settings:
+      +S390_NETWORK_PARAMS: rd.zdev=qeth,0.0.0A00:0.0.0A01:0.0.0A02,layer2=0,portno=0 nameserver=10.150.1.11
     priority: 55
 products:
   opensuse-online-installer-x86_64:
