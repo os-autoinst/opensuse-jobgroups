@@ -425,7 +425,7 @@ scenarios:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIMES: 'docker'
-            CONTAINER_TESTS: 'docker_compose'
+            CONTAINER_TESTS: 'docker_compose,python_runtime'
             QEMUCPUS: '2'
             QEMURAM: '4096'
       - container_host_podman_apparmor:
