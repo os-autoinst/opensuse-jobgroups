@@ -422,6 +422,8 @@ scenarios:
             CONTAINERS_DOCKER_FLAVOUR: 'stable'
             QEMUCPUS: '2'
       - container_host_docker_testsuite:
+          description: |-
+            Maintainer: qe-c@suse.de https://github.com/os-autoinst/os-autoinst-distri-opensuse/tree/master/tests/containers/README.md
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIMES: 'docker'
@@ -429,6 +431,8 @@ scenarios:
             QEMUCPUS: '2'
             QEMURAM: '4096'
       - container_host_podman_e2e:
+          description: |-
+            Maintainer: qe-c@suse.de https://github.com/os-autoinst/os-autoinst-distri-opensuse/tree/master/tests/containers/README.md
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIMES: 'podman'
