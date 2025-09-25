@@ -844,17 +844,11 @@ scenarios:
             YAML_SCHEDULE: schedule/yast/opensuse/btrfs/btrfs+warnings.yaml
             YAML_TEST_DATA: test_data/yast/opensuse/btrfs/btrfs+warnings_aarch64.yaml
       - desktopapps-other-wayland
-      - create_hdd_gnome-x11:
-          priority: 40
       - create_hdd_gnome-wayland:
           priority: 45
-      - desktopapps-other-x11
-      - desktopapps-documentation-x11
       - desktopapps-documentation-wayland
-      - desktopapps-gnome-x11
       - desktopapps-gnome-wayland
       - toolkits
-      - gnome-x11-ibus
       - toolkits-kde
       - openqa_bootstrap
       - qemu

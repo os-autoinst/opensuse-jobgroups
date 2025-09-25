@@ -1154,10 +1154,6 @@ scenarios:
             VIDEOMODE: text
             YAML_SCHEDULE: schedule/security/selinux.yaml
           testsuite: null
-      - create_hdd_gnome-x11:
-          priority: 46
-      - create_hdd_gnome-x11:
-          machine: 64bit
       - create_hdd_gnome-wayland:
           machine: 64bit_virtio
           priority: 45
@@ -1172,9 +1168,6 @@ scenarios:
             UEFI_PFLASH_VARS: "%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2"
             START_AFTER_TEST: create_hdd_textmode
             YAML_SCHEDULE: schedule/functional/sway.yaml
-      - desktopapps-other-x11
-      - desktopapps-documentation-x11
-      - desktopapps-gnome-x11
       - desktopapps-remote-desktop-xrdp-client1:
           settings:
             BOOT_HDD_IMAGE: '1'
@@ -1243,42 +1236,7 @@ scenarios:
             HDD_1: support_server_tumbleweed@64bit.qcow2
       - remote_ssh_target:
           machine: 64bit
-      - remote-desktop-client4:
-          machine: 64bit
-          description: ''
-          settings:
-            BOOTFROM: c
-            DESKTOP: gnome
-            HDD_1: windows-10-x86_64-22H2@64bit_win.qcow2
-            WIN_VERSION: '10'
-            NETWORKS: fixed
-            NICTYPE: tap
-            QEMUMACHINE: 'q35'
-            PARALLEL_WITH: remote-desktop-supportserver4
-            REGRESSION: remote
-            REMOTE_DESKTOP_TYPE: win_client
-            WORKER_CLASS: tap
-          testsuite: null
-      - remote-desktop-supportserver4:
-          machine: 64bit
-          description: ''
-          settings:
-            BOOTFROM: c
-            DESKTOP: gnome
-            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-gnome-x11@%MACHINE%.qcow2'
-            NETWORKS: fixed
-            NICTYPE: tap
-            REGRESSION: remote
-            REMOTE_DESKTOP_TYPE: xrdp_server
-            SHUTDOWN_NEEDS_AUTH: '1'
-            START_AFTER_TEST: create_hdd_gnome-x11
-            SUPPORT_SERVER: '1'
-            SUPPORT_SERVER_ROLES: dhcp
-            VIRTIO_CONSOLE: '0'
-            WORKER_CLASS: tap
-          testsuite: null
       - toolkits
-      - gnome-x11-ibus
       - toolkits-kde
       - openldap_to_389ds
       - apparmor_profile:
