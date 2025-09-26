@@ -878,8 +878,8 @@ scenarios:
           testsuite: null
           settings:
             EXTRATEST: himmelblau
-            HIMMELBLAU_ALLOWED_USERS: ''
-            HIMMELBLAU_ALLOWED_GROUPS: ''
+            HIMMELBLAU_ALLOWED_USERS: 'bernhard.test'
+            HIMMELBLAU_ALLOWED_DOMAINS: 'azureemea.geekos.io'
       - yast2_firstboot
       - yast2_firstboot_custom
       - wireguard_server:
