@@ -427,7 +427,7 @@ scenarios:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIMES: 'docker'
-            CONTAINER_TESTS: 'docker_compose,python_runtime'
+            CONTAINER_TESTS: 'docker_compose,python_docker'
             QEMUCPUS: '4'
             QEMURAM: '4096'
       - container_host_podman_e2e:
@@ -436,7 +436,7 @@ scenarios:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIMES: 'podman'
-            CONTAINER_TESTS: 'python_runtime'
+            CONTAINER_TESTS: 'python_podman'
             QEMUCPUS: '4'
             QEMURAM: '4096'
       - container_host_podman_apparmor:
