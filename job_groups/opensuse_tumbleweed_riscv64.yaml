@@ -31,11 +31,25 @@ scenarios:
   riscv64:
     opensuse-Tumbleweed-DVD-riscv64:
       - textmode
+      - minimalx
     opensuse-Tumbleweed-NET-riscv64:
       - create_hdd_textmode
       - extra_tests_filesystem
+      - containers_image:
+          testsuite: extra_tests_textmode_containers
+          settings:
+            CONTAINER_RUNTIMES: 'docker,podman'
+            K3S_INSTALL_UPSTREAM: '1'
+            CONTAINERS_UNTESTED_IMAGES: '1'
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/riscv/totest/containers/opensuse/tumbleweed
+            POSTGRES_IP: 'ko.dmz-prg2.suse.org'
+            POSTGRES_PORT: '5444'
     opensuse-Tumbleweed-JeOS-for-RISCV-riscv64:
       - jeos:
+          settings:
+            EXCLUDE_MODULES: libzypp_config
+      - jeos:
+          machine: riscv64_cpu_max
           settings:
             EXCLUDE_MODULES: libzypp_config
       - jeos-container_host_podman:
