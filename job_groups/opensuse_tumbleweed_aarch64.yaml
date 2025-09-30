@@ -1143,6 +1143,7 @@ scenarios:
           machine: RPi4
           settings:
             PASSWORD: linux
+            LTP_ENV: 'TMPDIR=/var/tmp,LTP_TIMEOUT_MUL=2,LTP_RUNTIME_MUL=2'
             LTP_TAINT_EXPECTED: '0x13c01'
       - jeos-ltp-syscalls:
           machine: RPi4
