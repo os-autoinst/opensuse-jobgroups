@@ -430,15 +430,17 @@ scenarios:
             CONTAINER_TESTS: 'docker_compose,python_docker'
             QEMUCPUS: '4'
             QEMURAM: '4096'
+            RETRY: '1'
       - container_host_podman_e2e:
           description: |-
             Maintainer: qe-c@suse.de https://github.com/os-autoinst/os-autoinst-distri-opensuse/tree/master/tests/containers/README.md
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIMES: 'podman'
-            CONTAINER_TESTS: 'python_podman'
+            CONTAINER_TESTS: 'podman_e2e,python_podman'
             QEMUCPUS: '4'
             QEMURAM: '4096'
+            RETRY: '1'
       - container_host_podman_apparmor:
           testsuite: extra_tests_textmode_containers
           settings:
