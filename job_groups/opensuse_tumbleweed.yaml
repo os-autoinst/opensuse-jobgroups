@@ -450,7 +450,7 @@ scenarios:
             CONTAINER_TESTS: 'podman_e2e,python_podman'
             QEMUCPUS: '4'
             QEMURAM: '4096'
-            OCI_RUNTINE: 'crun'
+            OCI_RUNTIME: 'crun'
             RETRY: '1'
       - container_host_podman_apparmor:
           testsuite: extra_tests_textmode_containers
