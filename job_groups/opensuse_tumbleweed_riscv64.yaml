@@ -76,5 +76,3 @@ scenarios:
             EXCLUDE_MODULES: libzypp_config
             LTP_ENV: 'TMPDIR=/var/tmp,LTP_TIMEOUT_MUL=2,LTP_RUNTIME_MUL=2'
             LTP_TAINT_EXPECTED: '0x13801'
-            # Too performance sensitive for software emulation
-            LTP_COMMAND_EXCLUDE: '(epoll_wait|epoll_pwait|select|prctl09).*'
