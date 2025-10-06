@@ -780,21 +780,21 @@ scenarios:
             <<: *bci
             BCI_IMAGE_MARKER: postgres_15
             BCI_TEST_ENVS: postgres
-            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/postgres:15
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/postgres:15
       - bci_postgres_16_podman:
           testsuite: null
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: postgres_16
             BCI_TEST_ENVS: postgres
-            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/postgres:16
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/postgres:16
       - bci_postgres_17_podman:
           testsuite: null
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: postgres_17
             BCI_TEST_ENVS: postgres
-            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/postgres:17
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/postgres:17
       - bci_grafana_11_podman:
           testsuite: null
           settings:
@@ -808,14 +808,14 @@ scenarios:
             <<: *bci
             BCI_IMAGE_MARKER: helm_latest
             BCI_TEST_ENVS: helm
-            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/helm
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/helm
       - bci_git_podman:
           testsuite: null
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: git_latest
             BCI_TEST_ENVS: git
-            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/bci/git
+            CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/git
       - bci_registry_podman:
           testsuite: null
           settings:
