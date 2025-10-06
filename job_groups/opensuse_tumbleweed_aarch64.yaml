@@ -643,6 +643,18 @@ scenarios:
             <<: *bci
             BCI_IMAGE_MARKER: postgres_16
             BCI_TEST_ENVS: postgres
+      - bci_postgres_17_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: postgres_17
+            BCI_TEST_ENVS: postgres
+      - bci_postgres_18_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: postgres_18
+            BCI_TEST_ENVS: postgres
       - bci_grafana_11_podman:
           testsuite: null
           settings:
