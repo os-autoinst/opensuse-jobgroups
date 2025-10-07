@@ -558,6 +558,12 @@ scenarios:
             <<: *bci
             BCI_IMAGE_MARKER: python_3.12
             BCI_TEST_ENVS: python
+      - bci_python_3.13_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: python_3.13
+            BCI_TEST_ENVS: python
       - bci_golang_oldstable_podman:
           testsuite: null
           settings:
