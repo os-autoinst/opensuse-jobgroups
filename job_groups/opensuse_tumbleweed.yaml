@@ -835,6 +835,20 @@ scenarios:
             BCI_IMAGE_MARKER: cosign
             BCI_TEST_ENVS: cosign
       - extra_tests_ai_ml
+      - extra_tests_himmelblau:
+          testsuite: null
+          settings:
+            MACHINE: uefi
+            EXTRATEST: himmelblau
+            HIMMELBLAU_ALLOWED_USERS: 'bernhard.test'
+            HIMMELBLAU_ALLOWED_DOMAINS: 'azureemea.geekos.io'
+            BOOT_HDD_IMAGE: "1"
+            DESKTOP: "textmode"
+            NOVIDEO: "1"
+            VIDEOMODE: "text"
+            START_AFTER_TEST: "create_hdd_textmode"
+            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
       - yast_no_self_update
       - gnome-gdm:
           machine: 64bit
