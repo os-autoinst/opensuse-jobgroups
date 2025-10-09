@@ -74,6 +74,14 @@ scenarios:
           machine: uefi-usb-4G
       - zdup-Leap-15.6-gnome
       - zdup-Leap-15.6-kde
+      - zdup-Leap-15.6-gnome_migration_tool:
+          testsuite: zdup-Leap-15.6-gnome
+          settings:
+            OPENSUSE_MIGRATION_TOOL: '1'
+      - zdup-Leap-15.6-kde_migration_tool:
+          testsuite: zdup-Leap-15.6-kde
+          settings:
+            OPENSUSE_MIGRATION_TOOL: '1'
       - create_hdd_textmode:
           machine: uefi-3G
           testsuite: null
@@ -121,6 +129,14 @@ scenarios:
           machine: USBboot_aarch64
       - zdup-Leap-15.6-gnome
       - zdup-Leap-15.6-kde
+      - zdup-Leap-15.6-gnome_migration_tool:
+          testsuite: zdup-Leap-15.6-gnome
+          settings:
+            OPENSUSE_MIGRATION_TOOL: '1'
+      - zdup-Leap-15.6-kde_migration_tool:
+          testsuite: zdup-Leap-15.6-kde
+          settings:
+            OPENSUSE_MIGRATION_TOOL: '1'
       - create_hdd_textmode:
           testsuite: null
           settings:
