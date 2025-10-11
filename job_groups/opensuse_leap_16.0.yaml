@@ -72,8 +72,14 @@ scenarios:
           machine: 64bit-3G
       - kde-agama:
           machine: uefi-usb-4G
-      - zdup-Leap-15.6-gnome
-      - zdup-Leap-15.6-kde
+      - zdup-Leap-15.6-gnome:
+          testsuite: zdup-Leap-15.6-gnome
+          settings:
+            WORKAROUND_DEPS: '1'
+      - zdup-Leap-15.6-kde:
+          testsuite: zdup-Leap-15.6-kde
+          settings:
+            WORKAROUND_DEPS: '1'
       - zdup-Leap-15.6-gnome_migration_tool:
           testsuite: zdup-Leap-15.6-gnome
           settings:
@@ -127,8 +133,14 @@ scenarios:
           machine: USBboot_aarch64
       - kde-agama:
           machine: USBboot_aarch64
-      - zdup-Leap-15.6-gnome
-      - zdup-Leap-15.6-kde
+      - zdup-Leap-15.6-gnome:
+          testsuite: zdup-Leap-15.6-gnome
+          settings:
+            WORKAROUND_DEPS: '1'
+      - zdup-Leap-15.6-kde:
+          testsuite: zdup-Leap-15.6-kde
+          settings:
+            WORKAROUND_DEPS: '1'
       - zdup-Leap-15.6-gnome_migration_tool:
           testsuite: zdup-Leap-15.6-gnome
           settings:
@@ -172,8 +184,14 @@ scenarios:
     opensuse-online-installer-ppc64le:
       - gnome-agama
       - kde-agama
-      - zdup-Leap-15.6-gnome
-      - zdup-Leap-15.6-kde
+      - zdup-Leap-15.6-gnome:
+          testsuite: zdup-Leap-15.6-gnome
+          settings:
+            WORKAROUND_DEPS: '1'
+      - zdup-Leap-15.6-kde:
+          testsuite: zdup-Leap-15.6-kde
+          settings:
+            WORKAROUND_DEPS: '1'
     opensuse-offline-installer-ppc64le:
       - gnome-agama
       - kde-agama
