@@ -31,6 +31,11 @@
   +FLAVOR: 'BCI'
   _SKIP_POST_FAIL_HOOKS: '1'
 
+.jeos_ltp: &jeos_ltp
+  HDD_2: "combustion_ltp.qcow2"
+  +FIRST_BOOT_CONFIG: "combustion"
+  NUMDISKS: "2"
+
 defaults:
   x86_64:
     machine: uefi
@@ -1502,20 +1507,33 @@ scenarios:
       - jeos-ltp-commands:
           machine: uefi_virtio-2G
           settings:
+            <<: *jeos_ltp
             LTP_TAINT_EXPECTED: '0x13801'
       - jeos-ltp-containers:
+          settings:
+            <<: *jeos_ltp
           machine: uefi_virtio-2G
       - jeos-ltp-cve:
+          settings:
+            <<: *jeos_ltp
           machine: uefi_virtio-2G
       - jeos-ltp-dio:
+          settings:
+            <<: *jeos_ltp
           machine: uefi_virtio-2G
       - jeos-ltp-ima:
+          settings:
+            <<: *jeos_ltp
           machine: uefi_virtio-2G
       - jeos-ltp-syscalls:
+          settings:
+            <<: *jeos_ltp
           machine: uefi_virtio-2G
           settings:
             LTP_TAINT_EXPECTED: '0x13801'
       - jeos-ltp-syscalls-ipc:
+          settings:
+            <<: *jeos_ltp
           machine: uefi_virtio-2G
       - jeos-ssh-enroll-server:
           machine: 64bit
