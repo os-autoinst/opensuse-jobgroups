@@ -65,7 +65,7 @@ scenarios:
             KOTD_REPO: 'https://download.opensuse.org/repositories/Kernel:/HEAD/ARM/'
       - io_uring:
           settings:
-            QEMUCPUS: '2'
+            QEMUCPUS: '4'
       - kdump:
           settings:
             CRASH_MEMORY: '320'
@@ -232,7 +232,7 @@ scenarios:
             KOTD_REPO: 'https://download.opensuse.org/repositories/Kernel:/HEAD/PPC/'
       - io_uring:
           settings:
-            QEMUCPUS: '2'
+            QEMUCPUS: '4'
       - kdump:
           settings:
             CRASH_MEMORY: '640'
@@ -369,7 +369,7 @@ scenarios:
       - install_ltp_kotd+opensuse+DVD
       - io_uring:
           settings:
-            QEMUCPUS: '2'
+            QEMUCPUS: '4'
       - ipsec_3hosts_support_server
       - ipsec_3hosts_left_node
       - ipsec_3hosts_middle_node
