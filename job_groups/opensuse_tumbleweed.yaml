@@ -1798,7 +1798,7 @@ scenarios:
                 5) Define users
                 6) Register SUT
                 7) Exit WSL
-          machine: [win10_uefi, win11_uefi]
+          machine: [win11_uefi]
           settings:
             YAML_SCHEDULE: 'schedule/wsl/wsl_main.yaml'
             WSL_INSTALL_FROM: 'build'
@@ -1806,7 +1806,7 @@ scenarios:
             WSL_FIRSTBOOT: 'yast'
       - wsl2-main: &wsl2_test
           testsuite: null
-          machine: [win10_uefi, win11_uefi]
+          machine: [win11_uefi]
           settings: &wsl2_settings
             YAML_SCHEDULE: 'schedule/wsl/wsl_main.yaml'
             WSL_INSTALL_FROM: 'build'
