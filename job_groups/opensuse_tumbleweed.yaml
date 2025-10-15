@@ -1787,23 +1787,6 @@ scenarios:
       - mediacheck:
           machine: 64bit
     opensuse-Tumbleweed-WSL-x86_64:
-      - wsl-main:
-          testsuite: null
-          description: |
-            Basic WSL test Test scope:
-                1) Prepare WSL and other features in Windows
-                2) Download the image
-                3) Import embedded certificate from the image
-                4) Load image
-                5) Define users
-                6) Register SUT
-                7) Exit WSL
-          machine: [win11_uefi]
-          settings:
-            YAML_SCHEDULE: 'schedule/wsl/wsl_main.yaml'
-            WSL_INSTALL_FROM: 'build'
-            QEMU_ENABLE_SMBD: '1'
-            WSL_FIRSTBOOT: 'yast'
       - wsl2-main: &wsl2_test
           testsuite: null
           machine: [win11_uefi]
