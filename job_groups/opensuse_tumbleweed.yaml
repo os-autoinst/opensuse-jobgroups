@@ -1528,9 +1528,8 @@ scenarios:
       - jeos-ltp-syscalls:
           settings:
             <<: *jeos_ltp
-          machine: uefi_virtio-2G
-          settings:
             LTP_TAINT_EXPECTED: '0x13801'
+          machine: uefi_virtio-2G
       - jeos-ltp-syscalls-ipc:
           settings:
             <<: *jeos_ltp
