@@ -432,7 +432,7 @@ scenarios:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIMES: 'docker'
-            CONTAINER_TESTS: 'docker_compose,python_docker,docker_cli'
+            CONTAINER_TESTS: 'docker_compose,python_docker,docker_buildx,docker_cli'
             QEMUCPUS: '4'
             QEMURAM: '4096'
             RETRY: '1'
