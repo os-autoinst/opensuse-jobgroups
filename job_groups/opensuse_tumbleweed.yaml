@@ -433,6 +433,7 @@ scenarios:
           settings:
             CONTAINER_RUNTIMES: 'docker'
             CONTAINER_TESTS: 'docker_compose,python_docker,docker_buildx,docker_cli,docker_engine'
+            DOCKER_EXPERIMENTAL: '1'
             QEMUCPUS: '4'
             QEMURAM: '4096'
             RETRY: '1'
