@@ -1,0 +1,25 @@
+############################################################
+#                         WARNING                          #
+#                                                          #
+#               This file is managed in GIT!               #
+#  Any changes via the openQA WebUI will get overwritten!  #
+#                                                          #
+#    https://github.com/os-autoinst/opensuse-jobgroups     #
+#      job_groups/opensuse_leap_16.0_maintenance.yaml      #
+############################################################
+---
+defaults:
+  x86_64:
+    machine: uefi-3G
+    priority: 50
+products:
+  opensuse-staged-Updates-x86_64:
+    distri: opensuse
+    flavor: staged-Updates
+    version: '16.0'
+scenarios:
+  x86_64:
+    opensuse-staged-Updates-x86_64:
+      - gnome-agama:
+          settings:
+            YAML_SCHEDULE: 'schedule/functional/leap16/leap_16_staged_updates.yaml'
