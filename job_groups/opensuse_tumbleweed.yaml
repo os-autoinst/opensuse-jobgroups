@@ -1773,6 +1773,7 @@ scenarios:
             SELINUX: '0'
     opensuse-Tumbleweed-Rescue-CD-x86_64:
       - rescue:
+          machine: 64bit-2G
           priority: 49
       - rescue:
           machine: uefi-usb
