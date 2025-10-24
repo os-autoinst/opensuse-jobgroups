@@ -354,6 +354,7 @@ scenarios:
             INSTALL_KOTD: '1'
             KOTD_REPO: 'https://download.opensuse.org/repositories/Kernel:/HEAD/S390/'
             LTP_TAINT_EXPECTED: '0x13801'
+            LTP_GIT_URL: 'https://github.com/linux-test-project/ltp'
       - kernel-live-patching:
           settings:
             INSTALL_LTP: ''
