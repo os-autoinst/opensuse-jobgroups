@@ -559,6 +559,16 @@ scenarios:
             QEMUCPUS: '2'
             RETRY: '1'
             BATS_PACKAGE: 'skopeo'
+      - container_host_umoci_testsuite:
+          description: |-
+            Maintainer: qe-c@suse.de https://github.com/os-autoinst/os-autoinst-distri-opensuse/tree/master/tests/containers/bats
+          testsuite: extra_tests_textmode_containers
+          settings:
+            CONTAINER_RUNTIMES: 'podman'
+            QEMURAM: '4096'
+            QEMUCPUS: '2'
+            RETRY: '1'
+            BATS_PACKAGE: 'umoci'
       - container_host_buildah_testsuite:
           testsuite: extra_tests_textmode_containers
           description: |-
