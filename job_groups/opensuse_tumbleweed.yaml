@@ -444,10 +444,10 @@ scenarios:
           settings:
             CONTAINER_RUNTIMES: 'docker'
             CONTAINER_TESTS: 'docker_engine'
-            DOCKER_ROOTLESS: '1'
             QEMUCPUS: '4'
             QEMURAM: '4096'
             RETRY: '1'
+            ROOTLESS: '1'
       - container_host_podman_e2e:
           description: |-
             Maintainer: qe-c@suse.de https://github.com/os-autoinst/os-autoinst-distri-opensuse/tree/master/tests/containers/README.md
