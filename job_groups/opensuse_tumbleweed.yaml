@@ -1067,10 +1067,12 @@ scenarios:
       - lvm-encrypt-separate-boot:
           machine: 64bit
           settings:
+            QEMURAM: '5120'
             YAML_TEST_DATA: test_data/yast/encryption/lvm_encrypt_separate_boot_luks2.yaml
       - lvm-full-encrypt:
           machine: 64bit
           settings:
+            QEMURAM: '5120'
             YAML_TEST_DATA: test_data/yast/encryption/full_lvm_enc_luks2.yaml
       - lvm_thin_provisioning:
           machine: 64bit
