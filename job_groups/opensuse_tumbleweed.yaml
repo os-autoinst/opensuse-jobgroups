@@ -284,7 +284,7 @@ scenarios:
           machine: 64bit
           priority: 49
       - cryptlvm:
-          machine: uefi
+          machine: uefi-2G
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/encryption/cryptlvm.yaml
             YAML_TEST_DATA: test_data/yast/encryption/lvm_encrypt_separate_boot_luks2.yaml
@@ -1026,7 +1026,8 @@ scenarios:
           settings:
             YAML_SCHEDULE: schedule/virtualization/virtualization.yaml
       - toolchain_zypper
-      - crypt_no_lvm
+      - crypt_no_lvm:
+          machine: uefi-2G
       - systemd-networkd
       - install_offline
       - system_performance
