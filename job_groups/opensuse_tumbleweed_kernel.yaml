@@ -486,7 +486,27 @@ scenarios:
       - xfstests_btrfs-btrfs-201-999
       - xfstests_btrfs-btrfs-big_size
       - xfstests_btrfs-generic-001-100
+      - xfstests_btrfs-generic-101-200
+      - xfstests_btrfs-generic-201-300
+      - xfstests_btrfs-generic-301-400
+      - xfstests_btrfs-generic-401-500
+      - xfstests_btrfs-generic-501-600
+      - xfstests_btrfs-generic-601-999
+      - xfstests_ext4-ext4
+      - xfstests_ext4-generic-001-100
+      - xfstests_ext4-generic-101-200
+      - xfstests_ext4-generic-201-300
+      - xfstests_ext4-generic-301-400
+      - xfstests_ext4-generic-401-500
+      - xfstests_ext4-generic-501-600
+      - xfstests_ext4-generic-601-999
       - xfstests_xfs-generic-001-100
+      - xfstests_xfs-generic-101-200
+      - xfstests_xfs-generic-201-300
+      - xfstests_xfs-generic-301-400
+      - xfstests_xfs-generic-401-500
+      - xfstests_xfs-generic-501-600
+      - xfstests_xfs-generic-601-999
       - xfstests_xfs-xfs-001-100
       - xfstests_xfs-xfs-101-200
       - xfstests_xfs-xfs-201-300
