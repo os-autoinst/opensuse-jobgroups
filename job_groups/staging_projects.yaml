@@ -75,12 +75,6 @@ scenarios:
             QEMURAM: '2048'
       - gnome:
           priority: 45
-      - create_hdd_gnome-staging:
-          machine: 64bit
-          priority: 45
-      - yast2_users-staging:
-          machine: 64bit
-          priority: 45
       - minimalx:
           machine: 64bit
           priority: 45
