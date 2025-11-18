@@ -522,6 +522,7 @@ scenarios:
       - xfstests_nfs4.0-nfs
       - xfstests_nfs3-generic
       - xfstests_nfs3-nfs
+      - xfstests_btrfs-zoned_device
       - nfs_server:
           testsuite: null
           settings:
