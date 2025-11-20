@@ -17,7 +17,7 @@ defaults:
     machine: aarch64
     priority: 55
   ppc64le:
-    machine: ppc64le-p10
+    machine: ppc64le-p10-tcg
     priority: 55
   s390x:
     machine: s390x-zVM-vswitch-l2
