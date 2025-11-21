@@ -96,7 +96,9 @@ scenarios:
       - ltp_fs_readonly
       - ltp_hugetlb
       - ltp_hyperthreading
+      - ltp_ima
       - ltp_ima_load_policy
+      - ltp_ima_load_policy_selinux
       - ltp_input
       - ltp_kernel_misc:
           settings:
@@ -136,6 +138,9 @@ scenarios:
       - ltp_pty
       - ltp_sched
       - ltp_syscalls:
+          settings:
+            LTP_TAINT_EXPECTED: '0x13801'
+      - ltp_syscalls_debug_pagealloc:
           settings:
             LTP_TAINT_EXPECTED: '0x13801'
       - ltp_syscalls_ipc
