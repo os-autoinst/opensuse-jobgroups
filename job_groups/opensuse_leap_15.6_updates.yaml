@@ -40,17 +40,17 @@ scenarios:
           machine: 'uefi'
           testsuite: 'create_hdd_leap_gnome_autoyast'
           settings:
-            UEFI_PFLASH_VARS: 'ovmf-x86_64-ms-vars-800x600.qcow2'
+            UEFI_PFLASH_VARS: '/usr/share/qemu/ovmf-x86_64-ms-vars.bin'
       - create_hdd_leap_kde_uefi_autoyast:
           machine: 'uefi'
           testsuite: 'create_hdd_leap_kde_autoyast'
           settings:
-            UEFI_PFLASH_VARS: 'ovmf-x86_64-ms-vars-800x600.qcow2'
+            UEFI_PFLASH_VARS: '/usr/share/qemu/ovmf-x86_64-ms-vars.bin'
       - create_hdd_leap_textmode_uefi_autoyast:
           machine: 'uefi'
           testsuite: 'create_hdd_leap_textmode_autoyast'
           settings:
-            UEFI_PFLASH_VARS: 'ovmf-x86_64-ms-vars-800x600.qcow2'
+            UEFI_PFLASH_VARS: '/usr/share/qemu/ovmf-x86_64-ms-vars.bin'
       - textmode
       - cryptlvm:
           settings:

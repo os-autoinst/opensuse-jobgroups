@@ -41,3 +41,5 @@ scenarios:
             QEMURAM: '4096'
       - install_with_updates_kde:
           machine: uefi-2G
+          settings:
+            +UEFI_PFLASH_VARS: '/usr/share/qemu/ovmf-x86_64-ms-vars.bin'
