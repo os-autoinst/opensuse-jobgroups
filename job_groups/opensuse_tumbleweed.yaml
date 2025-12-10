@@ -31,10 +31,21 @@
   +FLAVOR: 'BCI'
   _SKIP_POST_FAIL_HOOKS: '1'
 
+.agama_textmode_recycled_testsuite: &agama_textmode_recycled_testsuite
+  QEMURAM: '1536'
+  HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
+  START_AFTER_TEST: 'create_hdd_agama_textmode'
+  UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
+
 .jeos_ltp: &jeos_ltp
   HDD_2: "combustion_ltp.qcow2"
   +FIRST_BOOT_CONFIG: "combustion"
   NUMDISKS: "2"
+
+.agama: &agama
+  NOAUTOLOGIN: "1"
+  INST_INSTALL_URL: '%MIRROR_PREFIX%/%REPO_0%'
+  YAML_SCHEDULE: schedule/install/agama_install.yaml
 
 defaults:
   x86_64:
@@ -112,6 +123,10 @@ products:
   opensuse-Tumbleweed-WSL-x86_64:
     distri: opensuse
     flavor: WSL
+    version: Tumbleweed
+  opensuse-Tumbleweed-agama-installer-x86_64:
+    distri: opensuse
+    flavor: agama-installer
     version: Tumbleweed
 scenarios:
   x86_64:
@@ -1884,3 +1899,216 @@ scenarios:
           settings:
             <<: *wsl2_settings
             WSL_SYSTEMD: '1'
+    opensuse-Tumbleweed-agama-installer-x86_64:
+      - create_hdd_agama_gnome:
+          machine: uefi-3G
+      - create_hdd_agama_kde:
+          machine: uefi-3G
+      - create_hdd_agama_xfce:
+          machine: uefi-3G
+      - create_hdd_agama_minimalx:
+          machine: 64bit-3G
+      - create_hdd_agama_textmode:
+          machine: uefi-3G
+      - extra_tests_gnome:
+          machine: uefi-3G
+          settings:
+            NOAUTOLOGIN: '1'
+            START_AFTER_TEST: 'create_hdd_agama_gnome'
+            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
+            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
+      - base_os_gnome:
+          machine: uefi-3G
+          testsuite: base_os
+          settings:
+            DESKTOP: 'gnome'
+      - base_os_kde:
+          machine: uefi-3G
+          testsuite: base_os
+          settings:
+            DESKTOP: 'kde'
+      - base_os_xfce:
+          machine: uefi-3G
+          testsuite: base_os
+          settings:
+            DESKTOP: 'xfce'
+      - core_gnome:
+          machine: uefi-3G
+          testsuite: core
+          settings:
+            DESKTOP: 'gnome'
+      - core_kde:
+          machine: uefi-3G
+          testsuite: core
+          settings:
+            DESKTOP: 'kde'
+      - core_xfce:
+          machine: uefi-3G
+          testsuite: core
+          settings:
+            DESKTOP: 'xfce'
+      - desktop_multimedia_gnome:
+          machine: uefi-3G
+          testsuite: desktop_multimedia
+          settings:
+            DESKTOP: 'gnome'
+      - desktop_multimedia_kde:
+          machine: uefi-3G
+          testsuite: desktop_multimedia
+          settings:
+            DESKTOP: 'kde'
+      - desktop_multimedia_xfce:
+          machine: uefi-3G
+          testsuite: desktop_multimedia
+          settings:
+            DESKTOP: 'xfce'
+      - desktop_amusement_gnome:
+          machine: uefi-3G
+          testsuite: desktop_amusement
+          settings:
+            DESKTOP: 'gnome'
+      - desktop_amusement_kde:
+          machine: uefi-3G
+          testsuite: desktop_amusement
+          settings:
+            DESKTOP: 'kde'
+      - desktop_amusement_xfce:
+          machine: uefi-3G
+          testsuite: desktop_amusement
+          settings:
+            DESKTOP: 'xfce'
+      - desktop_extra_consoles_gnome:
+          machine: uefi-3G
+          testsuite: desktop_extra_consoles
+          settings:
+            DESKTOP: 'gnome'
+      - desktop_extra_consoles_kde:
+          machine: uefi-3G
+          testsuite: desktop_extra_consoles
+          settings:
+            DESKTOP: 'kde'
+      - desktop_extra_consoles_xfce:
+          machine: uefi-3G
+          testsuite: desktop_extra_consoles
+          settings:
+            DESKTOP: 'xfce'
+      - desktop_browsers_gnome:
+          machine: uefi-3G
+          testsuite: desktop_browsers
+          settings:
+            DESKTOP: 'gnome'
+      - desktop_browsers_kde:
+          machine: uefi-3G
+          testsuite: desktop_browsers
+          settings:
+            DESKTOP: 'kde'
+      - desktop_browsers_xfce:
+          machine: uefi-3G
+          testsuite: desktop_browsers
+          settings:
+            DESKTOP: 'xfce'
+      - desktop_office_gnome:
+          machine: uefi-3G
+          testsuite: desktop_office
+          settings:
+            DESKTOP: 'gnome'
+      - desktop_office_kde:
+          machine: uefi-3G
+          testsuite: desktop_office
+          settings:
+            DESKTOP: 'kde'
+      - desktop_office_xfce:
+          machine: uefi-3G
+          testsuite: desktop_office
+          settings:
+            DESKTOP: 'xfce'
+      - textmode_extra_tests_development:
+          machine: uefi-3G
+      - textmode_extra_tests_kernel:
+          machine: uefi-3G
+      - textmode_extra_tests_networking:
+          machine: uefi-3G
+      - textmode_extra_tests_utils:
+          machine: uefi-3G
+      - toolkits:
+          machine: uefi-3G
+          settings:
+            NOAUTOLOGIN: '1'
+            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
+            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
+            START_AFTER_TEST: 'create_hdd_agama_gnome'
+      - toolkits-kde:
+          machine: uefi-3G
+          settings:
+            NOAUTOLOGIN: '1'
+            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
+            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
+            START_AFTER_TEST: 'create_hdd_agama_kde'
+      - firewalld-policy-firewall:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - firewalld-policy-server:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - firewalld-policy-client:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - salt-master:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - salt-minion:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - autofs_server:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - autofs_client:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - rsync-server:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - rsync-client:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - kea-server:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - kea-client:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - gnome:
+          machine: uefi-3G
+          settings:
+            <<: *agama
+      - gnome:
+          machine: 64bit-3G
+          settings:
+            <<: *agama
+      - gnome:
+          machine: uefi-usb-4G
+          settings:
+            <<: *agama
+      - kde:
+          machine: uefi-3G
+          settings:
+            <<: *agama
+      - kde:
+          machine: 64bit-3G
+          settings:
+            <<: *agama
+      - kde:
+          machine: uefi-usb-4G
+          settings:
+            <<: *agama
