@@ -31,6 +31,12 @@
   +FLAVOR: 'BCI'
   _SKIP_POST_FAIL_HOOKS: '1'
 
+.agama_textmode_recycled_testsuite: &agama_textmode_recycled_testsuite
+  QEMURAM: '1536'
+  HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
+  START_AFTER_TEST: 'create_hdd_agama_textmode'
+  UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
+
 .jeos_ltp: &jeos_ltp
   HDD_2: "combustion_ltp.qcow2"
   +FIRST_BOOT_CONFIG: "combustion"
@@ -2041,80 +2047,47 @@ scenarios:
       - firewalld-policy-firewall:
           machine: uefi-3G
           settings:
-            QEMURAM: '1536'
-            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
-            START_AFTER_TEST: 'create_hdd_agama_textmode'
-            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
+            <<: *agama_textmode_recycled_testsuite
       - firewalld-policy-server:
           machine: uefi-3G
           settings:
-            QEMURAM: '1536'
-            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
-            START_AFTER_TEST: 'create_hdd_agama_textmode'
-            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
+            <<: *agama_textmode_recycled_testsuite
       - firewalld-policy-client:
           machine: uefi-3G
           settings:
-            QEMURAM: '1536'
-            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
-            START_AFTER_TEST: 'create_hdd_agama_textmode'
-            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
+            <<: *agama_textmode_recycled_testsuite
       - salt-master:
           machine: uefi-3G
           settings:
-            QEMURAM: '1536'
-            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
-            START_AFTER_TEST: 'create_hdd_agama_textmode'
-            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
+            <<: *agama_textmode_recycled_testsuite
       - salt-minion:
           machine: uefi-3G
           settings:
-            QEMURAM: '1536'
-            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
-            START_AFTER_TEST: 'create_hdd_agama_textmode'
-            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
+            <<: *agama_textmode_recycled_testsuite
       - autofs_server:
           machine: uefi-3G
           settings:
-            QEMURAM: '1536'
-            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
-            START_AFTER_TEST: 'create_hdd_agama_textmode'
-            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
+            <<: *agama_textmode_recycled_testsuite
       - autofs_client:
           machine: uefi-3G
           settings:
-            QEMURAM: '1536'
-            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
-            START_AFTER_TEST: 'create_hdd_agama_textmode'
-            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
+            <<: *agama_textmode_recycled_testsuite
       - rsync-server:
           machine: uefi-3G
           settings:
-            QEMURAM: '1536'
-            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
-            START_AFTER_TEST: 'create_hdd_agama_textmode'
-            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
+            <<: *agama_textmode_recycled_testsuite
       - rsync-client:
           machine: uefi-3G
           settings:
-            QEMURAM: '1536'
-            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
-            START_AFTER_TEST: 'create_hdd_agama_textmode'
-            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
+            <<: *agama_textmode_recycled_testsuite
       - kea-server:
           machine: uefi-3G
           settings:
-            QEMURAM: '1536'
-            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
-            START_AFTER_TEST: 'create_hdd_agama_textmode'
-            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
+            <<: *agama_textmode_recycled_testsuite
       - kea-client:
           machine: uefi-3G
           settings:
-            QEMURAM: '1536'
-            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
-            START_AFTER_TEST: 'create_hdd_agama_textmode'
-            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
+            <<: *agama_textmode_recycled_testsuite
       - gnome:
           machine: uefi-3G
           settings:
