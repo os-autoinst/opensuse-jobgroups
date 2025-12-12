@@ -32,10 +32,22 @@
   _SKIP_POST_FAIL_HOOKS: '1'
 
 .agama_textmode_recycled_testsuite: &agama_textmode_recycled_testsuite
-  QEMURAM: '1536'
+  +QEMURAM: '1536'
   HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
   START_AFTER_TEST: 'create_hdd_agama_textmode'
   UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
+
+.agama_gnome_recycled_testsuite: &agama_gnome_recycled_testsuite
+  NOAUTOLOGIN: '1'
+  HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
+  UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
+  START_AFTER_TEST: 'create_hdd_agama_gnome'
+
+.agama_kde_recycled_testsuite: &agama_kde_recycled_testsuite
+  NOAUTOLOGIN: '1'
+  HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
+  UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
+  START_AFTER_TEST: 'create_hdd_agama_kde'
 
 .jeos_ltp: &jeos_ltp
   HDD_2: "combustion_ltp.qcow2"
@@ -1911,10 +1923,7 @@ scenarios:
       - extra_tests_gnome:
           machine: uefi-3G
           settings:
-            NOAUTOLOGIN: '1'
-            START_AFTER_TEST: 'create_hdd_agama_gnome'
-            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
-            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
+            <<: *agama_gnome_recycled_testsuite
       - base_os_gnome:
           machine: uefi-3G
           testsuite: base_os
@@ -1930,6 +1939,10 @@ scenarios:
           testsuite: base_os
           settings:
             DESKTOP: 'xfce'
+      - boot_to_snapshot:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
       - core_gnome:
           machine: uefi-3G
           testsuite: core
@@ -2020,6 +2033,84 @@ scenarios:
           testsuite: desktop_office
           settings:
             DESKTOP: 'xfce'
+      - extra_tests_dracut:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - extra_tests_himmelblau:
+          testsuite: null
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+            EXTRATEST: himmelblau
+            HIMMELBLAU_ALLOWED_USERS: 'bernhard.test'
+            HIMMELBLAU_ALLOWED_DOMAINS: 'azureemea.geekos.io'
+            BOOT_HDD_IMAGE: "1"
+            DESKTOP: "textmode"
+            NOVIDEO: "1"
+            VIDEOMODE: "text"
+      - extra_tests_webserver:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - openldap_to_389ds:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - qemu:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - security_crypto_policies:
+          testsuite: crypto_policies
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - security_misc_o3:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - security_pam:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - security_tpm2:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - security_tpm_selftest:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - selinux:
+          description: Maintainer (Lily Zhao) llzhao@suse.com
+          testsuite: null
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+            BOOT_HDD_IMAGE: '1'
+            DESKTOP: textmode
+            SECURITY_TEST: selinux
+            VIDEOMODE: text
+            YAML_SCHEDULE: schedule/security/selinux.yaml
+      - sway:
+          testsuite: null
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+            BOOT_HDD_IMAGE: "1"
+            VIDEOMODE: text
+            DESKTOP: textmode
+            QEMU_VIDEO_DEVICE: virtio-vga
+            YAML_SCHEDULE: schedule/functional/sway.yaml
+      - system_check:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - systemd-networkd:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
       - textmode_extra_tests_development:
           machine: uefi-3G
       - textmode_extra_tests_kernel:
@@ -2031,17 +2122,15 @@ scenarios:
       - toolkits:
           machine: uefi-3G
           settings:
-            NOAUTOLOGIN: '1'
-            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
-            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
-            START_AFTER_TEST: 'create_hdd_agama_gnome'
+            <<: *agama_gnome_recycled_testsuite
       - toolkits-kde:
           machine: uefi-3G
           settings:
-            NOAUTOLOGIN: '1'
-            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
-            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
-            START_AFTER_TEST: 'create_hdd_agama_kde'
+            <<: *agama_kde_recycled_testsuite
+      - toolchain_zypper:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
       - firewalld-policy-firewall:
           machine: uefi-3G
           settings:
