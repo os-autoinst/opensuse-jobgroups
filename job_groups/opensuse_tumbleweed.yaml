@@ -32,7 +32,7 @@
   _SKIP_POST_FAIL_HOOKS: '1'
 
 .agama_textmode_recycled_testsuite: &agama_textmode_recycled_testsuite
-  QEMURAM: '1536'
+  +QEMURAM: '1536'
   HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
   START_AFTER_TEST: 'create_hdd_agama_textmode'
   UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
