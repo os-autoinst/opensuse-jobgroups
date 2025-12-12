@@ -37,6 +37,18 @@
   START_AFTER_TEST: 'create_hdd_agama_textmode'
   UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
 
+.agama_gnome_recycled_testsuite: &agama_gnome_recycled_testsuite
+  NOAUTOLOGIN: '1'
+  HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
+  UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
+  START_AFTER_TEST: 'create_hdd_agama_gnome'
+
+.agama_kde_recycled_testsuite: &agama_kde_recycled_testsuite
+  NOAUTOLOGIN: '1'
+  HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
+  UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
+  START_AFTER_TEST: 'create_hdd_agama_kde'
+
 .jeos_ltp: &jeos_ltp
   HDD_2: "combustion_ltp.qcow2"
   +FIRST_BOOT_CONFIG: "combustion"
@@ -1913,10 +1925,7 @@ scenarios:
       - extra_tests_gnome:
           machine: uefi-3G
           settings:
-            NOAUTOLOGIN: '1'
-            START_AFTER_TEST: 'create_hdd_agama_gnome'
-            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
-            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
+            <<: *agama_gnome_recycled_testsuite
       - base_os_gnome:
           machine: uefi-3G
           testsuite: base_os
@@ -2033,17 +2042,11 @@ scenarios:
       - toolkits:
           machine: uefi-3G
           settings:
-            NOAUTOLOGIN: '1'
-            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
-            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
-            START_AFTER_TEST: 'create_hdd_agama_gnome'
+            <<: *agama_gnome_recycled_testsuite
       - toolkits-kde:
           machine: uefi-3G
           settings:
-            NOAUTOLOGIN: '1'
-            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
-            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
-            START_AFTER_TEST: 'create_hdd_agama_kde'
+            <<: *agama_kde_recycled_testsuite
       - firewalld-policy-firewall:
           machine: uefi-3G
           settings:
