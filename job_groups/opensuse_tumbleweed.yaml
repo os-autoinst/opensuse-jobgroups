@@ -553,7 +553,6 @@ scenarios:
             CONTAINER_RUNTIMES: 'podman'
             QEMUCPU: 'host'
             QEMUCPUS: '2'
-            MAX_JOB_TIME: '12000'
             RETRY: '1'
       - container_host_buildah_testsuite_crun:
           testsuite: extra_tests_textmode_containers
@@ -564,7 +563,6 @@ scenarios:
             CONTAINER_RUNTIMES: 'podman'
             QEMUCPU: 'host'
             QEMUCPUS: '2'
-            MAX_JOB_TIME: '12000'
             OCI_RUNTIME: 'crun'
             RETRY: '1'
       - container_host_conmon_testsuite:
@@ -594,7 +592,7 @@ scenarios:
           settings:
             BATS_PACKAGE: 'podman'
             CONTAINER_RUNTIMES: 'podman'
-            MAX_JOB_TIME: '12000'
+            MAX_JOB_TIME: '9000'
             QEMUCPUS: '2'
             QEMURAM: '4096'
             RETRY: '1'
@@ -605,7 +603,7 @@ scenarios:
           settings:
             BATS_PACKAGE: 'podman'
             CONTAINER_RUNTIMES: 'podman'
-            MAX_JOB_TIME: '12000'
+            MAX_JOB_TIME: '9000'
             OCI_RUNTIME: 'crun'
             QEMUCPUS: '2'
             QEMURAM: '4096'
