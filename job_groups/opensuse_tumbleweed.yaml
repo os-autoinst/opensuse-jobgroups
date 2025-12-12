@@ -1941,6 +1941,10 @@ scenarios:
           testsuite: base_os
           settings:
             DESKTOP: 'xfce'
+      - boot_to_snapshot:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
       - core_gnome:
           machine: uefi-3G
           testsuite: core
@@ -2031,6 +2035,84 @@ scenarios:
           testsuite: desktop_office
           settings:
             DESKTOP: 'xfce'
+      - extra_tests_dracut:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - extra_tests_himmelblau:
+          testsuite: null
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+            EXTRATEST: himmelblau
+            HIMMELBLAU_ALLOWED_USERS: 'bernhard.test'
+            HIMMELBLAU_ALLOWED_DOMAINS: 'azureemea.geekos.io'
+            BOOT_HDD_IMAGE: "1"
+            DESKTOP: "textmode"
+            NOVIDEO: "1"
+            VIDEOMODE: "text"
+      - extra_tests_webserver:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - openldap_to_389ds:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - qemu:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - security_crypto_policies:
+          testsuite: crypto_policies
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - security_misc_o3:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - security_pam:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - security_tpm2:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - security_tpm_selftest:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - selinux:
+          description: Maintainer (Lily Zhao) llzhao@suse.com
+          testsuite: null
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+            BOOT_HDD_IMAGE: '1'
+            DESKTOP: textmode
+            SECURITY_TEST: selinux
+            VIDEOMODE: text
+            YAML_SCHEDULE: schedule/security/selinux.yaml
+      - sway:
+          testsuite: null
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+            BOOT_HDD_IMAGE: "1"
+            VIDEOMODE: text
+            DESKTOP: textmode
+            QEMU_VIDEO_DEVICE: virtio-vga
+            YAML_SCHEDULE: schedule/functional/sway.yaml
+      - system_check:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - systemd-networkd:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
       - textmode_extra_tests_development:
           machine: uefi-3G
       - textmode_extra_tests_kernel:
@@ -2047,6 +2129,10 @@ scenarios:
           machine: uefi-3G
           settings:
             <<: *agama_kde_recycled_testsuite
+      - toolchain_zypper:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
       - firewalld-policy-firewall:
           machine: uefi-3G
           settings:
