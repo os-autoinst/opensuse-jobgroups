@@ -53,6 +53,8 @@ scenarios:
     microos-*-Staging-DVD-x86_64:
       - microos:
           machine: uefi-staging
+      - microos:
+          machine: 64bit
       - container-host-microos:
           testsuite: container-host
           machine: uefi-4G-HD40G
