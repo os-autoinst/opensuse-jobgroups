@@ -144,21 +144,21 @@ scenarios:
   x86_64:
     microos-*-DVD-x86_64:
       - rcshell:
-          machine: 64bit-2G
+          machine: uefi-2G
       - microos_10G-disk:
-          machine: 64bit-2G
+          machine: uefi-2G
       - microos:
           machine: uefi
       - microos-sdboot:
           machine: uefi-2G
       - microos:
-          machine: 64bit
+          machine: uefi
       - microos_textmode:
-          machine: 64bit-2G
+          machine: uefi-2G
       - microos_textmode:
           machine: uefi-2G
       - container_host:
-          machine: 64bit-2G
+          machine: uefi-2G
           settings:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
             K3S_INSTALL_UPSTREAM: '1'
@@ -170,7 +170,7 @@ scenarios:
             K3S_INSTALL_UPSTREAM: '1'
             QEMUCPUS: '2'
       - fips-container_host:
-          machine: 64bit-2G
+          machine: uefi-2G
           settings:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
             K3S_INSTALL_UPSTREAM: '1'
@@ -184,7 +184,7 @@ scenarios:
             EXTRABOOTPARAMS_BOOT_LOCAL: '3'
             +YAML_SCHEDULE: ''
       - remote_ssh_target:
-          machine: 64bit-2G
+          machine: uefi-2G
           settings:
             DESKTOP: textmode
             +YAML_SCHEDULE: ''
