@@ -427,7 +427,7 @@ scenarios:
       - container_host_multi_runtime:
           testsuite: extra_tests_textmode_containers
           settings:
-            CONTAINER_RUNTIMES: 'multi_runtime'
+            CONTAINER_TESTS: 'multi_runtime'
             QEMUCPUS: '2'
       - container_host_docker_apparmor:
           testsuite: extra_tests_textmode_containers
