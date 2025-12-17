@@ -152,11 +152,11 @@ scenarios:
       - microos-sdboot:
           machine: uefi-2G
       - microos:
-          machine: uefi
+          machine: 64bit
       - microos_textmode:
           machine: uefi-2G
       - microos_textmode:
-          machine: uefi-2G
+          machine: 64bit-2G
       - container_host:
           machine: uefi-2G
           settings:
@@ -170,7 +170,7 @@ scenarios:
             K3S_INSTALL_UPSTREAM: '1'
             QEMUCPUS: '2'
       - fips-container_host:
-          machine: uefi-2G
+          machine: 64bit-2G
           settings:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
             K3S_INSTALL_UPSTREAM: '1'
