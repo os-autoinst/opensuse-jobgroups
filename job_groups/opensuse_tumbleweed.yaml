@@ -1767,31 +1767,7 @@ scenarios:
           machine: 64bit
           settings:
             QEMU_VIRTIO_RNG: "0"
-      - zdup-Leap-15.2-kde:
-          machine: 64bit
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - zdup-Leap-15.2-gnome:
-          machine: 64bit
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - zdup-Leap-15.3-kde:
-          machine: 64bit
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - zdup-Leap-15.3-gnome:
-          machine: 64bit
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - zdup-Leap-15.4-gnome:
-          machine: 64bit
-      - zdup-Leap-15.5-gnome:
-          machine: 64bit
       - zdup-Leap-15.6-gnome:
-          machine: 64bit
-      - zdup-Leap-15.4-kde:
-          machine: 64bit
-      - zdup-Leap-15.5-kde:
           machine: 64bit
       - zdup-Leap-15.6-kde:
           machine: 64bit
