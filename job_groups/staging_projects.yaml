@@ -53,9 +53,11 @@ scenarios:
     microos-*-Staging-DVD-x86_64:
       - microos:
           machine: uefi-staging
+      - microos:
+          machine: 64bit
       - container-host-microos:
           testsuite: container-host
-          machine: 64bit-2G-HD40G
+          machine: uefi-4G-HD40G
           settings:
             CONTAINER_RUNTIMES: podman
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
