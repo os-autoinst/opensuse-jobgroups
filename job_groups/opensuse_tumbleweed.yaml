@@ -144,7 +144,7 @@ scenarios:
   x86_64:
     microos-*-DVD-x86_64:
       - rcshell:
-          machine: uefi-2G
+          machine: 64bit-2G
       - microos_10G-disk:
           machine: uefi-2G
       - microos:
@@ -184,7 +184,7 @@ scenarios:
             EXTRABOOTPARAMS_BOOT_LOCAL: '3'
             +YAML_SCHEDULE: ''
       - remote_ssh_target:
-          machine: uefi-2G
+          machine: 64bit-2G
           settings:
             DESKTOP: textmode
             +YAML_SCHEDULE: ''
