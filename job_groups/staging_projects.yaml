@@ -57,8 +57,9 @@ scenarios:
           machine: 64bit
       - container-host-microos:
           testsuite: container-host
-          machine: uefi-4G-HD40G
+          machine: uefi-staging-HD40G
           settings:
+            QEMURAM: '4096'
             CONTAINER_RUNTIMES: podman
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
     opensuse-*-Staging-DVD-x86_64:
