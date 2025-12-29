@@ -302,7 +302,8 @@ scenarios:
       - minimalx:
           machine: 64bit
           priority: 45
-      - gnome-boot-hdd
+      - gnome-boot-hdd:
+          machine: uefi-4G
       - minimalx+btrfs+sephome
       # - lxde:
       #     machine: 64bit
