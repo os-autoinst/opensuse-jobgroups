@@ -303,7 +303,8 @@ scenarios:
           machine: 64bit
           priority: 45
       - gnome-boot-hdd:
-          machine: uefi-4G
+          settings:
+            QEMURAM: '4096'
       - minimalx+btrfs+sephome
       # - lxde:
       #     machine: 64bit
