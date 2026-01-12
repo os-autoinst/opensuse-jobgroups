@@ -421,6 +421,7 @@ scenarios:
           machine: uefi
           settings:
             LTP_TAINT_EXPECTED: '0x13801'
+            QEMUMACHINE: 'hpet=off'
       - ltp_kernel_misc_warns
       - ltp_lvm
       - ltp_math
