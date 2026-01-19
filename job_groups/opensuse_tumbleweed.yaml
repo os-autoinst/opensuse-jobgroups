@@ -754,12 +754,6 @@ scenarios:
             <<: *bci
             BCI_IMAGE_MARKER: python_3.11
             BCI_TEST_ENVS: all,python
-      - bci_python_3.12_podman:
-          testsuite: null
-          settings:
-            <<: *bci
-            BCI_IMAGE_MARKER: python_3.12
-            BCI_TEST_ENVS: all,python
       - bci_python_3.13_podman:
           testsuite: null
           settings:
