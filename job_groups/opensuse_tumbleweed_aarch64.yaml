@@ -640,11 +640,11 @@ scenarios:
             <<: *bci
             BCI_IMAGE_MARKER: mariadb-client_latest
             BCI_TEST_ENVS: all,mariadb,metadata
-      - bci_389-ds_3.1_podman:
+      - bci_389-ds_podman:
           testsuite: null
           settings:
             <<: *bci
-            BCI_IMAGE_MARKER: 389-ds_3.1
+            BCI_IMAGE_MARKER: 389-ds_latest
             BCI_TEST_ENVS: all,389ds,metadata
       - bci_blackbox_exporter_podman:
           testsuite: null
