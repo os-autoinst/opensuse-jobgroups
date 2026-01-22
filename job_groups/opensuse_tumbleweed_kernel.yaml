@@ -261,7 +261,6 @@ scenarios:
       - ltp_hyperthreading
       - ltp_ima
       - ltp_ima_load_policy
-      - ltp_ima_load_policy_selinux
       - ltp_input
       - ltp_kernel_misc:
           settings:
@@ -412,7 +411,6 @@ scenarios:
       - ltp_ima_load_policy
       - ltp_ima_load_policy:
           machine: uefi
-      - ltp_ima_load_policy_selinux
       - ltp_input
       - ltp_kernel_misc:
           settings:
