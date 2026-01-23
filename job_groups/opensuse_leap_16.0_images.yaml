@@ -20,7 +20,6 @@
   HDDSIZEGB: "25"
 
 .x86_64_settings: &x86_64_settings
-  WORKER_CLASS: cpu-x86_64-v2
   QEMUCPU: host
 
 .container_settings: &container_settings
