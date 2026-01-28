@@ -1,0 +1,384 @@
+############################################################
+#                         WARNING                          #
+#                                                          #
+#               This file is managed in GIT!               #
+#  Any changes via the openQA WebUI will get overwritten!  #
+#                                                          #
+#    https://github.com/os-autoinst/opensuse-jobgroups     #
+#            job_groups/opensuse_leap_16.1.yaml            #
+############################################################
+---
+.agama: &agama
+  NOAUTOLOGIN: "1"
+  INST_INSTALL_URL: '%MIRROR_PREFIX%/%REPO_0%'
+  YAML_SCHEDULE: schedule/install/agama_install.yaml
+
+.agama_textmode_recycled_testsuite: &agama_textmode_recycled_testsuite
+  +QEMURAM: '1536'
+  HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
+  START_AFTER_TEST: 'create_hdd_agama_textmode'
+  UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
+
+.agama_gnome_recycled_testsuite: &agama_gnome_recycled_testsuite
+  NOAUTOLOGIN: '1'
+  HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
+  UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
+  START_AFTER_TEST: 'create_hdd_agama_gnome'
+
+.agama_kde_recycled_testsuite: &agama_kde_recycled_testsuite
+  NOAUTOLOGIN: '1'
+  HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
+  UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
+  START_AFTER_TEST: 'create_hdd_agama_kde'
+
+defaults:
+  x86_64:
+    machine: uefi-3G
+    priority: 55
+  aarch64:
+    machine: aarch64
+    priority: 55
+  ppc64le:
+    machine: ppc64le-p10
+    priority: 55
+  s390x:
+    machine: s390x-zVM-vswitch-l2
+    settings:
+      +S390_NETWORK_PARAMS: rd.zdev=qeth,0.0.0A00:0.0.0A01:0.0.0A02,layer2=0,portno=0 nameserver=10.150.1.11
+    priority: 55
+products:
+  opensuse-online-installer-x86_64:
+    distri: opensuse
+    flavor: online-installer
+    version: '16.1'
+  opensuse-online-installer-aarch64:
+    distri: opensuse
+    flavor: online-installer
+    version: '16.1'
+  opensuse-online-installer-ppc64le:
+    distri: opensuse
+    flavor: online-installer
+    version: '16.1'
+  opensuse-online-installer-s390x:
+    distri: opensuse
+    flavor: online-installer
+    version: '16.1'
+  opensuse-offline-installer-x86_64:
+    distri: opensuse
+    flavor: offline-installer
+    version: '16.1'
+  opensuse-offline-installer-aarch64:
+    distri: opensuse
+    flavor: offline-installer
+    version: '16.1'
+  opensuse-offline-installer-ppc64le:
+    distri: opensuse
+    flavor: offline-installer
+    version: '16.1'
+  opensuse-offline-installer-s390x:
+    distri: opensuse
+    flavor: offline-installer
+    version: '16.1'
+scenarios:
+  x86_64:
+    opensuse-online-installer-x86_64:
+      - gnome:
+          machine: uefi-3G
+          settings:
+            <<: *agama
+      - gnome:
+          machine: 64bit-3G
+          settings:
+            <<: *agama
+      - gnome:
+          machine: uefi-usb-4G
+          settings:
+            <<: *agama
+      - kde:
+          machine: uefi-3G
+          settings:
+            <<: *agama
+      - kde:
+          machine: 64bit-3G
+          settings:
+            <<: *agama
+      - kde:
+          machine: uefi-usb-4G
+          settings:
+            <<: *agama
+    opensuse-offline-installer-x86_64:
+      - gnome:
+          machine: uefi-3G
+          settings:
+            <<: *agama
+      - kde:
+          machine: 64bit-3G
+          settings:
+            <<: *agama
+      - create_hdd_agama_gnome:
+          machine: uefi-3G
+      - create_hdd_agama_kde:
+          machine: uefi-3G
+      - create_hdd_agama_xfce:
+          machine: uefi-3G
+      - create_hdd_agama_minimalx:
+          machine: 64bit-3G
+      - create_hdd_agama_textmode:
+          machine: uefi-3G
+      - base_os_gnome:
+          machine: uefi-3G
+          testsuite: base_os
+          settings:
+            DESKTOP: 'gnome'
+      - base_os_kde:
+          machine: uefi-3G
+          testsuite: base_os
+          settings:
+            DESKTOP: 'kde'
+      - base_os_xfce:
+          machine: uefi-3G
+          testsuite: base_os
+          settings:
+            DESKTOP: 'xfce'
+      - boot_to_snapshot:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - core_gnome:
+          machine: uefi-3G
+          testsuite: core
+          settings:
+            DESKTOP: 'gnome'
+      - core_kde:
+          machine: uefi-3G
+          testsuite: core
+          settings:
+            DESKTOP: 'kde'
+      - core_xfce:
+          machine: uefi-3G
+          testsuite: core
+          settings:
+            DESKTOP: 'xfce'
+      - desktop_amusement_gnome:
+          machine: uefi-3G
+          testsuite: desktop_amusement
+          settings:
+            DESKTOP: 'gnome'
+      - desktop_amusement_kde:
+          machine: uefi-3G
+          testsuite: desktop_amusement
+          settings:
+            DESKTOP: 'kde'
+      - desktop_amusement_xfce:
+          machine: uefi-3G
+          testsuite: desktop_amusement
+          settings:
+            DESKTOP: 'xfce'
+      - desktop_browsers_gnome:
+          machine: uefi-3G
+          testsuite: desktop_browsers
+          settings:
+            DESKTOP: 'gnome'
+      - desktop_browsers_kde:
+          machine: uefi-3G
+          testsuite: desktop_browsers
+          settings:
+            DESKTOP: 'kde'
+      - desktop_browsers_xfce:
+          machine: uefi-3G
+          testsuite: desktop_browsers
+          settings:
+            DESKTOP: 'xfce'
+      - desktop_extra_consoles_gnome:
+          machine: uefi-3G
+          testsuite: desktop_extra_consoles
+          settings:
+            DESKTOP: 'gnome'
+      - desktop_extra_consoles_kde:
+          machine: uefi-3G
+          testsuite: desktop_extra_consoles
+          settings:
+            DESKTOP: 'kde'
+      - desktop_extra_consoles_xfce:
+          machine: uefi-3G
+          testsuite: desktop_extra_consoles
+          settings:
+            DESKTOP: 'xfce'
+      - desktop_multimedia_gnome:
+          machine: uefi-3G
+          testsuite: desktop_multimedia
+          settings:
+            DESKTOP: 'gnome'
+      - desktop_multimedia_kde:
+          machine: uefi-3G
+          testsuite: desktop_multimedia
+          settings:
+            DESKTOP: 'kde'
+      - desktop_multimedia_xfce:
+          machine: uefi-3G
+          testsuite: desktop_multimedia
+          settings:
+            DESKTOP: 'xfce'
+      - desktop_office_gnome:
+          machine: uefi-3G
+          testsuite: desktop_office
+          settings:
+            DESKTOP: 'gnome'
+      - desktop_office_kde:
+          machine: uefi-3G
+          testsuite: desktop_office
+          settings:
+            DESKTOP: 'kde'
+      - desktop_office_xfce:
+          machine: uefi-3G
+          testsuite: desktop_office
+          settings:
+            DESKTOP: 'xfce'
+      - extra_tests_gnome:
+          machine: uefi-3G
+          settings:
+            <<: *agama_gnome_recycled_testsuite
+      - extra_tests_webserver:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - textmode_extra_tests_development:
+          machine: uefi-3G
+      - textmode_extra_tests_kernel:
+          machine: uefi-3G
+      - textmode_extra_tests_networking:
+          machine: uefi-3G
+      - textmode_extra_tests_utils:
+          machine: uefi-3G
+      - toolkits:
+          machine: uefi-3G
+          settings:
+            <<: *agama_gnome_recycled_testsuite
+      - toolkits-kde:
+          machine: uefi-3G
+          settings:
+            <<: *agama_kde_recycled_testsuite
+      - toolchain_zypper:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - qemu:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - firewalld-policy-firewall:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - firewalld-policy-server:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - firewalld-policy-client:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - kea-server:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - kea-client:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - salt-master:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - salt-minion:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - autofs_server:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - autofs_client:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - rsync-server:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - rsync-client:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - security_crypto_policies:
+          testsuite: crypto_policies
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - security_misc_o3:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - security_pam:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - security_tpm2:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - security_tpm_selftest:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - selinux:
+          description: Maintainer (Lily Zhao) llzhao@suse.com
+          testsuite: null
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+            BOOT_HDD_IMAGE: '1'
+            DESKTOP: textmode
+            SECURITY_TEST: selinux
+            VIDEOMODE: text
+            YAML_SCHEDULE: schedule/security/selinux.yaml
+      - sway:
+          testsuite: null
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+            BOOT_HDD_IMAGE: "1"
+            VIDEOMODE: text
+            DESKTOP: textmode
+            QEMU_VIDEO_DEVICE: virtio-vga
+            YAML_SCHEDULE: schedule/functional/sway.yaml
+  aarch64:
+    opensuse-online-installer-aarch64:
+      - gnome-agama
+      - kde-agama
+      - gnome:
+          settings:
+            <<: *agama
+    opensuse-offline-installer-aarch64:
+      - gnome-agama
+      - kde-agama
+      - gnome:
+          settings:
+            <<: *agama
+  ppc64le:
+    opensuse-online-installer-ppc64le:
+      - gnome-agama
+      - kde-agama
+      - gnome:
+          settings:
+            <<: *agama
+    opensuse-offline-installer-ppc64le:
+      - gnome-agama
+      - kde-agama
+  s390x:
+    opensuse-online-installer-s390x:
+      - gnome-agama
+      - kde-agama
+    opensuse-offline-installer-s390x:
+      - gnome-agama
+      - kde-agama
