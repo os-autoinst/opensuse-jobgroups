@@ -1272,6 +1272,7 @@ scenarios:
             NETWORKS: fixed
             NICTYPE: tap
             PARALLEL_WITH: desktopapps-remote-desktop-xrdp-server1
+            PARALLEL_ONE_HOST_ONLY: '1'
             REGRESSION: remote
             REMOTE_DESKTOP_TYPE: xrdp_client
             START_AFTER_TEST: create_hdd_gnome-wayland
@@ -1303,6 +1304,7 @@ scenarios:
             NETWORKS: fixed
             NICTYPE: tap
             PARALLEL_WITH: desktopapps-remote-desktop-xrdp-server2
+            PARALLEL_ONE_HOST_ONLY: '1'
             REGRESSION: remote
             REMOTE_DESKTOP_TYPE: xrdp_client
             START_AFTER_TEST: create_hdd_gnome-wayland
