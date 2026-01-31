@@ -59,6 +59,9 @@
   INST_INSTALL_URL: '%MIRROR_PREFIX%/%REPO_0%'
   YAML_SCHEDULE: schedule/install/agama_install.yaml
 
+.aeon: &aeon
+  NUMDISKS: "2"
+
 defaults:
   x86_64:
     machine: uefi
@@ -139,6 +142,10 @@ products:
   opensuse-Tumbleweed-agama-installer-x86_64:
     distri: opensuse
     flavor: agama-installer
+    version: Tumbleweed
+  aeon-*-Installer-x86_64:
+    distri: aeon
+    flavor: Installer
     version: Tumbleweed
 scenarios:
   x86_64:
@@ -2173,3 +2180,8 @@ scenarios:
           machine: uefi-usb-4G
           settings:
             <<: *agama
+    aeon-*-Installer-x86_64:
+      - aeon_tests:
+          machine: uefi
+          settings:
+            <<: *aeon
