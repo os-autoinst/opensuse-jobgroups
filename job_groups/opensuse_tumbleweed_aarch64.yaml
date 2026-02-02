@@ -407,6 +407,16 @@ scenarios:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIMES: 'containerd_crictl,containerd_nerdctl'
+      - container_host_containerd_testsuite:
+          description: |-
+            Maintainer: qe-c@suse.de https://github.com/os-autoinst/os-autoinst-distri-opensuse/tree/master/tests/containers/README.md
+          testsuite: extra_tests_textmode_containers
+          settings:
+            CONTAINER_RUNTIMES: 'docker'
+            CONTAINER_TESTS: 'containerd'
+            QEMUCPUS: '2'
+            QEMURAM: '4096'
+            RETRY: '1'
       - container_host_docker_testsuite:
           description: |-
             Maintainer: qe-c@suse.de https://github.com/os-autoinst/os-autoinst-distri-opensuse/tree/master/tests/containers/README.md
