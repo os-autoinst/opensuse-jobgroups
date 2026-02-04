@@ -96,6 +96,7 @@ scenarios:
       - ltp_fs_readonly
       - ltp_hugetlb
       - ltp_hyperthreading
+      - ltp_ima
       - ltp_ima_load_policy
       - ltp_input
       - ltp_kernel_misc:
@@ -411,6 +412,8 @@ scenarios:
       - ltp_hugetlb
       - ltp_hyperthreading
       - ltp_ima
+      - ltp_ima:
+          machine: uefi
       - ltp_ima_load_policy
       - ltp_ima_load_policy:
           machine: uefi
