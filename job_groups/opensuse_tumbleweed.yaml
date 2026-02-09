@@ -49,6 +49,11 @@
   UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
   START_AFTER_TEST: 'create_hdd_agama_kde'
 
+.textmode_recycled_testsuite: &textmode_recycled_testsuite
+  HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+  START_AFTER_TEST: 'create_hdd_textmode'
+  UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
+
 .jeos_ltp: &jeos_ltp
   HDD_2: "combustion_ltp.qcow2"
   +FIRST_BOOT_CONFIG: "combustion"
@@ -415,7 +420,18 @@ scenarios:
           priority: 46
       - extra_tests_on_kde
       - extra_tests_on_xfce
-      - extra_tests_textmode
+      - textmode_extra_tests_development:
+          settings:
+            <<: *textmode_recycled_testsuite
+      - textmode_extra_tests_kernel:
+          settings:
+            <<: *textmode_recycled_testsuite
+      - textmode_extra_tests_networking:
+          settings:
+            <<: *textmode_recycled_testsuite
+      - textmode_extra_tests_utils:
+          settings:
+            <<: *textmode_recycled_testsuite
       - extra_tests_systemd-bsc_1241079:
           testsuite: null
           settings:
