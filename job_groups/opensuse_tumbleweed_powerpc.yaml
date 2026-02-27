@@ -89,9 +89,20 @@ scenarios:
           settings:
             BATS_PACKAGE: 'aardvark-dns'
             CONTAINER_RUNTIMES: 'podman'
-            QEMURAM: '4096'
             QEMUCPUS: '2'
+            QEMURAM: '4096'
             RETRY: '1'
+      - container_host_containerd_testsuite:
+          description: |-
+            Maintainer: qe-c@suse.de https://github.com/os-autoinst/os-autoinst-distri-opensuse/tree/master/tests/containers/README.md
+          testsuite: extra_tests_textmode_containers
+          settings:
+            CONTAINER_RUNTIMES: 'docker'
+            CONTAINER_TESTS: 'containerd'
+            QEMUCPUS: '2'
+            QEMURAM: '4096'
+            RETRY: '1'
+      - container_host_docker_testsuite:
       - container_host_netavark_testsuite:
           description: |-
             Maintainer: qe-c@suse.de https://github.com/os-autoinst/os-autoinst-distri-opensuse/tree/master/tests/containers/bats
@@ -99,8 +110,8 @@ scenarios:
           settings:
             BATS_PACKAGE: 'netavark'
             CONTAINER_RUNTIMES: 'podman'
-            QEMURAM: '4096'
             QEMUCPUS: '2'
+            QEMURAM: '4096'
             RETRY: '1'
       - container_host_podman_testsuite:
           description: |-
@@ -110,8 +121,8 @@ scenarios:
             BATS_PACKAGE: 'podman'
             CONTAINER_RUNTIMES: 'podman'
             MAX_JOB_TIME: '12000'
-            QEMURAM: '4096'
             QEMUCPUS: '2'
+            QEMURAM: '4096'
             RETRY: '1'
       - container_host_podman_testsuite_crun:
           description: |-
@@ -122,8 +133,8 @@ scenarios:
             CONTAINER_RUNTIMES: 'podman'
             MAX_JOB_TIME: '12000'
             OCI_RUNTIME: 'crun'
-            QEMURAM: '4096'
             QEMUCPUS: '2'
+            QEMURAM: '4096'
             RETRY: '1'
       - container_host_runc_testsuite:
           description: |-
