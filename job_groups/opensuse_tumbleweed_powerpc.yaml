@@ -103,6 +103,16 @@ scenarios:
             QEMURAM: '4096'
             RETRY: '1'
       - container_host_docker_testsuite:
+          description: |-
+            Maintainer: qe-c@suse.de https://github.com/os-autoinst/os-autoinst-distri-opensuse/tree/master/tests/containers/README.md
+          testsuite: extra_tests_textmode_containers
+          settings:
+            CONTAINER_RUNTIMES: 'docker'
+            CONTAINER_TESTS: 'python_docker,docker_buildx,docker_cli,docker_engine'
+            DOCKER_EXPERIMENTAL: '1'
+            QEMUCPUS: '4'
+            QEMURAM: '4096'
+            RETRY: '1'
       - container_host_netavark_testsuite:
           description: |-
             Maintainer: qe-c@suse.de https://github.com/os-autoinst/os-autoinst-distri-opensuse/tree/master/tests/containers/bats
