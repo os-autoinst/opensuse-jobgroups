@@ -874,6 +874,7 @@ scenarios:
       - openqa_bootstrap
       - qemu
       - extra_tests_webserver
+      - stack_tests_php
       - extra_tests_dracut
       - boot_linuxrc
       - RAID0_gpt_uefi:

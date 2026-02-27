@@ -477,6 +477,7 @@ scenarios:
             QEMURAM: '2048'
             YAML_SCHEDULE: schedule/qam/common/mau-systemd-bsc_1241079.yaml
       - extra_tests_webserver
+      - stack_tests_php
       - container_host_multi_runtime:
           testsuite: extra_tests_textmode_containers
           settings:

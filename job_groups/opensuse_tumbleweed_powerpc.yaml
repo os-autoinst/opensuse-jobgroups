@@ -73,6 +73,7 @@ scenarios:
       - extra_tests_gnome
       - extra_tests_on_kde
       - extra_tests_textmode
+      - stack_tests_php
       - container_host_docker:
           testsuite: extra_tests_textmode_containers
           settings:
