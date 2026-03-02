@@ -2223,6 +2223,7 @@ scenarios:
           machine: uefi-usb-4G
           settings:
             <<: *agama
+            BOOTFROM: c
       - kde:
           machine: uefi-3G
           settings:
@@ -2235,6 +2236,7 @@ scenarios:
           machine: uefi-usb-4G
           settings:
             <<: *agama
+            BOOTFROM: c
     aeon-*-Installer-x86_64:
       - aeon_tests:
           machine: uefi
