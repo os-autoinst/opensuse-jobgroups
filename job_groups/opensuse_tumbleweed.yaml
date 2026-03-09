@@ -2108,6 +2108,10 @@ scenarios:
           machine: uefi-3G
           settings:
             <<: *agama_textmode_recycled_testsuite
+      - gnuhealth:
+          machine: uefi-3G
+          settings:
+            <<: *agama_gnome_recycled_testsuite
       - openldap_to_389ds:
           machine: uefi-3G
           settings:
