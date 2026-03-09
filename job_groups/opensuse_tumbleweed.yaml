@@ -2129,6 +2129,36 @@ scenarios:
             SECURITY_TEST: selinux
             VIDEOMODE: text
             YAML_SCHEDULE: schedule/security/selinux.yaml
+      - storage_lvm:
+          description: Test installation of system with LVM with agama
+          machine: uefi-3G
+          testsuite: gnome
+          settings:
+            LVM: '1'
+            START_AFTER_TEST: ''
+            YAML_SCHEDULE: schedule/opensuse/agama/agama_lvm_encrypt.yaml
+            DESKTOP: 'textmode'
+      - storage_fde:
+          description: Test installation of system with LVM with agama
+          machine: uefi-3G
+          testsuite: gnome
+          settings:
+            ENCRYPT: '1'
+            START_AFTER_TEST: ''
+            YAML_SCHEDULE: schedule/opensuse/agama/agama_lvm_encrypt.yaml
+            YAML_TEST_DATA: test_data/yast/encryption/crypt_no_lvm_enc_luks2.yaml
+            DESKTOP: 'textmode'
+      - storage_lvm_fde_password:
+          description: Test installation of system with LVM with agama
+          machine: uefi-3G
+          testsuite: gnome
+          settings:
+            ENCRYPT: '1'
+            LVM: '1'
+            START_AFTER_TEST: ''
+            YAML_SCHEDULE: schedule/opensuse/agama/agama_lvm_encrypt.yaml
+            DESKTOP: 'textmode'
+            YAML_TEST_DATA: test_data/yast/encryption/lvm_encrypt_separate_boot_luks2.yaml
       - sway:
           testsuite: null
           machine: uefi-3G
