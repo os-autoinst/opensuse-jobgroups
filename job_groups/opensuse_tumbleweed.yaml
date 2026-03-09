@@ -2308,6 +2308,10 @@ scenarios:
           settings:
             <<: *agama
             BOOTFROM: c
+      - zdup-Leap-15.6-kde:
+          machine: 64bit
+      - zdup-Leap-15.6-gnome:
+          machine: 64bit
     aeon-*-Installer-x86_64:
       - aeon_tests:
           machine: uefi
