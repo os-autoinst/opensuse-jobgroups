@@ -2112,6 +2112,20 @@ scenarios:
           machine: uefi-3G
           settings:
             <<: *agama_textmode_recycled_testsuite
+      - openqa_bootstrap:
+          machine: uefi-3G
+          settings:
+            <<: *agama_gnome_recycled_testsuite
+      - openqa_bootstrap_nginx:
+          testsuite: openqa_bootstrap
+          machine: uefi-3G
+          settings:
+            <<: *agama_gnome_recycled_testsuite
+            OPENQA_WEB_PROXY: 'nginx'
+      - openqa_bootstrap_container:
+          machine: uefi-3G
+          settings:
+            <<: *agama_gnome_recycled_testsuite
       - qemu:
           machine: uefi-3G
           settings:
