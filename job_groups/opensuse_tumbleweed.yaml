@@ -2162,6 +2162,10 @@ scenarios:
             SECURITY_TEST: selinux
             VIDEOMODE: text
             YAML_SCHEDULE: schedule/security/selinux.yaml
+      - stack_tests_python:
+          machine: uefi-3G
+          settings:
+            <<: *agama_gnome_recycled_testsuite
       - storage_lvm:
           description: Test installation of system with LVM with agama
           machine: uefi-3G
