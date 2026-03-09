@@ -2069,6 +2069,25 @@ scenarios:
           testsuite: desktop_office
           settings:
             DESKTOP: 'xfce'
+      - desktopapps-gnome:
+          machine: uefi-3G
+          settings:
+            <<: *agama_gnome_recycled_testsuite
+      - desktopapps-message-gnome:
+          machine: uefi-3G
+          settings:
+            <<: *agama_gnome_recycled_testsuite
+      - desktopapps-documentation:
+          testsuite: null
+          description: Maintainer Yaun Ren
+          machine: uefi-3G
+          settings:
+            <<: *agama_gnome_recycled_testsuite
+            REGRESSION: documentation
+      - desktopapps-gb18030:
+          machine: uefi-3G
+          settings:
+            <<: *agama_gnome_recycled_testsuite
       - extra_tests_dracut:
           machine: uefi-3G
           settings:
@@ -2089,10 +2108,28 @@ scenarios:
           machine: uefi-3G
           settings:
             <<: *agama_textmode_recycled_testsuite
+      - gnuhealth:
+          machine: uefi-3G
+          settings:
+            <<: *agama_gnome_recycled_testsuite
       - openldap_to_389ds:
           machine: uefi-3G
           settings:
             <<: *agama_textmode_recycled_testsuite
+      - openqa_bootstrap:
+          machine: uefi-3G
+          settings:
+            <<: *agama_gnome_recycled_testsuite
+      - openqa_bootstrap_nginx:
+          testsuite: openqa_bootstrap
+          machine: uefi-3G
+          settings:
+            <<: *agama_gnome_recycled_testsuite
+            OPENQA_WEB_PROXY: 'nginx'
+      - openqa_bootstrap_container:
+          machine: uefi-3G
+          settings:
+            <<: *agama_gnome_recycled_testsuite
       - qemu:
           machine: uefi-3G
           settings:
@@ -2129,6 +2166,40 @@ scenarios:
             SECURITY_TEST: selinux
             VIDEOMODE: text
             YAML_SCHEDULE: schedule/security/selinux.yaml
+      - stack_tests_python:
+          machine: uefi-3G
+          settings:
+            <<: *agama_gnome_recycled_testsuite
+      - storage_lvm:
+          description: Test installation of system with LVM with agama
+          machine: uefi-3G
+          testsuite: gnome
+          settings:
+            LVM: '1'
+            START_AFTER_TEST: ''
+            YAML_SCHEDULE: schedule/opensuse/agama/agama_lvm_encrypt.yaml
+            DESKTOP: 'textmode'
+      - storage_fde:
+          description: Test installation of system with LVM with agama
+          machine: uefi-3G
+          testsuite: gnome
+          settings:
+            ENCRYPT: '1'
+            START_AFTER_TEST: ''
+            YAML_SCHEDULE: schedule/opensuse/agama/agama_lvm_encrypt.yaml
+            YAML_TEST_DATA: test_data/yast/encryption/crypt_no_lvm_enc_luks2.yaml
+            DESKTOP: 'textmode'
+      - storage_lvm_fde_password:
+          description: Test installation of system with LVM with agama
+          machine: uefi-3G
+          testsuite: gnome
+          settings:
+            ENCRYPT: '1'
+            LVM: '1'
+            START_AFTER_TEST: ''
+            YAML_SCHEDULE: schedule/opensuse/agama/agama_lvm_encrypt.yaml
+            DESKTOP: 'textmode'
+            YAML_TEST_DATA: test_data/yast/encryption/lvm_encrypt_separate_boot_luks2.yaml
       - sway:
           testsuite: null
           machine: uefi-3G
@@ -2237,6 +2308,10 @@ scenarios:
           settings:
             <<: *agama
             BOOTFROM: c
+      - zdup-Leap-15.6-kde:
+          machine: 64bit
+      - zdup-Leap-15.6-gnome:
+          machine: 64bit
     aeon-*-Installer-x86_64:
       - aeon_tests:
           machine: uefi
