@@ -83,6 +83,20 @@ scenarios:
           priority: 45
       - minimalx:
           priority: 45
+      - minimalx-grub2-bls:
+          description: |
+            Test installation with grub2-bls
+          testsuite: minimalx
+          settings:
+            INSTALLONLY: '1'
+            BOOTLOADER: grub2-bls
+      - minimalx-grub2:
+          description: |
+            Test installation using grub2 (efi)
+          testsuite: minimalx
+          settings:
+            INSTALLONLY: '1'
+            BOOTLOADER: grub2
       - cryptlvm:
           machine: 64bit-2G
       - cryptlvm:
