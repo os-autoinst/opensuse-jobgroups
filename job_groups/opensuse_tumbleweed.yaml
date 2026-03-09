@@ -2069,6 +2069,25 @@ scenarios:
           testsuite: desktop_office
           settings:
             DESKTOP: 'xfce'
+      - desktopapps-gnome:
+          machine: uefi-3G
+          settings:
+            <<: *agama_gnome_recycled_testsuite
+      - desktopapps-message-gnome:
+          machine: uefi-3G
+          settings:
+            <<: *agama_gnome_recycled_testsuite
+      - desktopapps-documentation:
+          testsuite: null
+          description: Maintainer Yaun Ren
+          machine: uefi-3G
+          settings:
+            <<: *agama_gnome_recycled_testsuite
+            REGRESSION: documentation
+      - desktopapps-gb18030:
+          machine: uefi-3G
+          settings:
+            <<: *agama_gnome_recycled_testsuite
       - extra_tests_dracut:
           machine: uefi-3G
           settings:
