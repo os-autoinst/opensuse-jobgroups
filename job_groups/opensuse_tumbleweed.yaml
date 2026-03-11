@@ -475,6 +475,7 @@ scenarios:
             DESKTOP: textmode
             START_AFTER_TEST: create_hdd_textmode
             HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
             QEMURAM: '2048'
             YAML_SCHEDULE: schedule/qam/common/mau-systemd-bsc_1241079.yaml
       - extra_tests_webserver
@@ -1259,6 +1260,7 @@ scenarios:
             BOOT_HDD_IMAGE: '1'
             START_AFTER_TEST: create_hdd_textmode
             HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
             DESKTOP: textmode
             YAML_SCHEDULE: schedule/security/build_nested_hdd.yaml
             PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%_nested_l2.qcow2'
@@ -1419,6 +1421,7 @@ scenarios:
             BOOT_HDD_IMAGE: '1'
             START_AFTER_TEST: create_hdd_textmode
             HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
             WORKER_CLASS: tap
             DESKTOP: textmode
             NICTYPE: tap
@@ -1433,6 +1436,7 @@ scenarios:
             BOOT_HDD_IMAGE: '1'
             START_AFTER_TEST: create_hdd_textmode
             HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
             WORKER_CLASS: tap
             DESKTOP: textmode
             NICTYPE: tap
