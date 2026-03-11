@@ -2083,6 +2083,7 @@ scenarios:
           machine: uefi-3G
           settings:
             <<: *agama_gnome_recycled_testsuite
+            DESKTOP: gnome
             REGRESSION: documentation
       - desktopapps-gb18030:
           machine: uefi-3G
