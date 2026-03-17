@@ -367,6 +367,7 @@ scenarios:
           settings:
             START_AFTER_TEST: create_hdd_textmode_uefi
       - install_ltp_kotd+opensuse+DVD
+      - install_ltp_longterm+opensuse+DVD
       - io_uring:
           settings:
             QEMUCPUS: '4'
@@ -403,6 +404,7 @@ scenarios:
           machine: uefi
       - ltp_cve_m32
       - ltp_cve_kotd
+      - ltp_cve_longterm
       - ltp_dio
       - ltp_dma_thread_diotest
       - ltp_fcntl_locktests
@@ -471,6 +473,9 @@ scenarios:
             LTP_TAINT_EXPECTED: '0x13801'
       - ltp_syscalls_ipc
       - ltp_syscalls_kotd:
+          settings:
+            LTP_TAINT_EXPECTED: '0x13801'
+      - ltp_syscalls_longterm:
           settings:
             LTP_TAINT_EXPECTED: '0x13801'
       - ltp_syscalls_m32:
