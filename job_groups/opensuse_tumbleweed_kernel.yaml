@@ -63,6 +63,7 @@ scenarios:
       - install_ltp_kotd+opensuse+DVD:
           settings:
             KOTD_REPO: 'https://download.opensuse.org/repositories/Kernel:/HEAD/ARM/'
+      - install_ltp_longterm+opensuse+DVD
       - io_uring:
           settings:
             QEMUCPUS: '4'
@@ -87,6 +88,7 @@ scenarios:
       - ltp_crypto
       - ltp_cve
       - ltp_cve_kotd
+      - ltp_cve_longterm
       - ltp_dio
       - ltp_dma_thread_diotest
       - ltp_fcntl_locktests
@@ -140,6 +142,9 @@ scenarios:
             LTP_TAINT_EXPECTED: '0x13801'
       - ltp_syscalls_ipc
       - ltp_syscalls_kotd:
+          settings:
+            LTP_TAINT_EXPECTED: '0x13801'
+      - ltp_syscalls_longterm:
           settings:
             LTP_TAINT_EXPECTED: '0x13801'
       - ltp_tracing
