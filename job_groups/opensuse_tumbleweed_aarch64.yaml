@@ -26,6 +26,7 @@
   BCI_TARGET: "factory-arm-totest"
   # match -> opensuse-Tumbleweed-x86_64-20240603-textmode@64bit.qcow2
   HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+  UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
   # match -> openSUSE-%VERSION%-oss-armv6hl-armv7hl-aarch64-Snapshot%BUILD%
   BCI_DEVEL_REPO: 'http://openqa.opensuse.org/assets/repo/%REPO_OSS%'
   +FLAVOR: 'BCI'
@@ -1056,6 +1057,7 @@ scenarios:
             BOOT_HDD_IMAGE: '1'
             START_AFTER_TEST: create_hdd_textmode
             HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
             WORKER_CLASS: tap
             DESKTOP: textmode
             NICTYPE: tap
@@ -1070,6 +1072,7 @@ scenarios:
             BOOT_HDD_IMAGE: '1'
             START_AFTER_TEST: create_hdd_textmode
             HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
+            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
             WORKER_CLASS: tap
             DESKTOP: textmode
             NICTYPE: tap
