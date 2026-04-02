@@ -345,6 +345,17 @@ scenarios:
       - extra_tests_gnome
       - create_hdd_xfce:
           priority: 45
+      - secureboot_kernel_lockdown:
+          testsuite: null
+          machine: aarch64-secureboot-opensuse-key
+          settings:
+            START_AFTER_TEST: create_hdd_textmode_secureboot
+            BOOT_HDD_IMAGE: '1'
+            HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%_sb.qcow2'
+            UEFI_PFLASH_CODE: '/usr/share/qemu/aavmf-aarch64-code.bin'
+            UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars_sb.qcow2'
+            YAML_SCHEDULE: schedule/security/secureboot_kernel_lockdown.yaml
+            DESKTOP: textmode
       - extra_tests_on_kde
       - extra_tests_on_xfce
       - gnome-ext4
