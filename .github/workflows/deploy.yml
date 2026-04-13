@@ -6,6 +6,8 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     container:
       image: docker://registry.opensuse.org/devel/openqa/ci/tw/containers/tumbleweed:o3-jobgroups
     steps:

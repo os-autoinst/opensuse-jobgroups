@@ -9,6 +9,8 @@ on: [push, pull_request_target]
 jobs:
   static-check:
     runs-on: ubuntu-latest 
+    permissions:
+      contents: read
     container:
       image: docker://registry.opensuse.org/devel/openqa/ci/tw/containers/tumbleweed:o3-jobgroups
     steps:
