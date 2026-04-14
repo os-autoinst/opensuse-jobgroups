@@ -16,12 +16,12 @@ jobs:
     steps:
 
       - name: Git Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
       - name: Git Checkout PR
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
         with:
           ref: ${{github.event.pull_request.head.ref}}
           repository: ${{github.event.pull_request.head.repo.full_name}}
@@ -74,7 +74,7 @@ jobs:
           ../tool.py --dry-run --push --github
 
       - name: Clone os-autoinst-distri-opensuse repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
         with:
           repository: os-autoinst/os-autoinst-distri-opensuse 
           ref: refs/heads/master
