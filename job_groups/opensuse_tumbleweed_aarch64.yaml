@@ -136,10 +136,16 @@ scenarios:
       - microos_10G-disk
       - microos:
           machine: aarch64-4G-HD40G
+          settings:
+            TRANSACTIONAL_VALIDATION: '1'
       - microos-sdboot:
           machine: aarch64-4G-HD40G
+          settings:
+            TRANSACTIONAL_VALIDATION: '1'
       - microos_textmode:
           machine: aarch64-4G-HD40G
+          settings:
+            TRANSACTIONAL_VALIDATION: '1'
       - container-host:
           machine: aarch64-4G-HD40G
           settings:
@@ -170,34 +176,42 @@ scenarios:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/arm/totest/containers/opensuse/tumbleweed
             K3S_INSTALL_UPSTREAM: '1'
             QEMUCPUS: '2'
+            TRANSACTIONAL_VALIDATION: '1'
       - fips-container-host:
           settings:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/arm/totest/containers/opensuse/tumbleweed
             K3S_INSTALL_UPSTREAM: '1'
             QEMUCPUS: '2'
+            TRANSACTIONAL_VALIDATION: '1'
       - container-host2microosnext:
           settings:
             HDD_1_URL: 'http://download.opensuse.org/ports/aarch64/tumbleweed/appliances/openSUSE-MicroOS.aarch64-ContainerHost-kvm-and-xen.qcow2?foo=%BUILD%'
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/arm/totest/containers/opensuse/tumbleweed
             K3S_INSTALL_UPSTREAM: '1'
             QEMUCPUS: '2'
+            TRANSACTIONAL_VALIDATION: '1'
       - container-host-old2microosnext:
           settings:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/arm/totest/containers/opensuse/tumbleweed
             K3S_INSTALL_UPSTREAM: '1'
             QEMUCPUS: '2'
+            TRANSACTIONAL_VALIDATION: '1'
     microos-*-MicroOS-Image-aarch64:
       - microos:
           settings:
             # SELinux is enabled by default, but this allows running some checks
             ENABLE_SELINUX: '1'
+            TRANSACTIONAL_VALIDATION: '1'
       - microos-combustion
       - microos-ignition
       - microos-wizard
       - microos2microosnext:
           settings:
             HDD_1_URL: 'http://download.opensuse.org/ports/aarch64/tumbleweed/appliances/openSUSE-MicroOS.aarch64-kvm-and-xen.qcow2?foo=%BUILD%'
-      - microos-old2microosnext
+            TRANSACTIONAL_VALIDATION: '1'
+      - microos-old2microosnext:
+          settings:
+            TRANSACTIONAL_VALIDATION: '1'
       - microos_qemu:
           settings:
             EXCLUDE_MODULES: kvm
@@ -221,6 +235,7 @@ scenarios:
             HDD_2: 'extended_combustion.qcow2'
             NUMDISKS: '3'
             QEMU_DISABLE_SNAPSHOTS: '1'
+            TRANSACTIONAL_VALIDATION: '1'
       - microos-wizard-tpm:
           testsuite: microos-wizard
           settings:
@@ -229,6 +244,7 @@ scenarios:
             # Test with TPM enrollment
             QEMUTPM: 'instance'
             QEMU_DISABLE_SNAPSHOTS: '1'
+            TRANSACTIONAL_VALIDATION: '1'
       - microos-wizard:
           settings:
             # jeos-firstboot sets up FDE by default
@@ -240,6 +256,7 @@ scenarios:
             # jeos-firstboot sets up FDE by default
             ENCRYPT: '1'
             # Test without TPM enrollment
+            TRANSACTIONAL_VALIDATION: '1'
       - microos-wizard-tpm:
           testsuite: microos-wizard
           settings:
@@ -248,8 +265,11 @@ scenarios:
             # Test with TPM enrollment
             QEMUTPM: 'instance'
             QEMU_DISABLE_SNAPSHOTS: '1'
+            TRANSACTIONAL_VALIDATION: '1'
     microos-*-MicroOS-SelfInstall-aarch64:
-      - microos
+      - microos:
+          settings:
+            TRANSACTIONAL_VALIDATION: '1'
     opensuse-Tumbleweed-DVD-aarch64:
       - security_tpm2
       - unlock_luks2_volume_with_tpm2:

@@ -162,14 +162,24 @@ scenarios:
           machine: uefi-2G
       - microos:
           machine: uefi
+          settings:
+            TRANSACTIONAL_VALIDATION: '1'
       - microos-sdboot:
           machine: uefi-2G
+          settings:
+            TRANSACTIONAL_VALIDATION: '1'
       - microos:
           machine: 64bit
+          settings:
+            TRANSACTIONAL_VALIDATION: '1'
       - microos_textmode:
           machine: uefi-2G
+          settings:
+            TRANSACTIONAL_VALIDATION: '1'
       - microos_textmode:
           machine: 64bit-2G
+          settings:
+            TRANSACTIONAL_VALIDATION: '1'
       - container_host:
           machine: uefi-2G
           settings:
@@ -206,31 +216,40 @@ scenarios:
           settings:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
             K3S_INSTALL_UPSTREAM: '1'
+            TRANSACTIONAL_VALIDATION: '1'
       - fips-container_host:
           settings:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
             K3S_INSTALL_UPSTREAM: '1'
             QEMUCPUS: '2'
+            TRANSACTIONAL_VALIDATION: '1'
       - container_host2microosnext:
           settings:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
             K3S_INSTALL_UPSTREAM: '1'
             QEMUCPUS: '2'
+            TRANSACTIONAL_VALIDATION: '1'
       - container_host-old2microosnext:
           settings:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
             K3S_INSTALL_UPSTREAM: '1'
             QEMUCPUS: '2'
+            TRANSACTIONAL_VALIDATION: '1'
     microos-*-MicroOS-Image-x86_64:
       - microos:
           settings:
             # SELinux is enabled by default, but this allows running some checks
             ENABLE_SELINUX: '1'
+            TRANSACTIONAL_VALIDATION: '1'
       - microos-combustion
       - microos-ignition
       - microos-wizard
-      - microos2microosnext
-      - microos-old2microosnext
+      - microos2microosnext:
+          settings:
+            TRANSACTIONAL_VALIDATION: '1'
+      - microos-old2microosnext:
+          settings:
+            TRANSACTIONAL_VALIDATION: '1'
       - microos_qemu:
           settings:
             QEMUCPU: 'host'
@@ -245,6 +264,8 @@ scenarios:
     microos-*-MicroOS-Image-sdboot-x86_64:
       - microos-combustion:
           machine: uefi
+          settings:
+            TRANSACTIONAL_VALIDATION: '1'
       - microos-combustion-fde:
           machine: uefi
           settings:
@@ -254,6 +275,7 @@ scenarios:
             HDD_2: 'extended_combustion.qcow2'
             NUMDISKS: '3'
             QEMU_DISABLE_SNAPSHOTS: '1'
+            TRANSACTIONAL_VALIDATION: '1'
       - microos-wizard-tpm:
           testsuite: microos-wizard
           machine: uefi
@@ -263,12 +285,14 @@ scenarios:
             # Test with TPM enrollment
             QEMUTPM: 'instance'
             QEMU_DISABLE_SNAPSHOTS: '1'
+            TRANSACTIONAL_VALIDATION: '1'
       - microos-wizard:
           machine: uefi
           settings:
             # jeos-firstboot sets up FDE by default
             ENCRYPT: '1'
             # Test without TPM enrollment
+            TRANSACTIONAL_VALIDATION: '1'
     microos-*-MicroOS-Image-grub-bls-x86_64:
       - microos-wizard:
           machine: uefi
@@ -276,6 +300,7 @@ scenarios:
             # jeos-firstboot sets up FDE by default
             ENCRYPT: '1'
             # Test without TPM enrollment
+            TRANSACTIONAL_VALIDATION: '1'
       - microos-wizard-tpm:
           testsuite: microos-wizard
           machine: uefi
@@ -285,8 +310,11 @@ scenarios:
             # Test with TPM enrollment
             QEMUTPM: 'instance'
             QEMU_DISABLE_SNAPSHOTS: '1'
+            TRANSACTIONAL_VALIDATION: '1'
     microos-*-MicroOS-SelfInstall-x86_64:
-      - microos
+      - microos:
+          settings:
+            TRANSACTIONAL_VALIDATION: '1'
     opensuse-Tumbleweed-DVD-x86_64:
       - textmode:
           machine: 64bit

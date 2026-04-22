@@ -151,6 +151,8 @@ scenarios:
     microos-*-Staging-MicroOS-Image-ContainerHost-x86_64:
       - microos:
           machine: 64bit
+          settings:
+            TRANSACTIONAL_VALIDATION: '1'
       - container-host:
           machine: 64bit
           settings:
@@ -168,3 +170,4 @@ scenarios:
             ENCRYPT: '1'
             # Test with TPM enrollment
             QEMUTPM: 'instance'
+            TRANSACTIONAL_VALIDATION: '1'
