@@ -19,6 +19,7 @@
   HDDSIZEGB_1: '30'
   ENABLE_SELINUX: '1'
   FIRST_BOOT_CONFIG: 'combustion+ignition'
+  TRANSACTIONAL_VALIDATION: '1'
 
 .image_container_settings: &image_container_settings
   <<: *image_settings
@@ -55,7 +56,7 @@ defaults:
     settings:
       QEMUCPUS: '2'
 
-products: # ---Default---
+products:  # ---Default---
   leap-micro-6.0-Default-SelfInstall-x86_64: &distriver
     distri: leap-micro
     flavor: Default-SelfInstall
