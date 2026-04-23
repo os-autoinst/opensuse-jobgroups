@@ -389,6 +389,7 @@ scenarios:
       - kselftests-bpf-progs
       - kselftests-cgroup
       - kselftests-net
+      - kselftests-net_mptcp
       - ltp_aio_stress
       - ltp_aiodio_part1
       - ltp_aiodio_part2
