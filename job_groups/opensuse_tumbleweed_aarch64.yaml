@@ -292,6 +292,8 @@ scenarios:
           machine: aarch64
       - kde:
           machine: USBboot_aarch64
+          settings:
+            BOOTFROM: "c"
       - kde:
           machine: aarch64_no_lse_smp4
       - kde:
@@ -1281,6 +1283,8 @@ scenarios:
           priority: 40
       - kde-live_installation:
           machine: USBboot_aarch64-3G
+          settings:
+            BOOTFROM: "c"
       - kde_live_upgrade_leap_15.0:
           settings:
             QEMURAM: "3072"

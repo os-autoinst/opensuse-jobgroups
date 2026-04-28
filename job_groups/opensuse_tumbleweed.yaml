@@ -334,8 +334,10 @@ scenarios:
           machine: 64bit
           priority: 45
       - uefi:
-          machine: USBboot_64
+          machine: uefi-usb-4G
           priority: 45
+          settings:
+            BOOTFROM: c
       - gnome:
           machine: Laptop_64
           priority: 45

@@ -94,6 +94,7 @@ scenarios:
           machine: uefi-usb-4G
           settings:
             <<: *agama
+            BOOTFROM: c
       - kde:
           machine: uefi-3G
           settings:
@@ -106,6 +107,7 @@ scenarios:
           machine: uefi-usb-4G
           settings:
             <<: *agama
+            BOOTFROM: c
     opensuse-offline-installer-x86_64:
       - gnome:
           machine: uefi-3G
