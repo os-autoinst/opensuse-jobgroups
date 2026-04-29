@@ -1676,6 +1676,11 @@ scenarios:
           machine: 64bit_virtio-2G
           settings:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
+      - jeos-containers-k3s-smoketest:
+          machine: 64bit_virtio-2G
+          settings:
+            CONTAINER_RUNTIMES: "k3s"
+            CONTAINER_K3S_SMOKETEST: "1"
       - zdup_twjeos2twnext:
           machine: 64bit_virtio
       - jeos-filesystem:
