@@ -232,7 +232,6 @@ scenarios:
       - container_host-old2microosnext:
           settings:
             CONTAINER_IMAGE_TO_TEST: registry.opensuse.org/opensuse/factory/totest/containers/opensuse/tumbleweed
-            HDD_1: 'openSUSE-MicroOS.x86_64-ContainerHost-kvm-and-xen-old-20240812.qcow2'
             K3S_INSTALL_UPSTREAM: '1'
             QEMUCPUS: '2'
             TRANSACTIONAL_VALIDATION: '1'
@@ -250,7 +249,6 @@ scenarios:
             TRANSACTIONAL_VALIDATION: '1'
       - microos-old2microosnext:
           settings:
-            HDD_1: 'openSUSE-MicroOS.x86_64-ContainerHost-kvm-and-xen-old-20240812.qcow2'
             TRANSACTIONAL_VALIDATION: '1'
       - microos_qemu:
           settings:
