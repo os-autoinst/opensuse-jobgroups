@@ -453,6 +453,7 @@ scenarios:
             QEMUCPU: 'host'
             QEMUCPUS: '2'
             RETRY: '1'
+            _FORCE_STATUS_ON_RETRY: '1'
       - container_host_buildah_testsuite_crun:
           testsuite: extra_tests_textmode_containers
           description: |-
@@ -464,6 +465,7 @@ scenarios:
             QEMUCPUS: '2'
             OCI_RUNTIME: 'crun'
             RETRY: '1'
+            _FORCE_STATUS_ON_RETRY: '1'
       - container_host_containerd_testsuite:
           description: |-
             Maintainer: qe-c@suse.de https://github.com/os-autoinst/os-autoinst-distri-opensuse/tree/master/tests/containers/README.md
@@ -474,6 +476,7 @@ scenarios:
             QEMUCPUS: '2'
             QEMURAM: '4096'
             RETRY: '1'
+            _FORCE_STATUS_ON_RETRY: '1'
       - container_host_docker_testsuite:
           description: |-
             Maintainer: qe-c@suse.de https://github.com/os-autoinst/os-autoinst-distri-opensuse/tree/master/tests/containers/README.md
@@ -484,6 +487,7 @@ scenarios:
             QEMUCPUS: '4'
             QEMURAM: '4096'
             RETRY: '1'
+            _FORCE_STATUS_ON_RETRY: '1'
       - container_host_docker_rootless_testsuite:
           description: |-
             Maintainer: qe-c@suse.de https://github.com/os-autoinst/os-autoinst-distri-opensuse/tree/master/tests/containers/README.md
@@ -495,6 +499,7 @@ scenarios:
             QEMURAM: '4096'
             RETRY: '1'
             ROOTLESS: '1'
+            _FORCE_STATUS_ON_RETRY: '1'
       - container_host_aardvark_testsuite:
           description: |-
             Maintainer: qe-c@suse.de https://github.com/os-autoinst/os-autoinst-distri-opensuse/tree/master/tests/containers/bats
@@ -505,6 +510,7 @@ scenarios:
             QEMURAM: '4096'
             QEMUCPUS: '2'
             RETRY: '1'
+            _FORCE_STATUS_ON_RETRY: '1'
       - container_host_conmon_testsuite:
           description: |-
             Maintainer: qe-c@suse.de https://github.com/os-autoinst/os-autoinst-distri-opensuse/tree/master/tests/containers/bats
@@ -515,6 +521,7 @@ scenarios:
             QEMURAM: '4096'
             QEMUCPUS: '2'
             RETRY: '1'
+            _FORCE_STATUS_ON_RETRY: '1'
       - container_host_netavark_testsuite:
           description: |-
             Maintainer: qe-c@suse.de https://github.com/os-autoinst/os-autoinst-distri-opensuse/tree/master/tests/containers/bats
@@ -525,6 +532,7 @@ scenarios:
             QEMURAM: '4096'
             QEMUCPUS: '2'
             RETRY: '1'
+            _FORCE_STATUS_ON_RETRY: '1'
       - container_host_podman_e2e:
           description: |-
             Maintainer: qe-c@suse.de https://github.com/os-autoinst/os-autoinst-distri-opensuse/tree/master/tests/containers/README.md
@@ -535,6 +543,7 @@ scenarios:
             QEMUCPUS: '4'
             QEMURAM: '4096'
             RETRY: '1'
+            _FORCE_STATUS_ON_RETRY: '1'
       - container_host_podman_rootless_e2e:
           description: |-
             Maintainer: qe-c@suse.de https://github.com/os-autoinst/os-autoinst-distri-opensuse/tree/master/tests/containers/README.md
@@ -546,6 +555,7 @@ scenarios:
             QEMURAM: '4096'
             RETRY: '1'
             ROOTLESS: '1'
+            _FORCE_STATUS_ON_RETRY: '1'
       - container_host_podman_e2e_crun:
           description: |-
             Maintainer: qe-c@suse.de https://github.com/os-autoinst/os-autoinst-distri-opensuse/tree/master/tests/containers/README.md
@@ -557,6 +567,7 @@ scenarios:
             QEMURAM: '4096'
             OCI_RUNTIME: 'crun'
             RETRY: '1'
+            _FORCE_STATUS_ON_RETRY: '1'
       - container_host_podman_rootless_e2e_crun:
           description: |-
             Maintainer: qe-c@suse.de https://github.com/os-autoinst/os-autoinst-distri-opensuse/tree/master/tests/containers/README.md
@@ -569,6 +580,7 @@ scenarios:
             OCI_RUNTIME: 'crun'
             RETRY: '1'
             ROOTLESS: '1'
+            _FORCE_STATUS_ON_RETRY: '1'
       - container_host_podman_testsuite:
           description: |-
             Maintainer: qe-c@suse.de https://github.com/os-autoinst/os-autoinst-distri-opensuse/tree/master/tests/containers/bats
@@ -580,6 +592,7 @@ scenarios:
             QEMURAM: '4096'
             QEMUCPUS: '2'
             RETRY: '1'
+            _FORCE_STATUS_ON_RETRY: '1'
       - container_host_podman_testsuite_crun:
           description: |-
             Maintainer: qe-c@suse.de https://github.com/os-autoinst/os-autoinst-distri-opensuse/tree/master/tests/containers/bats
@@ -592,6 +605,7 @@ scenarios:
             QEMURAM: '4096'
             QEMUCPUS: '2'
             RETRY: '1'
+            _FORCE_STATUS_ON_RETRY: '1'
       - container_host_runc_testsuite:
           description: |-
             Maintainer: qe-c@suse.de https://github.com/os-autoinst/os-autoinst-distri-opensuse/tree/master/tests/containers/bats
@@ -602,6 +616,7 @@ scenarios:
             QEMURAM: '4096'
             QEMUCPUS: '2'
             RETRY: '1'
+            _FORCE_STATUS_ON_RETRY: '1'
       - container_host_skopeo_testsuite:
           description: |-
             Maintainer: qe-c@suse.de https://github.com/os-autoinst/os-autoinst-distri-opensuse/tree/master/tests/containers/bats
@@ -612,6 +627,7 @@ scenarios:
             QEMURAM: '4096'
             QEMUCPUS: '2'
             RETRY: '1'
+            _FORCE_STATUS_ON_RETRY: '1'
       - containers_hpc_apptainer:
           testsuite: extra_tests_textmode_containers
           settings:
