@@ -1194,7 +1194,9 @@ scenarios:
             HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-apparmor@%MACHINE%.qcow2'
       - security_misc_o3
       - lvm+RAID1:
-          machine: 64bit
+          machine: 64bit-2G
+          settings:
+            QEMURAM: '2048'
       - lvm-encrypt-separate-boot:
           machine: 64bit
           settings:
