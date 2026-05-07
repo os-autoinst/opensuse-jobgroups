@@ -464,7 +464,6 @@ scenarios:
       - ltp_openposix:
           priority: 50
       - ltp_power_management_tests
-      - ltp_power_management_tests_exclusive
       - ltp_pty
       - ltp_sched
       - ltp_syscalls:
