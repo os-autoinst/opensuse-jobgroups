@@ -288,6 +288,8 @@ scenarios:
             GRUB_KERNEL_OPTION_APPEND: ''
       - textmode:
           machine: aarch64
+      - textmode:
+          machine: aarch64_armv9
       - kde:
           machine: USBboot_aarch64
           settings:
@@ -322,6 +324,8 @@ scenarios:
       - install_only:
           machine: aarch64_cpu_max
           priority: 40
+      - install_only:
+          machine: aarch64_armv9
       - ext4:
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/ext4/ext4.yaml
@@ -1196,6 +1200,9 @@ scenarios:
             INFLUXDB_SERVER: '18.196.183.86'
       - jeos:
           machine: aarch64_cpu_max-HD20G
+          priority: 45
+      - jeos:
+          machine: aarch64_armv9-HD20G
           priority: 45
       - jeos-extra:
           machine: aarch64-HD24G
