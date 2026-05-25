@@ -510,10 +510,16 @@ scenarios:
             YAML_SCHEDULE: schedule/qam/common/mau-systemd-bsc_1241079.yaml
       - extra_tests_webserver
       - stack_tests_php
-      - container_host_multi_runtime:
+      - container_host_multi_runtime_iptables:
           testsuite: extra_tests_textmode_containers
           settings:
             CONTAINER_RUNTIMES: 'multi_runtime'
+            QEMUCPUS: '2'
+      - container_host_multi_runtime_nftables:
+          testsuite: extra_tests_textmode_containers
+          settings:
+            CONTAINER_RUNTIMES: 'multi_runtime'
+            FIREWALL_BACKEND: 'nftables'
             QEMUCPUS: '2'
       - container_host_docker_apparmor:
           testsuite: extra_tests_textmode_containers
