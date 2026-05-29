@@ -1563,7 +1563,6 @@ scenarios:
             YAML_SCHEDULE: schedule/yast/opensuse/remote_vnc/remote_vnc_target.yaml
           description: The target of the vnc remote installation triggered by the controller
           testsuite: null
-      - yast_oneclick_install
       - firewalld-policy-firewall:
           machine: 64bit
           settings:

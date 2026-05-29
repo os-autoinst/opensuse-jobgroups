@@ -1034,7 +1034,6 @@ scenarios:
       - ping_client:
           priority: 45
       - install_offline
-      - yast_oneclick_install
       - nvme
       - selinux:
           description: Maintainer (Lily Zhao) llzhao@suse.com
