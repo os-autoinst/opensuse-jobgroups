@@ -1316,7 +1316,6 @@ scenarios:
           machine: uefi
           settings:
             START_AFTER_TEST: create_hdd_textmode_uefi
-            UEFI_PFLASH_CODE: '/usr/share/qemu/ovmf-x86_64-ms-code.bin'
       - unlock_luks2_volume_with_tpm2:
           testsuite: null
           settings:
@@ -1337,7 +1336,6 @@ scenarios:
             START_AFTER_TEST: create_hdd_textmode_uefi
             BOOT_HDD_IMAGE: '1'
             HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
-            UEFI_PFLASH_CODE: '/usr/share/qemu/ovmf-x86_64-ms-code.bin'
             UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
             YAML_SCHEDULE: schedule/security/secureboot_kernel_lockdown.yaml
             DESKTOP: textmode
