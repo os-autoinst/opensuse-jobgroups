@@ -1302,6 +1302,7 @@ scenarios:
             UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
           testsuite: null
       - desktopapps-gb18030
+      - oqs_provider
       - security_crypto_policies:
           testsuite: crypto_policies
       - security_audit:
@@ -2188,6 +2189,10 @@ scenarios:
             <<: *agama_gnome_recycled_testsuite
             OPENQA_WEB_PROXY: 'nginx'
       - openqa_bootstrap_container:
+          machine: uefi-3G
+          settings:
+            <<: *agama_gnome_recycled_testsuite
+      - oqs_provider:
           machine: uefi-3G
           settings:
             <<: *agama_gnome_recycled_testsuite

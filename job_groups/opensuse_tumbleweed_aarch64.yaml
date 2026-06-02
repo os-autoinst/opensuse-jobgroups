@@ -1134,6 +1134,7 @@ scenarios:
             SSS_USERNAME: 'wilber'
             YAML_SCHEDULE: schedule/security/389ds_sssd.yaml
       - installer_extended
+      - oqs_provider
     opensuse-Tumbleweed-GNOME-Live-aarch64:
       - gnome-live:
           machine: USBboot_aarch64-3G
