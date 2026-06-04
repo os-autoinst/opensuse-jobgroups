@@ -67,6 +67,7 @@ scenarios:
       - io_uring:
           settings:
             QEMUCPUS: '4'
+            LIBURING_INSTALL: 'from_git'
       - kdump:
           settings:
             CRASH_MEMORY: '320'
@@ -237,6 +238,7 @@ scenarios:
       - io_uring:
           settings:
             QEMUCPUS: '4'
+            LIBURING_INSTALL: 'from_git'
       - kdump:
           settings:
             CRASH_MEMORY: '640'
@@ -376,6 +378,7 @@ scenarios:
       - io_uring:
           settings:
             QEMUCPUS: '4'
+            LIBURING_INSTALL: 'from_git'
       - ipsec_3hosts_support_server
       - ipsec_3hosts_left_node
       - ipsec_3hosts_middle_node
