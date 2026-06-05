@@ -23,7 +23,6 @@
   QEMUCPU: host
 
 .container_settings: &container_settings
-  <<: *generic_settings
   CONTAINER_IMAGE_VERSIONS: "16.0"
   REGISTRY: '3.126.238.126:5000'
   NUMDISKS: "2"
@@ -65,6 +64,16 @@ products:
     flavor: Minimal-VM-Cloud
     version: '16.0'
 
+  # Container image
+  opensuse-16.0-Container-Image-x86_64:
+    distri: opensuse
+    flavor: Container-Image
+    version: '16.0'
+  opensuse-16.0-Container-Image-aarch64:
+    distri: opensuse
+    flavor: Container-Image
+    version: '16.0'
+
 scenarios:
   x86_64:
     # Minimal-VM
@@ -92,14 +101,28 @@ scenarios:
       - minimalvm-containers-podman:
           testsuite: null
           settings:
-            CONTAINER_RUNTIMES: "podman"
             <<: [*generic_settings, *x86_64_settings, *container_settings]
+            CONTAINER_RUNTIMES: "podman"
           machine: [uefi_virtio-vga]
       - minimalvm-containers-docker:
           testsuite: null
           settings:
-            CONTAINER_RUNTIMES: "docker"
             <<: [*generic_settings, *x86_64_settings, *container_settings]
+            CONTAINER_RUNTIMES: "docker"
+          machine: [uefi_virtio-vga]
+      - minimalvm-containers-podman-image:
+          testsuite: null
+          settings:
+            <<: [*generic_settings, *x86_64_settings, *container_settings]
+            CONTAINER_RUNTIMES: "podman"
+            CONTAINERS_UNTESTED_IMAGES: '1'
+          machine: [uefi_virtio-vga]
+      - minimalvm-containers-docker-image:
+          testsuite: null
+          settings:
+            <<: [*generic_settings, *x86_64_settings, *container_settings]
+            CONTAINER_RUNTIMES: "docker"
+            CONTAINERS_UNTESTED_IMAGES: '1'
           machine: [uefi_virtio-vga]
 
     opensuse-16.0-Minimal-VM-for-kvm-and-xen-encrypt-x86_64:
@@ -137,6 +160,46 @@ scenarios:
             ZYPPER_WHITELISTED_ORPHANS: ''
             FILESYSTEM: 'xfs'
 
+    opensuse-16.0-Container-Image-x86_64:
+      - container_image_on_centos_host:
+          testsuite: container-image
+          description: 'Container image validation on CentOS 9'
+          settings:
+            <<: [*x86_64_settings, *container_settings]
+            HDD_1: 'centos-stream9.qcow2'
+            KEEP_GRUB_TIMEOUT: '1'
+            DESKTOP: 'textmode'
+            VIDEOMODE: 'text'
+            CONTAINER_RUNTIMES: 'podman'
+            CONTAINERS_UNTESTED_IMAGES: '1'
+      - container_image_on_ubuntu_host:
+          testsuite: container-image
+          description: 'Container image validation on Ubuntu 22.04'
+          settings:
+            <<: [*x86_64_settings, *container_settings]
+            HDD_1: 'ubuntu-22.04.qcow2'
+            KEEP_GRUB_TIMEOUT: '1'
+            DESKTOP: 'textmode'
+            VIDEOMODE: 'text'
+            CONTAINERS_UNTESTED_IMAGES: '1'
+      - container_image_on_leap15.3_host:
+          testsuite: container-image
+          description: 'Container image validation on Leap 15.3 GM'
+          settings:
+            <<: [*x86_64_settings, *container_settings]
+            HDD_1: 'opensuse-15.3-x86_64-20210906-4-textmode@64bit.qcow2'
+            CONTAINERS_UNTESTED_IMAGES: '1'
+            POSTGRES_IP: 'ko.dmz-prg2.suse.org'
+            POSTGRES_PORT: '5444'
+      - container_image_on_leap15.3_host:
+          testsuite: container-image
+          machine: ppc64le
+          settings:
+            <<: [*container_settings]
+            +ARCH: 'ppc64le'
+            HDD_1: 'opensuse-15.3-ppc64le-160.3-textmode@ppc64le.qcow2'
+            CONTAINERS_UNTESTED_IMAGES: '1'
+
   aarch64:
     # Minimal-VM
     opensuse-16.0-Minimal-VM-for-kvm-and-xen-aarch64:
@@ -163,8 +226,20 @@ scenarios:
       - minimalvm-containers-docker:
           testsuite: null
           settings:
-            CONTAINER_RUNTIMES: "docker"
             <<: [*generic_settings, *container_settings]
+            CONTAINER_RUNTIMES: "docker"
+      - minimalvm-containers-podman-image:
+          testsuite: null
+          settings:
+            <<: [*generic_settings, *container_settings]
+            CONTAINERS_UNTESTED_IMAGES: '1'
+            CONTAINER_RUNTIMES: "podman"
+      - minimalvm-containers-docker-image:
+          testsuite: null
+          settings:
+            <<: [*generic_settings, *container_settings]
+            CONTAINER_RUNTIMES: "docker"
+            CONTAINERS_UNTESTED_IMAGES: '1'
 
     opensuse-16.0-Minimal-VM-for-kvm-and-xen-encrypt-aarch64:
       - minimalvm-main:
@@ -201,3 +276,14 @@ scenarios:
             HDDSIZEGB_1: '30'
             ZYPPER_WHITELISTED_ORPHANS: ''
             FILESYSTEM: 'xfs'
+
+    opensuse-16.0-Container-Image-aarch64:
+      - container_image_on_leap15.3_host:
+          testsuite: container-image
+          settings:
+            <<: [*container_settings]
+            HDD_1: 'opensuse-15.3-aarch64-160.3-textmode@aarch64.qcow2'
+            UEFI_PFLASH_VARS: 'opensuse-15.3-aarch64-160.3-textmode@aarch64-uefi-vars.qcow2'
+            CONTAINERS_UNTESTED_IMAGES: '1'
+            POSTGRES_IP: 'ko.dmz-prg2.suse.org'
+            POSTGRES_PORT: '5444'
