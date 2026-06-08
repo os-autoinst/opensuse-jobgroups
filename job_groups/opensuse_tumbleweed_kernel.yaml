@@ -176,7 +176,7 @@ scenarios:
             HOSTNAME: server-node00
             USE_SUPPORT_SERVER: "1"
             KDUMP_OVER_NFS: "1"
-            KDUMP_SAVEDIR: "nfs://server-node00/nfs/shared_nfs3"
+            KDUMP_SAVEDIR: "nfs://server-node00/var/lib/nfs-tests/shared_nfs3"
             YAML_SCHEDULE: schedule/storage/nfs.yaml
       - nfs_client:
           testsuite: null
@@ -192,7 +192,7 @@ scenarios:
             HOSTNAME: client-node00
             USE_SUPPORT_SERVER: "1"
             KDUMP_OVER_NFS: "1"
-            KDUMP_SAVEDIR: "nfs://server-node00/nfs/shared_nfs3"
+            KDUMP_SAVEDIR: "nfs://server-node00/var/lib/nfs-tests/shared_nfs3"
             YAML_SCHEDULE: schedule/storage/nfs.yaml
       - nfs_support_server:
           testsuite: null
@@ -550,7 +550,7 @@ scenarios:
             HOSTNAME: server-node00
             USE_SUPPORT_SERVER: "1"
             KDUMP_OVER_NFS: "1"
-            KDUMP_SAVEDIR: "nfs://server-node00/nfs/shared_nfs3"
+            KDUMP_SAVEDIR: "nfs://server-node00/var/lib/nfs-tests/shared_nfs3"
             YAML_SCHEDULE: schedule/storage/nfs.yaml
       - nfs_client:
           testsuite: null
@@ -566,7 +566,7 @@ scenarios:
             HOSTNAME: client-node00
             USE_SUPPORT_SERVER: "1"
             KDUMP_OVER_NFS: "1"
-            KDUMP_SAVEDIR: "nfs://server-node00/nfs/shared_nfs3"
+            KDUMP_SAVEDIR: "nfs://server-node00/var/lib/nfs-tests/shared_nfs3"
             YAML_SCHEDULE: schedule/storage/nfs.yaml
       - nfs_support_server:
           testsuite: null
