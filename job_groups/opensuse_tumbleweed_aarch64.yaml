@@ -1136,7 +1136,7 @@ scenarios:
       - installer_extended
     opensuse-Tumbleweed-GNOME-Live-aarch64:
       - gnome-live:
-          machine: USBboot_aarch64
+          machine: USBboot_aarch64-3G
       - mediacheck:
           machine: USBboot_aarch64
           priority: 40
@@ -1389,7 +1389,7 @@ scenarios:
           machine: USBboot_aarch64
           priority: 40
       - xfce-live:
-          machine: USBboot_aarch64
+          machine: USBboot_aarch64-3G
     opensuse-Tumbleweed-WSL-aarch64:
       - wsl2-main:
           testsuite: null
