@@ -393,6 +393,7 @@ scenarios:
       - kselftests-cgroup
       - kselftests-net
       - kselftests-net_mptcp
+      - kselftests-namespaces
       - ltp_aio_stress
       - ltp_aiodio_part1
       - ltp_aiodio_part2
