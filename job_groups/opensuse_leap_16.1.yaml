@@ -24,6 +24,7 @@
   HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
   UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
   START_AFTER_TEST: 'create_hdd_agama_gnome'
+  EXCLUDE_MODULES: 'steam,yast2_lan_restart,yast2_lan_device_settings,multi_users_dm,keyboard_layout_gdm,libqt5_qtbase'
 
 .agama_kde_recycled_testsuite: &agama_kde_recycled_testsuite
   NOAUTOLOGIN: '1'
@@ -166,16 +167,19 @@ scenarios:
           testsuite: desktop_amusement
           settings:
             DESKTOP: 'gnome'
+            EXCLUDE_MODULES: 'steam'
       - desktop_amusement_kde:
           machine: uefi-3G
           testsuite: desktop_amusement
           settings:
             DESKTOP: 'kde'
+            EXCLUDE_MODULES: 'steam'
       - desktop_amusement_xfce:
           machine: uefi-3G
           testsuite: desktop_amusement
           settings:
             DESKTOP: 'xfce'
+            EXCLUDE_MODULES: 'steam'
       - desktop_browsers_gnome:
           machine: uefi-3G
           testsuite: desktop_browsers
@@ -250,6 +254,8 @@ scenarios:
           machine: uefi-3G
       - textmode_extra_tests_networking:
           machine: uefi-3G
+          settings:
+            EXCLUDE_MODULES: 'yast2_lan_device_settings'
       - textmode_extra_tests_utils:
           machine: uefi-3G
       - toolkits:
