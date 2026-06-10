@@ -165,6 +165,7 @@ scenarios:
       - container_image_on_centos_host:
           testsuite: container-image
           description: 'Container image validation on CentOS 9'
+          machine: 64bit-2G
           settings:
             <<: [*x86_64_settings, *container_settings]
             HDD_1: 'centos-stream9.qcow2'
