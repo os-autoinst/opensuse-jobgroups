@@ -36,6 +36,9 @@ defaults:
   aarch64:
     machine: aarch64
     priority: 50
+  ppc64le:
+    machine: ppc64le-p10
+    priority: 50
 
 products:
 
@@ -71,6 +74,10 @@ products:
     flavor: Container-Image
     version: '16.0'
   opensuse-16.0-Container-Image-aarch64:
+    distri: opensuse
+    flavor: Container-Image
+    version: '16.0'
+  opensuse-16.0-Container-Image-ppc64le:
     distri: opensuse
     flavor: Container-Image
     version: '16.0'
@@ -193,14 +200,6 @@ scenarios:
             CONTAINERS_UNTESTED_IMAGES: '1'
             POSTGRES_IP: 'ko.dmz-prg2.suse.org'
             POSTGRES_PORT: '5444'
-      - container_image_on_leap15.3_host:
-          testsuite: container-image
-          machine: ppc64le
-          settings:
-            <<: [*container_settings]
-            +ARCH: 'ppc64le'
-            HDD_1: 'opensuse-15.3-ppc64le-160.3-textmode@ppc64le.qcow2'
-            CONTAINERS_UNTESTED_IMAGES: '1'
 
   aarch64:
     # Minimal-VM
@@ -289,3 +288,12 @@ scenarios:
             CONTAINERS_UNTESTED_IMAGES: '1'
             POSTGRES_IP: 'ko.dmz-prg2.suse.org'
             POSTGRES_PORT: '5444'
+
+  ppc64le:
+    opensuse-16.0-Container-Image-ppc64le:
+      - container_image_on_leap15.3_host:
+          testsuite: container-image
+          settings:
+            <<: [*container_settings]
+            HDD_1: 'opensuse-15.3-ppc64le-160.3-textmode@ppc64le.qcow2'
+            CONTAINERS_UNTESTED_IMAGES: '1'
