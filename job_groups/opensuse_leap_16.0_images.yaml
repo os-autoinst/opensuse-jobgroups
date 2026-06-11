@@ -184,6 +184,7 @@ scenarios:
       - container_image_on_ubuntu_host:
           testsuite: container-image
           description: 'Container image validation on Ubuntu 22.04'
+          machine: 64bit-2G
           settings:
             <<: [*x86_64_settings, *container_settings]
             HDD_1: 'ubuntu-22.04.qcow2'
@@ -194,6 +195,7 @@ scenarios:
       - container_image_on_leap15.3_host:
           testsuite: container-image
           description: 'Container image validation on Leap 15.3 GM'
+          machine: 64bit-2G
           settings:
             <<: [*x86_64_settings, *container_settings]
             HDD_1: 'opensuse-15.3-x86_64-20210906-4-textmode@64bit.qcow2'
