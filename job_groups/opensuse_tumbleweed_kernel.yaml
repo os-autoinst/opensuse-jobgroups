@@ -153,13 +153,10 @@ scenarios:
       - ltp_watchqueue
       - nfs_cthon04-nfs3
       - nfs_cthon04-nfs4
-      - nfs_pynfs_nfs40_all
       - nfs_pynfs_nfs41_all
       - create_hdd_xfstests
       - xfstests_nfs4.1-generic
       - xfstests_nfs4.1-nfs
-      - xfstests_nfs4.0-generic
-      - xfstests_nfs4.0-nfs
       - xfstests_nfs3-generic
       - xfstests_nfs3-nfs
       - nfs_server:
@@ -321,13 +318,10 @@ scenarios:
       - ltp_watchqueue
       - nfs_cthon04-nfs3
       - nfs_cthon04-nfs4
-      - nfs_pynfs_nfs40_all
       - nfs_pynfs_nfs41_all
       - create_hdd_xfstests
       - xfstests_nfs4.1-generic
       - xfstests_nfs4.1-nfs
-      - xfstests_nfs4.0-generic
-      - xfstests_nfs4.0-nfs
       - xfstests_nfs3-generic
       - xfstests_nfs3-nfs
   s390x:
@@ -494,7 +488,6 @@ scenarios:
       - ltp_watchqueue
       - nfs_cthon04-nfs3
       - nfs_cthon04-nfs4
-      - nfs_pynfs_nfs40_all
       - nfs_pynfs_nfs41_all
       - xfstests_btrfs-btrfs-001-100
       - xfstests_btrfs-btrfs-101-200
@@ -532,8 +525,6 @@ scenarios:
       - xfstests_xfs-xfs-701-999
       - xfstests_nfs4.1-generic
       - xfstests_nfs4.1-nfs
-      - xfstests_nfs4.0-generic
-      - xfstests_nfs4.0-nfs
       - xfstests_nfs3-generic
       - xfstests_nfs3-nfs
       - nfs_server:
