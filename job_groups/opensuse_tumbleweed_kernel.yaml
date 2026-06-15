@@ -369,6 +369,26 @@ scenarios:
             START_AFTER_TEST: create_hdd_textmode_uefi
       - install_ltp_kotd+opensuse+DVD
       - install_ltp_longterm+opensuse+DVD
+      - blktests:
+          settings:
+            BLKTESTS: 'dm,throtl,scsi,loop,ublk'
+            BLKTESTS_EXCLUDE: 'loop/010,throtl/007,scsi/011'
+            BLKTESTS_TEST_DEVS: '/dev/sdb /dev/nvme0n1'
+            QEMUCPUS: '4'
+            QEMURAM: '8192'
+            YAML_SCHEDULE: schedule/storage/blktests.yaml
+      - blktests_block:
+          settings:
+            BLKTESTS: 'block'
+            BLKTESTS_EXCLUDE: 'block/011,block/040'
+            BLKTESTS_TEST_DEVS: '/dev/sdb /dev/nvme0n1'
+            QEMURAM: '8192'
+            YAML_SCHEDULE: schedule/storage/blktests.yaml
+      - blktests_nvme:
+          settings:
+            BLKTESTS: 'nvme'
+            BLKTESTS_TEST_DEVS: '/dev/sdb /dev/nvme0n1'
+            YAML_SCHEDULE: schedule/storage/blktests.yaml
       - io_uring:
           settings:
             QEMUCPUS: '4'
