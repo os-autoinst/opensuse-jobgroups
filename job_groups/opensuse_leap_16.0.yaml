@@ -130,9 +130,9 @@ scenarios:
   aarch64:
     opensuse-online-installer-aarch64:
       - gnome-agama:
-          machine: USBboot_aarch64
+          machine: aarch64
       - kde-agama:
-          machine: USBboot_aarch64
+          machine: aarch64
       - zdup-Leap-15.6-gnome:
           testsuite: zdup-Leap-15.6-gnome
           settings:
@@ -177,9 +177,9 @@ scenarios:
             YAML_SCHEDULE: 'schedule/functional/leap16/agama_create_hdd_gnome_leap.yaml'
     opensuse-offline-installer-aarch64:
       - gnome-agama:
-          machine: USBboot_aarch64
+          machine: aarch64
       - kde-agama:
-          machine: USBboot_aarch64
+          machine: aarch64
   ppc64le:
     opensuse-online-installer-ppc64le:
       - gnome-agama
