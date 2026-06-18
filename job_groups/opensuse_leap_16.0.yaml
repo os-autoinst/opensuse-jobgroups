@@ -66,12 +66,16 @@ scenarios:
           machine: 64bit-3G
       - gnome-agama:
           machine: uefi-usb-4G
+          settings:
+            BOOTFROM: c
       - kde-agama:
           machine: uefi-3G
       - kde-agama:
           machine: 64bit-3G
       - kde-agama:
           machine: uefi-usb-4G
+          settings:
+            BOOTFROM: c
       - zdup-Leap-15.6-gnome:
           testsuite: zdup-Leap-15.6-gnome
           settings:
@@ -121,12 +125,16 @@ scenarios:
           machine: 64bit-3G
       - gnome-agama:
           machine: uefi-usb-4G
+          settings:
+            BOOTFROM: c
       - kde-agama:
           machine: uefi-3G
       - kde-agama:
           machine: 64bit-3G
       - kde-agama:
           machine: uefi-usb-4G
+          settings:
+            BOOTFROM: c
   aarch64:
     opensuse-online-installer-aarch64:
       - gnome-agama:
