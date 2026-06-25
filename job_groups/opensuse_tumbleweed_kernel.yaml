@@ -419,6 +419,7 @@ scenarios:
             LTP_TAINT_EXPECTED: '0x13801'
       - ltp_containers
       - ltp_controllers
+      - ltp_controllers_kotd
       - ltp_cpuhotplug
       - ltp_crashme
       - ltp_crypto
@@ -456,6 +457,7 @@ scenarios:
       - ltp_lvm
       - ltp_math
       - ltp_mm
+      - ltp_mm_kotd
       - ltp_mm_oom
       - ltp_mm_swapping
       - ltp_net_features
