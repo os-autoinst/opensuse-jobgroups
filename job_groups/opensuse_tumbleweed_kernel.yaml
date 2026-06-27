@@ -373,7 +373,16 @@ scenarios:
           settings:
             BLKTESTS: 'dm,md,throtl,scsi,loop,ublk'
             BLKTESTS_EXCLUDE: 'loop/010,throtl/007,scsi/011'
-            BLKTESTS_TEST_DEVS: '/dev/sdb /dev/nvme0n1'
+            BLKTESTS_TEST_DEVS: '/dev/nvme0n1 /dev/nvme1n1 /dev/nvme2n1 /dev/nvme3n1'
+            BLKTESTS_TEST_CASE_DEV_ARRAY: 'TEST_CASE_DEV_ARRAY[md/003]="/dev/nvme0n1 /dev/nvme1n1 /dev/nvme2n1 /dev/nvme3n1"'
+            HDDMODEL_1: virtio-blk
+            HDDMODEL_2: nvme
+            HDDMODEL_3: nvme
+            HDDMODEL_4: scsi-hd
+            HDDMODEL_5: scsi-hd
+            HDDMODEL_6: nvme
+            HDDMODEL_7: nvme
+            NUMDISKS: '7'
             QEMUCPUS: '4'
             QEMURAM: '8192'
             YAML_SCHEDULE: schedule/storage/blktests.yaml
@@ -382,12 +391,22 @@ scenarios:
             BLKTESTS: 'block'
             BLKTESTS_EXCLUDE: 'block/011,block/040'
             BLKTESTS_TEST_DEVS: '/dev/sdb /dev/nvme0n1'
+            HDDMODEL_1: virtio-blk
+            HDDMODEL_2: nvme
+            HDDMODEL_3: nvme
+            HDDMODEL_4: scsi-hd
+            HDDMODEL_5: scsi-hd
+            NUMDISKS: '5'
             QEMURAM: '8192'
             YAML_SCHEDULE: schedule/storage/blktests.yaml
       - blktests_nvme:
           settings:
             BLKTESTS: 'nvme'
-            BLKTESTS_TEST_DEVS: '/dev/sdb /dev/nvme0n1'
+            BLKTESTS_TEST_DEVS: '/dev/nvme0n1'
+            HDDMODEL_1: virtio-blk
+            HDDMODEL_2: nvme
+            HDDMODEL_3: nvme
+            NUMDISKS: '3'
             YAML_SCHEDULE: schedule/storage/blktests.yaml
       - io_uring:
           settings:
