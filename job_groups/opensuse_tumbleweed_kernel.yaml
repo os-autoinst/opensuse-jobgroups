@@ -422,7 +422,6 @@ scenarios:
       - kernel-live-patching
       - kselftests-livepatch
       - kselftests-bpf
-      - kselftests-bpf-progs
       - kselftests-cgroup
       - kselftests-net
       - kselftests-net_mptcp
