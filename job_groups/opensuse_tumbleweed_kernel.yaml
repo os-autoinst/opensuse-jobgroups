@@ -388,7 +388,7 @@ scenarios:
             YAML_SCHEDULE: schedule/storage/blktests.yaml
       - blktests_block:
           settings:
-            BLKTESTS: 'block'
+            BLKTESTS: 'block,ublk'
             BLKTESTS_EXCLUDE: 'block/011,block/040'
             BLKTESTS_TEST_DEVS: '/dev/sdb /dev/nvme0n1'
             HDDMODEL_1: virtio-blk
