@@ -1228,10 +1228,6 @@ scenarios:
           machine: uefi
           settings:
             QEMU_VIRTIO_RNG: "0"
-      - upgrade_Leap_15.0_kde:
-          machine: 64bit
-          settings:
-            QEMU_VIRTIO_RNG: "0"
       - upgrade_Leap_15.1_kde:
           machine: 64bit
           settings:
@@ -1885,10 +1881,6 @@ scenarios:
           machine: 64bit
           priority: 45
       - upgrade_Leap_15.0_gnome:
-          machine: 64bit
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - upgrade_Leap_15.0_kde:
           machine: 64bit
           settings:
             QEMU_VIRTIO_RNG: "0"
