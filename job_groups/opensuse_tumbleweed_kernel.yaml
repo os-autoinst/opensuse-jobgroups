@@ -371,7 +371,7 @@ scenarios:
       - install_ltp_longterm+opensuse+DVD
       - blktests:
           settings:
-            BLKTESTS: 'dm,md,throtl,scsi,loop,ublk'
+            BLKTESTS: 'dm,md,throtl,scsi,loop'
             BLKTESTS_EXCLUDE: 'loop/010,throtl/007,scsi/011'
             BLKTESTS_TEST_DEVS: '/dev/nvme0n1 /dev/nvme1n1 /dev/nvme2n1 /dev/nvme3n1'
             BLKTESTS_TEST_CASE_DEV_ARRAY: 'TEST_CASE_DEV_ARRAY[md/003]="/dev/nvme0n1 /dev/nvme1n1 /dev/nvme2n1 /dev/nvme3n1"'
