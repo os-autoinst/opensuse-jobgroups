@@ -293,6 +293,14 @@ scenarios:
             ENCRYPT: '1'
             # Test without TPM enrollment
             TRANSACTIONAL_VALIDATION: '1'
+      - microos2microosnext-combustion-fde:
+          settings:
+            +HDD_1: 'openSUSE-MicroOS.%ARCH%-kvm-and-xen-sdboot-before-%BUILD%.qcow2'
+            HDD_1_URL: 'http://download.opensuse.org/tumbleweed/appliances/openSUSE-MicroOS.x86_64-kvm-and-xen-sdboot.qcow2?foo=%BUILD%'
+      - microos-old2microosnext-combustion-fde:
+          testsuite: microos2microosnext-combustion-fde
+          settings:
+            +HDD_1: 'openSUSE-MicroOS.x86_64-16.0.0-kvm-and-xen-sdboot-Snapshot20260703.qcow2'
     microos-*-MicroOS-Image-grub-bls-x86_64:
       - microos-wizard:
           machine: uefi
@@ -311,6 +319,14 @@ scenarios:
             QEMUTPM: 'instance'
             QEMU_DISABLE_SNAPSHOTS: '1'
             TRANSACTIONAL_VALIDATION: '1'
+      - microos2microosnext-combustion-fde:
+          settings:
+            +HDD_1: 'openSUSE-MicroOS.%ARCH%-kvm-and-xen-grub-bls-before-%BUILD%.qcow2'
+            HDD_1_URL: 'http://download.opensuse.org/tumbleweed/appliances/openSUSE-MicroOS.x86_64-kvm-and-xen-grub-bls.qcow2?foo=%BUILD%'
+      - microos-old2microosnext-combustion-fde:
+          testsuite: microos2microosnext-combustion-fde
+          settings:
+            +HDD_1: 'openSUSE-MicroOS.x86_64-16.0.0-kvm-and-xen-grub-bls-Snapshot20260703.qcow2'
     microos-*-MicroOS-SelfInstall-x86_64:
       - microos:
           settings:
