@@ -154,6 +154,7 @@ scenarios:
       - nfs_cthon04-nfs3
       - nfs_cthon04-nfs4
       - nfs_pynfs_nfs41_all
+      - pressure_stall_information
       - create_hdd_xfstests
       - xfstests_nfs4.1-generic
       - xfstests_nfs4.1-nfs
@@ -319,6 +320,7 @@ scenarios:
       - nfs_cthon04-nfs3
       - nfs_cthon04-nfs4
       - nfs_pynfs_nfs41_all
+      - pressure_stall_information
       - create_hdd_xfstests
       - xfstests_nfs4.1-generic
       - xfstests_nfs4.1-nfs
@@ -357,6 +359,7 @@ scenarios:
       - kernel-live-patching:
           settings:
             INSTALL_LTP: ''
+      - pressure_stall_information
   x86_64:
     opensuse-Tumbleweed-DVD-x86_64:
       - bpftools
@@ -530,6 +533,7 @@ scenarios:
       - nfs_cthon04-nfs3
       - nfs_cthon04-nfs4
       - nfs_pynfs_nfs41_all
+      - pressure_stall_information
       - xfstests_btrfs-btrfs-001-100
       - xfstests_btrfs-btrfs-101-200
       - xfstests_btrfs-btrfs-201-999
