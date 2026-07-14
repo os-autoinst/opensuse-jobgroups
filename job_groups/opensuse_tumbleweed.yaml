@@ -881,12 +881,6 @@ scenarios:
             <<: *bci
             BCI_IMAGE_MARKER: gcc_15
             BCI_TEST_ENVS: all,gcc
-      - bci_python_3.11_podman:
-          testsuite: null
-          settings:
-            <<: *bci
-            BCI_IMAGE_MARKER: python_3.11
-            BCI_TEST_ENVS: all,python
       - bci_python_3.13_podman:
           testsuite: null
           settings:
