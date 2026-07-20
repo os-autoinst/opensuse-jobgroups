@@ -843,7 +843,7 @@ scenarios:
           testsuite: null
           settings:
             <<: *bci
-            BCI_IMAGE_MARKER: grafana_11
+            BCI_IMAGE_MARKER: grafana_latest
             BCI_TEST_ENVS: grafana
       - bci_helm_latest_podman:
           testsuite: null
