@@ -2242,15 +2242,6 @@ scenarios:
           machine: uefi-3G
           settings:
             <<: *agama_gnome_recycled_testsuite
-      - storage_lvm:
-          description: Test installation of system with LVM with agama
-          machine: uefi-3G
-          testsuite: gnome
-          settings:
-            LVM: '1'
-            START_AFTER_TEST: ''
-            YAML_SCHEDULE: schedule/opensuse/agama/agama_lvm_encrypt.yaml
-            DESKTOP: 'textmode'
       - storage_fde:
           description: Test installation of system with LVM with agama
           machine: uefi-3G
@@ -2260,6 +2251,24 @@ scenarios:
             START_AFTER_TEST: ''
             YAML_SCHEDULE: schedule/opensuse/agama/agama_lvm_encrypt.yaml
             YAML_TEST_DATA: test_data/yast/encryption/crypt_no_lvm_enc_luks2.yaml
+            DESKTOP: 'textmode'
+      - storage_fde_tpm:
+          description: Test installation of encrypted with agama (old crypt_no_lvm)
+          machine: uefi-4G-TPM
+          testsuite: crypt_no_lvm
+          settings:
+            DESKTOP: textmode
+            ENCRYPT: '0'
+            YAML_SCHEDULE: schedule/opensuse/agama/agama_lvm_encrypt.yaml
+            YAML_TEST_DATA: test_data/yast/encryption/crypt_no_lvm_enc_luks2.yaml
+      - storage_lvm:
+          description: Test installation of system with LVM with agama
+          machine: uefi-3G
+          testsuite: gnome
+          settings:
+            LVM: '1'
+            START_AFTER_TEST: ''
+            YAML_SCHEDULE: schedule/opensuse/agama/agama_lvm_encrypt.yaml
             DESKTOP: 'textmode'
       - storage_lvm_fde_password:
           description: Test installation of system with LVM with agama
@@ -2271,6 +2280,15 @@ scenarios:
             START_AFTER_TEST: ''
             YAML_SCHEDULE: schedule/opensuse/agama/agama_lvm_encrypt.yaml
             DESKTOP: 'textmode'
+            YAML_TEST_DATA: test_data/yast/encryption/lvm_encrypt_separate_boot_luks2.yaml
+      - storage_lvm_fde_tpm:
+          description: Test installation of system with LVM with agama (old cryptlvm)
+          machine: uefi-4G-TPM
+          testsuite: cryptlvm
+          settings:
+            DESKTOP: textmode
+            ENCRYPT: '0'
+            YAML_SCHEDULE: schedule/opensuse/agama/agama_lvm_encrypt.yaml
             YAML_TEST_DATA: test_data/yast/encryption/lvm_encrypt_separate_boot_luks2.yaml
       - sway:
           testsuite: null
