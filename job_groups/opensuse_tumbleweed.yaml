@@ -2206,6 +2206,41 @@ scenarios:
           machine: uefi-3G
           settings:
             <<: *agama_textmode_recycled_testsuite
+      - RAID0_gpt_uefi:
+          machine: uefi-3G
+          settings:
+            BOOTLOADER: ""
+            DESKTOP: textmode
+            INST_AUTO: agama_auto/opensuse/raid0.jsonnet
+            YAML_SCHEDULE: schedule/yam/agama_raid_unattended.yaml
+      - RAID1_gpt_uefi:
+          machine: uefi-3G
+          settings:
+            BOOTLOADER: ""
+            DESKTOP: textmode
+            INST_AUTO: agama_auto/opensuse/raid1.jsonnet
+            YAML_SCHEDULE: schedule/yam/agama_raid_unattended.yaml
+      - RAID5_gpt_uefi:
+          machine: uefi-3G
+          settings:
+            BOOTLOADER: ""
+            DESKTOP: textmode
+            INST_AUTO: agama_auto/opensuse/raid5.jsonnet
+            YAML_SCHEDULE: schedule/yam/agama_raid_unattended.yaml
+      - RAID6_gpt_uefi:
+          machine: uefi-3G
+          settings:
+            BOOTLOADER: ""
+            DESKTOP: textmode
+            INST_AUTO: agama_auto/opensuse/raid6.jsonnet
+            YAML_SCHEDULE: schedule/yam/agama_raid_unattended.yaml
+      - RAID10_gpt_uefi:
+          machine: uefi-3G
+          settings:
+            BOOTLOADER: ""
+            DESKTOP: textmode
+            INST_AUTO: agama_auto/opensuse/raid10.jsonnet
+            YAML_SCHEDULE: schedule/yam/agama_raid_unattended.yaml
       - security_crypto_policies:
           testsuite: crypto_policies
           machine: uefi-3G
