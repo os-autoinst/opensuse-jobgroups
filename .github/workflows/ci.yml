@@ -66,6 +66,7 @@ jobs:
           ../tool.py --headers --github
 
       - name: Run serverside checks
+        if: github.event_name == 'push'
         env:
           APIKEY: "${{ secrets.APIKEY }}"
           APISECRET: "${{ secrets.APISECRET }}"
