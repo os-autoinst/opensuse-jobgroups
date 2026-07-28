@@ -27,6 +27,7 @@ jobs:
           repository: ${{github.event.pull_request.head.repo.full_name}}
           path: opensuse-jobgroups-pr
           fetch-depth: 0
+          allow-unsafe-pr-checkout: true # We may need to rework checks related to tool.py
 
       - name: Get modified job group yaml files
         id: changed-files
