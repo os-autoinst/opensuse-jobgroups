@@ -1624,7 +1624,6 @@ scenarios:
           priority: 48
           machine: uefi_virtio-2G
           settings:
-            PRETTY_SERIAL_MARKERS: '0'
             NO_CLOUD: '1'
             HDD_2: cidata.qcow2
             CI_VERIFICATION: '1'
