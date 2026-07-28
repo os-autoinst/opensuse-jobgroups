@@ -1157,7 +1157,6 @@ scenarios:
           machine: aarch64
           priority: 48
           settings:
-            PRETTY_SERIAL_MARKERS: '0'
             NO_CLOUD: '1'
             HDD_2: cidata.qcow2
             CI_VERIFICATION: '1'
