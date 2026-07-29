@@ -1300,6 +1300,10 @@ scenarios:
           settings:
             LTP_TAINT_EXPECTED: '0x13c01'
             PASSWORD: linux
+      - jeos:
+          machine: RPi5
+          settings:
+            PASSWORD: linux
       - qemu:
           machine: RPi4
           settings:
