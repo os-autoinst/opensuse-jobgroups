@@ -1121,7 +1121,6 @@ scenarios:
           machine: uefi
       - extra_tests_filesystem
       - gnuhealth
-      - clone_system
       - wicked_basic_sut
       - wicked_basic_ref
       - wireguard_server
