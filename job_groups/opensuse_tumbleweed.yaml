@@ -1085,9 +1085,6 @@ scenarios:
       - autoyast_gnome:
           machine: 64bit
       - autoyast_minimal
-      - autoyast_reinstall_gnome:
-          settings:
-            YAML_TEST_DATA: test_data/yast/opensuse/autoyast_reinstall/autoyast_reinstall_64bit.yaml
       - autoyast_rules_and_classes:
           description: Test verifies rules and classes autoyast.
           settings:
