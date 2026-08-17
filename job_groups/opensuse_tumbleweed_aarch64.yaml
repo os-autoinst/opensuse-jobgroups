@@ -1422,7 +1422,6 @@ scenarios:
             WSL_INSTALL_FROM: 'build'
             QEMU_ENABLE_SMBD: '1'
             WSL2: '1'
-            WSL_VERSION: 'openSUSE Tumbleweed'
             WSL_FIRSTBOOT: 'jeos'
       - wsl2-main-25H2:
           testsuite: null
@@ -1433,7 +1432,6 @@ scenarios:
             QEMU_ENABLE_SMBD: '1'
             HDD_1: 'windows-11-aarch64-25H2@win11_uefi_aarch64.qcow2'
             WSL2: '1'
-            WSL_VERSION: 'openSUSE Tumbleweed'
             WSL_FIRSTBOOT: 'jeos'
   armv7hl:
     opensuse-Tumbleweed-JeOS-for-AArch64-armv7hl:
