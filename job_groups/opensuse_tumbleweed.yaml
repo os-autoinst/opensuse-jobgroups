@@ -1927,6 +1927,8 @@ scenarios:
           machine: 64bit
       - kde_dual_windows10:
           machine: uefi_win
+          settings:
+            BOOTLOADER: grub2
       - autoyast_gnome:
           machine: 64bit
       - lvm-encrypt-separate-boot:
