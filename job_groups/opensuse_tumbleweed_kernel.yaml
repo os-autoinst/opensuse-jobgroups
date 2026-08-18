@@ -359,7 +359,10 @@ scenarios:
       - kernel-live-patching:
           settings:
             INSTALL_LTP: ''
-      - pressure_stall_information
+      - pressure_stall_information:
+          settings:
+            PSI: '1'
+            INSTALL_LTP: ''
   x86_64:
     opensuse-Tumbleweed-DVD-x86_64:
       - bpftools
