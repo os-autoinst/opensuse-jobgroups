@@ -1986,7 +1986,7 @@ scenarios:
             QEMUCPU: 'host,kvm=off,hypervisor=off,hv_time,hv_relaxed,hv_vapic,hv_spinlocks=0x1fff,hv_frequencies,hv_reenlightenment,hv_vpindex,hv-synic,hv-stimer,hv-stimer-direct'
             QEMUMACHINE: 'q35'
             WORKER_CLASS: 'wsl2'
-            WSL_FIRSTBOOT: 'yast'
+            WSL_FIRSTBOOT: 'jeos'
       - wsl2-install-msstore:
           <<: *wsl2_test
           description: |

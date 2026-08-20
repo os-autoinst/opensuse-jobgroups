@@ -1412,17 +1412,17 @@ scenarios:
             Basic WSL test Test scope:
                 1) Prepare WSL and other features in Windows
                 2) Download the image
-                3) Import embedded certificate from the image
-                4) Load image
-                5) Define users
-                6) Register SUT
-                7) Exit WSL
+                3) Load image
+                4) Define users
+                5) Register SUT
+                6) Exit WSL
           machine: win11_uefi_aarch64_wsl2
           settings:
             YAML_SCHEDULE: 'schedule/wsl/wsl_main.yaml'
             WSL_INSTALL_FROM: 'build'
             QEMU_ENABLE_SMBD: '1'
             WSL2: '1'
+            WSL_FIRSTBOOT: 'jeos'
       - wsl2-main-25H2:
           testsuite: null
           machine: win11_uefi_aarch64_wsl2
@@ -1432,6 +1432,7 @@ scenarios:
             QEMU_ENABLE_SMBD: '1'
             HDD_1: 'windows-11-aarch64-25H2@win11_uefi_aarch64.qcow2'
             WSL2: '1'
+            WSL_FIRSTBOOT: 'jeos'
   armv7hl:
     opensuse-Tumbleweed-JeOS-for-AArch64-armv7hl:
       - jeos:
