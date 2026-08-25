@@ -1226,62 +1226,10 @@ scenarios:
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/lvm/lvm_thin_provisioning.yaml
       - openscap
-      - upgrade_Leap_15.0_gnome:
-          machine: 64bit
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - upgrade_Leap_15.0_cryptlvm:
-          machine: uefi
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - upgrade_Leap_15.1_kde:
-          machine: 64bit
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - upgrade_Leap_15.1_gnome:
-          machine: 64bit
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - upgrade_Leap_15.2_gnome:
-          machine: 64bit
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - upgrade_Leap_15.2_with_service_check:
-          machine: 64bit
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - upgrade_Leap_15.2_with_service_check_nested_vm_down:
-          machine: 64bit
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - upgrade_Leap_15.2_kde:
-          machine: 64bit
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - upgrade_Leap_15.2_cryptlvm:
-          machine: uefi
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - upgrade_Leap_15.3_gnome:
-          machine: 64bit
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - upgrade_Leap_15.3_kde:
-          machine: 64bit
-          settings:
-            QEMU_VIRTIO_RNG: "0"
-      - upgrade_Leap_15.5_gnome:
-          machine: 64bit
       - upgrade_Leap_15.6_gnome:
-          machine: 64bit
-      - upgrade_Leap_15.5_kde:
           machine: 64bit
       - upgrade_Leap_15.6_kde:
           machine: 64bit
-      - upgrade_boot-into_snapshot_rollback_Leap_15.1_gnome:
-          machine: 64bit
-          settings:
-            QEMU_VIRTIO_RNG: "0"
       - installer_extended
       - desktopapps-other:
           description: 'Maintainer: Yuan Ren (yuanren10). See https://progress.opensuse.org/issues/23906'
@@ -1780,25 +1728,6 @@ scenarios:
           machine: 64bit-4G
       - kde-live-wayland:
           machine: 64bit_virtio-4G
-      - kde_live_upgrade_leap_15.0:
-          machine: 64bit
-          settings:
-            QEMURAM: "4096"
-            QEMU_VIRTIO_RNG: "0"
-      - kde_live_upgrade_leap_15.2:
-          machine: uefi
-          settings:
-            QEMURAM: "4096"
-      - kde_live_upgrade_leap_15.3:
-          machine: 64bit
-          settings:
-            QEMURAM: "4096"
-            QEMU_VIRTIO_RNG: "0"
-      - kde_live_upgrade_leap_15.5:
-          machine: 64bit
-          settings:
-            QEMURAM: "4096"
-            QEMU_VIRTIO_RNG: "0"
       - kde_live_upgrade_leap_15.6:
           machine: 64bit
           settings:
@@ -1886,10 +1815,6 @@ scenarios:
       - uefi-os:
           machine: 64bit
           priority: 45
-      - upgrade_Leap_15.0_gnome:
-          machine: 64bit
-          settings:
-            QEMU_VIRTIO_RNG: "0"
       - zdup-Leap-15.6-gnome:
           machine: 64bit
       - zdup-Leap-15.6-kde:

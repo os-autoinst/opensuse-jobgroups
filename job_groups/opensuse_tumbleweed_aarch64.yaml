@@ -978,15 +978,6 @@ scenarios:
             HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-apparmor@%MACHINE%.qcow2'
       - security_misc_o3
       - openscap
-      - upgrade_Leap_15.0_gnome
-      - upgrade_Leap_15.0_kde
-      - upgrade_Leap_15.1_gnome
-      - upgrade_Leap_15.2_gnome
-      - upgrade_Leap_15.2_kde
-      - upgrade_Leap_15.3_gnome
-      - upgrade_Leap_15.3_kde
-      - upgrade_Leap_15.5_gnome
-      - upgrade_Leap_15.5_kde
       - upgrade_Leap_15.6_gnome
       - upgrade_Leap_15.6_kde
       - btrfs+warnings:
@@ -1320,12 +1311,6 @@ scenarios:
           machine: USBboot_aarch64-3G
           settings:
             BOOTFROM: "c"
-      - kde_live_upgrade_leap_15.0:
-          settings:
-            QEMURAM: "3072"
-      - kde_live_upgrade_leap_15.5:
-          settings:
-            QEMURAM: "3072"
       - kde_live_upgrade_leap_15.6:
           settings:
             QEMURAM: "3072"
