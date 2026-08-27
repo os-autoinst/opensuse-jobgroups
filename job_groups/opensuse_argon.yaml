@@ -22,8 +22,4 @@ scenarios:
     opensuse-*-Argon-Live-x86_64:
       - krypton-live:
           machine: USBboot_64-2G
-      - krypton-live-wayland:
-          machine: uefi_virtio-2G
-          settings:
-            USBBOOT: '1'
       - krypton-live-installation

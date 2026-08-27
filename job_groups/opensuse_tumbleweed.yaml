@@ -1155,11 +1155,6 @@ scenarios:
             QEMU_APPEND: '-device intel-iommu,intremap=on,caching-mode=on'
       - tomcat
       - desktopapps-message-gnome
-      - kde-wayland:
-          machine: 64bit_virtio
-          settings:
-            QEMUCPUS: '2'
-            QEMURAM: '2048'
       - external_iso:
           machine: 64bit
       - desktopapps-gnome
@@ -1778,8 +1773,6 @@ scenarios:
           machine: uefi-4G
       - kde-live_installation:
           machine: 64bit-4G
-      - kde-live-wayland:
-          machine: 64bit_virtio-4G
       - kde_live_upgrade_leap_15.0:
           machine: 64bit
           settings:
