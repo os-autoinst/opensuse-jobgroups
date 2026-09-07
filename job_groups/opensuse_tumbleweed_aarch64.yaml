@@ -470,6 +470,7 @@ scenarios:
           settings:
             BATS_PACKAGE: 'buildah'
             CONTAINER_RUNTIMES: 'podman'
+            MAX_JOB_TIME: '10800'
             QEMUCPU: 'host'
             QEMUCPUS: '2'
             RETRY: '1'
@@ -481,6 +482,7 @@ scenarios:
           settings:
             BATS_PACKAGE: 'buildah'
             CONTAINER_RUNTIMES: 'podman'
+            MAX_JOB_TIME: '10800'
             QEMUCPU: 'host'
             QEMUCPUS: '2'
             OCI_RUNTIME: 'crun'
