@@ -2355,6 +2355,14 @@ scenarios:
           machine: uefi-3G
           settings:
             <<: *agama_textmode_recycled_testsuite
+      - systemd_boot:
+          testsuite: null
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+            BOOT_HDD_IMAGE: "1"
+            DESKTOP: textmode
+            YAML_SCHEDULE: schedule/functional/systemd_boot.yaml
       - systemd-networkd:
           machine: uefi-3G
           settings:
