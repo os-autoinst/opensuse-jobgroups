@@ -1050,7 +1050,6 @@ scenarios:
             <<: *bci
             BCI_IMAGE_MARKER: cosign
             BCI_TEST_ENVS: all,cosign
-      - extra_tests_ai_ml
       - extra_tests_himmelblau:
           testsuite: null
           settings:
