@@ -1,0 +1,72 @@
+############################################################
+#                         WARNING                          #
+#                                                          #
+#               This file is managed in GIT!               #
+#  Any changes via the openQA WebUI will get overwritten!  #
+#                                                          #
+#    https://github.com/os-autoinst/opensuse-jobgroups     #
+#      job_groups/opensuse_tumbleweed_legacy_arm.yaml      #
+############################################################
+
+---
+defaults:
+  armv7hl:
+    machine: aarch32
+    priority: 50
+
+products:
+  opensuse-Tumbleweed-NET-armv7hl:
+    distri: opensuse
+    flavor: LegacyARM-NET
+    version: Tumbleweed
+  opensuse-Tumbleweed-JeOS-for-AArch64-armv7hl:
+    distri: opensuse
+    flavor: JeOS-for-AArch64
+    version: Tumbleweed
+  opensuse-Tumbleweed-JeOS-for-RPi-armv7hl:
+    distri: opensuse
+    flavor: JeOS-for-RPi
+    version: Tumbleweed
+scenarios:
+  armv7hl:
+    opensuse-Tumbleweed-JeOS-for-AArch64-armv7hl:
+      - jeos:
+          machine: aarch32-HD20G
+          priority: 45
+      - jeos-extra:
+          machine: aarch32-HD20G
+          settings:
+            EXCLUDE_MODULES: kdump_and_crash
+    opensuse-Tumbleweed-JeOS-for-RPi-armv7hl:
+      - jeos:
+          machine: RPi2B
+          settings:
+            PASSWORD: linux
+    opensuse-Tumbleweed-NET-armv7hl:
+      - textmode
+      - install_only
+      - mediacheck:
+          priority: 30
+      - rescue_system
+      - create_hdd_minimalx:
+          priority: 40
+      - otherDE_awesome
+      - otherDE_enlightenment
+      - otherDE_lxqt
+      - create_hdd_textmode:
+          priority: 40
+      - extra_tests_in_textmode:
+          settings:
+            EXCLUDE_MODULES: kdump_and_crash
+      - extra_tests_dracut
+      - extra_tests_filesystem
+      - systemd-networkd
+      - toolchain_zypper
+      - wicked_basic_ref:
+          priority: 45
+      - wicked_basic_sut:
+          priority: 45
+      - yast2_nfs_v4_client:
+          priority: 45
+      - yast2_nfs_v4_server:
+          priority: 45
