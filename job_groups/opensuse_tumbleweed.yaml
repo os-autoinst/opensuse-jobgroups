@@ -1278,10 +1278,6 @@ scenarios:
           machine: 64bit
       - upgrade_Leap_15.6_kde:
           machine: 64bit
-      - upgrade_boot-into_snapshot_rollback_Leap_15.1_gnome:
-          machine: 64bit
-          settings:
-            QEMU_VIRTIO_RNG: "0"
       - installer_extended
       - desktopapps-other:
           description: 'Maintainer: Yuan Ren (yuanren10). See https://progress.opensuse.org/issues/23906'
