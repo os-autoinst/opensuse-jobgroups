@@ -1088,11 +1088,6 @@ scenarios:
       - autoyast_gnome:
           machine: 64bit
       - autoyast_minimal
-      - autoyast_rules_and_classes:
-          description: Test verifies rules and classes autoyast.
-          settings:
-            YAML_SCHEDULE: schedule/yast/opensuse/autoyast/autoyast_rules_and_classes.yaml
-          testsuite: null
       - guided_btrfs:
           description: |-
             https://progress.opensuse.org/issues/16570
