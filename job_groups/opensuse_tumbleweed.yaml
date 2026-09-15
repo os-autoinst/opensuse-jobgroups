@@ -472,8 +472,6 @@ scenarios:
           settings:
             SELINUX: '0'
             PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-apparmor@%MACHINE%.qcow2'
-      - create_hdd_textmode_autoyast:
-          priority: 45
       - create_hdd_gnome:
           priority: 45
       - create_hdd_gnome:
