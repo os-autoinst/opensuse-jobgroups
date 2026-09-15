@@ -337,6 +337,7 @@ scenarios:
       - ltp_crypto_pty_commands:
           settings:
             LTP_TAINT_EXPECTED: '0x13801'
+            QEMURAM: '4096'
       - ltp_ima
       - ltp_ima_load_policy
       - ltp_kernel_misc:
