@@ -1378,8 +1378,15 @@ scenarios:
       - rescue:
           machine: USBboot_aarch64
       - mediacheck:
-          machine: USBboot_aarch64
+          # With usb-storage, the usb-kbd keypress does not work reliably
+          machine: aarch64
           priority: 40
+          settings:
+            # The Rescue-CD does not support full DRM in the initrd,
+            # use an adapter that works with efifb.
+            QEMU_VIDEO_DEVICE: 'ramfb'
+            UEFI_PFLASH_RESOLUTION: '1024x768'
+            GRUB_KERNEL_OPTION_APPEND: 'video=efifb'
     opensuse-Tumbleweed-XFCE-Live-aarch64:
       - mediacheck:
           machine: USBboot_aarch64
