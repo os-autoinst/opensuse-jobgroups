@@ -861,11 +861,11 @@ scenarios:
             <<: *bci
             BCI_IMAGE_MARKER: rust
             BCI_TEST_ENVS: all,rust
-      - bci_ruby_podman:
+      - bci_ruby_4.0_podman:
           testsuite: null
           settings:
             <<: *bci
-            BCI_IMAGE_MARKER: ruby_latest
+            BCI_IMAGE_MARKER: ruby_4.0
             BCI_TEST_ENVS: all,ruby
       - bci_gcc_13_podman:
           testsuite: null
