@@ -98,3 +98,13 @@ jobs:
               fi
             done
           done
+
+      - name: Upload job group schedules to O3
+        # When running this on the master branch of the repo, the content is trusted.
+        if ${{ github.repository == 'os-autoinst/opensuse-jobgroups' && github.ref == 'refs/heads/master' }}
+        env:
+          APIKEY: "${{ secrets.APIKEY }}"
+          APISECRET: "${{ secrets.APISECRET }}"
+        run: |
+          cd opensuse-jobgroups-pr
+          ./tool.py --push --github
