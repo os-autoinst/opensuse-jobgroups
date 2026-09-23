@@ -154,7 +154,9 @@ scenarios:
       - nfs_cthon04-nfs3
       - nfs_cthon04-nfs4
       - nfs_pynfs_nfs41_all
-      - pressure_stall_information
+      - pressure_stall_information:
+          settings:
+            YAML_SCHEDULE: schedule/kernel/pressure_stall_information.yaml
       - create_hdd_xfstests
       - xfstests_nfs4.1-generic
       - xfstests_nfs4.1-nfs
@@ -320,7 +322,9 @@ scenarios:
       - nfs_cthon04-nfs3
       - nfs_cthon04-nfs4
       - nfs_pynfs_nfs41_all
-      - pressure_stall_information
+      - pressure_stall_information:
+          settings:
+            YAML_SCHEDULE: schedule/kernel/pressure_stall_information.yaml
       - create_hdd_xfstests
       - xfstests_nfs4.1-generic
       - xfstests_nfs4.1-nfs
@@ -539,7 +543,9 @@ scenarios:
       - nfs_cthon04-nfs3
       - nfs_cthon04-nfs4
       - nfs_pynfs_nfs41_all
-      - pressure_stall_information
+      - pressure_stall_information:
+          settings:
+            YAML_SCHEDULE: schedule/kernel/pressure_stall_information.yaml
       - xfstests_btrfs-btrfs-001-100
       - xfstests_btrfs-btrfs-101-200
       - xfstests_btrfs-btrfs-201-999
