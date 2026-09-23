@@ -17,7 +17,7 @@ defaults:
 products:
   opensuse-Tumbleweed-NET-armv7hl:
     distri: opensuse
-    flavor: LegacyARM-NET
+    flavor: NET
     version: Tumbleweed
   opensuse-Tumbleweed-JeOS-for-AArch64-armv7hl:
     distri: opensuse
