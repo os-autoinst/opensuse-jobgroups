@@ -114,6 +114,12 @@ scenarios:
           machine: uefi-3G
           settings:
             <<: *agama
+      - gnome_immutable:
+          machine: uefi-3G
+          testsuite: gnome
+          settings:
+            <<: *agama
+            AGAMA_PRODUCT_INSTALL_MODE: immutable
       - kde:
           machine: 64bit-3G
           settings:
