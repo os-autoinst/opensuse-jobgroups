@@ -339,6 +339,12 @@ scenarios:
       - textmode:
           machine: 64bit
           priority: 40
+      - textmode_zypp_medianetwork:
+          testsuite: 'textmode'
+          machine: 64bit
+          priority: 40
+          settings:
+            ZYPP_MEDIANETWORK: '1'
       - kde:
           machine: USBboot_64
           priority: 40
