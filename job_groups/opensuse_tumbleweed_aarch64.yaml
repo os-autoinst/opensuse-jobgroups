@@ -1394,7 +1394,7 @@ scenarios:
       - xfce-live:
           machine: USBboot_aarch64-3G
     opensuse-Tumbleweed-WSL-aarch64:
-      - wsl2-main:
+      - wsl2-main: &wsl2
           testsuite: null
           description: |
             Basic WSL test Test scope:
@@ -1405,19 +1405,19 @@ scenarios:
                 5) Register SUT
                 6) Exit WSL
           machine: win11_uefi_aarch64_wsl2
-          settings:
+          settings: &wsl2_settings
             YAML_SCHEDULE: 'schedule/wsl/wsl_main.yaml'
             WSL_INSTALL_FROM: 'build'
             QEMU_ENABLE_SMBD: '1'
             WSL2: '1'
             WSL_FIRSTBOOT: 'jeos'
       - wsl2-main-25H2:
-          testsuite: null
-          machine: win11_uefi_aarch64_wsl2
+          <<: *wsl2
           settings:
-            YAML_SCHEDULE: 'schedule/wsl/wsl_main.yaml'
-            WSL_INSTALL_FROM: 'build'
-            QEMU_ENABLE_SMBD: '1'
+            <<: *wsl2_settings
             HDD_1: 'windows-11-aarch64-25H2@win11_uefi_aarch64.qcow2'
-            WSL2: '1'
-            WSL_FIRSTBOOT: 'jeos'
+      - wsl2-main-26H2:
+          <<: *wsl2
+          settings:
+            <<: *wsl2_settings
+            HDD_1: 'windows-11-aarch64-26H2@win11_uefi_aarch64.qcow2'
