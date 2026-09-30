@@ -261,9 +261,11 @@ scenarios:
       - textmode_extra_tests_networking:
           machine: uefi-3G
           settings:
-            EXCLUDE_MODULES: 'yast2_lan_device_settings'
+            EXCLUDE_MODULES: 'yast2_lan_device_settings,velociraptor_client_event_collect'
       - textmode_extra_tests_utils:
           machine: uefi-3G
+          settings:
+            EXCLUDE_MODULES: 'pam,dstat,libgpiod'
       - toolkits:
           machine: uefi-3G
           settings:
@@ -333,6 +335,7 @@ scenarios:
           machine: uefi-3G
           settings:
             <<: *agama_textmode_recycled_testsuite
+            EXCLUDE_MODULES: 'ecryptfs'
       - security_pam:
           machine: uefi-3G
           settings:
