@@ -151,9 +151,15 @@ scenarios:
       - ltp_tracing
       - ltp_uevent
       - ltp_watchqueue
-      - nfs_cthon04-nfs3
-      - nfs_cthon04-nfs4
-      - nfs_pynfs_nfs41_all
+      - nfs_cthon04-nfs3:
+          settings:
+            CTHON04_INSTALL: 'from_git'
+      - nfs_cthon04-nfs4:
+          settings:
+            CTHON04_INSTALL: 'from_git'
+      - nfs_pynfs_nfs41_all:
+          settings:
+            PYNFS_INSTALL: 'from_git'
       - pressure_stall_information:
           settings:
             YAML_SCHEDULE: schedule/kernel/pressure_stall_information.yaml
@@ -319,9 +325,15 @@ scenarios:
       - ltp_tracing
       - ltp_uevent
       - ltp_watchqueue
-      - nfs_cthon04-nfs3
-      - nfs_cthon04-nfs4
-      - nfs_pynfs_nfs41_all
+      - nfs_cthon04-nfs3:
+          settings:
+            CTHON04_INSTALL: 'from_git'
+      - nfs_cthon04-nfs4:
+          settings:
+            CTHON04_INSTALL: 'from_git'
+      - nfs_pynfs_nfs41_all:
+          settings:
+            PYNFS_INSTALL: 'from_git'
       - pressure_stall_information:
           settings:
             YAML_SCHEDULE: schedule/kernel/pressure_stall_information.yaml
@@ -540,9 +552,15 @@ scenarios:
       - ltp_tracing
       - ltp_uevent
       - ltp_watchqueue
-      - nfs_cthon04-nfs3
-      - nfs_cthon04-nfs4
-      - nfs_pynfs_nfs41_all
+      - nfs_cthon04-nfs3:
+          settings:
+            CTHON04_INSTALL: 'from_git'
+      - nfs_cthon04-nfs4:
+          settings:
+            CTHON04_INSTALL: 'from_git'
+      - nfs_pynfs_nfs41_all:
+          settings:
+            PYNFS_INSTALL: 'from_git'
       - pressure_stall_information:
           settings:
             YAML_SCHEDULE: schedule/kernel/pressure_stall_information.yaml
