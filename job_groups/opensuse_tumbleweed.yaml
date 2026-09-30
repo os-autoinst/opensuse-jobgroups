@@ -1407,7 +1407,7 @@ scenarios:
             QEMUMACHINE: 'q35'
             REGRESSION: remote
             REMOTE_DESKTOP_TYPE: win_server
-            WORKER_CLASS: tap
+            WORKER_CLASS: tap,openqaworker20
           description: ''
           testsuite: null
           machine: 64bit_virtio
@@ -1438,7 +1438,7 @@ scenarios:
             QEMUMACHINE: 'q35'
             REGRESSION: remote
             REMOTE_DESKTOP_TYPE: win_server
-            WORKER_CLASS: tap
+            WORKER_CLASS: tap,openqaworker20
           description: ''
           testsuite: null
           machine: 64bit_virtio
