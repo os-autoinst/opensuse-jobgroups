@@ -33,24 +33,28 @@
   _SKIP_POST_FAIL_HOOKS: '1'
 
 .agama_textmode_recycled_testsuite: &agama_textmode_recycled_testsuite
+  BOOT_HDD_IMAGE: '1'
   +QEMURAM: '1536'
   HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
   START_AFTER_TEST: 'create_hdd_agama_textmode'
   UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
 
 .agama_gnome_recycled_testsuite: &agama_gnome_recycled_testsuite
+  BOOT_HDD_IMAGE: '1'
   NOAUTOLOGIN: '1'
   HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
   UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
   START_AFTER_TEST: 'create_hdd_agama_gnome'
 
 .agama_kde_recycled_testsuite: &agama_kde_recycled_testsuite
+  BOOT_HDD_IMAGE: '1'
   NOAUTOLOGIN: '1'
   HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
   UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
   START_AFTER_TEST: 'create_hdd_agama_kde'
 
 .textmode_recycled_testsuite: &textmode_recycled_testsuite
+  BOOT_HDD_IMAGE: '1'
   HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
   START_AFTER_TEST: 'create_hdd_textmode'
   UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
