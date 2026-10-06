@@ -2413,6 +2413,17 @@ scenarios:
           machine: uefi-3G
           settings:
             <<: *agama_textmode_recycled_testsuite
+      - rsyslog_ossl_server:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+            HOSTNAME: server
+      - rsyslog_ossl_client:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+            HOSTNAME: client
+            PARALLEL_WITH: rsyslog_ossl_server
       - rsync-server:
           machine: uefi-3G
           settings:
