@@ -6,6 +6,19 @@ on: [push, pull_request_target]
 # which shouldn't be used with an untrusted tool.py.
 # The PR code is checked out into a subdirectory (opensuse-jobgroups-pr) and checked with
 # the tool.py from the master branch.
+#
+# GitHub is rolling out a default Actions event policy for public repositories that
+# BLOCKS the pull_request_target event unless an explicit policy allows it
+# (enforcement starts 2026-11-02, see
+# https://docs.github.com/actions/reference/security/securely-using-pull_request_target).
+# Without such a policy this workflow would stop triggering on pull requests.
+# A repository-level Actions event policy explicitly allowing pull_request_target
+# (scoped to this workflow file) has been created to keep this workflow working:
+# Settings -> Actions -> Policies, or via the REST API (POST
+# /repos/os-autoinst/opensuse-jobgroups/actions/policies).
+# This workflow never executes code checked out from the PR (only lints/inspects it
+# as data with yamllint/tool.py from the trusted master branch), so it remains safe
+# to keep using pull_request_target with elevated secrets.
 jobs:
   static-check:
     runs-on: ubuntu-latest 
