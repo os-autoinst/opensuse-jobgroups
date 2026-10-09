@@ -655,117 +655,221 @@ scenarios:
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: bci-init_latest
-            BCI_TEST_ENVS: all,init
+            BCI_TEST_ENVS: all,metadata,init
       - bci_minimal_podman:
           testsuite: null
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: bci-minimal_latest
-            BCI_TEST_ENVS: all,minimal
+            BCI_TEST_ENVS: all,metadata,minimal
       - bci_micro_podman:
           testsuite: null
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: bci-micro_latest
-            BCI_TEST_ENVS: all,minimal
+            BCI_TEST_ENVS: all,metadata,minimal
       - bci_busybox_podman:
           testsuite: null
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: bci-busybox_latest
-            BCI_TEST_ENVS: all,busybox
-      ### lang containers
+            BCI_TEST_ENVS: all,metadata,busybox
+      - bci_base-fips_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: bci-base-fips_latest
+            BCI_TEST_ENVS: all,metadata,fips
+      - bci_micro-fips_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: bci-micro-fips_latest
+            BCI_TEST_ENVS: all,metadata,fips
+      - bci_nano_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: bci-nano_latest
+            BCI_TEST_ENVS: metadata,nano
+
+      ### BCI lang containers
       - bci_golang_podman:
           testsuite: null
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: golang_stable
-            BCI_TEST_ENVS: all,go
+            BCI_TEST_ENVS: all,metadata,go
       - bci_rust_oldstable_podman:
           testsuite: null
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: rust_oldstable
-            BCI_TEST_ENVS: all,rust
+            BCI_TEST_ENVS: all,metadata,rust
       - bci_rust_podman:
           testsuite: null
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: rust
-            BCI_TEST_ENVS: all,rust
+            BCI_TEST_ENVS: all,metadata,rust
       - bci_ruby_4.0_podman:
           testsuite: null
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: ruby_4.0
-            BCI_TEST_ENVS: all,ruby
+            BCI_TEST_ENVS: all,metadata,ruby
       - bci_gcc_13_podman:
           testsuite: null
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: gcc_13
-            BCI_TEST_ENVS: all,gcc
+            BCI_TEST_ENVS: all,metadata,gcc
       - bci_gcc_14_podman:
           testsuite: null
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: gcc_14
-            BCI_TEST_ENVS: all,gcc
+            BCI_TEST_ENVS: all,metadata,gcc
       - bci_gcc_15_podman:
           testsuite: null
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: gcc_15
-            BCI_TEST_ENVS: all,gcc
+            BCI_TEST_ENVS: all,metadata,gcc
+      - bci_gcc_16_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: gcc_16
+            BCI_TEST_ENVS: all,metadata,gcc
+      - bci_python_3.11_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: python_3.11
+            BCI_TEST_ENVS: all,metadata,python
       - bci_python_3.13_podman:
           testsuite: null
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: python_3.13
-            BCI_TEST_ENVS: all,python
+            BCI_TEST_ENVS: all,metadata,python
+      - bci_python_3.14_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: python_3.14-base
+            BCI_TEST_ENVS: all,metadata,python
       - bci_golang_oldstable_podman:
           testsuite: null
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: golang_oldstable
-            BCI_TEST_ENVS: all,metadata,go
+            BCI_TEST_ENVS: all,metadata,metadata,go
       - bci_nodejs_24_podman:
           testsuite: null
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: nodejs_24
-            BCI_TEST_ENVS: all,node,metadata
+            BCI_TEST_ENVS: all,metadata,node
+      - bci_nodejs_26_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: nodejs_26
+            BCI_TEST_ENVS: all,metadata,node
       - bci_openjdk_11_podman:
           testsuite: null
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: openjdk_11
-            BCI_TEST_ENVS: all,openjdk,metadata
+            BCI_TEST_ENVS: all,metadata,openjdk
+      - bci_openjdk_17_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: openjdk_17
+            BCI_TEST_ENVS: all,metadata,openjdk
       - bci_openjdk_21_podman:
           testsuite: null
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: openjdk_21
-            BCI_TEST_ENVS: all,openjdk,metadata
+            BCI_TEST_ENVS: all,metadata,openjdk
       - bci_openjdk_25_podman:
           testsuite: null
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: openjdk_25
-            BCI_TEST_ENVS: all,openjdk,metadata
-      ### application containers
+            BCI_TEST_ENVS: all,metadata,openjdk
+      - bci_openjdk_26_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: openjdk_26
+            BCI_TEST_ENVS: all,metadata,openjdk
+      - bci_openjdk_11_devel_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: openjdk-devel_11
+            BCI_TEST_ENVS: all,metadata,openjdk_devel
+      - bci_openjdk_17_devel_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: openjdk-devel_17
+            BCI_TEST_ENVS: all,metadata,openjdk_devel
+      - bci_openjdk_21_devel_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: openjdk-devel_21
+            BCI_TEST_ENVS: all,metadata,openjdk_devel
+      - bci_openjdk_25_devel_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: openjdk-devel_25
+            BCI_TEST_ENVS: all,metadata,openjdk_devel
+      - bci_openjdk_26_devel_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: openjdk-devel_26
+            BCI_TEST_ENVS: all,metadata,openjdk_devel
+      - bci_php8_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: php_8
+            BCI_TEST_ENVS: all,metadata,php
+      - bci_php-apache8_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: php-apache_8
+            BCI_TEST_ENVS: all,metadata,php
+      - bci_php-fpm8_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: php-fpm_8
+            BCI_TEST_ENVS: all,metadata,php
+
+      ### BCI application containers
       - bci_prometheus_3_podman:
           testsuite: null
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: prometheus_3
-            BCI_TEST_ENVS: all,prometheus,metadata
+            BCI_TEST_ENVS: all,metadata,prometheus
       - bci_spack_podman:
           testsuite: null
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: spack
-            BCI_TEST_ENVS: all,spack,metadata
+            BCI_TEST_ENVS: all,metadata,spack
       - bci_alertmanager_podman:
           testsuite: null
           settings:
@@ -777,13 +881,13 @@ scenarios:
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: mariadb-client_latest
-            BCI_TEST_ENVS: all,mariadb,metadata
+            BCI_TEST_ENVS: all,metadata,mariadb
       - bci_389-ds_podman:
           testsuite: null
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: 389-ds_latest
-            BCI_TEST_ENVS: all,389ds,metadata
+            BCI_TEST_ENVS: all,metadata,389ds
       - bci_blackbox_exporter_podman:
           testsuite: null
           settings:
@@ -795,91 +899,266 @@ scenarios:
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: kiwi_latest
-            BCI_TEST_ENVS: all,kiwi,metadata
+            BCI_TEST_ENVS: all,metadata,kiwi
       - bci_postgres_14_podman:
           testsuite: null
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: postgres
-            BCI_TEST_ENVS: all,postgres
+            BCI_TEST_ENVS: all,metadata,postgres
       - bci_postgres_15_podman:
           testsuite: null
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: postgres_15
-            BCI_TEST_ENVS: all,postgres
+            BCI_TEST_ENVS: all,metadata,postgres
       - bci_postgres_16_podman:
           testsuite: null
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: postgres_16
-            BCI_TEST_ENVS: all,postgres
+            BCI_TEST_ENVS: all,metadata,postgres
       - bci_postgres_17_podman:
           testsuite: null
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: postgres_17
-            BCI_TEST_ENVS: all,postgres
+            BCI_TEST_ENVS: all,metadata,postgres
       - bci_postgres_18_podman:
           testsuite: null
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: postgres_18
-            BCI_TEST_ENVS: all,postgres
+            BCI_TEST_ENVS: all,metadata,postgres
       - bci_grafana_11_podman:
           testsuite: null
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: grafana_latest
-            BCI_TEST_ENVS: grafana
+            BCI_TEST_ENVS: all,metadata,grafana
       - bci_helm_latest_podman:
           testsuite: null
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: helm_latest
-            BCI_TEST_ENVS: helm
+            BCI_TEST_ENVS: all,metadata,helm
       - bci_git_podman:
           testsuite: null
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: git_latest
-            BCI_TEST_ENVS: git
+            BCI_TEST_ENVS: all,metadata,git
       - bci_registry_podman:
           testsuite: null
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: registry_latest
-            BCI_TEST_ENVS: distribution
+            BCI_TEST_ENVS: all,metadata,distribution
       - bci_nginx_podman:
           testsuite: null
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: nginx_latest
-            BCI_TEST_ENVS: nginx
+            BCI_TEST_ENVS: all,metadata,nginx
       - bci_pcp_podman:
           testsuite: null
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: pcp_6
-            BCI_TEST_ENVS: pcp
+            BCI_TEST_ENVS: all,metadata,pcp
       - bci_tomcat_9_podman:
           testsuite: null
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: apache-tomcat_9
-            BCI_TEST_ENVS: tomcat
+            BCI_TEST_ENVS: all,metadata,tomcat
       - bci_tomcat_10_podman:
           testsuite: null
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: apache-tomcat_10.1
-            BCI_TEST_ENVS: tomcat
+            BCI_TEST_ENVS: all,metadata,tomcat
       - bci_cosign_podman:
           testsuite: null
           settings:
             <<: *bci
             BCI_IMAGE_MARKER: cosign
-            BCI_TEST_ENVS: cosign
+            BCI_TEST_ENVS: all,metadata,cosign
+      - bci_valkey_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: valkey_latest
+            BCI_TEST_ENVS: all,metadata,valkey
+      - bci_mariadb_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: mariadb_latest
+            BCI_TEST_ENVS: all,metadata,mariadb
+      - bci_bind_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: bind_9
+            BCI_TEST_ENVS: all,metadata,bind
+      - bci_kea_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: kea_latest
+            BCI_TEST_ENVS: all,metadata,kea
+      - bci_postfix_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: postfix_latest
+            BCI_TEST_ENVS: all,metadata,postfix
+      - bci_stunnel_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: stunnel_5
+            BCI_TEST_ENVS: all,metadata,stunnel
+      - bci_rabbitmq_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: rabbitmq_latest
+            BCI_TEST_ENVS: all,metadata
+      - bci_trivy_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: trivy_latest
+            BCI_TEST_ENVS: all,metadata
+      - bci_tomcat_11_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: apache-tomcat_11
+            BCI_TEST_ENVS: all,metadata,tomcat
+
+      ### BCI kubernetes & virtualization containers
+      - bci_kubectl_1.34_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: kubectl_1.34
+            BCI_TEST_ENVS: all,metadata,kubectl
+      - bci_kubectl_1.35_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: kubectl_1.35
+            BCI_TEST_ENVS: all,metadata,kubectl
+      - bci_kubectl_1.36_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: kubectl_1.36
+            BCI_TEST_ENVS: all,metadata,kubectl
+      - bci_kubectl_1.37_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: kubectl_1.37
+            BCI_TEST_ENVS: all,metadata,kubectl
+      - bci_kubevirt_1.8_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: virt-api_1.8
+            BCI_TEST_ENVS: all,metadata
+      - bci_kubevirt_1.9_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: virt-api_1.9
+            BCI_TEST_ENVS: all,metadata
+      - bci_cdi_1.65_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: cdi-apiserver_1.65
+            BCI_TEST_ENVS: all,metadata
+      - bci_cdi_1.66_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: cdi-apiserver_1.66
+            BCI_TEST_ENVS: all,metadata
+      - bci_virt-template-0.2_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: virt-template-apiserver_0.2
+            BCI_TEST_ENVS: all,metadata
+
+      ### BCI desktop & multimedia containers
+      - bci_kiosk-firefox_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: firefox-esr_esr
+            BCI_TEST_ENVS: all,metadata,kiosk
+      - bci_pulseaudio_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: pulseaudio_17
+            BCI_TEST_ENVS: all,metadata,kiosk
+      - bci_xorg_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: xorg_21
+            BCI_TEST_ENVS: all,metadata,kiosk
+      - bci_xorg-client_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: xorg-client_21
+            BCI_TEST_ENVS: all,metadata,kiosk
+      - bci_tigervnc-x11vnc_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: tigervnc-x11vnc_1
+            BCI_TEST_ENVS: all,metadata,kiosk
+
+      ### BCI developer tools & CI containers (additional)
+      - bci_opencode_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: opencode_latest
+            BCI_TEST_ENVS: all,metadata
+      - bci_gemini-cli_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: gemini-cli_latest
+            BCI_TEST_ENVS: all,metadata
+      - bci_gitea-runner_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: bci-gitea-runner_latest
+            BCI_TEST_ENVS: all,metadata
+      - bci_mcp-bugzilla_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: mcp-bugzilla_latest
+            BCI_TEST_ENVS: all,metadata
+      - bci_bci-ci_podman:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: bci-ci_latest
+            BCI_TEST_ENVS: all,metadata
+
       - create_hdd_textmode_secureboot:
           testsuite: null
           machine: aarch64-secureboot-opensuse-key
