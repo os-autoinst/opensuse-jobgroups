@@ -1058,6 +1058,12 @@ scenarios:
             <<: *bci
             BCI_IMAGE_MARKER: cosign
             BCI_TEST_ENVS: all,cosign
+      - bci_valkey:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: valkey
+            BCI_TEST_ENVS: all,valkey
       - extra_tests_himmelblau:
           testsuite: null
           settings:
