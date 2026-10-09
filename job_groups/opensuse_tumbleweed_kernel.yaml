@@ -60,9 +60,6 @@ scenarios:
       - bpftools
       - extra_tests_kernel
       - install_ltp+opensuse+DVD
-      - install_ltp_kotd+opensuse+DVD:
-          settings:
-            KOTD_REPO: 'https://download.opensuse.org/repositories/Kernel:/HEAD/ARM/'
       - install_ltp_longterm+opensuse+DVD
       - io_uring:
           settings:
@@ -88,7 +85,6 @@ scenarios:
       - ltp_crashme
       - ltp_crypto
       - ltp_cve
-      - ltp_cve_kotd
       - ltp_cve_longterm
       - ltp_dio
       - ltp_dma_thread_diotest
@@ -142,9 +138,6 @@ scenarios:
           settings:
             LTP_TAINT_EXPECTED: '0x13801'
       - ltp_syscalls_ipc
-      - ltp_syscalls_kotd:
-          settings:
-            LTP_TAINT_EXPECTED: '0x13801'
       - ltp_syscalls_longterm:
           settings:
             LTP_TAINT_EXPECTED: '0x13801'
@@ -238,9 +231,6 @@ scenarios:
       - bpftools
       - extra_tests_kernel
       - install_ltp+opensuse+DVD
-      - install_ltp_kotd+opensuse+DVD:
-          settings:
-            KOTD_REPO: 'https://download.opensuse.org/repositories/Kernel:/HEAD/PPC/'
       - io_uring:
           settings:
             QEMUCPUS: '4'
@@ -266,7 +256,6 @@ scenarios:
       - ltp_crashme
       - ltp_crypto
       - ltp_cve
-      - ltp_cve_kotd
       - ltp_dio
       - ltp_dma_thread_diotest
       - ltp_fcntl_locktests
@@ -319,9 +308,6 @@ scenarios:
           settings:
             LTP_TAINT_EXPECTED: '0x13801'
       - ltp_syscalls_ipc
-      - ltp_syscalls_kotd:
-          settings:
-            LTP_TAINT_EXPECTED: '0x13801'
       - ltp_tracing
       - ltp_uevent
       - ltp_watchqueue
@@ -368,12 +354,6 @@ scenarios:
       - ltp_syscalls:
           settings:
             LTP_TAINT_EXPECTED: '0x13801'
-      - ltp_syscalls_kotd:
-          settings:
-            INSTALL_KOTD: '1'
-            KOTD_REPO: 'https://download.opensuse.org/repositories/Kernel:/HEAD/S390/'
-            LTP_TAINT_EXPECTED: '0x13801'
-            LTP_GIT_URL: 'https://github.com/linux-test-project/ltp'
       - kernel-live-patching:
           settings:
             INSTALL_LTP: ''
@@ -391,7 +371,6 @@ scenarios:
           machine: uefi
           settings:
             START_AFTER_TEST: create_hdd_textmode_uefi
-      - install_ltp_kotd+opensuse+DVD
       - install_ltp_longterm+opensuse+DVD
       - blktests:
           settings:
@@ -463,7 +442,6 @@ scenarios:
             LTP_TAINT_EXPECTED: '0x13801'
       - ltp_containers
       - ltp_controllers
-      - ltp_controllers_kotd
       - ltp_cpuhotplug
       - ltp_crashme
       - ltp_crypto
@@ -471,7 +449,6 @@ scenarios:
       - ltp_cve:
           machine: uefi
       - ltp_cve_m32
-      - ltp_cve_kotd
       - ltp_cve_longterm
       - ltp_dio
       - ltp_dma_thread_diotest
@@ -501,7 +478,6 @@ scenarios:
       - ltp_lvm
       - ltp_math
       - ltp_mm
-      - ltp_mm_kotd
       - ltp_mm_oom
       - ltp_mm_swapping
       - ltp_net_features
@@ -540,9 +516,6 @@ scenarios:
           settings:
             LTP_TAINT_EXPECTED: '0x13801'
       - ltp_syscalls_ipc
-      - ltp_syscalls_kotd:
-          settings:
-            LTP_TAINT_EXPECTED: '0x13801'
       - ltp_syscalls_longterm:
           settings:
             LTP_TAINT_EXPECTED: '0x13801'
