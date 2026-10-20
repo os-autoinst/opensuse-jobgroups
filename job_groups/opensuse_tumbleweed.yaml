@@ -2472,6 +2472,9 @@ scenarios:
           machine: 64bit
       - zdup-Leap-16.1-gnome:
           machine: uefi-3G
+      - virt-kvm-guest-test:
+          description: A virtulization test running on baremetal with Agama installation
+          machine: 64bit-ipmi
     aeon-*-Installer-x86_64:
       - aeon_tests:
           machine: uefi
