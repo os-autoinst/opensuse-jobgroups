@@ -880,6 +880,12 @@ scenarios:
             <<: *bci
             BCI_IMAGE_MARKER: cosign
             BCI_TEST_ENVS: cosign
+      - bci_valkey:
+          testsuite: null
+          settings:
+            <<: *bci
+            BCI_IMAGE_MARKER: valkey
+            BCI_TEST_ENVS: all,valkey
       - create_hdd_textmode_secureboot:
           testsuite: null
           machine: aarch64-secureboot-opensuse-key
