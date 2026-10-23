@@ -1157,6 +1157,8 @@ scenarios:
       - rsync-client
       - kea-server
       - kea-client
+      - dhcpd-server
+      - dhcpd-client
       - extra_tests_misc:
           settings:
             +QEMUMACHINE: 'q35,accel=kvm,kernel_irqchip=split'
@@ -2437,6 +2439,14 @@ scenarios:
           settings:
             <<: *agama_textmode_recycled_testsuite
       - kea-client:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - dhcpd-server:
+          machine: uefi-3G
+          settings:
+            <<: *agama_textmode_recycled_testsuite
+      - dhcpd-client:
           machine: uefi-3G
           settings:
             <<: *agama_textmode_recycled_testsuite
