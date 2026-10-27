@@ -8,6 +8,10 @@
 #             job_groups/staging_projects.yaml             #
 ############################################################
 ---
+.agama_staging: &agama_staging
+  NOAUTOLOGIN: "1"
+  YAML_SCHEDULE: schedule/install/agama_install.yaml
+
 defaults:
   ppc64le:
     machine: ppc64le
@@ -43,6 +47,14 @@ products:
   microos-*-Staging-MicroOS-Image-sdboot-x86_64:
     distri: microos
     flavor: Staging-MicroOS-Image-sdboot
+    version: '*'
+  microos-*-Staging-offline-install-x86_64:
+    distri: microos
+    flavor: Staging-offline-install
+    version: '*'
+  opensuse-*-Staging-offline-installer-x86_64:
+    distri: opensuse
+    flavor: Staging-offline-installer
     version: '*'
 scenarios:
   ppc64le:
@@ -166,3 +178,25 @@ scenarios:
             # Test with TPM enrollment
             QEMUTPM: 'instance'
             TRANSACTIONAL_VALIDATION: '1'
+    microos-*-Staging-offline-install-x86_64:
+      - microos:
+          machine: uefi-staging-3G
+          settings:
+            +QEMURAM: '3072'
+      - microos:
+          machine: 64bit-3G
+          settings:
+            +QEMURAM: '3072'
+    opensuse-*-Staging-offline-installer-x86_64:
+      - create_hdd_agama_gnome:
+          machine: uefi-staging-3G
+      - create_hdd_agama_kde:
+          machine: uefi-staging-3G
+      - gnome:
+          machine: uefi-staging-3G
+          settings:
+            <<: *agama_staging
+      - kde:
+          machine: 64bit-3G
+          settings:
+            <<: *agama_staging
