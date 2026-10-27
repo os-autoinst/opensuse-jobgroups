@@ -870,6 +870,7 @@ scenarios:
             <<: *bci
             BCI_IMAGE_MARKER: bci-nano_latest
             BCI_TEST_ENVS: metadata,nano
+            +BCI_DEVEL_REPO: ''
       ### BCI lang containers
       - bci_golang_podman:
           testsuite: null
