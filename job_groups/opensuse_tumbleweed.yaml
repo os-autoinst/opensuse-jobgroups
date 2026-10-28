@@ -33,6 +33,7 @@
   _SKIP_POST_FAIL_HOOKS: '1'
 
 .agama_textmode_recycled_testsuite: &agama_textmode_recycled_testsuite
+  DESKTOP: "textmode"
   BOOT_HDD_IMAGE: '1'
   +QEMURAM: '1536'
   HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
@@ -40,6 +41,7 @@
   UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
 
 .agama_gnome_recycled_testsuite: &agama_gnome_recycled_testsuite
+  DESKTOP: "gnome"
   BOOT_HDD_IMAGE: '1'
   NOAUTOLOGIN: '1'
   HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
@@ -47,6 +49,7 @@
   START_AFTER_TEST: 'create_hdd_agama_gnome'
 
 .agama_kde_recycled_testsuite: &agama_kde_recycled_testsuite
+  DESKTOP: "kde"
   BOOT_HDD_IMAGE: '1'
   NOAUTOLOGIN: '1'
   HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
