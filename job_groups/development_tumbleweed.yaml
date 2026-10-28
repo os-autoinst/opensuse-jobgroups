@@ -51,7 +51,7 @@
   UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
   START_AFTER_TEST: 'create_hdd_agama_xfce'
 
-  .agama_minimalx_recycled_testsuite: &agama_minimalx_recycled_testsuite
+.agama_minimalx_recycled_testsuite: &agama_minimalx_recycled_testsuite
   BOOT_HDD_IMAGE: '1'
   NOAUTOLOGIN: '1'
   DESKTOP: minimalx
@@ -1187,7 +1187,6 @@ scenarios:
           testsuite: extra_tests_textmode_containers
           machine: uefi-3G
           settings:
-            <<: *docker-apparmor
             <<: [*agama_textmode_recycled_testsuite, *docker-apparmor]
             +QEMURAM: '2048'
             CONTAINERS_DOCKER_FLAVOUR: 'stable'
@@ -2011,7 +2010,6 @@ scenarios:
           machine: uefi-3G
           settings:
             <<: *agama_gnome_apparmor_recycled_testsuite
-      # Migration Picker decision: agama-installer (*agama)
       # Migration Picker decision: agama-installer (*agama)
       - create_hdd_agama_textmode_apparmor:
           testsuite: create_hdd_agama_textmode
