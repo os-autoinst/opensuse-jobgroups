@@ -1174,7 +1174,7 @@ scenarios:
           testsuite: null
           settings:
             <<: *bci
-            BCI_IMAGE_MARKER: registry
+            BCI_IMAGE_MARKER: registry_latest
             BCI_TEST_ENVS: all,metadata,distribution
       - bci_nginx_podman:
           testsuite: null
