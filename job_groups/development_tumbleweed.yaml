@@ -109,7 +109,7 @@ defaults:
     machine: riscv64
     priority: 55
   x86_64:
-    machine: uefi
+    machine: uefi-3G
     priority: 55
 products:
   microos-*-DVD-riscv64:
