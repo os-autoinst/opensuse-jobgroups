@@ -12,6 +12,7 @@
 # without +QEMURAM: the instrumented run needs the 3 GB of uefi-3G.
 .agama_textmode_recycled_testsuite: &agama_textmode_recycled_testsuite
   BOOT_HDD_IMAGE: '1'
+  DESKTOP: "textmode"
   HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
   START_AFTER_TEST: 'create_hdd_agama_textmode'
   UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
@@ -36,9 +37,5 @@ scenarios:
             Maintainer: amanzini / balogh
           settings:
             <<: *agama_textmode_recycled_testsuite
-            DESKTOP: textmode
-            # zypper solving under instrumentation exceeds the command
-            # timeouts with the single CPU of uefi-3G
-            QEMUCPUS: '2'
             MAX_JOB_TIME: '18000'
             YAML_SCHEDULE: schedule/coverage/tw_o3.yaml
