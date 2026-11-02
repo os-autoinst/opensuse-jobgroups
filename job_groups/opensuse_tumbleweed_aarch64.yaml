@@ -934,8 +934,6 @@ scenarios:
             UEFI_PFLASH_CODE: '/usr/share/qemu/aavmf-aarch64-ms-code.bin'
             UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars_sb.qcow2'
             DESKTOP: textmode
-      - autoyast_gnome
-      - autoyast_minimal
       - package-dependency:
           settings:
             # poo#89632
@@ -1358,7 +1356,6 @@ scenarios:
       - zdup-Leap-15.6-kde
       - zdup-Leap-15.6-gnome
       - gnome-gdm
-      - autoyast_gnome
       - kde+selinux
       - gnome+selinux
       - textmode+selinux

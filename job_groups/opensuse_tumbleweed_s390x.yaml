@@ -24,7 +24,6 @@ products:
 scenarios:
   s390x:
     opensuse-Tumbleweed-DVD-s390x:
-      - autoyast_zvm
       - textmode:
           priority: 50
           settings:
