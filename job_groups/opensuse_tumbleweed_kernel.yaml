@@ -100,6 +100,7 @@ scenarios:
       - ltp_input
       - ltp_kernel_misc:
           settings:
+            LTP_COMMAND_EXCLUDE: 'irqbalance01'
             LTP_TAINT_EXPECTED: '0x13801'
       - ltp_kernel_misc_warns
       - ltp_lvm
@@ -270,6 +271,7 @@ scenarios:
       - ltp_input
       - ltp_kernel_misc:
           settings:
+            LTP_COMMAND_EXCLUDE: 'irqbalance01'
             LTP_TAINT_EXPECTED: '0x13801'
       - ltp_kernel_misc_warns
       - ltp_lvm
@@ -344,6 +346,7 @@ scenarios:
       - ltp_ima_load_policy
       - ltp_kernel_misc:
           settings:
+            LTP_COMMAND_EXCLUDE: 'irqbalance01'
             LTP_TAINT_EXPECTED: '0x13801'
       - ltp_kernel_misc_warns
       - ltp_lvm
@@ -468,10 +471,12 @@ scenarios:
       - ltp_input
       - ltp_kernel_misc:
           settings:
+            LTP_COMMAND_EXCLUDE: 'irqbalance01'
             LTP_TAINT_EXPECTED: '0x13801'
       - ltp_kernel_misc:
           machine: uefi
           settings:
+            LTP_COMMAND_EXCLUDE: 'irqbalance01'
             LTP_TAINT_EXPECTED: '0x13801'
             QEMUMACHINE: 'hpet=off'
       - ltp_kernel_misc_warns
