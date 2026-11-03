@@ -24,41 +24,41 @@ defaults:
       +S390_NETWORK_PARAMS: rd.zdev=qeth,0.0.0A00:0.0.0A01:0.0.0A02,layer2=0,portno=0 nameserver=10.150.1.11
     priority: 55
 products:
-  opensuse-online-installer-x86_64:
+  opensuse-online-installer-16.0-x86_64:
     distri: opensuse
     flavor: online-installer
     version: '16.0'
-  opensuse-online-installer-aarch64:
+  opensuse-online-installer-16.0-aarch64:
     distri: opensuse
     flavor: online-installer
     version: '16.0'
-  opensuse-online-installer-ppc64le:
+  opensuse-online-installer-16.0-ppc64le:
     distri: opensuse
     flavor: online-installer
     version: '16.0'
-  opensuse-online-installer-s390x:
+  opensuse-online-installer-16.0-s390x:
     distri: opensuse
     flavor: online-installer
     version: '16.0'
-  opensuse-offline-installer-x86_64:
+  opensuse-offline-installer-16.0-x86_64:
     distri: opensuse
     flavor: offline-installer
     version: '16.0'
-  opensuse-offline-installer-aarch64:
+  opensuse-offline-installer-16.0-aarch64:
     distri: opensuse
     flavor: offline-installer
     version: '16.0'
-  opensuse-offline-installer-ppc64le:
+  opensuse-offline-installer-16.0-ppc64le:
     distri: opensuse
     flavor: offline-installer
     version: '16.0'
-  opensuse-offline-installer-s390x:
+  opensuse-offline-installer-16.0-s390x:
     distri: opensuse
     flavor: offline-installer
     version: '16.0'
 scenarios:
   x86_64:
-    opensuse-online-installer-x86_64:
+    opensuse-online-installer-16.0-x86_64:
       - gnome-agama:
           machine: uefi-3G
       - gnome-agama:
@@ -117,7 +117,7 @@ scenarios:
             PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
             PUBLISH_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
             YAML_SCHEDULE: 'schedule/functional/leap16/agama_create_hdd_gnome_leap.yaml'
-    opensuse-offline-installer-x86_64:
+    opensuse-offline-installer-16.0-x86_64:
       - gnome-agama:
           machine: uefi-3G
       - gnome-agama:
@@ -135,7 +135,7 @@ scenarios:
           settings:
             BOOTFROM: c
   aarch64:
-    opensuse-online-installer-aarch64:
+    opensuse-online-installer-16.0-aarch64:
       - gnome-agama:
           machine: aarch64
       - kde-agama:
@@ -182,13 +182,13 @@ scenarios:
             PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
             PUBLISH_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
             YAML_SCHEDULE: 'schedule/functional/leap16/agama_create_hdd_gnome_leap.yaml'
-    opensuse-offline-installer-aarch64:
+    opensuse-offline-installer-16.0-aarch64:
       - gnome-agama:
           machine: aarch64
       - kde-agama:
           machine: aarch64
   ppc64le:
-    opensuse-online-installer-ppc64le:
+    opensuse-online-installer-16.0-ppc64le:
       - gnome-agama
       - kde-agama
       - zdup-Leap-15.6-gnome:
@@ -199,18 +199,18 @@ scenarios:
           testsuite: zdup-Leap-15.6-kde
           settings:
             WORKAROUND_DEPS: '1'
-    opensuse-offline-installer-ppc64le:
+    opensuse-offline-installer-16.0-ppc64le:
       - gnome-agama
       - kde-agama
   s390x:
-    opensuse-online-installer-s390x:
+    opensuse-online-installer-16.0-s390x:
       - gnome-agama:
           machine: s390x-zVM-vswitch-l2
       - kde-agama:
           machine: s390x-zVM-vswitch-l2
       - zdup-Leap-15.6-gnome
       - zdup-Leap-15.6-kde
-    opensuse-offline-installer-s390x:
+    opensuse-offline-installer-16.0-s390x:
       - gnome-agama:
           machine: s390x-zVM-vswitch-l2
       - kde-agama:
