@@ -15,7 +15,7 @@ products:
   opensuse-staged-Updates-x86_64:
     distri: opensuse
     flavor: staged-Updates
-    version: '16.0'
+    version: '*'
 scenarios:
   x86_64:
     opensuse-staged-Updates-x86_64:
