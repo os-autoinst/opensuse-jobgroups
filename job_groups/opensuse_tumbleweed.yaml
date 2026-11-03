@@ -520,6 +520,8 @@ scenarios:
       - textmode_extra_tests_development:
           settings:
             <<: *textmode_recycled_testsuite
+            QEMUCPUS: '2'
+            UEFI_PFLASH_SECURE_BOOT: '0'
       - textmode_extra_tests_kernel:
           settings:
             <<: *textmode_recycled_testsuite
@@ -2568,6 +2570,9 @@ scenarios:
             <<: *agama_textmode_recycled_testsuite
       - textmode_extra_tests_development:
           machine: uefi-3G
+          settings:
+            QEMUCPUS: '2'
+            UEFI_PFLASH_SECURE_BOOT: '0'
       - textmode_extra_tests_kernel:
           machine: uefi-3G
       - textmode_extra_tests_networking:
