@@ -9,34 +9,34 @@
 ---
 .agama: &agama
   NOAUTOLOGIN: "1"
-  INST_INSTALL_URL: '%MIRROR_PREFIX%/%REPO_0%'
+  INST_INSTALL_URL: "%MIRROR_PREFIX%/%REPO_0%"
   YAML_SCHEDULE: schedule/install/agama_install.yaml
 
 .agama_textmode_recycled_testsuite: &agama_textmode_recycled_testsuite
   BOOT_HDD_IMAGE: "1"
   DESKTOP: textmode
   VIDEOMODE: "text"
-  +QEMURAM: '1536'
-  HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
-  START_AFTER_TEST: 'create_hdd_agama_textmode'
-  UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
+  +QEMURAM: "1536"
+  HDD_1: "%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2"
+  START_AFTER_TEST: "create_hdd_agama_textmode"
+  UEFI_PFLASH_VARS: "%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2"
 
 .agama_gnome_recycled_testsuite: &agama_gnome_recycled_testsuite
   BOOT_HDD_IMAGE: "1"
-  DESKTOP: gnome 
-  NOAUTOLOGIN: '1'
-  HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
-  UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
-  START_AFTER_TEST: 'create_hdd_agama_gnome'
-  EXCLUDE_MODULES: 'steam,yast2_lan_restart,yast2_lan_device_settings,multi_users_dm,keyboard_layout_gdm,libqt5_qtbase,user_defined_snapshot'
+  DESKTOP: gnome
+  NOAUTOLOGIN: "1"
+  HDD_1: "%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2"
+  UEFI_PFLASH_VARS: "%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2"
+  START_AFTER_TEST: "create_hdd_agama_gnome"
+  EXCLUDE_MODULES: "steam,yast2_lan_restart,yast2_lan_device_settings,multi_users_dm,keyboard_layout_gdm,libqt5_qtbase,user_defined_snapshot"
 
 .agama_kde_recycled_testsuite: &agama_kde_recycled_testsuite
   BOOT_HDD_IMAGE: "1"
-  DESKTOP: kde 
-  NOAUTOLOGIN: '1'
-  HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2'
-  UEFI_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2'
-  START_AFTER_TEST: 'create_hdd_agama_kde'
+  DESKTOP: kde
+  NOAUTOLOGIN: "1"
+  HDD_1: "%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%.qcow2"
+  UEFI_PFLASH_VARS: "%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%-agama@%MACHINE%-uefi-vars.qcow2"
+  START_AFTER_TEST: "create_hdd_agama_kde"
 
 defaults:
   x86_64:
@@ -57,67 +57,67 @@ products:
   opensuse-online-installer-16.1-x86_64:
     distri: opensuse
     flavor: online-installer
-    version: '16.1'
+    version: "16.1"
   opensuse-online-installer-16.1-aarch64:
     distri: opensuse
     flavor: online-installer
-    version: '16.1'
+    version: "16.1"
   opensuse-online-installer-16.1-ppc64le:
     distri: opensuse
     flavor: online-installer
-    version: '16.1'
+    version: "16.1"
   opensuse-online-installer-16.1-s390x:
     distri: opensuse
     flavor: online-installer
-    version: '16.1'
+    version: "16.1"
   opensuse-offline-installer-16.1-x86_64:
     distri: opensuse
     flavor: offline-installer
-    version: '16.1'
+    version: "16.1"
   opensuse-offline-installer-16.1-aarch64:
     distri: opensuse
     flavor: offline-installer
-    version: '16.1'
+    version: "16.1"
   opensuse-offline-installer-16.1-ppc64le:
     distri: opensuse
     flavor: offline-installer
-    version: '16.1'
+    version: "16.1"
   opensuse-offline-installer-16.1-s390x:
     distri: opensuse
     flavor: offline-installer
-    version: '16.1'
+    version: "16.1"
   opensuse-online-installer-16.0-x86_64:
     distri: opensuse
     flavor: online-installer
-    version: '16.0'
+    version: "16.0"
   opensuse-online-installer-16.0-aarch64:
     distri: opensuse
     flavor: online-installer
-    version: '16.0'
+    version: "16.0"
   opensuse-online-installer-16.0-ppc64le:
     distri: opensuse
     flavor: online-installer
-    version: '16.0'
+    version: "16.0"
   opensuse-online-installer-16.0-s390x:
     distri: opensuse
     flavor: online-installer
-    version: '16.0'
+    version: "16.0"
   opensuse-offline-installer-16.0-x86_64:
     distri: opensuse
     flavor: offline-installer
-    version: '16.0'
+    version: "16.0"
   opensuse-offline-installer-16.0-aarch64:
     distri: opensuse
     flavor: offline-installer
-    version: '16.0'
+    version: "16.0"
   opensuse-offline-installer-16.0-ppc64le:
     distri: opensuse
     flavor: offline-installer
-    version: '16.0'
+    version: "16.0"
   opensuse-offline-installer-16.0-s390x:
     distri: opensuse
     flavor: offline-installer
-    version: '16.0'
+    version: "16.0"
 scenarios:
   x86_64:
     opensuse-offline-installer-16.1-x86_64:
@@ -176,17 +176,17 @@ scenarios:
           machine: uefi-3G
           testsuite: base_os
           settings:
-            DESKTOP: 'gnome'
+            DESKTOP: "gnome"
       - base_os_kde:
           machine: uefi-3G
           testsuite: base_os
           settings:
-            DESKTOP: 'kde'
+            DESKTOP: "kde"
       - base_os_xfce:
           machine: uefi-3G
           testsuite: base_os
           settings:
-            DESKTOP: 'xfce'
+            DESKTOP: "xfce"
       - boot_to_snapshot:
           machine: uefi-3G
           settings:
@@ -195,95 +195,95 @@ scenarios:
           machine: uefi-3G
           testsuite: core
           settings:
-            DESKTOP: 'gnome'
+            DESKTOP: "gnome"
       - core_kde:
           machine: uefi-3G
           testsuite: core
           settings:
-            DESKTOP: 'kde'
+            DESKTOP: "kde"
       - core_xfce:
           machine: uefi-3G
           testsuite: core
           settings:
-            DESKTOP: 'xfce'
+            DESKTOP: "xfce"
       - desktop_amusement_gnome:
           machine: uefi-3G
           testsuite: desktop_amusement
           settings:
-            DESKTOP: 'gnome'
-            EXCLUDE_MODULES: 'steam'
+            DESKTOP: "gnome"
+            EXCLUDE_MODULES: "steam"
       - desktop_amusement_kde:
           machine: uefi-3G
           testsuite: desktop_amusement
           settings:
-            DESKTOP: 'kde'
-            EXCLUDE_MODULES: 'steam'
+            DESKTOP: "kde"
+            EXCLUDE_MODULES: "steam"
       - desktop_amusement_xfce:
           machine: uefi-3G
           testsuite: desktop_amusement
           settings:
-            DESKTOP: 'xfce'
-            EXCLUDE_MODULES: 'steam'
+            DESKTOP: "xfce"
+            EXCLUDE_MODULES: "steam"
       - desktop_browsers_gnome:
           machine: uefi-3G
           testsuite: desktop_browsers
           settings:
-            DESKTOP: 'gnome'
+            DESKTOP: "gnome"
       - desktop_browsers_kde:
           machine: uefi-3G
           testsuite: desktop_browsers
           settings:
-            DESKTOP: 'kde'
+            DESKTOP: "kde"
       - desktop_browsers_xfce:
           machine: uefi-3G
           testsuite: desktop_browsers
           settings:
-            DESKTOP: 'xfce'
+            DESKTOP: "xfce"
       - desktop_extra_consoles_gnome:
           machine: uefi-3G
           testsuite: desktop_extra_consoles
           settings:
-            DESKTOP: 'gnome'
+            DESKTOP: "gnome"
       - desktop_extra_consoles_kde:
           machine: uefi-3G
           testsuite: desktop_extra_consoles
           settings:
-            DESKTOP: 'kde'
+            DESKTOP: "kde"
       - desktop_extra_consoles_xfce:
           machine: uefi-3G
           testsuite: desktop_extra_consoles
           settings:
-            DESKTOP: 'xfce'
+            DESKTOP: "xfce"
       - desktop_multimedia_gnome:
           machine: uefi-3G
           testsuite: desktop_multimedia
           settings:
-            DESKTOP: 'gnome'
+            DESKTOP: "gnome"
       - desktop_multimedia_kde:
           machine: uefi-3G
           testsuite: desktop_multimedia
           settings:
-            DESKTOP: 'kde'
+            DESKTOP: "kde"
       - desktop_multimedia_xfce:
           machine: uefi-3G
           testsuite: desktop_multimedia
           settings:
-            DESKTOP: 'xfce'
+            DESKTOP: "xfce"
       - desktop_office_gnome:
           machine: uefi-3G
           testsuite: desktop_office
           settings:
-            DESKTOP: 'gnome'
+            DESKTOP: "gnome"
       - desktop_office_kde:
           machine: uefi-3G
           testsuite: desktop_office
           settings:
-            DESKTOP: 'kde'
+            DESKTOP: "kde"
       - desktop_office_xfce:
           machine: uefi-3G
           testsuite: desktop_office
           settings:
-            DESKTOP: 'xfce'
+            DESKTOP: "xfce"
       - extra_tests_gnome:
           machine: uefi-3G
           settings:
@@ -299,11 +299,11 @@ scenarios:
       - textmode_extra_tests_networking:
           machine: uefi-3G
           settings:
-            EXCLUDE_MODULES: 'yast2_lan_device_settings,velociraptor_client_event_collect'
+            EXCLUDE_MODULES: "yast2_lan_device_settings,velociraptor_client_event_collect"
       - textmode_extra_tests_utils:
           machine: uefi-3G
           settings:
-            EXCLUDE_MODULES: 'pam,dstat,libgpiod'
+            EXCLUDE_MODULES: "pam,dstat,libgpiod"
       - toolkits:
           machine: uefi-3G
           settings:
@@ -373,7 +373,7 @@ scenarios:
           machine: uefi-3G
           settings:
             <<: *agama_textmode_recycled_testsuite
-            EXCLUDE_MODULES: 'ecryptfs'
+            EXCLUDE_MODULES: "ecryptfs"
       - security_pam:
           machine: uefi-3G
           settings:
@@ -392,7 +392,7 @@ scenarios:
           machine: uefi-3G
           settings:
             <<: *agama_textmode_recycled_testsuite
-            BOOT_HDD_IMAGE: '1'
+            BOOT_HDD_IMAGE: "1"
             DESKTOP: textmode
             SECURITY_TEST: selinux
             VIDEOMODE: text
@@ -410,11 +410,11 @@ scenarios:
       - zdup-Leap-15.6-gnome_migration_tool:
           testsuite: zdup-Leap-15.6-gnome
           settings:
-            OPENSUSE_MIGRATION_TOOL: '1'
+            OPENSUSE_MIGRATION_TOOL: "1"
       - zdup-Leap-15.6-kde_migration_tool:
           testsuite: zdup-Leap-15.6-kde
           settings:
-            OPENSUSE_MIGRATION_TOOL: '1'
+            OPENSUSE_MIGRATION_TOOL: "1"
     opensuse-online-installer-16.0-x86_64:
       - gnome-agama:
           machine: uefi-3G
@@ -435,45 +435,45 @@ scenarios:
       - zdup-Leap-15.6-gnome:
           testsuite: zdup-Leap-15.6-gnome
           settings:
-            WORKAROUND_DEPS: '1'
+            WORKAROUND_DEPS: "1"
       - zdup-Leap-15.6-kde:
           testsuite: zdup-Leap-15.6-kde
           settings:
-            WORKAROUND_DEPS: '1'
+            WORKAROUND_DEPS: "1"
       - zdup-Leap-15.6-gnome_migration_tool:
           testsuite: zdup-Leap-15.6-gnome
           settings:
-            OPENSUSE_MIGRATION_TOOL: '1'
+            OPENSUSE_MIGRATION_TOOL: "1"
       - zdup-Leap-15.6-kde_migration_tool:
           testsuite: zdup-Leap-15.6-kde
           settings:
-            OPENSUSE_MIGRATION_TOOL: '1'
+            OPENSUSE_MIGRATION_TOOL: "1"
       - create_hdd_textmode:
           machine: uefi-3G
           testsuite: null
           settings:
-            AGAMA_PRODUCT_ID: 'openSUSE_Leap'
+            AGAMA_PRODUCT_ID: "openSUSE_Leap"
             +QEMUCPU: host
             INST_AUTO: agama_auto/leap_default.jsonnet
             DESKTOP: textmode
-            HDDSIZEGB: '30'
-            EXTRABOOTPARAMS: 'live.password=nots3cr3t kernel.softlockup_panic=1'
-            PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
-            PUBLISH_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
-            YAML_SCHEDULE: 'schedule/functional/leap16/agama_create_hdd_textmode_leap.yaml'
+            HDDSIZEGB: "30"
+            EXTRABOOTPARAMS: "live.password=nots3cr3t kernel.softlockup_panic=1"
+            PUBLISH_HDD_1: "%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2"
+            PUBLISH_PFLASH_VARS: "%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2"
+            YAML_SCHEDULE: "schedule/functional/leap16/agama_create_hdd_textmode_leap.yaml"
       - create_hdd_gnome:
           machine: uefi-3G
           testsuite: null
           settings:
-            AGAMA_PRODUCT_ID: 'openSUSE_Leap'
+            AGAMA_PRODUCT_ID: "openSUSE_Leap"
             +QEMUCPU: host
             INST_AUTO: agama_auto/leap_gnome.jsonnet
             DESKTOP: gnome
-            HDDSIZEGB: '30'
-            EXTRABOOTPARAMS: 'live.password=nots3cr3t kernel.softlockup_panic=1'
-            PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
-            PUBLISH_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
-            YAML_SCHEDULE: 'schedule/functional/leap16/agama_create_hdd_gnome_leap.yaml'
+            HDDSIZEGB: "30"
+            EXTRABOOTPARAMS: "live.password=nots3cr3t kernel.softlockup_panic=1"
+            PUBLISH_HDD_1: "%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2"
+            PUBLISH_PFLASH_VARS: "%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2"
+            YAML_SCHEDULE: "schedule/functional/leap16/agama_create_hdd_gnome_leap.yaml"
     opensuse-offline-installer-16.0-x86_64:
       - gnome-agama:
           machine: uefi-3G
@@ -500,45 +500,45 @@ scenarios:
       - zdup-Leap-15.6-gnome:
           testsuite: zdup-Leap-15.6-gnome
           settings:
-            WORKAROUND_DEPS: '1'
+            WORKAROUND_DEPS: "1"
       - zdup-Leap-15.6-kde:
           testsuite: zdup-Leap-15.6-kde
           settings:
-            WORKAROUND_DEPS: '1'
+            WORKAROUND_DEPS: "1"
       - zdup-Leap-15.6-gnome_migration_tool:
           testsuite: zdup-Leap-15.6-gnome
           settings:
-            OPENSUSE_MIGRATION_TOOL: '1'
+            OPENSUSE_MIGRATION_TOOL: "1"
       - zdup-Leap-15.6-kde_migration_tool:
           testsuite: zdup-Leap-15.6-kde
           settings:
-            OPENSUSE_MIGRATION_TOOL: '1'
+            OPENSUSE_MIGRATION_TOOL: "1"
       - create_hdd_textmode:
           testsuite: null
           settings:
-            AGAMA_PRODUCT_ID: 'openSUSE_Leap'
+            AGAMA_PRODUCT_ID: "openSUSE_Leap"
             +QEMUCPU: host
-            AGAMA: '1'
+            AGAMA: "1"
             INST_AUTO: agama_auto/leap_default.jsonnet
             DESKTOP: textmode
-            HDDSIZEGB: '30'
-            EXTRABOOTPARAMS: 'live.password=nots3cr3t kernel.softlockup_panic=1'
-            PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
-            PUBLISH_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
-            YAML_SCHEDULE: 'schedule/functional/leap16/agama_create_hdd_textmode_leap.yaml'
+            HDDSIZEGB: "30"
+            EXTRABOOTPARAMS: "live.password=nots3cr3t kernel.softlockup_panic=1"
+            PUBLISH_HDD_1: "%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2"
+            PUBLISH_PFLASH_VARS: "%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2"
+            YAML_SCHEDULE: "schedule/functional/leap16/agama_create_hdd_textmode_leap.yaml"
       - create_hdd_gnome:
           testsuite: null
           settings:
-            AGAMA_PRODUCT_ID: 'openSUSE_Leap'
+            AGAMA_PRODUCT_ID: "openSUSE_Leap"
             +QEMUCPU: host
-            AGAMA: '1'
+            AGAMA: "1"
             INST_AUTO: agama_auto/leap_gnome.jsonnet
             DESKTOP: gnome
-            HDDSIZEGB: '30'
-            EXTRABOOTPARAMS: 'live.password=nots3cr3t kernel.softlockup_panic=1'
-            PUBLISH_HDD_1: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2'
-            PUBLISH_PFLASH_VARS: '%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2'
-            YAML_SCHEDULE: 'schedule/functional/leap16/agama_create_hdd_gnome_leap.yaml'
+            HDDSIZEGB: "30"
+            EXTRABOOTPARAMS: "live.password=nots3cr3t kernel.softlockup_panic=1"
+            PUBLISH_HDD_1: "%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%.qcow2"
+            PUBLISH_PFLASH_VARS: "%DISTRI%-%VERSION%-%ARCH%-%BUILD%-%DESKTOP%@%MACHINE%-uefi-vars.qcow2"
+            YAML_SCHEDULE: "schedule/functional/leap16/agama_create_hdd_gnome_leap.yaml"
     opensuse-offline-installer-16.0-aarch64:
       - gnome-agama:
           machine: aarch64
@@ -551,11 +551,11 @@ scenarios:
       - zdup-Leap-15.6-gnome:
           testsuite: zdup-Leap-15.6-gnome
           settings:
-            WORKAROUND_DEPS: '1'
+            WORKAROUND_DEPS: "1"
       - zdup-Leap-15.6-kde:
           testsuite: zdup-Leap-15.6-kde
           settings:
-            WORKAROUND_DEPS: '1'
+            WORKAROUND_DEPS: "1"
     opensuse-offline-installer-16.0-ppc64le:
       - gnome-agama
       - kde-agama
