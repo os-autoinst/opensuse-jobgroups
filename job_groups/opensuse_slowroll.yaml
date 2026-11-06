@@ -1,12 +1,10 @@
-############################################################
-#                         WARNING                          #
-#                                                          #
-#               This file is managed in GIT!               #
-#  Any changes via the openQA WebUI will get overwritten!  #
-#                                                          #
-#    https://github.com/os-autoinst/opensuse-jobgroups     #
-#            job_groups/opensuse_slowroll.yaml             #
-############################################################
+#####################################################################################################                                              WARNING                                              #
+#                                                                                                   #
+#                                   This file is managed in GIT!                                    #
+#                      Any changes via the openQA WebUI will get overwritten!                       #
+#                                                                                                   #
+#  https://github.com/os-autoinst/opensuse-jobgroups/blob/master/job_groups/opensuse_slowroll.yaml  #
+#####################################################################################################
 ---
 .oss_repo: &oss_repo
   MIRROR_PREFIX: 'http://download.opensuse.org'
