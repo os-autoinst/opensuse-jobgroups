@@ -148,20 +148,14 @@ scenarios:
             <<: *agama
             BOOTFROM: c
     opensuse-online-installer-16.1-x86_64:
-      - gnome:
+      - extra_tests_textmode:
           machine: uefi-3G
-          settings:
-            <<: *agama
       - gnome_immutable:
           machine: uefi-3G
           testsuite: gnome
           settings:
             <<: *agama
             AGAMA_PRODUCT_INSTALL_MODE: immutable
-      - kde:
-          machine: 64bit-3G
-          settings:
-            <<: *agama
       - create_hdd_agama_gnome:
           machine: uefi-3G
       - create_hdd_agama_kde:
