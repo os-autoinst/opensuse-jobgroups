@@ -1,5 +1,5 @@
 extends: default
 rules:
   line-length:
-    max: 190
+    max: 210
   truthy: disable

@@ -94,8 +94,7 @@ def generate_header(filename):
 		"This file is managed in GIT!",
 		"Any changes via the openQA WebUI will get overwritten!",
 		"",
-		"https://github.com/os-autoinst/opensuse-jobgroups",
-		filename
+		f"https://github.com/os-autoinst/opensuse-jobgroups/blob/master/{filename}"
 	]
 	line_length = max(max([len(line)+4 for line in content]), 58)
 	content.insert(0, '#' * line_length)
