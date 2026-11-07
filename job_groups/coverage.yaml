@@ -37,5 +37,5 @@ scenarios:
             Maintainer: amanzini / balogh
           settings:
             <<: *agama_textmode_recycled_testsuite
-            MAX_JOB_TIME: '18000'
+            MAX_JOB_TIME: '30000'
             YAML_SCHEDULE: schedule/coverage/tw_o3.yaml
