@@ -33,7 +33,7 @@ scenarios:
           description: |-
             Binary function coverage of Tumbleweed with funkoverage, see
             https://github.com/ilmanzo/BinaryCoverage
-            Maintainer: amanzini / balogh
+            Maintainer: ilmanzo / bzoltan1
           settings:
             <<: *agama_textmode_recycled_testsuite
             MAX_JOB_TIME: '30000'
