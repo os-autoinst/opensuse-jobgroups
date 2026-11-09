@@ -401,12 +401,24 @@ scenarios:
             DESKTOP: textmode
             QEMU_VIDEO_DEVICE: virtio-vga
             YAML_SCHEDULE: schedule/functional/sway.yaml
+      - zdup-Leap-15.6-gnome:
+          testsuite: zdup-Leap-15.6-gnome
+          machine: 64bit
+          settings:
+            WORKAROUND_DEPS: "1"
+      - zdup-Leap-15.6-kde:
+          testsuite: zdup-Leap-15.6-kde
+          machine: 64bit
+          settings:
+            WORKAROUND_DEPS: "1"
       - zdup-Leap-15.6-gnome_migration_tool:
           testsuite: zdup-Leap-15.6-gnome
+          machine: 64bit
           settings:
             OPENSUSE_MIGRATION_TOOL: "1"
       - zdup-Leap-15.6-kde_migration_tool:
           testsuite: zdup-Leap-15.6-kde
+          machine: 64bit
           settings:
             OPENSUSE_MIGRATION_TOOL: "1"
     opensuse-online-installer-16.0-x86_64:
