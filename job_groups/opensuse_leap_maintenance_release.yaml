@@ -148,8 +148,6 @@ scenarios:
             <<: *agama
             BOOTFROM: c
     opensuse-online-installer-16.1-x86_64:
-      - extra_tests_textmode:
-          machine: uefi-3G
       - gnome_immutable:
           machine: uefi-3G
           testsuite: gnome
