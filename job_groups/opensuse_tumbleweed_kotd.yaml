@@ -113,7 +113,9 @@ scenarios:
       - ltp_ima
       - ltp_ima_load_policy
       - ltp_input
-      - ltp_kernel_misc
+      - ltp_kernel_misc:
+          settings:
+            QEMUCPUS: '4'
       - ltp_kernel_misc_warns
       - ltp_lvm
       - ltp_math
@@ -292,7 +294,9 @@ scenarios:
       - ltp_ima
       - ltp_ima_load_policy
       - ltp_input
-      - ltp_kernel_misc
+      - ltp_kernel_misc:
+          settings:
+            QEMUCPUS: '4'
       - ltp_kernel_misc_warns
       - ltp_lvm
       - ltp_math
@@ -424,7 +428,9 @@ scenarios:
       - ltp_ima
       - ltp_ima_load_policy
       - ltp_input
-      - ltp_kernel_misc
+      - ltp_kernel_misc:
+          settings:
+            QEMUCPUS: '4'
       - ltp_kernel_misc_warns
       - ltp_lvm
       - ltp_math

@@ -100,6 +100,7 @@ scenarios:
       - ltp_kernel_misc:
           settings:
             LTP_TAINT_EXPECTED: '0x13801'
+            QEMUCPUS: '4'
       - ltp_kernel_misc_warns
       - ltp_lvm
       - ltp_math
@@ -270,6 +271,7 @@ scenarios:
       - ltp_kernel_misc:
           settings:
             LTP_TAINT_EXPECTED: '0x13801'
+            QEMUCPUS: '4'
       - ltp_kernel_misc_warns
       - ltp_lvm
       - ltp_math
@@ -468,11 +470,13 @@ scenarios:
       - ltp_kernel_misc:
           settings:
             LTP_TAINT_EXPECTED: '0x13801'
+            QEMUCPUS: '4'
       - ltp_kernel_misc:
           machine: uefi
           settings:
             LTP_TAINT_EXPECTED: '0x13801'
             QEMUMACHINE: 'hpet=off'
+            QEMUCPUS: '4'
       - ltp_kernel_misc_warns
       - ltp_lvm
       - ltp_math
