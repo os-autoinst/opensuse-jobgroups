@@ -2057,11 +2057,3 @@ scenarios:
           machine: uefi-staging-3G
           settings:
             OFFLINE_SUT: "1"
-      - gnome:
-          machine: uefi-staging-3G
-          settings:
-            <<: *agama_staging
-      - kde:
-          machine: 64bit-3G
-          settings:
-            <<: *agama_staging
