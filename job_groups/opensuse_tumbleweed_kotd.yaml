@@ -30,12 +30,21 @@ defaults:
   x86_64:
     machine: 64bit
     priority: 50
+    settings:
+      NO_INVESTIGATION: '1'
+      NO_LLM_INVESTIGATION: '1'
   aarch64:
     machine: aarch64
     priority: 50
+    settings:
+      NO_INVESTIGATION: '1'
+      NO_LLM_INVESTIGATION: '1'
   ppc64le:
     machine: ppc64le
     priority: 50
+    settings:
+      NO_INVESTIGATION: '1'
+      NO_LLM_INVESTIGATION: '1'
   s390x:
     machine: s390x-zVM-vswitch-l2
     priority: 50
@@ -48,6 +57,8 @@ defaults:
       MAX_JOB_TIME: '14400'
       KOTD_REPO: 'https://download.opensuse.org/repositories/Kernel:/HEAD/S390/'
       INSTALL_KOTD: '1'
+      NO_INVESTIGATION: '1'
+      NO_LLM_INVESTIGATION: '1'
 products:
   opensuse-Tumbleweed-KOTD-x86_64:
     distri: opensuse
