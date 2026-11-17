@@ -438,13 +438,6 @@ scenarios:
           settings:
             YAML_SCHEDULE: schedule/kernel/kdump.yaml
       - kernel-live-patching
-      - kselftests-livepatch
-      - kselftests-bpf
-      - kselftests-cgroup
-      - kselftests-net
-      - kselftests-net_mptcp
-      - kselftests-namespaces
-      - kselftests-mm
       - ltp_aio_stress
       - ltp_aiodio_part1
       - ltp_aiodio_part2

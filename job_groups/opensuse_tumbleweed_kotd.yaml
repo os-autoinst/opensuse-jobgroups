@@ -169,6 +169,21 @@ scenarios:
       - kselftests-cgroup:
           settings:
             <<: *kotd_ltp_chain
+      - kselftests-livepatch:
+          settings:
+            <<: *kotd_ltp_chain
+      - kselftests-mm:
+          settings:
+            <<: *kotd_ltp_chain
+      - kselftests-namespaces:
+          settings:
+            <<: *kotd_ltp_chain
+      - kselftests-net:
+          settings:
+            <<: *kotd_ltp_chain
+      - kselftests-net_mptcp:
+          settings:
+            <<: *kotd_ltp_chain
       - io_uring:
           settings:
             <<: *kotd_ltp_chain
