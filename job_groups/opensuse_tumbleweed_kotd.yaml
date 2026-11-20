@@ -89,10 +89,11 @@ scenarios:
             UEFI_PFLASH_VARS: ''
             PUBLISH_PFLASH_VARS: ''
       - install_kotd_xfstests:
-          testsuite: install_ltp+opensuse+DVD
+          testsuite: create_hdd_xfstests
           settings:
             KOTD_REPO: 'https://download.opensuse.org/repositories/Kernel:/HEAD/standard/'
-            INSTALL_KOTD: '1'
+            XFSTESTS_AUTO_BISECT: '1'
+            XFSTESTS_REPO: 'http://download.opensuse.org/repositories/home:/akumar:/branches:/filesystems/openSUSE_Tumbleweed/'
             START_AFTER_TEST: ''
             HDD_1: '%XFSTESTS_BASE_HDD_1%'
             UEFI_PFLASH_VARS: ''
@@ -285,10 +286,11 @@ scenarios:
             HDD_1: '%BASE_HDD_1%'
             UEFI_PFLASH_VARS: '%BASE_UEFI_PFLASH_VARS%'
       - install_kotd_xfstests:
-          testsuite: install_ltp+opensuse+DVD
+          testsuite: create_hdd_xfstests
           settings:
             KOTD_REPO: 'https://download.opensuse.org/repositories/Kernel:/HEAD/ARM/'
-            INSTALL_KOTD: '1'
+            XFSTESTS_AUTO_BISECT: '1'
+            XFSTESTS_REPO: 'http://download.opensuse.org/repositories/home:/akumar:/branches:/filesystems/openSUSE_Tumbleweed/'
             START_AFTER_TEST: ''
             HDD_1: '%XFSTESTS_BASE_HDD_1%'
             UEFI_PFLASH_VARS: '%XFSTESTS_BASE_UEFI_PFLASH_VARS%'
@@ -419,10 +421,11 @@ scenarios:
             UEFI_PFLASH_VARS: ''
             PUBLISH_PFLASH_VARS: ''
       - install_kotd_xfstests:
-          testsuite: install_ltp+opensuse+DVD
+          testsuite: create_hdd_xfstests
           settings:
             KOTD_REPO: 'https://download.opensuse.org/repositories/Kernel:/HEAD/PPC/'
-            INSTALL_KOTD: '1'
+            XFSTESTS_AUTO_BISECT: '1'
+            XFSTESTS_REPO: 'http://download.opensuse.org/repositories/home:/akumar:/branches:/filesystems/openSUSE_Tumbleweed/'
             START_AFTER_TEST: ''
             HDD_1: '%XFSTESTS_BASE_HDD_1%'
             UEFI_PFLASH_VARS: ''
