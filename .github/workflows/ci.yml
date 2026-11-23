@@ -25,7 +25,7 @@ jobs:
     permissions:
       contents: read
     container:
-      image: docker://registry.opensuse.org/devel/openqa/ci/tw/containers/tumbleweed:o3-jobgroups
+      image: docker://registry.opensuse.org/devel/openqa/ci/tooling/containers/tumbleweed:qam-openqa-yaml-ci
     steps:
 
       - name: Git Checkout
