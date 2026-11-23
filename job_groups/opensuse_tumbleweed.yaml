@@ -983,11 +983,11 @@ scenarios:
             <<: *bci
             BCI_IMAGE_MARKER: openjdk_25
             BCI_TEST_ENVS: all,metadata,openjdk
-      - bci_openjdk_26_podman:
+      - bci_openjdk_27_podman:
           testsuite: null
           settings:
             <<: *bci
-            BCI_IMAGE_MARKER: openjdk_26
+            BCI_IMAGE_MARKER: openjdk_27
             BCI_TEST_ENVS: all,metadata,openjdk
       - bci_openjdk_11_devel_podman:
           testsuite: null
@@ -1013,11 +1013,11 @@ scenarios:
             <<: *bci
             BCI_IMAGE_MARKER: openjdk-devel_25
             BCI_TEST_ENVS: all,metadata,openjdk_devel
-      - bci_openjdk_26_devel_podman:
+      - bci_openjdk_27_devel_podman:
           testsuite: null
           settings:
             <<: *bci
-            BCI_IMAGE_MARKER: openjdk-devel_26
+            BCI_IMAGE_MARKER: openjdk-devel_27
             BCI_TEST_ENVS: all,metadata,openjdk_devel
       - bci_php8_podman:
           testsuite: null
